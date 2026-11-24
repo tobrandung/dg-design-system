@@ -2,7 +2,7 @@
  * Band mit PLZ/Ort → Straße → Hausnummer, dann Dialog mit Stepper (Adresse ✓ · Wohnsituation · Ergebnis). */
 import '../styles/flows.css';
 import { gsap, motion, $, $$, esc, toast, revealPage, dur, ease, scaleEnter, distance, exitMs } from '../core.js';
-import { combobox, bindChoices, optionHTML, clearError } from '../ui/forms.js';
+import { combobox, bindChoices, bindClear, optionHTML, clearError } from '../ui/forms.js';
 
 /* ---------- Beispieldaten ---------- */
 const PLACES = [['48529', 'Nordhorn'], ['48455', 'Bad Bentheim'], ['48527', 'Nordhorn-Klausheide'], ['46325', 'Borken'], ['46399', 'Bocholt'], ['52525', 'Heinsberg'], ['41751', 'Viersen'], ['53879', 'Euskirchen'], ['26789', 'Leer'], ['49716', 'Meppen'], ['47533', 'Kleve'], ['46414', 'Rhede']];
@@ -15,10 +15,11 @@ const TARIFFS = [
   { name: 'DG classic', speed: '300', down: '300 Mbit/s', up: '150 Mbit/s', later: '49,99', tone: 'yellow', features: [[1, 'Telefonie-Flat ins dt. Festnetz'], [0, 'Mobilfunknetz ab 19 Cent/Min.'], [1, 'Tarifwechsel-Garantie']], terms: '24 Monate' },
   { name: 'DG basic', speed: '100', down: '100 Mbit/s', up: '50 Mbit/s', later: '39,99', tone: 'neutral', features: [[0, 'Festnetz ab 2,9 Cent/Min.'], [0, 'Mobilfunknetz ab 19 Cent/Min.'], [0, 'Ohne Tarifwechsel-Garantie']], terms: '24 Monate' }
 ];
+// Titel kurz und ohne Umbruch-Waisen, Details darunter. Geschützte Leerzeichen halten Preis und Tarifnamen zusammen.
 const BENEFITS = [
-  ['Leistungssieger DG giga 1000 für 9,99 €', 'in den ersten 12 Monaten.'],
-  ['Wunschtarif 12 Monate testen', 'und ohne Risiko in einen anderen Tarif wechseln.'],
-  ['Mit passendem Entertainment:', 'waipu.tv Perfect Plus für 0 € in den ersten 3 Monaten.']
+  ['Leistungssieger DG giga 1000', 'Für 9,99 € mtl. in den ersten 12 Monaten.'],
+  ['Wunschtarif 12 Monate testen', 'Ohne Risiko in einen anderen Tarif wechseln.'],
+  ['waipu.tv Perfect Plus', 'Für 0 € in den ersten 3 Monaten.']
 ];
 const STATUS = {
   active: { icon: 'thumbs-up', lead: 'Super! Glasfaser ist verfügbar.', bubble: ['clock', 'In wenigen Tagen am Netz', 'success'], phase: 'Netz aktiv', tip: 'Das Glasfasernetz in Ihrer Straße ist in Betrieb. Nach der Bestellung schalten wir Ihren Anschluss frei.', cta: 'Zu den Tarifen' },
@@ -89,6 +90,7 @@ combobox(fNo, (q) => {
   if (it) setTimeout(() => submit.focus(), 60);
 }, { minChars: 1, short: 'Geben Sie mind. 1 Zeichen an', empty: 'Hausnummer nicht gefunden.' });
 
+bindClear($('#vc-form'));
 const fullAddress = () => `${addr.street} ${addr.no}, ${addr.place.zip} ${addr.place.city}`;
 
 /* ---------- Dialog ---------- */
@@ -98,8 +100,8 @@ const panels = { living: $('[data-panel="living"]', dlg), result: $('[data-panel
 const foots = { living: $('[data-foot="living"]', dlg), result: $('[data-foot="result"]', dlg) };
 let current = 'living';
 
-$('#o-role').innerHTML = [['owner', 'Eigentümer (Eigennutzung)', 'house'], ['tenant', 'Mieter', 'user'], ['landlord', 'Vermieter', 'key']].map(([v, l, i]) => optionHTML('role', v, l, i)).join('');
-$('#o-home').innerHTML = [['single', 'Ein-/Zweifamilienhaus', 'house'], ['multi', 'Mehrfamilienhaus', 'building-apt']].map(([v, l, i]) => optionHTML('home', v, l, i)).join('');
+$('#o-role').innerHTML = [['owner', 'Eigentümer', 'dg:eigentuemer'], ['tenant', 'Mieter', 'dg:mieter'], ['landlord', 'Vermieter', 'dg:vermieter']].map(([v, l, i]) => optionHTML('role', v, l, i)).join('');
+$('#o-home').innerHTML = [['single', 'Ein-/Zweifamilienhaus', 'dg:ein-zweifamilienhaus'], ['multi', 'Mehrfamilienhaus', 'dg:mehrfamilienhaus']].map(([v, l, i]) => optionHTML('home', v, l, i)).join('');
 bindChoices(dlg);
 const living = () => ({ role: $('input[name=role]:checked', dlg)?.value, home: $('input[name=home]:checked', dlg)?.value });
 dlg.addEventListener('change', () => { const l = living(); $('#living-next').disabled = !(l.role && l.home); });
@@ -167,7 +169,7 @@ function renderResult() {
   $('#r-bubble-text').textContent = s.bubble[1];
   $('#r-phase').textContent = s.phase;
   $('#tip-phase-text').textContent = s.tip;
-  $('#r-benefits').innerHTML = BENEFITS.map(([t, d]) => `<li><svg class="icon" aria-hidden="true"><use href="#i-check-circle"/></svg><span><strong>${esc(t)}</strong><br>${esc(d)}</span></li>`).join('');
+  $('#r-benefits').innerHTML = BENEFITS.map(([t, d]) => `<li><svg class="icon" aria-hidden="true"><use href="#i-check-circle"/></svg><span class="checklist__text"><strong class="dg-body-regular-semibold">${esc(t)}</strong><span>${esc(d)}</span></span></li>`).join('');
   $('#result-cta').textContent = s.cta;
   $('#result-cta').dataset.status = statusFor(a);
 }

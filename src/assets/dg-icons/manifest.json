@@ -404,5 +404,40 @@
     "file": "vertragsuebernahme.svg",
     "source": "https://images.ctfassets.net/cfwjf2vnzww5/6kF6nGBArBOiemP1HJq4QP/65de3ec30cbf585bbb90aec3184000b8/DG_icon_Wechselgarantie_medium.svg",
     "bytes": 611
+  },
+  {
+    "id": "eigentuemer",
+    "label": "Eigentümer",
+    "file": "eigentuemer.svg",
+    "source": "deutsche-glasfaser.de/glasfaser/verfuegbarkeitscheck (Dialog Wohnsituation, Inline-SVG)",
+    "bytes": 1728
+  },
+  {
+    "id": "mieter",
+    "label": "Mieter",
+    "file": "mieter.svg",
+    "source": "deutsche-glasfaser.de/glasfaser/verfuegbarkeitscheck (Dialog Wohnsituation, Inline-SVG)",
+    "bytes": 1506
+  },
+  {
+    "id": "vermieter",
+    "label": "Vermieter",
+    "file": "vermieter.svg",
+    "source": "deutsche-glasfaser.de/glasfaser/verfuegbarkeitscheck (Dialog Wohnsituation, Inline-SVG)",
+    "bytes": 1245
+  },
+  {
+    "id": "ein-zweifamilienhaus",
+    "label": "Ein-/Zweifamilienhaus",
+    "file": "ein-zweifamilienhaus.svg",
+    "source": "deutsche-glasfaser.de/glasfaser/verfuegbarkeitscheck (Dialog Wohnsituation, Inline-SVG)",
+    "bytes": 749
+  },
+  {
+    "id": "mehrfamilienhaus",
+    "label": "Mehrfamilienhaus",
+    "file": "mehrfamilienhaus.svg",
+    "source": "deutsche-glasfaser.de/glasfaser/verfuegbarkeitscheck (Dialog Wohnsituation, Inline-SVG)",
+    "bytes": 1402
   }
 ]

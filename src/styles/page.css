@@ -7,7 +7,10 @@ html { -webkit-text-size-adjust: 100%; scroll-behavior: smooth; scroll-padding-t
 body { margin: 0; background: var(--dg-color-bg-default); color: var(--dg-color-text-default); font: var(--dg-text-body-regular-book); -webkit-font-smoothing: antialiased; }
 [hidden] { display: none !important; }
 h1, h2, h3, h4, h5, h6, p { margin: 0; }
-h1, h2, h3 { text-wrap: balance; }
+h1, h2, h3, h4, legend { text-wrap: balance; }
+p, li, .select-card__hint { text-wrap: pretty; hyphens: auto; -webkit-hyphens: auto; }
+/* Titel nie mitten im Wort trennen; Umbruch nur an Leerzeichen und nach „/“ (<wbr>) */
+.select-card__label, .chip__label, .checklist__text strong { text-wrap: balance; hyphens: manual; }
 button, input, textarea { color: inherit; }
 a { color: var(--dg-color-text-link-default); text-underline-offset: 3px; }
 a:hover { color: var(--dg-color-text-link-hover); }

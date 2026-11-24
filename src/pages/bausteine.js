@@ -1,6 +1,6 @@
 import '../styles/flows.css';
-import { gsap, motion, $, $$, revealPage, dur, ease, scaleEnter } from '../core.js';
-import { select, bindChoices, optionHTML, chipHTML } from '../ui/forms.js';
+import { $, $$, revealPage } from '../core.js';
+import { select, bindChoices, bindClear, optionHTML, chipHTML } from '../ui/forms.js';
 
 select($('#f-demo'), ['Alles rund um Ihren Vertrag', 'Störung, technische Hilfe & Einrichtung', 'Alles zum Bau', 'Rufnummernmitnahme', 'Adresse nicht im Verfügbarkeitscheck', 'Hausanschluss und Termin', 'Umzug', 'Sonstiges'], { initial: 2 });
 
@@ -14,6 +14,7 @@ $('#demo-checks').innerHTML = [
 $('#demo-summary').innerHTML = [['Privatkunde', 'dg:privatkunde'], ['Alles rund um Ihren Vertrag', 'dg:alles-rund-um-ihren-vertrag']].map(([l, i]) => chipHTML(l, i)).join('');
 
 bindChoices(document);
+bindClear(document);
 $$('[data-indeterminate]').forEach((i) => (i.indeterminate = true));
 
 const all = $('#news-all'), subs = $$('input[name=news]');
@@ -21,17 +22,6 @@ const syncAll = () => { const n = subs.filter((s) => s.checked).length; all.chec
 all.addEventListener('change', () => { subs.forEach((s) => { if (s.checked !== all.checked) { s.checked = all.checked; s.dispatchEvent(new Event('change')); } }); syncAll(); });
 subs.forEach((s) => s.addEventListener('change', syncAll));
 syncAll();
-
-/* Stepper-Demo */
-const steps = $$('#demo-stepper .stepper__step');
-let cur = 1;
-const setStep = (i) => {
-  cur = Math.max(0, Math.min(steps.length, i));
-  steps.forEach((s, n) => { s.classList.toggle('is-done', n < cur); s.classList.toggle('is-current', n === cur); s.toggleAttribute('aria-current', n === cur); });
-  if (motion() && steps[cur]) gsap.fromTo($('.stepper__dot', steps[cur]), { scale: scaleEnter - 0.25 }, { scale: 1, duration: dur.slow, ease: ease.spring, clearProps: 'transform' });
-};
-$('#step-prev').addEventListener('click', () => setStep(cur - 1));
-$('#step-next').addEventListener('click', () => setStep(cur + 1));
 
 /* Badges */
 const colors = [['', 'Grau'], ['brand', 'Brand'], ['error', 'Error'], ['warning', 'Warning'], ['success', 'Success']];

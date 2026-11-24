@@ -73,3 +73,6 @@
 @media (max-width: 36rem) { .service-grid { grid-template-columns: 1fr; } }
 #wizard-body { display: grid; gap: var(--dg-spacing-lg); }
 #wizard-body:focus { outline: 0; }
+/* Abschnitte im Formular */
+.c-block { display: grid; gap: var(--dg-spacing-md); padding-top: var(--dg-spacing-lg); border-top: var(--dg-border-width-sm) solid var(--dg-color-border-subtle); }
+.c-form .select-cards { margin-top: var(--dg-spacing-2xs); }

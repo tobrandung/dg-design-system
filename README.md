@@ -122,7 +122,17 @@ Nur neue Modes (z. B. ein drittes Theme) müssen in `scripts/build-tokens.mjs` e
   - Maße: Höhe 72 px, Padding `spacing/md`, Abstand `spacing/sm`, Icon 40 px, `radius/lg`. Ausgewählt: 2 px `border/selected`.
   - Im Code: `optionHTML(name, value, label, 'dg:privatkunde', checked, { type: 'radio' | 'checkbox', hint, disabled })`.
   - Barrierefreiheit: Die ganze Karte ist das Label eines echten Radios bzw. einer Checkbox. Die Gruppe ist ein `fieldset` mit `legend`. Die Auswahl ist nicht nur an der Farbe erkennbar.
-- **DG-Icons**: 58 Illustrationen aus dem Kontakt-Assistenten von deutsche-glasfaser.de.
+- **Eingabefeld**: links ein Feld-Icon (z. B. E-Mail, Telefon, Adresse), rechts ein Slot für Info (Popover) oder X (Eingabe löschen).
+  - Figma: Eigenschaften „Leading Icon Type“ und „Info Icon Type“ mit vorgeschlagenen Icons.
+  - Im Code: `actionHTML('info', text)` bzw. `actionHTML('clear')`, dazu `bindClear()`.
+  - Platzhalter `text/disabled` und Hover `border/strong`, wie in Figma.
+- **DG-Icons**: 63 Illustrationen von deutsche-glasfaser.de, aus dem Kontakt-Assistenten und der Wohnsituation im Verfügbarkeitscheck.
+  - Die Farben sind an Tokens gebunden, damit die Illustrationen im Dark Mode lesbar bleiben:
+    - `#464646` → `icon/default`
+    - `#14a0dc` → `icon/brand`
+    - `#32c864` → `icon/accent-green`
+    - `#ebb40f` → `icon/accent-yellow`
+  - Im Web werden die Icons deshalb inline eingebunden (`dgIconSvg`).
   - Ablage: `src/assets/dg-icons/`, Quelle und Beschriftung stehen in `manifest.json`.
   - In Figma: Komponenten `dg-icon/<thema>` im Bereich „DG Illustrations-Icons“.
   - Im Code: `dgIcon('privatkunde')` liefert die URL. In `optionHTML` reicht `'dg:privatkunde'`.

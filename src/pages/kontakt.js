@@ -4,7 +4,7 @@
  * Andere Wege enden in einem allgemeinen Formular (Felder angenommen). */
 import '../styles/flows.css';
 import { gsap, motion, $, $$, esc, toast, revealPage, dur, ease, scaleEnter, distance } from '../core.js';
-import { select, setError, clearError, setGroupError, bindChoices, optionHTML, chipHTML } from '../ui/forms.js';
+import { select, setError, clearError, setGroupError, bindChoices, bindClear, optionHTML, chipHTML, actionHTML } from '../ui/forms.js';
 
 /* ---------- Themenbaum ---------- */
 const PERSONAS = [['privat', 'Privatkunde', 'dg:privatkunde'], ['selbst', 'Selbstständig', 'dg:selbststaendig'], ['firma', 'Unternehmen / Öffentliche Einrichtung', 'dg:unternehmen-oeffentliche-einrichtung'], ['kommune', 'Eine Kommune', 'dg:eine-kommune'], ['vermieter', 'Vermieter / Wohnungsbaugesellschaft', 'dg:vermieter-wohnungsbaugesellschaft'], ['sonst', 'Sonstiges', 'dg:sonstiges']];
@@ -24,50 +24,97 @@ const STEP = {
 const stepOf = () => path.reduce((s, [k]) => STEP[s].next(k), 'persona');
 
 /* ---------- Markup-Helfer ---------- */
-const field = ({ id, label, req = false, type = 'text', ac = 'off', mode = '', max = 0, cls = 'c-3', area = false, hint = '' }) => `
+const field = ({ id, label, req = false, type = 'text', ac = 'off', mode = '', max = 0, cls = 'c-3', area = false, hint = '', icon = '', info = '', placeholder = '' }) => `
   <div class="field ${cls}" id="f-${id}" data-req="${req}" data-type="${type}">
     <label class="field__label dg-body-small-book" for="${id}">${esc(label)}${req ? '*' : ''}</label>
     <div class="field__control${area ? ' field__control--area' : ''}">
-      ${area ? `<textarea class="field__input" id="${id}" name="${id}" rows="4"${req ? ' aria-required="true"' : ''}></textarea>` : `<input class="field__input" id="${id}" name="${id}" type="${type}" autocomplete="${ac}"${mode ? ` inputmode="${mode}"` : ''}${max ? ` maxlength="${max}"` : ''}${req ? ' aria-required="true"' : ''}>`}
+      ${icon ? `<svg class="icon" aria-hidden="true"><use href="#i-${icon}"/></svg>` : ''}
+      ${area ? `<textarea class="field__input" id="${id}" name="${id}" rows="4"${placeholder ? ` placeholder="${esc(placeholder)}"` : ''}${req ? ' aria-required="true"' : ''}></textarea>` : `<input class="field__input" id="${id}" name="${id}" type="${type}" autocomplete="${ac}"${placeholder ? ` placeholder="${esc(placeholder)}"` : ''}${mode ? ` inputmode="${mode}"` : ''}${max ? ` maxlength="${max}"` : ''}${req ? ' aria-required="true"' : ''}>`}
       <svg class="icon icon--sm field__error-icon" aria-hidden="true"><use href="#i-warning-circle"/></svg>
+      ${info ? actionHTML('info', info) : ''}
     </div>
     <p class="field__hint dg-body-small-book"${hint ? '' : ' hidden'}><span class="field__hint-text">${esc(hint)}</span></p>
   </div>`;
-const radio = (name, value, label) => `<label class="choice choice--radio"><input type="radio" name="${name}" value="${value}"><span class="choice__box"><span class="choice__dot"></span></span><span class="choice__label">${esc(label)}</span></label>`;
+const groupError = (msg) => `<p class="group__error dg-body-small-book" hidden><svg class="icon icon--sm" aria-hidden="true"><use href="#i-warning-circle"/></svg>${esc(msg)}</p>`;
+const radio = (name, value, label, hint = '', checked = false) => `<label class="choice choice--radio"><input type="radio" name="${name}" value="${value}"${checked ? ' checked' : ''}><span class="choice__box"><span class="choice__dot"></span></span><span class="choice__label">${esc(label)}</span>${hint ? `<span class="choice__hint dg-body-small-book">${esc(hint)}</span>` : ''}</label>`;
+const check = (name, value, label, { hint = '', checked = false, id = '' } = {}) => `<label class="choice"><input type="checkbox" name="${name}" value="${value}"${id ? ` id="${id}"` : ''}${checked ? ' checked' : ''}><span class="choice__box"><svg viewBox="0 0 256 256"><path class="choice__tick" d="M48 136l52 52L208 80"/><path class="choice__dash" d="M64 128h128"/></svg></span><span class="choice__label">${esc(label)}</span>${hint ? `<span class="choice__hint dg-body-small-book">${esc(hint)}</span>` : ''}</label>`;
 const radioGroup = (id, legend, name, items) => `
   <fieldset class="group" id="g-${id}" data-req="true">
     <legend class="dg-body-small-book">${esc(legend)} *</legend>
     <div class="choices-inline">${items.map(([v, l]) => radio(name, v, l)).join('')}</div>
-    <p class="group__error dg-body-small-book" hidden><svg class="icon icon--sm" aria-hidden="true"><use href="#i-warning-circle"/></svg>Bitte wählen Sie eine Option aus.</p>
+    ${groupError('Bitte wählen Sie eine Option aus.')}
   </fieldset>`;
+const selectField = (id, label, hint) => `
+  <div class="field c-6" id="f-${id}">
+    <span class="field__label dg-body-small-book" id="${id}-label">${esc(label)}</span>
+    <button type="button" class="field__control field__control--select" id="${id}" aria-haspopup="listbox" aria-expanded="false" aria-labelledby="${id}-label ${id}" aria-controls="${id}-list">
+      <span class="field__value is-placeholder" data-placeholder="Bitte auswählen">Bitte auswählen</span>
+      <svg class="field__chevron icon" aria-hidden="true"><use href="#i-caret-down"/></svg>
+    </button>
+    <p class="field__hint dg-body-small-book"><span class="field__hint-text">${esc(hint)}</span></p>
+    <div class="menu" hidden><div class="menu__list" role="listbox" id="${id}-list" aria-labelledby="${id}-label" tabindex="-1"></div><div class="scrollbar" aria-hidden="true"><div class="scrollbar__thumb"></div></div></div>
+  </div>`;
+const SELECTS = { reach: ['Vormittags (8–12 Uhr)', 'Mittags (12–16 Uhr)', 'Nachmittags (16–20 Uhr)', 'Egal, jederzeit'] };
+
+/* Kontaktweg + Erreichbarkeit (Radio mit Hinweis, Select) */
+const channel = `
+  <div class="c-block">
+    <fieldset class="group" id="g-channel">
+      <legend class="dg-body-regular-semibold">Wie dürfen wir Sie kontaktieren?</legend>
+      ${radio('channel', 'mail', 'Per E-Mail', 'Wir antworten in der Regel innerhalb von 24 Stunden.', true)}
+      ${radio('channel', 'phone', 'Telefonisch', 'Montag bis Freitag von 8 bis 20 Uhr.')}
+    </fieldset>
+    <div class="c-cond c-grid" data-when-channel="phone" hidden>${selectField('reach', 'Wann erreichen wir Sie am besten?', 'Optional. Wir rufen Sie in diesem Zeitraum an.')}</div>
+  </div>`;
+/* Benachrichtigungen (Checkbox-Gruppe mit „Alle“, indeterminate) */
+const news = `
+  <fieldset class="group c-block">
+    <legend class="dg-body-regular-semibold">Benachrichtigungen per E-Mail</legend>
+    ${check('news-all', 'all', 'Alle Benachrichtigungen', { id: 'news-all' })}
+    <div class="group__nested">
+      ${check('news', 'ausbau', 'Updates zum Glasfaserausbau in meinem Ort', { checked: true })}
+      ${check('news', 'termine', 'Erinnerungen an Termine')}
+      ${check('news', 'angebote', 'Angebote und Aktionen')}
+    </div>
+  </fieldset>`;
+/* Datenschutz: Text + Pflicht-Checkbox */
 const legal = `
-  <div class="c-form__legal">
+  <div class="c-form__legal c-block">
     <p class="dg-body-small-book">Wie Ihre persönlichen Daten verwendet werden und wie Sie Ihre Rechte ausüben können, finden Sie in unseren <a href="#" data-toast="Prototyp: Hier öffnen sich die Datenschutzhinweise.">Datenschutzhinweisen</a>.</p>
+    <fieldset class="group" id="g-consent" data-req="true">
+      <legend class="sr-only">Datenschutz *</legend>
+      ${check('consent', 'yes', 'Ich habe die Datenschutzhinweise gelesen und bin mit der Verarbeitung meiner Angaben einverstanden.*')}
+      ${groupError('Bitte bestätigen Sie die Datenschutzhinweise, um fortzufahren.')}
+    </fieldset>
     <p class="dg-body-tiny-book subtle">Diese Seite ist durch einen Spamschutz gesichert. Im Prototyp ist er nicht aktiv.</p>
   </div>`;
 const submitBtn = `<div class="c-form__actions"><button class="button button--primary" type="submit"><span>Abschicken</span><svg class="icon button__spinner" aria-hidden="true"><use href="#i-spinner"/></svg></button></div>`;
-const assumed = `<span class="badge badge--sm badge--warning"><svg class="icon" aria-hidden="true"><use href="#i-info"/></svg>Felder angenommen, nicht von der Website übernommen</span>`;
+const nameFields = `
+      ${field({ id: 'firstname', label: 'Vorname', req: true, ac: 'given-name', icon: 'user', placeholder: 'Max' })}
+      ${field({ id: 'lastname', label: 'Nachname', req: true, ac: 'family-name', placeholder: 'Mustermann' })}`;
+const addressFields = (req) => `
+      ${field({ id: 'street', label: 'Straße', req, ac: 'address-line1', cls: 'c-4', icon: 'map-pin', placeholder: 'Hauptstraße' })}
+      ${field({ id: 'houseNumber', label: 'Hausnummer', req, cls: 'c-2', placeholder: '12a' })}
+      ${field({ id: 'zipcode', label: 'PLZ', req, ac: 'postal-code', mode: 'numeric', max: 5, cls: 'c-2', placeholder: '48529' })}
+      ${field({ id: 'city', label: 'Ort', req, ac: 'address-level2', cls: 'c-4', placeholder: 'Nordhorn' })}`;
+const KUNDENNR_INFO = 'Ihre Kundennummer finden Sie oben rechts auf Ihrer Rechnung und im Kundenportal.';
 
 const FORMS = {
   contactdata: () => `
     <p class="dg-body-small-book">* Pflichtfeld</p>
     <div class="c-grid">
-      ${field({ id: 'firstname', label: 'Vorname', req: true, ac: 'given-name' })}
-      ${field({ id: 'lastname', label: 'Nachname', req: true, ac: 'family-name' })}
-      ${field({ id: 'street', label: 'Straße', ac: 'address-line1', cls: 'c-4' })}
-      ${field({ id: 'houseNumber', label: 'Hausnummer', cls: 'c-2' })}
-      ${field({ id: 'zipcode', label: 'PLZ', ac: 'postal-code', mode: 'numeric', max: 5, cls: 'c-2' })}
-      ${field({ id: 'city', label: 'Ort', ac: 'address-level2', cls: 'c-4' })}
-      ${field({ id: 'customerNumber', label: 'Kundennummer', req: true, cls: 'c-6' })}
+      ${nameFields}
+      ${addressFields(false)}
+      ${field({ id: 'customerNumber', label: 'Kundennummer', req: true, cls: 'c-6', icon: 'file-text', info: KUNDENNR_INFO, placeholder: 'z. B. 1234567' })}
     </div>
     ${radioGroup('changed', 'Welche Kontaktdaten möchten Sie ändern?', 'changedContactData', [['telephone', 'Telefonnummer'], ['email', 'E-Mail-Adresse'], ['name', 'Namen']])}
-    <div class="c-cond" data-when="telephone" hidden><div class="c-grid">${field({ id: 'newTelephone', label: 'Neue Telefonnummer', req: true, type: 'tel', ac: 'tel', cls: 'c-6' })}</div></div>
-    <div class="c-cond" data-when="email" hidden><div class="c-grid">${field({ id: 'newEmail', label: 'Neue E-Mail-Adresse', req: true, type: 'email', ac: 'email', cls: 'c-6' })}</div></div>
+    <div class="c-cond" data-when="telephone" hidden><div class="c-grid">${field({ id: 'newTelephone', label: 'Neue Telefonnummer', req: true, type: 'tel', ac: 'tel', cls: 'c-6', icon: 'phone', placeholder: '0171 1234567' })}</div></div>
+    <div class="c-cond" data-when="email" hidden><div class="c-grid">${field({ id: 'newEmail', label: 'Neue E-Mail-Adresse', req: true, type: 'email', ac: 'email', cls: 'c-6', icon: 'envelope', placeholder: 'name@beispiel.de' })}</div></div>
     <div class="c-cond" data-when="name" hidden>
       <fieldset class="group" id="g-reason" data-req="true">
         <legend class="sr-only">Grund der Namensänderung *</legend>
         <div class="choices-inline">${radio('reasonChangeOfName', 'typo', 'Tippfehler im Vertrag')}${radio('reasonChangeOfName', 'official', 'Offizielle Namensänderung')}</div>
-        <p class="group__error dg-body-small-book" hidden><svg class="icon icon--sm" aria-hidden="true"><use href="#i-warning-circle"/></svg>Bitte wählen Sie eine Option aus.</p>
+        ${groupError('Bitte wählen Sie eine Option aus.')}
       </fieldset>
       <div class="field">
         <span class="field__label dg-body-small-book" id="upload-label">Bei offizieller Namensänderung: Bitte Urkunde Namensänderung hochladen (kein Personalausweis)</span>
@@ -80,31 +127,30 @@ const FORMS = {
     </div>
     ${legal}${submitBtn}`,
   address: () => `
-    ${assumed}
     <p class="dg-body-small-book">* Pflichtfeld</p>
+    <fieldset class="group" id="g-building" data-req="true">
+      <legend class="dg-body-regular-semibold">Um welche Gebäudeart handelt es sich?*</legend>
+      <div class="select-cards">${optionHTML('building', 'neubau', 'Neubau', 'dg:neubau', false, { hint: 'Das Haus ist geplant oder im Bau.' })}${optionHTML('building', 'bestand', 'Bestehende Immobilie', 'dg:bestehende-immobilie', false, { hint: 'Das Haus ist bereits bewohnt.' })}</div>
+      ${groupError('Bitte wählen Sie eine Gebäudeart aus.')}
+    </fieldset>
     <div class="c-grid">
-      ${field({ id: 'firstname', label: 'Vorname', req: true, ac: 'given-name' })}
-      ${field({ id: 'lastname', label: 'Nachname', req: true, ac: 'family-name' })}
-      ${field({ id: 'street', label: 'Straße', req: true, ac: 'address-line1', cls: 'c-4' })}
-      ${field({ id: 'houseNumber', label: 'Hausnummer', req: true, cls: 'c-2' })}
-      ${field({ id: 'zipcode', label: 'PLZ', req: true, ac: 'postal-code', mode: 'numeric', max: 5, cls: 'c-2' })}
-      ${field({ id: 'city', label: 'Ort', req: true, ac: 'address-level2', cls: 'c-4' })}
-      ${field({ id: 'email', label: 'E-Mail-Adresse', req: true, type: 'email', ac: 'email' })}
-      ${field({ id: 'phone', label: 'Telefonnummer', type: 'tel', ac: 'tel' })}
-      ${field({ id: 'message', label: 'Ihre Nachricht', area: true, cls: 'c-6', hint: 'Zum Beispiel: Neubau, Hausnummer neu vergeben.' })}
+      ${addressFields(true)}
+      ${nameFields}
+      ${field({ id: 'email', label: 'E-Mail-Adresse', req: true, type: 'email', ac: 'email', icon: 'envelope', placeholder: 'name@beispiel.de', info: 'An diese Adresse senden wir das Ergebnis der Prüfung.' })}
+      ${field({ id: 'phone', label: 'Telefonnummer', type: 'tel', ac: 'tel', icon: 'phone', placeholder: '0171 1234567' })}
+      ${field({ id: 'message', label: 'Ihre Nachricht', area: true, cls: 'c-6', hint: 'Zum Beispiel: Neubau, Hausnummer neu vergeben.', placeholder: 'Was sollen wir zu Ihrer Adresse wissen?' })}
     </div>
-    ${legal}${submitBtn}`,
+    ${channel}${legal}${submitBtn}`,
   generic: () => `
-    ${assumed}
     <p class="dg-body-small-book">* Pflichtfeld</p>
     <div class="c-grid">
-      ${field({ id: 'firstname', label: 'Vorname', req: true, ac: 'given-name' })}
-      ${field({ id: 'lastname', label: 'Nachname', req: true, ac: 'family-name' })}
-      ${field({ id: 'email', label: 'E-Mail-Adresse', req: true, type: 'email', ac: 'email' })}
-      ${field({ id: 'customerNumber', label: 'Kundennummer' })}
-      ${field({ id: 'message', label: 'Ihre Nachricht', req: true, area: true, cls: 'c-6' })}
+      ${nameFields}
+      ${field({ id: 'email', label: 'E-Mail-Adresse', req: true, type: 'email', ac: 'email', icon: 'envelope', placeholder: 'name@beispiel.de' })}
+      ${field({ id: 'phone', label: 'Telefonnummer', type: 'tel', ac: 'tel', icon: 'phone', placeholder: '0171 1234567' })}
+      ${field({ id: 'customerNumber', label: 'Kundennummer', cls: 'c-6', icon: 'file-text', info: KUNDENNR_INFO, placeholder: 'Falls vorhanden' })}
+      ${field({ id: 'message', label: 'Ihre Nachricht', req: true, area: true, cls: 'c-6', placeholder: 'Beschreiben Sie kurz Ihr Anliegen.' })}
     </div>
-    ${legal}${submitBtn}`
+    ${channel}${news}${legal}${submitBtn}`
 };
 
 /* ---------- Rendern ---------- */
@@ -202,12 +248,27 @@ const MSG = { firstname: 'Bitte geben Sie Ihren Vornamen ein.', lastname: 'Bitte
 
 function bindForm(form) {
   bindChoices(form);
+  bindClear(form);
+  const reach = $('#f-reach', form);
+  if (reach) select(reach, SELECTS.reach);
+  // „Alle Benachrichtigungen“ steuert die Gruppe (indeterminate bei Teilauswahl)
+  const all = $('#news-all', form), subs = $$('input[name=news]', form);
+  if (all) {
+    const syncAll = () => { const n = subs.filter((s) => s.checked).length; all.checked = n === subs.length; all.indeterminate = n > 0 && n < subs.length; };
+    all.addEventListener('change', () => { subs.forEach((s) => { if (s.checked !== all.checked) { s.checked = all.checked; s.dispatchEvent(new Event('change', { bubbles: true })); } }); syncAll(); });
+    subs.forEach((s) => s.addEventListener('change', syncAll));
+    syncAll();
+  }
   form.addEventListener('input', (e) => { const f = e.target.closest('.field'); if (f) clearError(f); });
   form.addEventListener('change', (e) => {
     const g = e.target.closest('.group');
     if (g) setGroupError(g, false);
+    if (e.target.name === 'channel') {
+      const c = $('[data-when-channel]', form), on = e.target.value === c.dataset.whenChannel;
+      if (on !== !c.hidden) { c.hidden = !on; if (on && motion()) gsap.from(c, { y: -distance, autoAlpha: 0, duration: dur.base, ease: ease.enter, clearProps: 'all' }); }
+    }
     if (e.target.name === 'changedContactData') {
-      $$('.c-cond', form).forEach((c) => {
+      $$('.c-cond[data-when]', form).forEach((c) => {
         const on = c.dataset.when === e.target.value;
         if (on === !c.hidden) return;
         c.hidden = !on;

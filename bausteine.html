@@ -18,12 +18,14 @@
 
     <div class="parts">
       <div class="card part part--wide">
-        <div class="part__head"><h2 class="dg-heading-h6">Input field</h2><span class="code">6 States</span></div>
+        <div class="part__head"><h2 class="dg-heading-h6">Input field</h2><span class="code">States · Icon vorne · Info oder X hinten</span></div>
         <div class="states">
           <div class="field"><label class="field__label dg-body-small-book" for="s1">Placeholder</label><div class="field__control"><svg class="icon" aria-hidden="true"><use href="#i-envelope"/></svg><input class="field__input" id="s1" placeholder="name@beispiel.de"></div><p class="field__hint dg-body-small-book"><span class="field__hint-text">Hinweistext zur Unterstützung.</span></p></div>
           <div class="field"><label class="field__label dg-body-small-book" for="s2">Filled</label><div class="field__control"><svg class="icon" aria-hidden="true"><use href="#i-envelope"/></svg><input class="field__input" id="s2" value="m.mustermann@beispiel.de"></div><p class="field__hint dg-body-small-book"><span class="field__hint-text">Hinweistext zur Unterstützung.</span></p></div>
           <div class="field is-error"><label class="field__label dg-body-small-book" for="s3">Error</label><div class="field__control"><svg class="icon" aria-hidden="true"><use href="#i-envelope"/></svg><input class="field__input" id="s3" value="m.mustermann@beispiel" aria-invalid="true"><svg class="icon icon--sm field__error-icon" aria-hidden="true"><use href="#i-warning-circle"/></svg></div><p class="field__hint dg-body-small-book"><span class="field__hint-text">Bitte geben Sie eine vollständige E-Mail-Adresse ein.</span></p></div>
           <div class="field is-disabled"><label class="field__label dg-body-small-book" for="s4">Disabled</label><div class="field__control"><svg class="icon" aria-hidden="true"><use href="#i-envelope"/></svg><input class="field__input" id="s4" placeholder="name@beispiel.de" disabled></div><p class="field__hint dg-body-small-book"><span class="field__hint-text">Hinweistext zur Unterstützung.</span></p></div>
+          <div class="field"><label class="field__label dg-body-small-book" for="s5">Rechts: Info</label><div class="field__control"><svg class="icon" aria-hidden="true"><use href="#i-envelope"/></svg><input class="field__input" id="s5" placeholder="name@beispiel.de"><button type="button" class="field__action" data-info popovertarget="tip-s5" aria-label="Hinweis anzeigen"><svg class="icon" aria-hidden="true"><use href="#i-info"/></svg></button><span class="tip dg-body-small-book" id="tip-s5" popover>Für die Bestätigung Ihrer Anfrage.</span></div><p class="field__hint dg-body-small-book"><span class="field__hint-text">Info-Icon öffnet einen Hinweis.</span></p></div>
+          <div class="field"><label class="field__label dg-body-small-book" for="s6">Rechts: Löschen (X)</label><div class="field__control"><svg class="icon" aria-hidden="true"><use href="#i-magnifying-glass"/></svg><input class="field__input" id="s6" type="search" value="Glasfaser"><button type="button" class="field__action" data-clear aria-label="Eingabe löschen" hidden><svg class="icon" aria-hidden="true"><use href="#i-x"/></svg></button></div><p class="field__hint dg-body-small-book"><span class="field__hint-text">X erscheint, sobald das Feld einen Wert hat.</span></p></div>
         </div>
         <p class="dg-body-small-book subtle">Focused und Error focused sehen Sie, wenn Sie in ein Feld klicken.</p>
       </div>
@@ -83,40 +85,12 @@
         </fieldset>
       </div>
 
-      <div class="card part part--half">
-        <div class="part__head"><h2 class="dg-heading-h6">Stepper</h2><span class="code">Neu · bg/accent-yellow</span></div>
-        <ol class="stepper" aria-label="Beispiel" id="demo-stepper">
-          <li class="stepper__step is-done"><span class="stepper__dot"><svg class="icon" aria-hidden="true"><use href="#i-check"/></svg></span><span class="stepper__label dg-body-small-book">Adresse</span></li>
-          <li class="stepper__step is-current" aria-current="step"><span class="stepper__dot"><svg class="icon" aria-hidden="true"><use href="#i-check"/></svg></span><span class="stepper__label dg-body-small-book">Wohnsituation</span></li>
-          <li class="stepper__step"><span class="stepper__dot"><svg class="icon" aria-hidden="true"><use href="#i-check"/></svg></span><span class="stepper__label dg-body-small-book">Ergebnis</span></li>
-        </ol>
-        <div class="row"><button class="button button--secondary" type="button" id="step-prev">Zurück</button><button class="button button--primary" type="button" id="step-next">Weiter</button></div>
-      </div>
-
-      <div class="card part part--half">
-        <div class="part__head"><h2 class="dg-heading-h6">Fortschritt, Pille, Sprechblase</h2><span class="code">Neu</span></div>
-        <div class="progress" role="progressbar" aria-label="Fortschritt" aria-valuemin="0" aria-valuemax="100" aria-valuenow="60" style="--value:60%"><span class="progress__bar"></span></div>
-        <div class="pill"><span class="dg-body-regular-semibold">Hauptstraße 12, 48529 Nordhorn</span><button class="link-button" type="button">ändern <svg class="icon icon--sm" aria-hidden="true"><use href="#i-pencil"/></svg></button></div>
-        <div class="bubble" style="margin-left:var(--dg-spacing-xs)"><span class="bubble__avatar" aria-hidden="true"><svg class="icon"><use href="#i-clock"/></svg></span><span class="dg-body-small-book">In wenigen Tagen am Netz</span></div>
-      </div>
-
       <div class="card part part--wide">
         <div class="part__head"><h2 class="dg-heading-h6">Badge</h2><span class="code">5 Farben · sm / md / lg</span></div>
         <div class="stack" id="badge-grid"></div>
       </div>
 
-      <div class="card part">
-        <div class="part__head"><h2 class="dg-heading-h6">Button</h2><span class="code">Vorschlag</span></div>
-        <div class="row">
-          <button class="button button--primary" type="button">Primär</button>
-          <button class="button button--secondary" type="button">Sekundär</button>
-          <button class="button button--ghost" type="button">Ghost</button>
-          <button class="link-button" type="button">Textlink</button>
-          <button class="button button--primary" type="button" disabled>Deaktiviert</button>
-        </div>
-        <p class="dg-body-small-book subtle">In der Figma-Library gibt es noch keine Button-Komponente. Diese Varianten nutzen bg/brand, border/default und label/button.</p>
       </div>
-    </div>
   </div>
 </main>
 

@@ -1,6 +1,6 @@
 /* Formular-Bausteine: Flyout (Select menu), Combobox, Select, Fehlerzustände, Checkbox/Radio, Optionskacheln. */
 import { gsap, motion, $, $$, esc, dur, ease, scaleEnter, distance, exitMs } from '../core.js';
-import { dgIcon } from './dg-icons.js';
+import { dgIconSvg } from './dg-icons.js';
 
 /* ---------- Flyout + Scroll bar ---------- */
 function syncScrollbar(menu) {
@@ -175,11 +175,32 @@ export function bindChoices(scope = document) {
 
 /** Bild oder Icon für Karte und Chip: „dg:privatkunde“ = DG-Illustration, sonst Linien-Icon aus dem Sprite */
 export const mediaHTML = (icon, cls) => {
-  const src = icon?.startsWith('dg:') ? dgIcon(icon.slice(3)) : null;
-  return src
-    ? `<img class="${cls}__img" src="${src}" alt="" aria-hidden="true">`
+  const svg = icon?.startsWith('dg:') ? dgIconSvg(icon.slice(3)) : null;
+  return svg
+    ? `<span class="${cls}__img">${svg}</span>`
     : `<span class="${cls}__icon" aria-hidden="true"><svg class="icon"><use href="#i-${esc(icon || 'info')}"/></svg></span>`;
 };
+
+/* ---------- Rechter Slot im Feld (Figma: „Info Icon“): Info-Hinweis oder Eingabe löschen ---------- */
+let tipId = 0;
+/** Markup für den rechten Slot. kind: 'clear' (X, leert das Feld) oder 'info' (Hinweis per Popover). */
+export const actionHTML = (kind, text = '') => {
+  if (kind === 'clear') return `<button type="button" class="field__action" data-clear aria-label="Eingabe löschen" hidden><svg class="icon" aria-hidden="true"><use href="#i-x"/></svg></button>`;
+  const id = `tip-${++tipId}`;
+  return `<button type="button" class="field__action" data-info popovertarget="${id}" aria-label="Hinweis anzeigen"><svg class="icon" aria-hidden="true"><use href="#i-info"/></svg></button><span class="tip dg-body-small-book" id="${id}" popover>${esc(text)}</span>`;
+};
+/** X-Buttons verdrahten: sichtbar, sobald das Feld einen Wert hat; Klick leert das Feld und löst „input“ aus. */
+export function bindClear(scope = document) {
+  $$('.field__action[data-clear]', scope).forEach((btn) => {
+    const input = $('input', btn.closest('.field__control'));
+    const sync = () => { btn.hidden = !input.value || input.disabled; };
+    input.addEventListener('input', sync);
+    new MutationObserver(sync).observe(input, { attributes: true, attributeFilter: ['disabled'] });
+    btn.addEventListener('mousedown', (e) => e.preventDefault()); // Fokus bleibt im Feld
+    btn.addEventListener('click', () => { input.value = ''; input.dispatchEvent(new Event('input', { bubbles: true })); input.focus(); sync(); });
+    sync();
+  });
+}
 
 /**
  * Auswahlkarte (Figma: „Selection card“). Die ganze Karte ist das Label eines echten Radios bzw. einer Checkbox.
@@ -189,7 +210,7 @@ export const optionHTML = (name, value, label, icon, checked = false, { type = '
   const indicator = type === 'checkbox'
     ? '<svg viewBox="0 0 256 256"><path class="choice__tick" d="M48 136l52 52L208 80"/></svg>'
     : '<span class="choice__dot"></span>';
-  return `<label class="select-card select-card--${type}${disabled ? ' is-disabled' : ''}"><input type="${type}" name="${esc(name)}" value="${esc(value)}"${checked ? ' checked' : ''}${disabled ? ' disabled' : ''}>${mediaHTML(icon, 'select-card')}<span class="select-card__text"><span class="select-card__label">${esc(label)}</span>${hint ? `<span class="select-card__hint">${esc(hint)}</span>` : ''}</span><span class="choice__box" aria-hidden="true">${indicator}</span></label>`;
+  return `<label class="select-card select-card--${type}${disabled ? ' is-disabled' : ''}"><input type="${type}" name="${esc(name)}" value="${esc(value)}"${checked ? ' checked' : ''}${disabled ? ' disabled' : ''}>${mediaHTML(icon, 'select-card')}<span class="select-card__text"><span class="select-card__label">${esc(label).replace(/\//g, '/<wbr>')}</span>${hint ? `<span class="select-card__hint">${esc(hint)}</span>` : ''}</span><span class="choice__box" aria-hidden="true">${indicator}</span></label>`;
 };
 /** Chip für bereits gewählte Optionen (Zusammenfassung im Assistenten) */
 export const chipHTML = (label, icon) => `<li class="chip">${mediaHTML(icon, 'chip')}<span class="chip__label">${esc(label)}</span></li>`;
