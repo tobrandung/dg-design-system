@@ -1,0 +1,980 @@
+{
+  "color": {
+    "gray": {
+      "25": {
+        "$type": "color",
+        "$value": {
+          "colorSpace": "srgb",
+          "components": [
+            0.9725,
+            0.9725,
+            0.9529
+          ],
+          "hex": "#f8f8f3"
+        },
+        "$description": "DG: Sand"
+      },
+      "50": {
+        "$type": "color",
+        "$value": {
+          "colorSpace": "srgb",
+          "components": [
+            0.9529,
+            0.9529,
+            0.9294
+          ],
+          "hex": "#f3f3ed"
+        },
+        "$description": "DG: 5 Grau"
+      },
+      "100": {
+        "$type": "color",
+        "$value": {
+          "colorSpace": "srgb",
+          "components": [
+            0.9176,
+            0.9176,
+            0.902
+          ],
+          "hex": "#eaeae6"
+        },
+        "$description": "DG: 10 Grau"
+      },
+      "200": {
+        "$type": "color",
+        "$value": {
+          "colorSpace": "srgb",
+          "components": [
+            0.8667,
+            0.8667,
+            0.851
+          ],
+          "hex": "#ddddd9"
+        },
+        "$description": "DG: 20 Grau"
+      },
+      "300": {
+        "$type": "color",
+        "$value": {
+          "colorSpace": "srgb",
+          "components": [
+            0.7961,
+            0.7961,
+            0.7843
+          ],
+          "hex": "#cbcbc8"
+        },
+        "$description": "DG: 30 Grau"
+      },
+      "400": {
+        "$type": "color",
+        "$value": {
+          "colorSpace": "srgb",
+          "components": [
+            0.6471,
+            0.6471,
+            0.6353
+          ],
+          "hex": "#a5a5a2"
+        },
+        "$description": "Primitive: nicht direkt verwenden, sondern über semantische Tokens."
+      },
+      "500": {
+        "$type": "color",
+        "$value": {
+          "colorSpace": "srgb",
+          "components": [
+            0.502,
+            0.502,
+            0.4941
+          ],
+          "hex": "#80807e"
+        },
+        "$description": "Primitive: nicht direkt verwenden, sondern über semantische Tokens."
+      },
+      "600": {
+        "$type": "color",
+        "$value": {
+          "colorSpace": "srgb",
+          "components": [
+            0.3882,
+            0.3882,
+            0.3843
+          ],
+          "hex": "#636362"
+        },
+        "$description": "DG: 80 Grau"
+      },
+      "700": {
+        "$type": "color",
+        "$value": {
+          "colorSpace": "srgb",
+          "components": [
+            0.3216,
+            0.3216,
+            0.3216
+          ],
+          "hex": "#525252"
+        },
+        "$description": "DG: 90 Grau"
+      },
+      "800": {
+        "$type": "color",
+        "$value": {
+          "colorSpace": "srgb",
+          "components": [
+            0.2745,
+            0.2745,
+            0.2745
+          ],
+          "hex": "#464646"
+        },
+        "$description": "DG: Basalt"
+      },
+      "900": {
+        "$type": "color",
+        "$value": {
+          "colorSpace": "srgb",
+          "components": [
+            0.1804,
+            0.1804,
+            0.1804
+          ],
+          "hex": "#2e2e2e"
+        },
+        "$description": "Primitive: nicht direkt verwenden, sondern über semantische Tokens."
+      },
+      "950": {
+        "$type": "color",
+        "$value": {
+          "colorSpace": "srgb",
+          "components": [
+            0.0941,
+            0.0941,
+            0.0941
+          ],
+          "hex": "#181818"
+        },
+        "$description": "Primitive: nicht direkt verwenden, sondern über semantische Tokens."
+      }
+    },
+    "brand": {
+      "25": {
+        "$type": "color",
+        "$value": {
+          "colorSpace": "srgb",
+          "components": [
+            0.9608,
+            0.9843,
+            1
+          ],
+          "hex": "#f5fbff"
+        },
+        "$description": "Primitive: nicht direkt verwenden, sondern über semantische Tokens."
+      },
+      "50": {
+        "$type": "color",
+        "$value": {
+          "colorSpace": "srgb",
+          "components": [
+            0.902,
+            0.9608,
+            0.9961
+          ],
+          "hex": "#e6f5fe"
+        },
+        "$description": "Primitive: nicht direkt verwenden, sondern über semantische Tokens."
+      },
+      "100": {
+        "$type": "color",
+        "$value": {
+          "colorSpace": "srgb",
+          "components": [
+            0.8235,
+            0.9255,
+            0.9882
+          ],
+          "hex": "#d2ecfc"
+        },
+        "$description": "Primitive: nicht direkt verwenden, sondern über semantische Tokens."
+      },
+      "200": {
+        "$type": "color",
+        "$value": {
+          "colorSpace": "srgb",
+          "components": [
+            0.6824,
+            0.8745,
+            0.9922
+          ],
+          "hex": "#aedffd"
+        },
+        "$description": "Primitive: nicht direkt verwenden, sondern über semantische Tokens."
+      },
+      "300": {
+        "$type": "color",
+        "$value": {
+          "colorSpace": "srgb",
+          "components": [
+            0.4902,
+            0.8,
+            0.9725
+          ],
+          "hex": "#7dccf8"
+        },
+        "$description": "Primitive: nicht direkt verwenden, sondern über semantische Tokens."
+      },
+      "400": {
+        "$type": "color",
+        "$value": {
+          "colorSpace": "srgb",
+          "components": [
+            0.302,
+            0.7176,
+            0.9333
+          ],
+          "hex": "#4db7ee"
+        },
+        "$description": "Primitive: nicht direkt verwenden, sondern über semantische Tokens."
+      },
+      "500": {
+        "$type": "color",
+        "$value": {
+          "colorSpace": "srgb",
+          "components": [
+            0.0784,
+            0.6275,
+            0.8627
+          ],
+          "hex": "#14a0dc"
+        },
+        "$description": "DG: Himmel (Markenfarbe)"
+      },
+      "600": {
+        "$type": "color",
+        "$value": {
+          "colorSpace": "srgb",
+          "components": [
+            0,
+            0.4824,
+            0.6784
+          ],
+          "hex": "#007bad"
+        },
+        "$description": "Primitive: nicht direkt verwenden, sondern über semantische Tokens."
+      },
+      "700": {
+        "$type": "color",
+        "$value": {
+          "colorSpace": "srgb",
+          "components": [
+            0,
+            0.3961,
+            0.5725
+          ],
+          "hex": "#006592"
+        },
+        "$description": "Primitive: nicht direkt verwenden, sondern über semantische Tokens."
+      },
+      "800": {
+        "$type": "color",
+        "$value": {
+          "colorSpace": "srgb",
+          "components": [
+            0,
+            0.3137,
+            0.4706
+          ],
+          "hex": "#005078"
+        },
+        "$description": "Primitive: nicht direkt verwenden, sondern über semantische Tokens."
+      },
+      "900": {
+        "$type": "color",
+        "$value": {
+          "colorSpace": "srgb",
+          "components": [
+            0.0039,
+            0.2353,
+            0.3647
+          ],
+          "hex": "#013c5d"
+        },
+        "$description": "Primitive: nicht direkt verwenden, sondern über semantische Tokens."
+      },
+      "950": {
+        "$type": "color",
+        "$value": {
+          "colorSpace": "srgb",
+          "components": [
+            0.0196,
+            0.1608,
+            0.2549
+          ],
+          "hex": "#052941"
+        },
+        "$description": "Primitive: nicht direkt verwenden, sondern über semantische Tokens."
+      }
+    },
+    "error": {
+      "25": {
+        "$type": "color",
+        "$value": {
+          "colorSpace": "srgb",
+          "components": [
+            1,
+            0.9725,
+            0.9686
+          ],
+          "hex": "#fff8f7"
+        },
+        "$description": "Primitive: nicht direkt verwenden, sondern über semantische Tokens."
+      },
+      "50": {
+        "$type": "color",
+        "$value": {
+          "colorSpace": "srgb",
+          "components": [
+            1,
+            0.9333,
+            0.9255
+          ],
+          "hex": "#ffeeec"
+        },
+        "$description": "Primitive: nicht direkt verwenden, sondern über semantische Tokens."
+      },
+      "100": {
+        "$type": "color",
+        "$value": {
+          "colorSpace": "srgb",
+          "components": [
+            1,
+            0.8784,
+            0.8588
+          ],
+          "hex": "#ffe0db"
+        },
+        "$description": "Primitive: nicht direkt verwenden, sondern über semantische Tokens."
+      },
+      "200": {
+        "$type": "color",
+        "$value": {
+          "colorSpace": "srgb",
+          "components": [
+            1,
+            0.7843,
+            0.7569
+          ],
+          "hex": "#ffc8c1"
+        },
+        "$description": "Primitive: nicht direkt verwenden, sondern über semantische Tokens."
+      },
+      "300": {
+        "$type": "color",
+        "$value": {
+          "colorSpace": "srgb",
+          "components": [
+            1,
+            0.651,
+            0.6078
+          ],
+          "hex": "#ffa69b"
+        },
+        "$description": "Primitive: nicht direkt verwenden, sondern über semantische Tokens."
+      },
+      "400": {
+        "$type": "color",
+        "$value": {
+          "colorSpace": "srgb",
+          "components": [
+            1,
+            0.498,
+            0.451
+          ],
+          "hex": "#ff7f73"
+        },
+        "$description": "Primitive: nicht direkt verwenden, sondern über semantische Tokens."
+      },
+      "500": {
+        "$type": "color",
+        "$value": {
+          "colorSpace": "srgb",
+          "components": [
+            0.9804,
+            0.3137,
+            0.2824
+          ],
+          "hex": "#fa5048"
+        },
+        "$description": "Primitive: nicht direkt verwenden, sondern über semantische Tokens."
+      },
+      "600": {
+        "$type": "color",
+        "$value": {
+          "colorSpace": "srgb",
+          "components": [
+            0.7843,
+            0.1961,
+            0.1804
+          ],
+          "hex": "#c8322e"
+        },
+        "$description": "Primitive: nicht direkt verwenden, sondern über semantische Tokens."
+      },
+      "700": {
+        "$type": "color",
+        "$value": {
+          "colorSpace": "srgb",
+          "components": [
+            0.6549,
+            0.1529,
+            0.1412
+          ],
+          "hex": "#a72724"
+        },
+        "$description": "Primitive: nicht direkt verwenden, sondern über semantische Tokens."
+      },
+      "800": {
+        "$type": "color",
+        "$value": {
+          "colorSpace": "srgb",
+          "components": [
+            0.5294,
+            0.1098,
+            0.102
+          ],
+          "hex": "#871c1a"
+        },
+        "$description": "Primitive: nicht direkt verwenden, sondern über semantische Tokens."
+      },
+      "900": {
+        "$type": "color",
+        "$value": {
+          "colorSpace": "srgb",
+          "components": [
+            0.4118,
+            0.0706,
+            0.0667
+          ],
+          "hex": "#691211"
+        },
+        "$description": "Primitive: nicht direkt verwenden, sondern über semantische Tokens."
+      },
+      "950": {
+        "$type": "color",
+        "$value": {
+          "colorSpace": "srgb",
+          "components": [
+            0.2863,
+            0.051,
+            0.0431
+          ],
+          "hex": "#490d0b"
+        },
+        "$description": "Primitive: nicht direkt verwenden, sondern über semantische Tokens."
+      }
+    },
+    "green": {
+      "25": {
+        "$type": "color",
+        "$value": {
+          "colorSpace": "srgb",
+          "components": [
+            0.949,
+            1,
+            0.9412
+          ],
+          "hex": "#f2fff0"
+        },
+        "$description": "Primitive: nicht direkt verwenden, sondern über semantische Tokens."
+      },
+      "50": {
+        "$type": "color",
+        "$value": {
+          "colorSpace": "srgb",
+          "components": [
+            0.9216,
+            0.9725,
+            0.9333
+          ],
+          "hex": "#ebf8ee"
+        },
+        "$description": "DG: Grün, sehr hell (Success-Hintergrund)"
+      },
+      "100": {
+        "$type": "color",
+        "$value": {
+          "colorSpace": "srgb",
+          "components": [
+            0.7961,
+            0.9608,
+            0.8353
+          ],
+          "hex": "#cbf5d5"
+        },
+        "$description": "Primitive: nicht direkt verwenden, sondern über semantische Tokens."
+      },
+      "200": {
+        "$type": "color",
+        "$value": {
+          "colorSpace": "srgb",
+          "components": [
+            0.6431,
+            0.9216,
+            0.7098
+          ],
+          "hex": "#a4ebb5"
+        },
+        "$description": "Primitive: nicht direkt verwenden, sondern über semantische Tokens."
+      },
+      "300": {
+        "$type": "color",
+        "$value": {
+          "colorSpace": "srgb",
+          "components": [
+            0.451,
+            0.8549,
+            0.5569
+          ],
+          "hex": "#73da8e"
+        },
+        "$description": "Primitive: nicht direkt verwenden, sondern über semantische Tokens."
+      },
+      "400": {
+        "$type": "color",
+        "$value": {
+          "colorSpace": "srgb",
+          "components": [
+            0.1961,
+            0.7843,
+            0.3922
+          ],
+          "hex": "#32c864"
+        },
+        "$description": "DG: Gras"
+      },
+      "500": {
+        "$type": "color",
+        "$value": {
+          "colorSpace": "srgb",
+          "components": [
+            0.1569,
+            0.7059,
+            0.2706
+          ],
+          "hex": "#28b445"
+        },
+        "$description": "Primitive: nicht direkt verwenden, sondern über semantische Tokens."
+      },
+      "600": {
+        "$type": "color",
+        "$value": {
+          "colorSpace": "srgb",
+          "components": [
+            0.0039,
+            0.5765,
+            0.0118
+          ],
+          "hex": "#019303"
+        },
+        "$description": "DG: Grün / Success"
+      },
+      "700": {
+        "$type": "color",
+        "$value": {
+          "colorSpace": "srgb",
+          "components": [
+            0.0588,
+            0.5059,
+            0.0667
+          ],
+          "hex": "#0f8111"
+        },
+        "$description": "Primitive: nicht direkt verwenden, sondern über semantische Tokens."
+      },
+      "800": {
+        "$type": "color",
+        "$value": {
+          "colorSpace": "srgb",
+          "components": [
+            0.0863,
+            0.4392,
+            0.0902
+          ],
+          "hex": "#167017"
+        },
+        "$description": "DG: Success 2"
+      },
+      "900": {
+        "$type": "color",
+        "$value": {
+          "colorSpace": "srgb",
+          "components": [
+            0.0549,
+            0.298,
+            0.098
+          ],
+          "hex": "#0e4c19"
+        },
+        "$description": "Primitive: nicht direkt verwenden, sondern über semantische Tokens."
+      },
+      "950": {
+        "$type": "color",
+        "$value": {
+          "colorSpace": "srgb",
+          "components": [
+            0.0431,
+            0.1647,
+            0.0706
+          ],
+          "hex": "#0b2a12"
+        },
+        "$description": "DG: Grün, sehr dunkel (Success-Hintergrund Dark)"
+      }
+    },
+    "yellow": {
+      "25": {
+        "$type": "color",
+        "$value": {
+          "colorSpace": "srgb",
+          "components": [
+            1,
+            0.9843,
+            0.9294
+          ],
+          "hex": "#fffbed"
+        },
+        "$description": "Primitive: nicht direkt verwenden, sondern über semantische Tokens."
+      },
+      "50": {
+        "$type": "color",
+        "$value": {
+          "colorSpace": "srgb",
+          "components": [
+            1,
+            0.9686,
+            0.8588
+          ],
+          "hex": "#fff7db"
+        },
+        "$description": "DG: Gelb, sehr hell (Warning-Hintergrund)"
+      },
+      "100": {
+        "$type": "color",
+        "$value": {
+          "colorSpace": "srgb",
+          "components": [
+            1,
+            0.9529,
+            0.7373
+          ],
+          "hex": "#fff3bc"
+        },
+        "$description": "Primitive: nicht direkt verwenden, sondern über semantische Tokens."
+      },
+      "200": {
+        "$type": "color",
+        "$value": {
+          "colorSpace": "srgb",
+          "components": [
+            1,
+            0.9137,
+            0.5804
+          ],
+          "hex": "#ffe994"
+        },
+        "$description": "Primitive: nicht direkt verwenden, sondern über semantische Tokens."
+      },
+      "300": {
+        "$type": "color",
+        "$value": {
+          "colorSpace": "srgb",
+          "components": [
+            1,
+            0.8431,
+            0.3725
+          ],
+          "hex": "#ffd75f"
+        },
+        "$description": "DG: Blüte hover"
+      },
+      "400": {
+        "$type": "color",
+        "$value": {
+          "colorSpace": "srgb",
+          "components": [
+            1,
+            0.8,
+            0.2039
+          ],
+          "hex": "#ffcc34"
+        },
+        "$description": "DG: Blüte active"
+      },
+      "500": {
+        "$type": "color",
+        "$value": {
+          "colorSpace": "srgb",
+          "components": [
+            0.9216,
+            0.7059,
+            0.0588
+          ],
+          "hex": "#ebb40f"
+        },
+        "$description": "DG: Blüte"
+      },
+      "600": {
+        "$type": "color",
+        "$value": {
+          "colorSpace": "srgb",
+          "components": [
+            0.7294,
+            0.5412,
+            0
+          ],
+          "hex": "#ba8a00"
+        },
+        "$description": "Primitive: nicht direkt verwenden, sondern über semantische Tokens."
+      },
+      "700": {
+        "$type": "color",
+        "$value": {
+          "colorSpace": "srgb",
+          "components": [
+            0.6039,
+            0.4392,
+            0
+          ],
+          "hex": "#9a7000"
+        },
+        "$description": "Primitive: nicht direkt verwenden, sondern über semantische Tokens."
+      },
+      "800": {
+        "$type": "color",
+        "$value": {
+          "colorSpace": "srgb",
+          "components": [
+            0.4784,
+            0.3451,
+            0
+          ],
+          "hex": "#7a5800"
+        },
+        "$description": "DG: Gelb, dunkel (Warning-Text)"
+      },
+      "900": {
+        "$type": "color",
+        "$value": {
+          "colorSpace": "srgb",
+          "components": [
+            0.349,
+            0.2588,
+            0.0118
+          ],
+          "hex": "#594203"
+        },
+        "$description": "Primitive: nicht direkt verwenden, sondern über semantische Tokens."
+      },
+      "950": {
+        "$type": "color",
+        "$value": {
+          "colorSpace": "srgb",
+          "components": [
+            0.2275,
+            0.1725,
+            0.0157
+          ],
+          "hex": "#3a2c04"
+        },
+        "$description": "DG: Gelb, sehr dunkel (Warning-Hintergrund Dark)"
+      }
+    },
+    "orange": {
+      "25": {
+        "$type": "color",
+        "$value": {
+          "colorSpace": "srgb",
+          "components": [
+            0.9922,
+            0.9882,
+            0.9725
+          ],
+          "hex": "#fdfcf8"
+        },
+        "$description": "Primitive: nicht direkt verwenden, sondern über semantische Tokens."
+      },
+      "50": {
+        "$type": "color",
+        "$value": {
+          "colorSpace": "srgb",
+          "components": [
+            0.9843,
+            0.9647,
+            0.9294
+          ],
+          "hex": "#fbf6ed"
+        },
+        "$description": "Primitive: nicht direkt verwenden, sondern über semantische Tokens."
+      },
+      "100": {
+        "$type": "color",
+        "$value": {
+          "colorSpace": "srgb",
+          "components": [
+            0.9647,
+            0.9255,
+            0.8353
+          ],
+          "hex": "#f6ecd5"
+        },
+        "$description": "Primitive: nicht direkt verwenden, sondern über semantische Tokens."
+      },
+      "200": {
+        "$type": "color",
+        "$value": {
+          "colorSpace": "srgb",
+          "components": [
+            0.9529,
+            0.8588,
+            0.6824
+          ],
+          "hex": "#f3dbae"
+        },
+        "$description": "Primitive: nicht direkt verwenden, sondern über semantische Tokens."
+      },
+      "300": {
+        "$type": "color",
+        "$value": {
+          "colorSpace": "srgb",
+          "components": [
+            0.9608,
+            0.7725,
+            0.4824
+          ],
+          "hex": "#f5c57b"
+        },
+        "$description": "Primitive: nicht direkt verwenden, sondern über semantische Tokens."
+      },
+      "400": {
+        "$type": "color",
+        "$value": {
+          "colorSpace": "srgb",
+          "components": [
+            1,
+            0.6627,
+            0.2
+          ],
+          "hex": "#ffa933"
+        },
+        "$description": "DG: Warning"
+      },
+      "500": {
+        "$type": "color",
+        "$value": {
+          "colorSpace": "srgb",
+          "components": [
+            0.9373,
+            0.5255,
+            0
+          ],
+          "hex": "#ef8600"
+        },
+        "$description": "Primitive: nicht direkt verwenden, sondern über semantische Tokens."
+      },
+      "600": {
+        "$type": "color",
+        "$value": {
+          "colorSpace": "srgb",
+          "components": [
+            0.8549,
+            0.4157,
+            0
+          ],
+          "hex": "#da6a00"
+        },
+        "$description": "Primitive: nicht direkt verwenden, sondern über semantische Tokens."
+      },
+      "700": {
+        "$type": "color",
+        "$value": {
+          "colorSpace": "srgb",
+          "components": [
+            0.7059,
+            0.3255,
+            0
+          ],
+          "hex": "#b45300"
+        },
+        "$description": "Primitive: nicht direkt verwenden, sondern über semantische Tokens."
+      },
+      "800": {
+        "$type": "color",
+        "$value": {
+          "colorSpace": "srgb",
+          "components": [
+            0.5608,
+            0.2549,
+            0
+          ],
+          "hex": "#8f4100"
+        },
+        "$description": "Primitive: nicht direkt verwenden, sondern über semantische Tokens."
+      },
+      "900": {
+        "$type": "color",
+        "$value": {
+          "colorSpace": "srgb",
+          "components": [
+            0.4392,
+            0.2078,
+            0.0392
+          ],
+          "hex": "#70350a"
+        },
+        "$description": "Primitive: nicht direkt verwenden, sondern über semantische Tokens."
+      },
+      "950": {
+        "$type": "color",
+        "$value": {
+          "colorSpace": "srgb",
+          "components": [
+            0.251,
+            0.1216,
+            0.0431
+          ],
+          "hex": "#401f0b"
+        },
+        "$description": "Primitive: nicht direkt verwenden, sondern über semantische Tokens."
+      }
+    },
+    "base": {
+      "white": {
+        "$type": "color",
+        "$value": {
+          "colorSpace": "srgb",
+          "components": [
+            1,
+            1,
+            1
+          ],
+          "hex": "#ffffff"
+        },
+        "$description": "Weiß"
+      },
+      "black": {
+        "$type": "color",
+        "$value": {
+          "colorSpace": "srgb",
+          "components": [
+            0,
+            0,
+            0
+          ],
+          "hex": "#000000"
+        },
+        "$description": "Schwarz"
+      }
+    }
+  }
+}

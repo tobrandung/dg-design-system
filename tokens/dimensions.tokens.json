@@ -1,0 +1,250 @@
+{
+  "spacing": {
+    "none": {
+      "$type": "dimension",
+      "$value": {
+        "value": 0,
+        "unit": "px"
+      },
+      "$description": "Abstand 0px für Padding und Gaps; auch für feste Breiten/Höhen von Controls."
+    },
+    "3xs": {
+      "$type": "dimension",
+      "$value": {
+        "value": 2,
+        "unit": "px"
+      },
+      "$description": "Abstand 2px für Padding und Gaps; auch für feste Breiten/Höhen von Controls."
+    },
+    "2xs": {
+      "$type": "dimension",
+      "$value": {
+        "value": 4,
+        "unit": "px"
+      },
+      "$description": "Abstand 4px für Padding und Gaps; auch für feste Breiten/Höhen von Controls."
+    },
+    "xs": {
+      "$type": "dimension",
+      "$value": {
+        "value": 8,
+        "unit": "px"
+      },
+      "$description": "Abstand 8px für Padding und Gaps; auch für feste Breiten/Höhen von Controls."
+    },
+    "sm": {
+      "$type": "dimension",
+      "$value": {
+        "value": 12,
+        "unit": "px"
+      },
+      "$description": "Abstand 12px für Padding und Gaps; auch für feste Breiten/Höhen von Controls."
+    },
+    "md": {
+      "$type": "dimension",
+      "$value": {
+        "value": 16,
+        "unit": "px"
+      },
+      "$description": "Abstand 16px für Padding und Gaps; auch für feste Breiten/Höhen von Controls."
+    },
+    "lg": {
+      "$type": "dimension",
+      "$value": {
+        "value": 24,
+        "unit": "px"
+      },
+      "$description": "Abstand 24px für Padding und Gaps; auch für feste Breiten/Höhen von Controls."
+    },
+    "xl": {
+      "$type": "dimension",
+      "$value": {
+        "value": 32,
+        "unit": "px"
+      },
+      "$description": "Abstand 32px für Padding und Gaps; auch für feste Breiten/Höhen von Controls."
+    },
+    "2xl": {
+      "$type": "dimension",
+      "$value": {
+        "value": 40,
+        "unit": "px"
+      },
+      "$description": "Abstand 40px für Padding und Gaps; auch für feste Breiten/Höhen von Controls."
+    },
+    "3xl": {
+      "$type": "dimension",
+      "$value": {
+        "value": 48,
+        "unit": "px"
+      },
+      "$description": "Abstand 48px für Padding und Gaps; auch für feste Breiten/Höhen von Controls."
+    },
+    "4xl": {
+      "$type": "dimension",
+      "$value": {
+        "value": 56,
+        "unit": "px"
+      },
+      "$description": "Abstand 56px für Padding und Gaps; auch für feste Breiten/Höhen von Controls."
+    },
+    "5xl": {
+      "$type": "dimension",
+      "$value": {
+        "value": 64,
+        "unit": "px"
+      },
+      "$description": "Abstand 64px für Padding und Gaps; auch für feste Breiten/Höhen von Controls."
+    },
+    "6xl": {
+      "$type": "dimension",
+      "$value": {
+        "value": 80,
+        "unit": "px"
+      },
+      "$description": "Abstand 80px für Padding und Gaps; auch für feste Breiten/Höhen von Controls."
+    },
+    "7xl": {
+      "$type": "dimension",
+      "$value": {
+        "value": 120,
+        "unit": "px"
+      },
+      "$description": "Abstand 120px für Padding und Gaps; auch für feste Breiten/Höhen von Controls."
+    }
+  },
+  "radius": {
+    "none": {
+      "$type": "dimension",
+      "$value": {
+        "value": 0,
+        "unit": "px"
+      },
+      "$description": "Eckenradius 0px. Keine Rundung."
+    },
+    "xs": {
+      "$type": "dimension",
+      "$value": {
+        "value": 2,
+        "unit": "px"
+      },
+      "$description": "Eckenradius 2px. Sehr kleine Elemente."
+    },
+    "sm": {
+      "$type": "dimension",
+      "$value": {
+        "value": 4,
+        "unit": "px"
+      },
+      "$description": "Eckenradius 4px. Checkbox, kleine Tags."
+    },
+    "md": {
+      "$type": "dimension",
+      "$value": {
+        "value": 8,
+        "unit": "px"
+      },
+      "$description": "Eckenradius 8px. Inputs, Selects, Buttons, Menüs."
+    },
+    "lg": {
+      "$type": "dimension",
+      "$value": {
+        "value": 12,
+        "unit": "px"
+      },
+      "$description": "Eckenradius 12px. Karten und Panels."
+    },
+    "xl": {
+      "$type": "dimension",
+      "$value": {
+        "value": 16,
+        "unit": "px"
+      },
+      "$description": "Eckenradius 16px. Große Container und Doku-Flächen."
+    },
+    "full": {
+      "$type": "dimension",
+      "$value": {
+        "value": 9999,
+        "unit": "px"
+      },
+      "$description": "Eckenradius voll (9999). Pills: Badges, Chips, Avatare, Radio."
+    }
+  },
+  "border-width": {
+    "none": {
+      "$type": "dimension",
+      "$value": {
+        "value": 0,
+        "unit": "px"
+      },
+      "$description": "Rahmenbreite 0px. Kein Rahmen."
+    },
+    "sm": {
+      "$type": "dimension",
+      "$value": {
+        "value": 1,
+        "unit": "px"
+      },
+      "$description": "Rahmenbreite 1px. Standard-Rahmen (Inputs, Karten, Trennlinien)."
+    },
+    "md": {
+      "$type": "dimension",
+      "$value": {
+        "value": 2,
+        "unit": "px"
+      },
+      "$description": "Rahmenbreite 2px. Betonte Rahmen, z. B. ausgewählte Zustände."
+    },
+    "lg": {
+      "$type": "dimension",
+      "$value": {
+        "value": 4,
+        "unit": "px"
+      },
+      "$description": "Rahmenbreite 4px. Dicke Rahmen; Basis für focus-ring/width."
+    }
+  },
+  "focus-ring": {
+    "width": {
+      "$type": "dimension",
+      "$value": "{border-width.lg}",
+      "$description": "Breite des Fokusrings (box-shadow spread), = border-width/lg. Einziger Fokus-Breiten-Token."
+    }
+  },
+  "icon-size": {
+    "xs": {
+      "$type": "dimension",
+      "$value": "{spacing.sm}",
+      "$description": "Icon 12px, nur in kleinen Badges."
+    },
+    "sm": {
+      "$type": "dimension",
+      "$value": "{spacing.md}",
+      "$description": "Icon 16px: Info/Fehler in Formularfeldern, Badges md/lg, Checkbox-Häkchen."
+    },
+    "md": {
+      "$type": "dimension",
+      "$value": {
+        "value": 20,
+        "unit": "px"
+      },
+      "$description": "Icon 20px: Zwischengröße, z. B. Icons in Buttons oder Listen neben body/md."
+    },
+    "lg": {
+      "$type": "dimension",
+      "$value": "{spacing.lg}",
+      "$description": "Icon 24px: Standardgröße der Icon-Bibliothek (24er-Raster), z. B. Feld-Icons und Chevrons."
+    }
+  },
+  "legacy": {
+    "color": {
+      "basalt": {
+        "$type": "color",
+        "$value": "{color.gray.800}",
+        "$description": "Deprecated – nur noch von 6 Text-Layern mit „Söhne Kräftig“ auf der Foundations-Seite genutzt (Schnitt fehlt in Figma). Danach löschen.",
+        "$deprecated": "Deprecated – nur noch von 6 Text-Layern mit „Söhne Kräftig“ auf der Foundations-Seite genutzt (Schnitt fehlt in Figma). Danach löschen."
+      }
+    }
+  }
+}

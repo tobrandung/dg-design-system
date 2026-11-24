@@ -1,0 +1,21 @@
+{
+  "name": "DG Tokens",
+  "id": "dg-tokens-local",
+  "api": "1.0.0",
+  "main": "code.js",
+  "ui": "ui.html",
+  "editorType": ["figma"],
+  "documentAccess": "dynamic-page",
+  "menu": [
+    { "name": "Tokens senden", "command": "sync" },
+    { "name": "Einstellungen und Export", "command": "open" }
+  ],
+  "relaunchButtons": [
+    { "command": "sync", "name": "Tokens senden" }
+  ],
+  "networkAccess": {
+    "allowedDomains": ["https://api.github.com"],
+    "devAllowedDomains": ["http://localhost:4318"],
+    "reasoning": "Schreibt die Token-Dateien als Commit ins Design-System-Repository und an den lokalen Dev-Server."
+  }
+}

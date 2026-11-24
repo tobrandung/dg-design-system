@@ -1,0 +1,546 @@
+{
+  "color": {
+    "text": {
+      "default": {
+        "$type": "color",
+        "$value": "{color.gray.25}",
+        "$description": "Standard-Textfarbe"
+      },
+      "subtle": {
+        "$type": "color",
+        "$value": "{color.gray.200}",
+        "$description": "Sekundärtext, AA auf Weiß"
+      },
+      "disabled": {
+        "$type": "color",
+        "$value": "{color.gray.500}",
+        "$description": "Textfarbe: deaktivierte Elemente."
+      },
+      "inverse": {
+        "$type": "color",
+        "$value": "{color.gray.800}",
+        "$description": "Text auf dunklem Grund (Sand)"
+      },
+      "on-brand": {
+        "$type": "color",
+        "$value": "{color.base.white}",
+        "$description": "Text auf Brand-Flächen"
+      },
+      "brand": {
+        "$type": "color",
+        "$value": "{color.brand.200}",
+        "$description": "Brand-Text, AA auf Weiß"
+      },
+      "link": {
+        "default": {
+          "$type": "color",
+          "$value": "{color.brand.200}",
+          "$description": "Textfarbe: Links, Standard."
+        },
+        "hover": {
+          "$type": "color",
+          "$value": "{color.brand.100}",
+          "$description": "Textfarbe: Links, Hover-Zustand."
+        },
+        "active": {
+          "$type": "color",
+          "$value": "{color.brand.50}",
+          "$description": "Textfarbe: Links, gedrückter/aktiver Zustand."
+        },
+        "visited": {
+          "$type": "color",
+          "$value": "{color.brand.100}",
+          "$description": "Textfarbe: Links, besuchter Link."
+        }
+      },
+      "error": {
+        "$type": "color",
+        "$value": "{color.error.300}",
+        "$description": "Textfarbe: Fehler."
+      },
+      "success": {
+        "$type": "color",
+        "$value": "{color.green.400}",
+        "$description": "Textfarbe: Erfolg."
+      },
+      "warning": {
+        "$type": "color",
+        "$value": "{color.yellow.300}",
+        "$description": "Text für Warnhinweise (mind. 4,5:1 auf bg/warning/subtle)."
+      },
+      "accent": {
+        "yellow": {
+          "$type": "color",
+          "$value": "{color.yellow.500}",
+          "$description": "DG Blüte – nur auf dunklem Grund"
+        },
+        "green": {
+          "$type": "color",
+          "$value": "{color.green.400}",
+          "$description": "DG Gras – nur auf dunklem Grund"
+        }
+      }
+    },
+    "icon": {
+      "default": {
+        "$type": "color",
+        "$value": "{color.gray.25}",
+        "$description": "Iconfarbe: Standard."
+      },
+      "subtle": {
+        "$type": "color",
+        "$value": "{color.gray.200}",
+        "$description": "Iconfarbe: zurückgenommen, für Hinweise und Sekundäres."
+      },
+      "disabled": {
+        "$type": "color",
+        "$value": "{color.gray.600}",
+        "$description": "Iconfarbe: deaktivierte Elemente."
+      },
+      "inverse": {
+        "$type": "color",
+        "$value": "{color.gray.800}",
+        "$description": "Iconfarbe: auf dunklen bzw. invertierten Flächen."
+      },
+      "on-brand": {
+        "$type": "color",
+        "$value": "{color.base.white}",
+        "$description": "Iconfarbe: auf Brand-Flächen (z. B. Primary Button)."
+      },
+      "brand": {
+        "$type": "color",
+        "$value": "{color.brand.300}",
+        "$description": "Iconfarbe: Markenfarbe."
+      },
+      "error": {
+        "$type": "color",
+        "$value": "{color.error.300}",
+        "$description": "Iconfarbe: Fehler."
+      },
+      "success": {
+        "$type": "color",
+        "$value": "{color.green.400}",
+        "$description": "Iconfarbe: Erfolg."
+      },
+      "warning": {
+        "$type": "color",
+        "$value": "{color.orange.400}",
+        "$description": "Iconfarbe: Warnung."
+      },
+      "accent": {
+        "yellow": {
+          "$type": "color",
+          "$value": "{color.yellow.500}",
+          "$description": "DG Blüte"
+        },
+        "green": {
+          "$type": "color",
+          "$value": "{color.green.400}",
+          "$description": "DG Gras"
+        }
+      }
+    },
+    "bg": {
+      "default": {
+        "$type": "color",
+        "$value": "{color.gray.700}",
+        "$description": "Flächen (Karten, Eingabefelder). Dark: heller als der Seitenhintergrund (Elevation)."
+      },
+      "subtle": {
+        "$type": "color",
+        "$value": "{color.gray.800}",
+        "$description": "Seitenhintergrund. Light: Sand, Dark: Basalt."
+      },
+      "muted": {
+        "$type": "color",
+        "$value": "{color.gray.900}",
+        "$description": "Hintergrund: stark zurückgenommen."
+      },
+      "disabled": {
+        "$type": "color",
+        "$value": {
+          "colorSpace": "srgb",
+          "components": [
+            0.3216,
+            0.3216,
+            0.3216
+          ],
+          "hex": "#525252",
+          "alpha": 0.7
+        },
+        "$description": "Hintergrund: deaktivierte Elemente."
+      },
+      "inverse": {
+        "$type": "color",
+        "$value": "{color.gray.25}",
+        "$description": "Dunkle Flächen (Basalt)"
+      },
+      "selected": {
+        "$type": "color",
+        "$value": "{color.brand.900}",
+        "$description": "Hintergrund: ausgewählter Zustand."
+      },
+      "neutral": {
+        "default": {
+          "$type": "color",
+          "$value": "{color.gray.600}",
+          "$description": "Hintergrund: neutrale interaktive Flächen, Standard."
+        },
+        "hover": {
+          "$type": "color",
+          "$value": "{color.gray.500}",
+          "$description": "Hintergrund: neutrale interaktive Flächen, Hover-Zustand."
+        },
+        "active": {
+          "$type": "color",
+          "$value": "{color.gray.400}",
+          "$description": "Hintergrund: neutrale interaktive Flächen, gedrückter/aktiver Zustand."
+        },
+        "bold": {
+          "$type": "color",
+          "$value": "{color.gray.200}",
+          "$description": "Hintergrund: neutrale interaktive Flächen, kräftig, hoher Kontrast."
+        }
+      },
+      "brand": {
+        "default": {
+          "$type": "color",
+          "$value": "{color.brand.500}",
+          "$description": "Primäre Aktion"
+        },
+        "hover": {
+          "$type": "color",
+          "$value": "{color.brand.600}",
+          "$description": "Hintergrund: Markenfarbe, Hover-Zustand."
+        },
+        "active": {
+          "$type": "color",
+          "$value": "{color.brand.700}",
+          "$description": "Hintergrund: Markenfarbe, gedrückter/aktiver Zustand."
+        },
+        "subtle": {
+          "$type": "color",
+          "$value": "{color.brand.950}",
+          "$description": "Hintergrund: Markenfarbe, zurückgenommen, für Hinweise und Sekundäres."
+        },
+        "subtle-hover": {
+          "$type": "color",
+          "$value": "{color.brand.900}",
+          "$description": "Hintergrund: Markenfarbe, Hover auf subtle."
+        }
+      },
+      "error": {
+        "default": {
+          "$type": "color",
+          "$value": "{color.error.600}",
+          "$description": "Hintergrund: Fehler, Standard."
+        },
+        "hover": {
+          "$type": "color",
+          "$value": "{color.error.700}",
+          "$description": "Hintergrund: Fehler, Hover-Zustand."
+        },
+        "active": {
+          "$type": "color",
+          "$value": "{color.error.800}",
+          "$description": "Hintergrund: Fehler, gedrückter/aktiver Zustand."
+        },
+        "subtle": {
+          "$type": "color",
+          "$value": "{color.error.950}",
+          "$description": "Hintergrund: Fehler, zurückgenommen, für Hinweise und Sekundäres."
+        }
+      },
+      "success": {
+        "default": {
+          "$type": "color",
+          "$value": "{color.green.600}",
+          "$description": "Hintergrund: Erfolg, Standard."
+        },
+        "subtle": {
+          "$type": "color",
+          "$value": "{color.green.950}",
+          "$description": "Heller Hintergrund für Erfolgs-/Statusmeldungen."
+        }
+      },
+      "warning": {
+        "default": {
+          "$type": "color",
+          "$value": "{color.orange.400}",
+          "$description": "Hintergrund: Warnung, Standard."
+        },
+        "subtle": {
+          "$type": "color",
+          "$value": "{color.yellow.950}",
+          "$description": "Heller Hintergrund für Warnhinweise."
+        }
+      },
+      "accent": {
+        "yellow": {
+          "default": {
+            "$type": "color",
+            "$value": "{color.yellow.500}",
+            "$description": "DG Blüte"
+          },
+          "hover": {
+            "$type": "color",
+            "$value": "{color.yellow.300}",
+            "$description": "Hintergrund: Akzentfarbe, Gelb, Hover-Zustand."
+          },
+          "active": {
+            "$type": "color",
+            "$value": "{color.yellow.400}",
+            "$description": "Hintergrund: Akzentfarbe, Gelb, gedrückter/aktiver Zustand."
+          }
+        },
+        "green": {
+          "default": {
+            "$type": "color",
+            "$value": "{color.green.400}",
+            "$description": "DG Gras"
+          }
+        }
+      }
+    },
+    "border": {
+      "subtle": {
+        "$type": "color",
+        "$value": "{color.gray.600}",
+        "$description": "Rahmenfarbe: zurückgenommen, für Hinweise und Sekundäres."
+      },
+      "default": {
+        "$type": "color",
+        "$value": "{color.gray.500}",
+        "$description": "Rahmenfarbe: Standard."
+      },
+      "medium": {
+        "$type": "color",
+        "$value": "{color.gray.400}",
+        "$description": "Rahmenfarbe: mittlere Stärke."
+      },
+      "strong": {
+        "$type": "color",
+        "$value": "{color.gray.300}",
+        "$description": "Formularfelder, ≥3:1"
+      },
+      "bold": {
+        "$type": "color",
+        "$value": "{color.gray.25}",
+        "$description": "Rahmenfarbe: kräftig, hoher Kontrast."
+      },
+      "inverse": {
+        "$type": "color",
+        "$value": "{color.gray.800}",
+        "$description": "Rahmenfarbe: auf dunklen bzw. invertierten Flächen."
+      },
+      "disabled": {
+        "$type": "color",
+        "$value": "{color.gray.700}",
+        "$description": "Rahmenfarbe: deaktivierte Elemente."
+      },
+      "brand": {
+        "default": {
+          "$type": "color",
+          "$value": "{color.brand.300}",
+          "$description": "Rahmenfarbe: Markenfarbe, Standard."
+        },
+        "hover": {
+          "$type": "color",
+          "$value": "{color.brand.200}",
+          "$description": "Rahmenfarbe: Markenfarbe, Hover-Zustand."
+        },
+        "active": {
+          "$type": "color",
+          "$value": "{color.brand.100}",
+          "$description": "Rahmenfarbe: Markenfarbe, gedrückter/aktiver Zustand."
+        }
+      },
+      "focus": {
+        "$type": "color",
+        "$value": "{color.brand.400}",
+        "$description": "Fokus-Ring, ≥3:1 auf Weiß und Brand"
+      },
+      "selected": {
+        "$type": "color",
+        "$value": "{color.brand.500}",
+        "$description": "Rahmenfarbe: ausgewählter Zustand."
+      },
+      "error": {
+        "$type": "color",
+        "$value": "{color.error.300}",
+        "$description": "Rahmenfarbe: Fehler."
+      },
+      "success": {
+        "$type": "color",
+        "$value": "{color.green.400}",
+        "$description": "Rahmenfarbe: Erfolg."
+      },
+      "warning": {
+        "$type": "color",
+        "$value": "{color.orange.400}",
+        "$description": "Rahmenfarbe: Warnung."
+      },
+      "accent": {
+        "yellow": {
+          "$type": "color",
+          "$value": "{color.yellow.500}",
+          "$description": "Rahmenfarbe: Akzentfarbe, Gelb."
+        },
+        "green": {
+          "$type": "color",
+          "$value": "{color.green.400}",
+          "$description": "Rahmenfarbe: Akzentfarbe, Grün."
+        }
+      }
+    },
+    "focus-ring": {
+      "brand": {
+        "$type": "color",
+        "$value": {
+          "colorSpace": "srgb",
+          "components": [
+            0.0784,
+            0.6275,
+            0.8627
+          ],
+          "hex": "#14a0dc",
+          "alpha": 0.4
+        },
+        "$description": "Farbe des Fokusrings (4px) um fokussierte Felder und Buttons."
+      },
+      "error": {
+        "$type": "color",
+        "$value": {
+          "colorSpace": "srgb",
+          "components": [
+            1,
+            0.498,
+            0.451
+          ],
+          "hex": "#ff7f73",
+          "alpha": 0.4
+        },
+        "$description": "Farbe des Fokusrings bei fokussierten Feldern im Fehlerzustand."
+      }
+    },
+    "badge": {
+      "gray": {
+        "bg": {
+          "$type": "color",
+          "$value": "{color.bg.muted}",
+          "$description": "Badge gray: Hintergrund."
+        },
+        "text": {
+          "$type": "color",
+          "$value": "{color.text.default}",
+          "$description": "Badge gray: Label (mind. 4,5:1)."
+        },
+        "icon": {
+          "$type": "color",
+          "$value": "{color.icon.subtle}",
+          "$description": "Badge gray: Icon (mind. 3:1)."
+        },
+        "border": {
+          "$type": "color",
+          "$value": "{color.gray.700}",
+          "$description": "Badge-Rahmen gray: eine Stufe dunkler als der Badge-Hintergrund."
+        }
+      },
+      "brand": {
+        "bg": {
+          "$type": "color",
+          "$value": "{color.bg.brand.subtle}",
+          "$description": "Badge brand: Hintergrund."
+        },
+        "text": {
+          "$type": "color",
+          "$value": "{color.brand.200}",
+          "$description": "Badge brand: Label (mind. 4,5:1)."
+        },
+        "icon": {
+          "$type": "color",
+          "$value": "{color.brand.300}",
+          "$description": "Badge brand: Icon (mind. 3:1)."
+        },
+        "border": {
+          "$type": "color",
+          "$value": "{color.brand.800}",
+          "$description": "Badge-Rahmen brand: eine Stufe dunkler als der Badge-Hintergrund."
+        }
+      },
+      "error": {
+        "bg": {
+          "$type": "color",
+          "$value": "{color.bg.error.subtle}",
+          "$description": "Badge error: Hintergrund."
+        },
+        "text": {
+          "$type": "color",
+          "$value": "{color.text.error}",
+          "$description": "Badge error: Label (mind. 4,5:1)."
+        },
+        "icon": {
+          "$type": "color",
+          "$value": "{color.icon.error}",
+          "$description": "Badge error: Icon (mind. 3:1)."
+        },
+        "border": {
+          "$type": "color",
+          "$value": "{color.error.800}",
+          "$description": "Badge-Rahmen error: eine Stufe dunkler als der Badge-Hintergrund."
+        }
+      },
+      "warning": {
+        "bg": {
+          "$type": "color",
+          "$value": "{color.bg.warning.subtle}",
+          "$description": "Badge warning: Hintergrund."
+        },
+        "text": {
+          "$type": "color",
+          "$value": "{color.text.warning}",
+          "$description": "Badge warning: Label (mind. 4,5:1)."
+        },
+        "icon": {
+          "$type": "color",
+          "$value": "{color.yellow.300}",
+          "$description": "Badge warning: Icon (mind. 3:1)."
+        },
+        "border": {
+          "$type": "color",
+          "$value": "{color.yellow.800}",
+          "$description": "Badge-Rahmen warning: eine Stufe dunkler als der Badge-Hintergrund."
+        }
+      },
+      "success": {
+        "bg": {
+          "$type": "color",
+          "$value": "{color.bg.success.subtle}",
+          "$description": "Badge success: Hintergrund."
+        },
+        "text": {
+          "$type": "color",
+          "$value": "{color.text.success}",
+          "$description": "Badge success: Label (mind. 4,5:1)."
+        },
+        "icon": {
+          "$type": "color",
+          "$value": "{color.icon.success}",
+          "$description": "Badge success: Icon (mind. 3:1)."
+        },
+        "border": {
+          "$type": "color",
+          "$value": "{color.green.800}",
+          "$description": "Badge-Rahmen success: eine Stufe dunkler als der Badge-Hintergrund."
+        }
+      }
+    },
+    "scrollbar": {
+      "thumb": {
+        "$type": "color",
+        "$value": "{color.gray.600}",
+        "$description": "Scrollbar-Griff in Menüs und scrollbaren Flächen."
+      }
+    }
+  }
+}

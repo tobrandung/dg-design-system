@@ -1,0 +1,337 @@
+<!doctype html>
+<html lang="de">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>Glasfaser Komponenten-Prototyp</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <!-- Ersatzschriften, falls Söhne nicht lokal installiert ist -->
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@600&family=Geist:wght@400;600&display=swap">
+  <script type="module" src="/src/main.js"></script>
+</head>
+<body>
+
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <symbol id="i-check" viewBox="0 0 256 256"><path d="M40 136l56 56L216 72"/></symbol>
+  <symbol id="i-caret-down" viewBox="0 0 256 256"><path d="M208 96l-80 80-80-80"/></symbol>
+  <symbol id="i-warning-circle" viewBox="0 0 256 256"><circle cx="128" cy="128" r="96"/><path d="M128 80v56"/><circle cx="128" cy="172" r="4" fill="currentColor"/></symbol>
+  <symbol id="i-info" viewBox="0 0 256 256"><circle cx="128" cy="128" r="96"/><path d="M120 120h8v56h8"/><circle cx="126" cy="84" r="4" fill="currentColor"/></symbol>
+  <symbol id="i-map-pin" viewBox="0 0 256 256"><circle cx="128" cy="104" r="32"/><path d="M208 104c0 72-80 128-80 128S48 176 48 104a80 80 0 0 1 160 0z"/></symbol>
+  <symbol id="i-house" viewBox="0 0 256 256"><path d="M152 208v-56a8 8 0 0 0-8-8h-32a8 8 0 0 0-8 8v56H48a8 8 0 0 1-8-8v-84.5a8 8 0 0 1 2.6-5.9l80-72.7a8 8 0 0 1 10.8 0l80 72.7a8 8 0 0 1 2.6 5.9V200a8 8 0 0 1-8 8z"/></symbol>
+  <symbol id="i-envelope" viewBox="0 0 256 256"><rect x="32" y="56" width="192" height="144" rx="8"/><path d="M224 56l-96 88-96-88"/></symbol>
+  <symbol id="i-phone" viewBox="0 0 256 256"><path d="M92.5 124.8a83.6 83.6 0 0 0 39 38.9 8 8 0 0 0 7.9-.6l25-16.7a8 8 0 0 1 7.6-.7l46.8 20.1a8 8 0 0 1 4.8 8.3A48 48 0 0 1 176 216 136 136 0 0 1 40 80a48 48 0 0 1 41.9-47.6 8 8 0 0 1 8.3 4.8l20.1 46.9a8 8 0 0 1-.6 7.5L93 117a8 8 0 0 0-.5 7.8z"/></symbol>
+  <symbol id="i-user" viewBox="0 0 256 256"><circle cx="128" cy="96" r="64"/><path d="M32 216c19.4-33.5 54.6-56 96-56s76.6 22.5 96 56"/></symbol>
+  <symbol id="i-arrow-right" viewBox="0 0 256 256"><path d="M40 128h176M144 56l72 72-72 72"/></symbol>
+  <symbol id="i-arrow-left" viewBox="0 0 256 256"><path d="M216 128H40M112 56l-72 72 72 72"/></symbol>
+  <symbol id="i-spinner" viewBox="0 0 256 256"><path d="M128 32a96 96 0 1 0 96 96"/></symbol>
+  <symbol id="i-sun" viewBox="0 0 256 256"><circle cx="128" cy="128" r="56"/><path d="M128 36V16M63 63L49 49M36 128H16M63 193l-14 14M128 220v20M193 193l14 14M220 128h20M193 63l14-14"/></symbol>
+  <symbol id="i-moon" viewBox="0 0 256 256"><path d="M216.7 152.6A92 92 0 0 1 103.4 39.3a92 92 0 1 0 113.3 113.3z"/></symbol>
+  <symbol id="i-monitor" viewBox="0 0 256 256"><rect x="32" y="48" width="192" height="144" rx="16"/><path d="M160 224H96"/></symbol>
+  <symbol id="i-clock" viewBox="0 0 256 256"><circle cx="128" cy="128" r="96"/><path d="M128 72v56h56"/></symbol>
+  <symbol id="i-check-circle" viewBox="0 0 256 256"><circle cx="128" cy="128" r="96"/><path d="M88 136l24 24 56-56"/></symbol>
+  <symbol id="i-magnifying-glass" viewBox="0 0 256 256"><circle cx="112" cy="112" r="80"/><path d="M168.6 168.6L224 224"/></symbol>
+</svg>
+
+<header class="topbar">
+  <div class="wrap">
+    <a class="brand" href="#top">
+      <span class="brand__mark" aria-hidden="true"></span>
+      <span><span class="dg-body-regular-semibold">Glasfaser</span><small class="dg-body-tiny-book">Komponenten-Prototyp · Tokens aus Figma</small></span>
+    </a>
+    <nav class="nav dg-body-small-book" aria-label="Bereiche">
+      <a href="#verfuegbarkeit">Verfügbarkeit</a>
+      <a href="#kontakt">Adresse prüfen lassen</a>
+      <a href="#bausteine">Bausteine</a>
+      <a href="#tokens">Tokens</a>
+    </nav>
+    <div class="theme" role="group" aria-label="Darstellung">
+      <span class="theme__pill" aria-hidden="true"></span>
+      <button type="button" data-theme-set="light" aria-pressed="false"><svg class="icon icon--sm" aria-hidden="true"><use href="#i-sun"/></svg><span>Hell</span></button>
+      <button type="button" data-theme-set="dark" aria-pressed="false"><svg class="icon icon--sm" aria-hidden="true"><use href="#i-moon"/></svg><span>Dunkel</span></button>
+      <button type="button" data-theme-set="system" aria-pressed="true"><svg class="icon icon--sm" aria-hidden="true"><use href="#i-monitor"/></svg><span>System</span></button>
+    </div>
+  </div>
+</header>
+
+<main id="top">
+  <!-- Verfügbarkeitscheck -->
+  <section class="hero" id="verfuegbarkeit">
+    <div class="wrap hero__grid">
+      <div class="hero__copy">
+        <span class="eyebrow dg-body-small-semibold">Glasfaser-Verfügbarkeit</span>
+        <h1 class="dg-heading-h1-highlight">Lichtschnell bis ans Haus</h1>
+        <p class="dg-body-large-book subtle">Geben Sie Postleitzahl oder Ort, Straße und Hausnummer ein. Sie sehen sofort, ob an Ihrer Adresse Glasfaser mit bis zu 1 Gbit/s verfügbar ist, gebaut wird oder in Planung ist.</p>
+        <div class="hero__facts">
+          <span class="badge badge--brand"><svg class="icon" aria-hidden="true"><use href="#i-check-circle"/></svg>Bis zu 1.000 Mbit/s</span>
+          <span class="badge"><svg class="icon" aria-hidden="true"><use href="#i-house"/></svg>Direkt bis in die Wohnung</span>
+          <span class="badge"><svg class="icon" aria-hidden="true"><use href="#i-clock"/></svg>Ergebnis in Sekunden</span>
+        </div>
+      </div>
+
+      <div class="card card--raised check" id="check">
+        <form id="check-form" class="check__form" novalidate>
+          <div class="check__head">
+            <h2 class="dg-heading-h5">Verfügbarkeit prüfen</h2>
+            <p class="dg-body-small-book subtle">Beispieldaten: Tippen Sie z. B. „Nord“ oder „48“.</p>
+          </div>
+
+          <div class="field" id="f-place">
+            <label class="field__label dg-body-small-book" for="place">PLZ / Ort</label>
+            <div class="field__control">
+              <svg class="icon" aria-hidden="true"><use href="#i-map-pin"/></svg>
+              <input class="field__input" id="place" type="text" autocomplete="off" placeholder="z. B. 48529 Nordhorn" role="combobox" aria-autocomplete="list" aria-expanded="false" aria-controls="place-list" aria-describedby="place-hint">
+              <svg class="icon icon--sm field__error-icon" aria-hidden="true"><use href="#i-warning-circle"/></svg>
+            </div>
+            <p class="field__hint dg-body-small-book" id="place-hint" hidden><span class="field__hint-text"></span></p>
+            <div class="menu" hidden><div class="menu__list" role="listbox" id="place-list" aria-label="Orte"></div><div class="scrollbar" aria-hidden="true"><div class="scrollbar__thumb"></div></div></div>
+          </div>
+
+          <div class="check__row">
+            <div class="field is-disabled" id="f-street">
+              <label class="field__label dg-body-small-book" for="street">Straße</label>
+              <div class="field__control">
+                <input class="field__input" id="street" type="text" autocomplete="off" placeholder="Erst Ort wählen" disabled role="combobox" aria-autocomplete="list" aria-expanded="false" aria-controls="street-list" aria-describedby="street-hint">
+                <svg class="icon icon--sm field__error-icon" aria-hidden="true"><use href="#i-warning-circle"/></svg>
+              </div>
+              <p class="field__hint dg-body-small-book" id="street-hint" hidden><span class="field__hint-text"></span></p>
+              <div class="menu" hidden><div class="menu__list" role="listbox" id="street-list" aria-label="Straßen"></div><div class="scrollbar" aria-hidden="true"><div class="scrollbar__thumb"></div></div></div>
+            </div>
+            <div class="field" id="f-no">
+              <label class="field__label dg-body-small-book" for="no">Hausnummer</label>
+              <div class="field__control">
+                <input class="field__input" id="no" type="text" autocomplete="off" placeholder="12a" aria-describedby="no-hint">
+                <svg class="icon icon--sm field__error-icon" aria-hidden="true"><use href="#i-warning-circle"/></svg>
+              </div>
+              <p class="field__hint dg-body-small-book" id="no-hint" hidden><span class="field__hint-text"></span></p>
+            </div>
+          </div>
+
+          <div class="check__foot">
+            <button class="button button--primary button--block" type="submit" id="check-submit">
+              <span>Zum nächsten Schritt</span>
+              <svg class="icon button__arrow" aria-hidden="true"><use href="#i-arrow-right"/></svg>
+              <svg class="icon button__spinner" aria-hidden="true"><use href="#i-spinner"/></svg>
+            </button>
+            <p class="dg-body-small-book subtle">Adresse nicht gefunden? <a href="#kontakt">Lassen Sie sie manuell prüfen.</a></p>
+          </div>
+        </form>
+
+        <div class="result" id="result" hidden aria-live="polite">
+          <svg class="fiber" id="fiber" viewBox="0 0 420 88" aria-hidden="true">
+            <path class="fiber__base" id="fiber-path" d="M14 56 C 120 56, 140 20, 220 20 S 320 56, 372 56"/>
+            <path class="fiber__light" id="fiber-light" d="M14 56 C 120 56, 140 20, 220 20 S 320 56, 372 56"/>
+            <circle class="fiber__node" cx="14" cy="56" r="6"/>
+            <text x="0" y="84">Verteiler</text>
+            <path class="fiber__house" d="M360 74V54l18-16 18 16v20z"/>
+            <text x="352" y="86">Ihr Haus</text>
+          </svg>
+          <div class="result__text">
+            <span id="result-badge"></span>
+            <h3 class="dg-heading-h4" id="result-title"></h3>
+            <p class="subtle" id="result-text"></p>
+          </div>
+          <fieldset class="tariffs" id="tariffs"></fieldset>
+          <div class="result__actions">
+            <button class="button button--primary" type="button" id="result-cta">Tarif auswählen</button>
+            <button class="button button--secondary" type="button" id="result-back"><svg class="icon" aria-hidden="true"><use href="#i-arrow-left"/></svg>Andere Adresse</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Kontaktformular -->
+  <section class="section section--muted" id="kontakt">
+    <div class="wrap contact">
+      <div class="contact__aside">
+        <span class="eyebrow dg-body-small-semibold">Kontaktformular</span>
+        <h2 class="dg-heading-h2">Adresse prüfen lassen</h2>
+        <p class="subtle">Ihre Adresse taucht im Verfügbarkeitscheck nicht auf? Wir prüfen sie manuell und melden uns bei Ihnen. Bei einem Neubau hilft uns ein Lageplan.</p>
+        <p class="dg-body-small-book subtle">Prototyp: Es werden keine Daten gesendet.</p>
+      </div>
+
+      <form class="card contact__form" id="contact-form" novalidate>
+        <div class="form-block">
+          <fieldset class="group" id="g-building">
+            <legend class="dg-body-regular-semibold">Um welche Immobilie geht es?</legend>
+            <div class="tiles">
+              <label class="choice choice--radio tile"><input type="radio" name="building" value="neubau"><span class="choice__box"><span class="choice__dot"></span></span><span class="choice__label">Neubau</span><span class="choice__hint dg-body-small-book">Haus ist geplant oder im Bau</span></label>
+              <label class="choice choice--radio tile"><input type="radio" name="building" value="bestand"><span class="choice__box"><span class="choice__dot"></span></span><span class="choice__label">Bestehende Immobilie</span><span class="choice__hint dg-body-small-book">Haus ist bereits bewohnt</span></label>
+            </div>
+            <p class="group__error dg-body-small-book" hidden><svg class="icon icon--sm" aria-hidden="true"><use href="#i-warning-circle"/></svg>Bitte wählen Sie eine Immobilienart aus.</p>
+          </fieldset>
+          <fieldset class="group" id="g-type">
+            <legend class="dg-body-regular-semibold">Um welche Art von Gebäude handelt es sich?</legend>
+            <label class="choice choice--radio"><input type="radio" name="type" value="efh"><span class="choice__box"><span class="choice__dot"></span></span><span class="choice__label">Einfamilienhaus</span></label>
+            <label class="choice choice--radio"><input type="radio" name="type" value="mfh"><span class="choice__box"><span class="choice__dot"></span></span><span class="choice__label">Mehrfamilienhaus</span></label>
+            <label class="choice choice--radio"><input type="radio" name="type" value="gewerbe"><span class="choice__box"><span class="choice__dot"></span></span><span class="choice__label">Gewerbeobjekt</span></label>
+            <p class="group__error dg-body-small-book" hidden><svg class="icon icon--sm" aria-hidden="true"><use href="#i-warning-circle"/></svg>Bitte wählen Sie eine Gebäudeart aus.</p>
+          </fieldset>
+        </div>
+
+        <div class="form-block">
+          <h3 class="dg-heading-h6">Adresse</h3>
+          <div class="grid-addr">
+            <div class="field" id="f-c-street"><label class="field__label dg-body-small-book" for="c-street">Straße</label><div class="field__control"><input class="field__input" id="c-street" type="text" autocomplete="address-line1"><svg class="icon icon--sm field__error-icon" aria-hidden="true"><use href="#i-warning-circle"/></svg></div><p class="field__hint dg-body-small-book" hidden><span class="field__hint-text"></span></p></div>
+            <div class="field" id="f-c-no"><label class="field__label dg-body-small-book" for="c-no">Hausnummer</label><div class="field__control"><input class="field__input" id="c-no" type="text"><svg class="icon icon--sm field__error-icon" aria-hidden="true"><use href="#i-warning-circle"/></svg></div><p class="field__hint dg-body-small-book" hidden><span class="field__hint-text"></span></p></div>
+            <div class="field" id="f-c-zip"><label class="field__label dg-body-small-book" for="c-zip">Postleitzahl</label><div class="field__control"><input class="field__input" id="c-zip" type="text" inputmode="numeric" maxlength="5" autocomplete="postal-code"><svg class="icon icon--sm field__error-icon" aria-hidden="true"><use href="#i-warning-circle"/></svg></div><p class="field__hint dg-body-small-book" hidden><span class="field__hint-text"></span></p></div>
+            <div class="field" id="f-c-city"><label class="field__label dg-body-small-book" for="c-city">Ort</label><div class="field__control"><input class="field__input" id="c-city" type="text" autocomplete="address-level2"><svg class="icon icon--sm field__error-icon" aria-hidden="true"><use href="#i-warning-circle"/></svg></div><p class="field__hint dg-body-small-book" hidden><span class="field__hint-text"></span></p></div>
+          </div>
+        </div>
+
+        <div class="form-block">
+          <h3 class="dg-heading-h6">Ihre Kontaktdaten</h3>
+          <div class="grid-2">
+            <div class="field" id="f-first"><label class="field__label dg-body-small-book" for="first">Vorname</label><div class="field__control"><svg class="icon" aria-hidden="true"><use href="#i-user"/></svg><input class="field__input" id="first" type="text" autocomplete="given-name"><svg class="icon icon--sm field__error-icon" aria-hidden="true"><use href="#i-warning-circle"/></svg></div><p class="field__hint dg-body-small-book" hidden><span class="field__hint-text"></span></p></div>
+            <div class="field" id="f-last"><label class="field__label dg-body-small-book" for="last">Nachname</label><div class="field__control"><input class="field__input" id="last" type="text" autocomplete="family-name"><svg class="icon icon--sm field__error-icon" aria-hidden="true"><use href="#i-warning-circle"/></svg></div><p class="field__hint dg-body-small-book" hidden><span class="field__hint-text"></span></p></div>
+            <div class="field" id="f-mail"><label class="field__label dg-body-small-book" for="mail">E-Mail</label><div class="field__control"><svg class="icon" aria-hidden="true"><use href="#i-envelope"/></svg><input class="field__input" id="mail" type="email" autocomplete="email" placeholder="name@beispiel.de"><svg class="icon icon--sm field__error-icon" aria-hidden="true"><use href="#i-warning-circle"/></svg></div><p class="field__hint dg-body-small-book" hidden><span class="field__hint-text"></span></p></div>
+            <div class="field" id="f-phone"><label class="field__label dg-body-small-book" for="phone">Telefon <small>(optional)</small></label><div class="field__control"><svg class="icon" aria-hidden="true"><use href="#i-phone"/></svg><input class="field__input" id="phone" type="tel" autocomplete="tel" placeholder="0171 1234567"></div><p class="field__hint dg-body-small-book"><span class="field__hint-text">Für Rückfragen zum Hausanschluss.</span></p></div>
+
+            <div class="field span-all" id="f-topic">
+              <span class="field__label dg-body-small-book" id="topic-label">Anliegen</span>
+              <button type="button" class="field__control field__control--select" id="topic" aria-haspopup="listbox" aria-expanded="false" aria-labelledby="topic-label topic" aria-controls="topic-list">
+                <span class="field__value is-placeholder">Bitte auswählen</span>
+                <svg class="icon icon--sm field__error-icon" aria-hidden="true"><use href="#i-warning-circle"/></svg>
+                <svg class="field__chevron icon" aria-hidden="true"><use href="#i-caret-down"/></svg>
+              </button>
+              <p class="field__hint dg-body-small-book"><span class="field__hint-text">Hilft uns, Ihre Anfrage richtig zuzuordnen.</span></p>
+              <div class="menu" hidden><div class="menu__list" role="listbox" id="topic-list" aria-labelledby="topic-label" tabindex="-1"></div><div class="scrollbar" aria-hidden="true"><div class="scrollbar__thumb"></div></div></div>
+            </div>
+
+            <div class="field span-all"><label class="field__label dg-body-small-book" for="msg">Nachricht <small>(optional)</small></label><div class="field__control field__control--area"><textarea class="field__input" id="msg" rows="4" placeholder="z. B. Grundstück liegt im Neubaugebiet „Am Sportpark“."></textarea></div></div>
+          </div>
+        </div>
+
+        <div class="form-block">
+          <fieldset class="group">
+            <legend class="dg-body-regular-semibold">Wie dürfen wir Sie kontaktieren?</legend>
+            <label class="choice choice--radio"><input type="radio" name="channel" value="mail" checked><span class="choice__box"><span class="choice__dot"></span></span><span class="choice__label">Per E-Mail</span><span class="choice__hint dg-body-small-book">Wir antworten in der Regel innerhalb von 24 Stunden.</span></label>
+            <label class="choice choice--radio"><input type="radio" name="channel" value="phone"><span class="choice__box"><span class="choice__dot"></span></span><span class="choice__label">Telefonisch</span><span class="choice__hint dg-body-small-book">Montag bis Freitag von 8 bis 20 Uhr.</span></label>
+          </fieldset>
+          <fieldset class="group">
+            <legend class="dg-body-regular-semibold">Benachrichtigungen per E-Mail</legend>
+            <label class="choice"><input type="checkbox" id="news-all"><span class="choice__box"><svg viewBox="0 0 256 256"><path class="choice__tick" d="M48 136l52 52L208 80"/><path class="choice__dash" d="M64 128h128"/></svg></span><span class="choice__label">Alle Benachrichtigungen</span></label>
+            <div class="group__nested">
+              <label class="choice"><input type="checkbox" name="news" checked><span class="choice__box"><svg viewBox="0 0 256 256"><path class="choice__tick" d="M48 136l52 52L208 80"/></svg></span><span class="choice__label">Updates zum Glasfaserausbau</span></label>
+              <label class="choice"><input type="checkbox" name="news"><span class="choice__box"><svg viewBox="0 0 256 256"><path class="choice__tick" d="M48 136l52 52L208 80"/></svg></span><span class="choice__label">Erinnerungen an Termine</span></label>
+              <label class="choice"><input type="checkbox" name="news" checked><span class="choice__box"><svg viewBox="0 0 256 256"><path class="choice__tick" d="M48 136l52 52L208 80"/></svg></span><span class="choice__label">Angebote und Aktionen</span></label>
+            </div>
+          </fieldset>
+          <label class="choice" id="c-consent"><input type="checkbox" id="consent"><span class="choice__box"><svg viewBox="0 0 256 256"><path class="choice__tick" d="M48 136l52 52L208 80"/></svg></span><span class="choice__label">Ich habe die Datenschutzhinweise gelesen und bin mit der Verarbeitung meiner Angaben einverstanden.</span><span class="choice__hint dg-body-small-book" id="consent-hint" hidden>Bitte bestätigen Sie die Datenschutzhinweise, um fortzufahren.</span></label>
+        </div>
+
+        <div class="form-actions">
+          <p class="dg-body-small-book subtle">Alle Felder ohne „optional“ sind Pflichtfelder.</p>
+          <button class="button button--primary" type="submit" id="contact-submit"><span>Anfrage senden</span><svg class="icon button__arrow" aria-hidden="true"><use href="#i-arrow-right"/></svg><svg class="icon button__spinner" aria-hidden="true"><use href="#i-spinner"/></svg></button>
+        </div>
+      </form>
+    </div>
+  </section>
+
+  <!-- Bausteine -->
+  <section class="section" id="bausteine">
+    <div class="wrap">
+      <div class="section__head">
+        <span class="eyebrow dg-body-small-semibold">Base Components</span>
+        <h2 class="dg-heading-h2">Bausteine und Zustände</h2>
+        <p class="subtle">Jede Komponente nutzt nur die generierten --dg-* Tokens. Der Schalter oben rechts zeigt die Dark-Werte der Collection „Color“.</p>
+      </div>
+      <div class="parts">
+        <div class="card part part--wide">
+          <div class="part__head"><h3 class="dg-heading-h6">Input field</h3><span class="code">6 States</span></div>
+          <div class="states">
+            <div class="field"><label class="field__label dg-body-small-book" for="s1">Placeholder</label><div class="field__control"><svg class="icon" aria-hidden="true"><use href="#i-envelope"/></svg><input class="field__input" id="s1" placeholder="name@beispiel.de"></div><p class="field__hint dg-body-small-book"><span class="field__hint-text">Hinweistext zur Unterstützung.</span></p></div>
+            <div class="field"><label class="field__label dg-body-small-book" for="s2">Filled</label><div class="field__control"><svg class="icon" aria-hidden="true"><use href="#i-envelope"/></svg><input class="field__input" id="s2" value="m.mustermann@beispiel.de"></div><p class="field__hint dg-body-small-book"><span class="field__hint-text">Hinweistext zur Unterstützung.</span></p></div>
+            <div class="field is-error"><label class="field__label dg-body-small-book" for="s3">Error</label><div class="field__control"><svg class="icon" aria-hidden="true"><use href="#i-envelope"/></svg><input class="field__input" id="s3" value="m.mustermann@beispiel"><svg class="icon icon--sm field__error-icon" aria-hidden="true"><use href="#i-warning-circle"/></svg></div><p class="field__hint dg-body-small-book"><span class="field__hint-text">Bitte geben Sie eine vollständige E-Mail-Adresse ein.</span></p></div>
+            <div class="field is-disabled"><label class="field__label dg-body-small-book" for="s4">Disabled</label><div class="field__control"><svg class="icon" aria-hidden="true"><use href="#i-envelope"/></svg><input class="field__input" id="s4" placeholder="name@beispiel.de" disabled></div><p class="field__hint dg-body-small-book"><span class="field__hint-text">Hinweistext zur Unterstützung.</span></p></div>
+          </div>
+          <p class="dg-body-small-book subtle">Focused und Error focused sehen Sie, wenn Sie in ein Feld klicken.</p>
+        </div>
+
+        <div class="card part">
+          <div class="part__head"><h3 class="dg-heading-h6">Select + Flyout</h3><span class="code">Select menu</span></div>
+          <div class="field" id="f-demo">
+            <span class="field__label dg-body-small-book" id="demo-label">Anliegen</span>
+            <button type="button" class="field__control field__control--select" id="demo" aria-haspopup="listbox" aria-expanded="false" aria-labelledby="demo-label demo" aria-controls="demo-list">
+              <span class="field__value">Alles zum Bau</span>
+              <svg class="field__chevron icon" aria-hidden="true"><use href="#i-caret-down"/></svg>
+            </button>
+            <p class="field__hint dg-body-small-book"><span class="field__hint-text">Mit Scrollbar, Tastatur: ↑ ↓ Enter Esc</span></p>
+            <div class="menu" hidden><div class="menu__list" role="listbox" id="demo-list" aria-labelledby="demo-label" tabindex="-1"></div><div class="scrollbar" aria-hidden="true"><div class="scrollbar__thumb"></div></div></div>
+          </div>
+        </div>
+
+        <div class="card part part--half">
+          <div class="part__head"><h3 class="dg-heading-h6">Checkbox</h3><span class="code">icon-size/md · radius/sm</span></div>
+          <div class="states">
+            <label class="choice"><input type="checkbox"><span class="choice__box"><svg viewBox="0 0 256 256"><path class="choice__tick" d="M48 136l52 52L208 80"/></svg></span><span class="choice__label">Unchecked</span></label>
+            <label class="choice"><input type="checkbox" checked><span class="choice__box"><svg viewBox="0 0 256 256"><path class="choice__tick" d="M48 136l52 52L208 80"/></svg></span><span class="choice__label">Checked</span></label>
+            <label class="choice"><input type="checkbox" data-indeterminate><span class="choice__box"><svg viewBox="0 0 256 256"><path class="choice__tick" d="M48 136l52 52L208 80"/><path class="choice__dash" d="M64 128h128"/></svg></span><span class="choice__label">Indeterminate</span></label>
+            <label class="choice is-disabled"><input type="checkbox" checked disabled><span class="choice__box"><svg viewBox="0 0 256 256"><path class="choice__tick" d="M48 136l52 52L208 80"/></svg></span><span class="choice__label">Disabled</span></label>
+            <label class="choice is-error span-all"><input type="checkbox"><span class="choice__box"><svg viewBox="0 0 256 256"><path class="choice__tick" d="M48 136l52 52L208 80"/></svg></span><span class="choice__label">Ich akzeptiere die AGB.</span><span class="choice__hint dg-body-small-book">Bitte akzeptieren Sie die AGB, um fortzufahren.</span></label>
+          </div>
+        </div>
+
+        <div class="card part part--half">
+          <div class="part__head"><h3 class="dg-heading-h6">Radio</h3><span class="code">icon-size/md · radius/full</span></div>
+          <fieldset class="group">
+            <legend class="sr-only">Kontaktweg</legend>
+            <label class="choice choice--radio"><input type="radio" name="demo-r" checked><span class="choice__box"><span class="choice__dot"></span></span><span class="choice__label">Per E-Mail</span><span class="choice__hint dg-body-small-book">Antwort in der Regel innerhalb von 24 Stunden.</span></label>
+            <label class="choice choice--radio"><input type="radio" name="demo-r"><span class="choice__box"><span class="choice__dot"></span></span><span class="choice__label">Telefonisch</span><span class="choice__hint dg-body-small-book">Montag bis Freitag von 8 bis 20 Uhr.</span></label>
+            <label class="choice choice--radio is-disabled"><input type="radio" name="demo-r" disabled><span class="choice__box"><span class="choice__dot"></span></span><span class="choice__label">Per Post</span><span class="choice__hint dg-body-small-book">Zurzeit nicht verfügbar.</span></label>
+          </fieldset>
+        </div>
+
+        <div class="card part part--wide">
+          <div class="part__head"><h3 class="dg-heading-h6">Badge</h3><span class="code">5 Farben · sm / md / lg</span></div>
+          <div class="stack" id="badge-grid"></div>
+        </div>
+
+        <div class="card part">
+          <div class="part__head"><h3 class="dg-heading-h6">Button</h3><span class="code">Vorschlag</span></div>
+          <div class="row">
+            <button class="button button--primary" type="button">Primär</button>
+            <button class="button button--secondary" type="button">Sekundär</button>
+            <button class="button button--ghost" type="button">Textlink</button>
+            <button class="button button--primary" type="button" disabled>Deaktiviert</button>
+          </div>
+          <p class="dg-body-small-book subtle">In der Figma-Library gibt es noch keine Button-Komponente. Diese Variante nutzt bg/brand, border/default und label/button.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Token-Referenz (generiert aus dist/tokens.json) -->
+  <section class="section section--muted" id="tokens">
+    <div class="wrap tok">
+      <div class="tok__bar">
+        <div class="section__head" style="margin:0">
+          <span class="eyebrow dg-body-small-semibold">Design Tokens</span>
+          <h2 class="dg-heading-h2">Alle Tokens aus Figma</h2>
+          <p class="subtle"><span data-tok="count"></span>. Klick auf einen Variablennamen kopiert ihn.</p>
+        </div>
+        <div class="field tok__search">
+          <label class="field__label dg-body-small-book" for="tok-search">Token suchen</label>
+          <div class="field__control"><svg class="icon" aria-hidden="true"><use href="#i-magnifying-glass"/></svg><input class="field__input" id="tok-search" type="search" placeholder="z. B. brand, badge, h1"></div>
+        </div>
+      </div>
+      <div class="card tok__section"><h3 class="dg-heading-h4">Primitives</h3><p class="subtle">Farbreihen mit 12 Stufen. Blaue Labels: Name im alten DG-Designsystem.</p><div class="stack" data-tok="primitives"></div></div>
+      <div class="card tok__section"><h3 class="dg-heading-h4">Semantische Farben</h3><p class="subtle">Links Light, rechts Dark. Alias zeigt, auf welche Stufe der Token in Light und Dark zeigt.</p><div class="stack" data-tok="semantic"></div></div>
+      <div class="card tok__section"><h3 class="dg-heading-h4">Typografie</h3><div class="tok-types" data-tok="type"></div><div class="tok-scales" data-tok="font"></div></div>
+      <div class="card tok__section"><h3 class="dg-heading-h4">Abstände</h3><div class="tok-scales" data-tok="spacing"></div></div>
+      <div class="card tok__section"><h3 class="dg-heading-h4">Radien</h3><div class="tok-scales" data-tok="radius"></div></div>
+      <div class="card tok__section"><h3 class="dg-heading-h4">Rahmen und Fokus</h3><div class="tok-scales" data-tok="border"></div></div>
+      <div class="card tok__section"><h3 class="dg-heading-h4">Icon-Größen</h3><div class="tok-scales" data-tok="icon"></div></div>
+      <div class="card tok__section"><h3 class="dg-heading-h4">Schatten</h3><div class="tok-scales" data-tok="shadow"></div></div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap"><p class="dg-body-small-book">Prototyp auf Basis der Figma-Seite „Foundations &amp; Base Components“. Ortsnamen, Straßen und Ausbaustatus sind Beispieldaten. Tarifnamen und Preise wie auf der aktuellen Website. Formulare senden keine Daten.</p></div>
+</footer>
+
+<div class="toast" id="toast" hidden role="status"><span class="toast__icon"><svg class="icon icon--sm" aria-hidden="true"><use href="#i-check"/></svg></span><span id="toast-text" class="dg-body-small-book"></span></div>
+</body>
+</html>
