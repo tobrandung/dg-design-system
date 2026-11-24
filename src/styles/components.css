@@ -12,7 +12,7 @@
 .field__label small { color: var(--dg-color-text-subtle); font: inherit; }
 .field__control {
   display: flex; align-items: center; gap: var(--dg-spacing-xs); min-width: 0;
-  padding: var(--dg-spacing-sm) var(--dg-spacing-md);
+  padding: calc(var(--dg-spacing-sm) - var(--dg-border-width-sm)) calc(var(--dg-spacing-md) - var(--dg-border-width-sm));
   background: var(--dg-color-bg-default); color: var(--dg-color-icon-subtle);
   border: var(--dg-border-width-sm) solid var(--dg-color-border-subtle);
   border-radius: var(--dg-radius-md); box-shadow: var(--dg-shadow-xs);
@@ -36,20 +36,26 @@ textarea.field__input { resize: vertical; min-height: calc(var(--dg-line-height-
 .field.is-error .field__control:focus-within, .field.is-error.is-open .field__control { box-shadow: var(--dg-shadow-xs-focus-error); }
 .field.is-error .field__hint { color: var(--dg-color-text-error); }
 .field.is-error .field__error-icon { display: block; }
-.field.is-disabled .field__control { background: var(--dg-color-bg-disabled); border-color: var(--dg-color-border-disabled); color: var(--dg-color-icon-disabled); }
-.field.is-disabled :is(.field__label, .field__input, .field__input::placeholder) { color: var(--dg-color-text-disabled); }
+/* Disabled wie in Figma: bg/disabled, border/disabled, icon/disabled, Label/Wert/Platzhalter/Hinweis text/disabled */
+.field.is-disabled .field__control { background: var(--dg-color-bg-disabled); border-color: var(--dg-color-border-disabled); color: var(--dg-color-icon-disabled); cursor: not-allowed; }
+.field.is-disabled .field__label,
+.field.is-disabled .field__hint,
+.field.is-disabled .field__input,
+.field.is-disabled .field__value { color: var(--dg-color-text-disabled); }
+.field.is-disabled .field__input::placeholder { color: var(--dg-color-text-disabled); }
+.field.is-disabled .field__input { cursor: not-allowed; }
 
 /* ---------- Select menu (Flyout) + Scroll bar ---------- */
 .menu {
-  position: absolute; z-index: 30; left: 0; right: 0; top: calc(100% + var(--dg-spacing-2xs));
-  display: flex; gap: var(--dg-spacing-2xs); padding: var(--dg-spacing-xs);
+  position: absolute; z-index: 30; left: 0; right: 0; top: calc(100% + var(--dg-spacing-xs));
+  display: flex; gap: var(--dg-spacing-2xs); padding: calc(var(--dg-spacing-xs) - var(--dg-border-width-sm));
   background: var(--dg-color-bg-default); border: var(--dg-border-width-sm) solid var(--dg-color-border-subtle);
   border-radius: var(--dg-radius-lg); box-shadow: var(--dg-shadow-lg); transform-origin: 50% 0;
 }
-.field:has(> .field__hint:not([hidden])) .menu { top: calc(100% - var(--dg-line-height-20) - var(--dg-spacing-2xs)); }
-.menu__list { flex: 1; min-width: 0; max-height: calc(5.5 * (var(--dg-line-height-24) + 2 * var(--dg-spacing-sm))); overflow-y: auto; scrollbar-width: none; overscroll-behavior: contain; display: flex; flex-direction: column; gap: var(--dg-spacing-3xs); outline: 0; }
+.field:has(> .field__hint:not([hidden])) .menu { top: calc(100% - var(--dg-line-height-20)); } /* Hinweis liegt spacing/xs unter dem Feld; das Flyout deckt ihn ab */
+.menu__list { flex: 1; min-width: 0; max-height: calc(6 * (var(--dg-line-height-24) + 2 * var(--dg-spacing-xs)) + 5 * var(--dg-spacing-2xs)); overflow-y: auto; scrollbar-width: none; overscroll-behavior: contain; display: flex; flex-direction: column; gap: var(--dg-spacing-2xs); outline: 0; }
 .menu__list::-webkit-scrollbar { display: none; }
-.menu__item { display: flex; align-items: center; gap: var(--dg-spacing-xs); padding: var(--dg-spacing-sm) var(--dg-spacing-md); border-radius: var(--dg-radius-md); color: var(--dg-color-text-subtle); cursor: pointer; user-select: none; }
+.menu__item { display: flex; align-items: center; gap: var(--dg-spacing-xs); padding: var(--dg-spacing-xs) var(--dg-spacing-sm); border-radius: var(--dg-radius-md); color: var(--dg-color-text-subtle); cursor: pointer; user-select: none; }
 .menu__item-text { flex: 1; min-width: 0; }
 .menu__item-sub { display: block; color: var(--dg-color-text-subtle); }
 .menu__item mark { background: none; color: inherit; font-weight: var(--dg-font-weight-semibold); }

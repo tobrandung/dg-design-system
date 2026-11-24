@@ -36,9 +36,9 @@ const store = {
   get: () => { try { return localStorage.getItem('dg-theme'); } catch { return null; } },
   set: (v) => { try { localStorage.setItem('dg-theme', v); } catch { /* privat */ } }
 };
-// Vor dem ersten Rendern setzen, damit es nicht flackert
-const saved = store.get();
-if (saved === 'light' || saved === 'dark') root.setAttribute('data-theme', saved);
+// Standard ist Hell. Dunkel nur per Schalter oder „System“. Vor dem ersten Rendern setzen, damit nichts flackert.
+const saved = ['light', 'dark', 'system'].includes(store.get()) ? store.get() : 'light';
+if (saved !== 'system') root.setAttribute('data-theme', saved);
 
 function initTheme() {
   const btns = $$('[data-theme-set]');
@@ -67,7 +67,7 @@ function initTheme() {
     } else set();
   };
   btns.forEach((b) => b.addEventListener('click', (e) => apply(b.dataset.themeSet, e)));
-  apply(saved || 'system');
+  apply(saved);
   addEventListener('resize', () => placePill(activeBtn(), false));
   document.fonts?.ready.then(() => placePill(activeBtn(), false));
 }
