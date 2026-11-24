@@ -79,6 +79,10 @@ function render(tokens, root) {
   root.querySelector('[data-tok="border"]').innerHTML = scale(tokens, 'border-width.', (t) => `<span class="tok-box tok-box--line" style="border-width:${varOf(t)}"></span>`) + scale(tokens, 'focus-ring.', (t) => `<span class="tok-box" style="box-shadow:0 0 0 ${varOf(t)} var(--dg-color-focus-ring-brand)"></span>`);
   root.querySelector('[data-tok="icon"]').innerHTML = scale(tokens, 'icon-size.', (t) => `<span class="tok-box" style="width:${varOf(t)};height:${varOf(t)};border-radius:var(--dg-radius-xs)"></span>`);
   root.querySelector('[data-tok="shadow"]').innerHTML = scale(tokens, 'shadow.', (t) => `<span class="tok-box tok-box--shadow" style="box-shadow:${varOf(t)}"></span>`);
+  root.querySelector('[data-tok="motion"]').innerHTML = scale(tokens, 'motion.', (t) => {
+    const style = t.type === 'duration' ? `--d:${varOf(t)}` : t.type === 'cubicBezier' ? `--e:${varOf(t)}` : t.name.includes('scale') ? `--s:${varOf(t)}` : `--y:${varOf(t)}`;
+    return `<span class="tok-motion tok-motion--${t.type}" style="${style}" aria-hidden="true"><span></span></span>`;
+  });
   root.querySelector('[data-tok="type"]').innerHTML = typeSpecimens(tokens);
   root.querySelector('[data-tok="font"]').innerHTML = ['font-family.', 'font-weight.', 'font-size.', 'line-height.'].map((p) => scale(tokens, p, () => '')).join('');
   filter(root);

@@ -3,15 +3,17 @@ import '../dist/css/index.css';
 import './styles/page.css';
 import './styles/components.css';
 import { gsap } from 'gsap';
+import { dur, ease, distance, exitMs } from './motion.js';
 
 export { gsap };
+export * from './motion.js';
 const reduce = matchMedia('(prefers-reduced-motion: reduce)');
 /** Animation nur, wenn erwünscht und die Seite sichtbar ist (verdeckte Tabs pausieren rAF). */
 export const motion = () => !reduce.matches && !document.hidden;
 export const $ = (s, r = document) => r.querySelector(s);
 export const $$ = (s, r = document) => [...r.querySelectorAll(s)];
 export const esc = (s) => String(s).replace(/[&<>"]/g, (c) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c]));
-gsap.defaults({ ease: 'power3.out', duration: 0.3 });
+gsap.defaults({ ease: ease.standard, duration: dur.base });
 
 /* ---------- Toast ---------- */
 let toastTimer;
@@ -21,12 +23,12 @@ export function toast(msg) {
   $('#toast-text').textContent = msg;
   el.hidden = false;
   clearTimeout(toastTimer);
-  if (motion()) gsap.fromTo(el, { y: 24, autoAlpha: 0 }, { y: 0, autoAlpha: 1, duration: 0.4, ease: 'back.out(1.6)' });
+  if (motion()) gsap.fromTo(el, { y: distance * 2, autoAlpha: 0 }, { y: 0, autoAlpha: 1, duration: dur.slow, ease: ease.enter });
   toastTimer = setTimeout(() => {
     const hide = () => { gsap.killTweensOf(el); gsap.set(el, { clearProps: 'all' }); el.hidden = true; };
     if (!motion()) { hide(); return; }
-    gsap.to(el, { y: 16, autoAlpha: 0, duration: 0.25, onComplete: hide });
-    setTimeout(hide, 300); // falls rAF pausiert
+    gsap.to(el, { y: distance, autoAlpha: 0, duration: dur.fast, ease: ease.exit, onComplete: hide });
+    setTimeout(hide, exitMs()); // falls rAF pausiert
   }, 3200);
 }
 
@@ -47,7 +49,7 @@ function initTheme() {
   const activeBtn = () => btns.find((b) => b.getAttribute('aria-pressed') === 'true');
   const placePill = (btn, animate) => {
     const r = btn.getBoundingClientRect(), p = btn.parentElement.getBoundingClientRect();
-    if (animate && motion()) gsap.to(pill, { x: r.left - p.left, width: r.width, duration: 0.35, ease: 'power3.inOut' });
+    if (animate && motion()) gsap.to(pill, { x: r.left - p.left, width: r.width, duration: dur.slow, ease: ease.standard });
     else gsap.set(pill, { x: r.left - p.left, width: r.width });
   };
   const apply = (mode, ev) => {
@@ -62,7 +64,7 @@ function initTheme() {
       const r = Math.hypot(Math.max(x, innerWidth - x), Math.max(y, innerHeight - y));
       document.startViewTransition(set).ready.then(() => root.animate(
         { clipPath: [`circle(0 at ${x}px ${y}px)`, `circle(${r}px at ${x}px ${y}px)`] },
-        { duration: 520, easing: 'cubic-bezier(.22,.8,.3,1)', pseudoElement: '::view-transition-new(root)' }
+        { duration: dur.slower * 1000, easing: getComputedStyle(root).getPropertyValue('--dg-motion-easing-standard'), pseudoElement: '::view-transition-new(root)' }
       ));
     } else set();
   };
@@ -76,5 +78,5 @@ initTheme();
 /** Sanfter Einstieg für Elemente mit [data-reveal]. */
 export function revealPage() {
   if (!motion()) return;
-  gsap.from('[data-reveal]', { y: 14, autoAlpha: 0, stagger: 0.07, duration: 0.6, clearProps: 'all' });
+  gsap.from('[data-reveal]', { y: distance * 2, autoAlpha: 0, stagger: 0.05, duration: dur.slower, ease: ease.enter, clearProps: 'all' });
 }

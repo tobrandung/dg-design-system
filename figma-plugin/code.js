@@ -43,8 +43,17 @@ const tokenPath = (name) => name.replace(/^_legacy\//, 'legacy/').split('/').map
 const isLegacy = (name) => /^_legacy\//.test(name);
 const px = (value) => ({ value: round(value, 3), unit: 'px' });
 
+/**
+ * Motion hat in Figma keinen eigenen Variablentyp. Konvention über den Namen:
+ *   motion/duration/*  (Number, ms)         → DTCG duration
+ *   motion/easing/*    (String "x1, y1, x2, y2") → DTCG cubicBezier
+ *   motion/scale/*     (Number)             → DTCG number
+ */
 function tokenType(v) {
   const s = v.scopes || [];
+  if (v.name.startsWith('motion/duration/')) return 'duration';
+  if (v.name.startsWith('motion/easing/')) return 'cubicBezier';
+  if (v.name.startsWith('motion/scale/')) return 'number';
   if (v.resolvedType === 'COLOR') return 'color';
   if (v.resolvedType === 'STRING') {
     if (s.includes('FONT_FAMILY') || v.name.startsWith('font-family')) return 'fontFamily';
@@ -111,6 +120,12 @@ function figmaToDtcg(model, { includeFigmaMeta = true } = {}) {
           meta.aliasOpacity = raw.opacity;
         } else if (type === 'color') {
           value = colorValue(raw);
+        } else if (type === 'duration') {
+          value = { value: round(raw, 2), unit: 'ms' };
+        } else if (type === 'cubicBezier') {
+          value = String(raw).split(',').map((n) => round(Number(n.trim()), 4));
+        } else if (type === 'number') {
+          value = round(raw, 4);
         } else if (type === 'dimension') {
           value = px(raw);
         } else if (type === 'fontWeight') {

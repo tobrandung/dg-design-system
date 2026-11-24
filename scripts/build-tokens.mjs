@@ -15,6 +15,7 @@
  */
 import StyleDictionary from 'style-dictionary';
 import { mkdir, writeFile } from 'node:fs/promises';
+import { readdirSync } from 'node:fs';
 import { fileURLToPath } from 'node:url';
 import path from 'node:path';
 
@@ -93,6 +94,8 @@ const keepRef = (token) => isRef(token.original.$value);
 StyleDictionary.registerTransform({ name: 'dg/name', type: 'name', transform: (t) => `${PREFIX}-${t.path.join('-')}` });
 StyleDictionary.registerTransform({ name: 'dg/color', type: 'value', transitive: true, filter: (t) => t.$type === 'color', transform: (t) => colorCss(t.$value) });
 StyleDictionary.registerTransform({ name: 'dg/dimension', type: 'value', transitive: true, filter: (t) => t.$type === 'dimension', transform: (t) => dimCss(t.$value, t.path[0]) });
+StyleDictionary.registerTransform({ name: 'dg/duration', type: 'value', transitive: true, filter: (t) => t.$type === 'duration', transform: (t) => (typeof t.$value === 'string' ? t.$value : `${num(t.$value.value)}${t.$value.unit}`) });
+StyleDictionary.registerTransform({ name: 'dg/cubicBezier', type: 'value', transitive: true, filter: (t) => t.$type === 'cubicBezier', transform: (t) => (Array.isArray(t.$value) ? `cubic-bezier(${t.$value.map(num).join(', ')})` : t.$value) });
 StyleDictionary.registerTransform({ name: 'dg/fontFamily', type: 'value', transitive: true, filter: (t) => t.$type === 'fontFamily', transform: (t) => fontStack(t.$value) });
 StyleDictionary.registerTransform({ name: 'dg/shadow', type: 'value', transitive: true, filter: (t) => t.$type === 'shadow', transform: (t) => shadowCss(t.original.$value, true) });
 StyleDictionary.registerTransform({ name: 'dg/typography', type: 'value', transitive: true, filter: (t) => t.$type === 'typography', transform: (t) => fontCss(t, true) });
@@ -100,8 +103,8 @@ StyleDictionary.registerTransform({ name: 'dg/typography', type: 'value', transi
 StyleDictionary.registerTransform({ name: 'dg/shadow-resolved', type: 'value', transitive: true, filter: (t) => t.$type === 'shadow', transform: (t) => shadowCss(t.$value, false) });
 StyleDictionary.registerTransform({ name: 'dg/typography-resolved', type: 'value', transitive: true, filter: (t) => t.$type === 'typography', transform: (t) => fontCss(t, false) });
 
-const CSS_TRANSFORMS = ['dg/name', 'dg/color', 'dg/dimension', 'dg/fontFamily', 'dg/shadow', 'dg/typography'];
-const JS_TRANSFORMS = ['dg/name', 'dg/color', 'dg/dimension', 'dg/fontFamily', 'dg/shadow-resolved', 'dg/typography-resolved'];
+const CSS_TRANSFORMS = ['dg/name', 'dg/color', 'dg/dimension', 'dg/duration', 'dg/cubicBezier', 'dg/fontFamily', 'dg/shadow', 'dg/typography'];
+const JS_TRANSFORMS = ['dg/name', 'dg/color', 'dg/dimension', 'dg/duration', 'dg/cubicBezier', 'dg/fontFamily', 'dg/shadow-resolved', 'dg/typography-resolved'];
 
 /* ---------- Formate ---------- */
 const HEADER = '/* Automatisch erzeugt aus tokens/*.tokens.json – nicht von Hand ändern. Quelle: Figma */\n';
@@ -149,7 +152,8 @@ StyleDictionary.registerFormat({
 });
 
 /* ---------- Builds ---------- */
-const BASE = ['primitives', 'dimensions', 'typography', 'text-styles', 'effect-styles'].map((f) => T(`${f}.tokens.json`));
+/** Alle Token-Dateien außer den Farb-Modes. Neue Collections aus Figma werden so automatisch mitgebaut. */
+const BASE = readdirSync(path.join(ROOT, 'tokens')).filter((f) => f.endsWith('.tokens.json') && !f.startsWith('color.')).sort().map((f) => T(f));
 const log = { verbosity: 'silent', warnings: 'disabled' };
 
 export async function buildTokens({ quiet = false } = {}) {

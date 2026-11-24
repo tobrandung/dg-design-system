@@ -104,14 +104,38 @@ veröffentlichen, dann senden.
 | `typography.tokens.json` | Collection „Typography“ | font-family, font-weight, font-size, line-height |
 | `text-styles.tokens.json` | Textstile | Composite-Tokens `typography` (Überschriften, Fließtext, Label, Preis) |
 | `effect-styles.tokens.json` | Effektstile | Schatten, Fokusringe, Hintergrund-Blur |
+| `motion.tokens.json` | Collection „Motion“ | Dauer, Easing, Startgröße und Versatz für Animationen |
 
 Pro Mode entsteht eine Datei, wie beim nativen Variablen-Export von Figma. Weitere Angaben:
 - Figma-Metadaten (Key, Scopes) stehen unter `$extensions["com.figma"]`.
 - Beschreibungen stehen unter `$description`.
 - Veraltete Tokens (`_legacy/…` in Figma) bekommen `$deprecated`.
 
-Neue Collections oder Modes in Figma erzeugen automatisch neue Dateien. Damit sie gebaut werden,
-in `scripts/build-tokens.mjs` unter `BASE` bzw. als Theme eintragen.
+Neue Collections in Figma erzeugen automatisch neue Dateien und werden automatisch mitgebaut.
+Nur neue Modes (z. B. ein drittes Theme) müssen in `scripts/build-tokens.mjs` eingetragen werden.
+
+## Motion
+
+Animationen nutzen nur Motion-Tokens aus Figma (Collection „Motion“). Figma hat keinen Variablentyp für
+Dauer oder Easing, deshalb gilt eine Namenskonvention:
+
+| Figma-Variable | Typ in Figma | DTCG-Token | CSS |
+| --- | --- | --- | --- |
+| `motion/duration/fast · base · slow · slower` | Number (ms) | `duration` | `--dg-motion-duration-base: 200ms` |
+| `motion/easing/standard · enter · exit · spring` | String `"x1, y1, x2, y2"` | `cubicBezier` | `--dg-motion-easing-enter: cubic-bezier(0, 0, 0.2, 1)` |
+| `motion/scale/enter` | Number | `number` | `--dg-motion-scale-enter: 0.95` |
+| `motion/distance/enter` | Number, Alias auf `spacing/xs` | `dimension` | `--dg-motion-distance-enter` |
+
+- **CSS-Übergänge**: `transition: border-color var(--dg-motion-duration-fast) var(--dg-motion-easing-standard)`.
+- **GSAP**: `import { dur, ease, scaleEnter, distance } from './src/motion.js'` liefert dieselben Werte in Sekunden und als Easing.
+
+Die Regeln folgen shadcn/ui und Material 3:
+- **Einblenden**: `enter`-Easing, `base` (Flyout) bzw. `slow` (Dialog), dazu leicht vergrößern (`scale/enter`) und versetzen (`distance/enter`).
+- **Ausblenden**: `exit`-Easing, immer `fast`. Ausblenden ist kürzer als Einblenden.
+- **Zustandswechsel**: `standard`-Easing.
+- **`spring`**: nur für kleine Bestätigungen wie Häkchen oder Auswahl, nie für Flächen.
+- **Reduzierte Bewegung**: Bei `prefers-reduced-motion` fallen alle Dauern auf 0.
+- **Logik**: Der Ablauf hängt nie am Ende einer Animation. Inhalte werden sofort getauscht, die Animation ist nur Kosmetik.
 
 ## Im Code verwenden
 

@@ -1,0 +1,154 @@
+{
+  "motion": {
+    "duration": {
+      "fast": {
+        "$type": "duration",
+        "$value": {
+          "value": 150,
+          "unit": "ms"
+        },
+        "$description": "ms · Farbe, Rahmen, Hover, Fokus, Häkchen",
+        "$extensions": {
+          "com.figma": {
+            "key": "c797a210b1680d042ac4d40ed81b354e4ef7c43e",
+            "scopes": []
+          }
+        }
+      },
+      "base": {
+        "$type": "duration",
+        "$value": {
+          "value": 200,
+          "unit": "ms"
+        },
+        "$description": "ms · Flyouts, Tooltips, kleine Ein- und Ausblendungen",
+        "$extensions": {
+          "com.figma": {
+            "key": "297e7da9029898f590f79eae4c6c1ddf01fcf1d7",
+            "scopes": []
+          }
+        }
+      },
+      "slow": {
+        "$type": "duration",
+        "$value": {
+          "value": 300,
+          "unit": "ms"
+        },
+        "$description": "ms · Dialoge, Schrittwechsel, Panels",
+        "$extensions": {
+          "com.figma": {
+            "key": "82ab34dd20e1bc3c25e1944e6cb69a9b1715ba72",
+            "scopes": []
+          }
+        }
+      },
+      "slower": {
+        "$type": "duration",
+        "$value": {
+          "value": 500,
+          "unit": "ms"
+        },
+        "$description": "ms · Seiteneinstieg, Erfolgsmeldungen",
+        "$extensions": {
+          "com.figma": {
+            "key": "69c3d417b526613cedf4aa653ff824aef799e3d6",
+            "scopes": []
+          }
+        }
+      }
+    },
+    "easing": {
+      "standard": {
+        "$type": "cubicBezier",
+        "$value": [
+          0.2,
+          0,
+          0,
+          1
+        ],
+        "$description": "cubic-bezier · Bewegung innerhalb der Seite (Zustandswechsel)",
+        "$extensions": {
+          "com.figma": {
+            "key": "88a0b215bdc63cbb7de0d82e6ab1751f515a6fe9",
+            "scopes": []
+          }
+        }
+      },
+      "enter": {
+        "$type": "cubicBezier",
+        "$value": [
+          0,
+          0,
+          0.2,
+          1
+        ],
+        "$description": "cubic-bezier · Elemente erscheinen (ease-out)",
+        "$extensions": {
+          "com.figma": {
+            "key": "0b0fa1b64fbf37aa50c15b8081db5b611ef3fad8",
+            "scopes": []
+          }
+        }
+      },
+      "exit": {
+        "$type": "cubicBezier",
+        "$value": [
+          0.4,
+          0,
+          1,
+          1
+        ],
+        "$description": "cubic-bezier · Elemente verschwinden (ease-in), kürzer als enter",
+        "$extensions": {
+          "com.figma": {
+            "key": "4543becd2857760321c518c2d3b0735a03d32015",
+            "scopes": []
+          }
+        }
+      },
+      "spring": {
+        "$type": "cubicBezier",
+        "$value": [
+          0.34,
+          1.56,
+          0.64,
+          1
+        ],
+        "$description": "cubic-bezier · leichtes Nachfedern für Häkchen und Auswahl",
+        "$extensions": {
+          "com.figma": {
+            "key": "e1af65599d8675a102f4ecdfa04f7677d8c5c633",
+            "scopes": []
+          }
+        }
+      }
+    },
+    "scale": {
+      "enter": {
+        "$type": "number",
+        "$value": 0.95,
+        "$description": "Startgröße beim Einblenden von Flyouts und Dialogen (wie zoom-in-95)",
+        "$extensions": {
+          "com.figma": {
+            "key": "333f1118f884b71bc0b3ce2eecb84e28eb42958f",
+            "scopes": []
+          }
+        }
+      }
+    },
+    "distance": {
+      "enter": {
+        "$type": "dimension",
+        "$value": "{spacing.xs}",
+        "$description": "Versatz beim Einblenden (wie slide-in-from-top-2)",
+        "$extensions": {
+          "com.figma": {
+            "key": "356f518901db6698fab6d9dbff338be46e2dc5ab",
+            "scopes": []
+          }
+        }
+      }
+    }
+  }
+}

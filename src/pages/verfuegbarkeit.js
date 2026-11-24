@@ -1,7 +1,7 @@
 /* Verfügbarkeitscheck nach dem Ablauf auf deutsche-glasfaser.de:
  * Band mit PLZ/Ort → Straße → Hausnummer, dann Dialog mit Stepper (Adresse ✓ · Wohnsituation · Ergebnis). */
 import '../styles/flows.css';
-import { gsap, motion, $, $$, esc, toast, revealPage } from '../core.js';
+import { gsap, motion, $, $$, esc, toast, revealPage, dur, ease, scaleEnter, distance, exitMs } from '../core.js';
 import { combobox, bindChoices, optionHTML, clearError } from '../ui/forms.js';
 
 /* ---------- Beispieldaten ---------- */
@@ -110,7 +110,7 @@ function setStep(i) {
     s.classList.toggle('is-current', n === i);
     if (n === i) s.setAttribute('aria-current', 'step'); else s.removeAttribute('aria-current');
   });
-  if (motion()) gsap.fromTo($('.stepper__dot', steps[i]), { scale: 0.6 }, { scale: 1, duration: 0.45, ease: 'back.out(2.4)', clearProps: 'transform' });
+  if (motion()) gsap.fromTo($('.stepper__dot', steps[i]), { scale: scaleEnter - 0.25 }, { scale: 1, duration: dur.slow, ease: ease.spring, clearProps: 'transform' });
 }
 
 function show(name) {
@@ -126,22 +126,23 @@ function show(name) {
   if (!motion() || from === to) return;
   const dir = name === 'result' ? 1 : -1;
   gsap.timeline()
-    .fromTo(to, { x: 24 * dir, autoAlpha: 0 }, { x: 0, autoAlpha: 1, duration: 0.35, clearProps: 'all' })
-    .from($$('.pill, .bubble, .vc-result__phase, .panel, .checklist li, .vc-result__biz', to), { y: 10, autoAlpha: 0, stagger: 0.04, duration: 0.28, clearProps: 'all' }, '-=.25');
+    .fromTo(to, { x: distance * 2 * dir, autoAlpha: 0 }, { x: 0, autoAlpha: 1, duration: dur.slow, ease: ease.standard, clearProps: 'all' })
+    .from($$('.pill, .bubble, .vc-result__phase, .panel, .vc-result__biz', to), { y: distance, autoAlpha: 0, stagger: 0.04, duration: dur.slow, ease: ease.enter, clearProps: 'all' }, `-=${dur.base}`);
 }
 
 function open() {
   setStep(1);
   show('living');
   dlg.showModal();
-  if (motion()) gsap.fromTo(dlg, { y: 24, scale: 0.98, autoAlpha: 0 }, { y: 0, scale: 1, autoAlpha: 1, duration: 0.4, clearProps: 'all' });
+  // wie shadcn Dialog: fade-in + zoom-in-95; Hintergrund blendet per CSS (dg-fade-in) ein
+  if (motion()) gsap.fromTo(dlg, { scale: scaleEnter, autoAlpha: 0 }, { scale: 1, autoAlpha: 1, duration: dur.base, ease: ease.enter, clearProps: 'all' });
 }
 function close(after) {
   let closed = false;
   const done = () => { if (closed) return; closed = true; gsap.killTweensOf(dlg); gsap.set(dlg, { clearProps: 'all' }); dlg.close(); after?.(); };
   if (!motion()) { done(); return; }
-  gsap.to(dlg, { y: 16, autoAlpha: 0, duration: 0.18, ease: 'power2.in', onComplete: done });
-  setTimeout(done, 220); // falls rAF pausiert (Hintergrund-Tab)
+  gsap.to(dlg, { scale: scaleEnter, autoAlpha: 0, duration: dur.fast, ease: ease.exit, onComplete: done });
+  setTimeout(done, exitMs()); // falls rAF pausiert (Hintergrund-Tab)
 }
 dlg.addEventListener('cancel', (e) => { e.preventDefault(); close(); });
 $('[data-close]', dlg).addEventListener('click', () => close());
@@ -197,4 +198,4 @@ $('#result-cta').addEventListener('click', (e) => {
 });
 
 revealPage();
-if (motion()) gsap.from('[data-reveal-card]', { y: 20, autoAlpha: 0, stagger: 0.08, duration: 0.5, delay: 0.2, clearProps: 'all' });
+if (motion()) gsap.from('[data-reveal-card]', { y: distance * 2, autoAlpha: 0, stagger: 0.05, duration: dur.slower, ease: ease.enter, delay: dur.fast, clearProps: 'all' });

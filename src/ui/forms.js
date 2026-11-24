@@ -1,5 +1,5 @@
 /* Formular-Bausteine: Flyout (Select menu), Combobox, Select, Fehlerzustände, Checkbox/Radio, Optionskacheln. */
-import { gsap, motion, $, $$, esc } from '../core.js';
+import { gsap, motion, $, $$, esc, dur, ease, scaleEnter, distance, exitMs } from '../core.js';
 
 /* ---------- Flyout + Scroll bar ---------- */
 function syncScrollbar(menu) {
@@ -8,9 +8,11 @@ function syncScrollbar(menu) {
   const ratio = list.clientHeight / list.scrollHeight;
   bar.hidden = ratio >= 1;
   if (ratio >= 1) return;
-  const h = Math.max(32, list.clientHeight * ratio);
+  // Spur = Scrollbar-Höhe minus Innenabstand oben (Figma: 240 − 4)
+  const track = bar.clientHeight - parseFloat(getComputedStyle(bar).paddingTop);
+  const h = Math.max(24, track * ratio);
   thumb.style.height = `${h}px`;
-  thumb.style.transform = `translateY(${(list.scrollTop / (list.scrollHeight - list.clientHeight)) * (list.clientHeight - h)}px)`;
+  thumb.style.transform = `translateY(${(list.scrollTop / (list.scrollHeight - list.clientHeight)) * (track - h)}px)`;
 }
 function bindMenu(field) {
   const menu = $('.menu', field);
@@ -26,10 +28,10 @@ export function openMenu(field) {
   field.classList.add('is-open');
   menu.hidden = false;
   syncScrollbar(menu);
+  // wie shadcn: fade-in + zoom-in-95 + slide-in-from-top-2, enter-Easing
   if (motion()) {
     gsap.killTweensOf(menu);
-    gsap.fromTo(menu, { autoAlpha: 0, y: -6, scaleY: 0.96 }, { autoAlpha: 1, y: 0, scaleY: 1, duration: 0.24 });
-    gsap.fromTo($$('.menu__item', menu).slice(0, 8), { autoAlpha: 0, y: -4 }, { autoAlpha: 1, y: 0, duration: 0.22, stagger: 0.02, delay: 0.03 });
+    gsap.fromTo(menu, { autoAlpha: 0, scale: scaleEnter, y: -distance }, { autoAlpha: 1, scale: 1, y: 0, duration: dur.base, ease: ease.enter, clearProps: 'transform,opacity,visibility' });
   }
 }
 export function closeMenu(field) {
@@ -38,8 +40,9 @@ export function closeMenu(field) {
   field.classList.remove('is-open');
   const hide = () => { if (field.classList.contains('is-open')) return; gsap.killTweensOf(menu); menu.hidden = true; gsap.set(menu, { clearProps: 'all' }); };
   if (!motion()) { hide(); return; }
-  gsap.to(menu, { autoAlpha: 0, y: -4, scaleY: 0.98, duration: 0.14, ease: 'power2.in', onComplete: hide });
-  setTimeout(hide, 180); // falls rAF pausiert (Hintergrund-Tab)
+  // wie shadcn: fade-out + zoom-out-95, kürzer als das Einblenden
+  gsap.to(menu, { autoAlpha: 0, scale: scaleEnter, duration: dur.fast, ease: ease.exit, onComplete: hide });
+  setTimeout(hide, exitMs()); // falls rAF pausiert (Hintergrund-Tab)
 }
 function setActive(field, idx) {
   const items = $$('.menu__item:not(.is-empty)', field);
@@ -60,13 +63,17 @@ const itemHTML = (id, label, sub, selected, q) =>
 export function setError(field, msg) {
   const hint = $('.field__hint', field);
   field.classList.add('is-error');
+  const wasError = field.dataset.err === msg;
   if (hint) { hint.dataset.base ??= hint.hidden ? '' : hint.textContent; $('.field__hint-text', hint).textContent = msg; hint.hidden = false; }
+  field.dataset.err = msg;
   $('input, textarea, button.field__control', field)?.setAttribute('aria-invalid', 'true');
-  if (motion()) gsap.fromTo($('.field__control', field), { x: 0 }, { keyframes: { x: [0, -6, 5, -3, 2, 0] }, duration: 0.36, ease: 'none' });
+  // Fehlermeldung gleitet ruhig ein (kein Schütteln); Rahmenfarbe wechselt per CSS-Transition
+  if (hint && !wasError && motion()) gsap.fromTo(hint, { autoAlpha: 0, y: -distance / 2 }, { autoAlpha: 1, y: 0, duration: dur.base, ease: ease.enter, clearProps: 'all' });
 }
 export function clearError(field) {
   if (!field.classList.contains('is-error')) return;
   field.classList.remove('is-error');
+  delete field.dataset.err;
   const hint = $('.field__hint', field);
   if (hint) { if (hint.dataset.base) $('.field__hint-text', hint).textContent = hint.dataset.base; else hint.hidden = true; }
   $('input, textarea, button.field__control', field)?.removeAttribute('aria-invalid');
@@ -121,7 +128,7 @@ export function select(field, options, { initial = -1, onChange } = {}) {
   const close = (focusBtn) => { if (!isOpen()) return; closeMenu(field); btn.setAttribute('aria-expanded', 'false'); if (focusBtn) btn.focus(); };
   const pick = (i) => {
     selected = i; show(); clearError(field); close(true);
-    if (motion()) gsap.fromTo(val, { y: 6, autoAlpha: 0 }, { y: 0, autoAlpha: 1, duration: 0.25 });
+    if (motion()) gsap.fromTo(val, { y: distance / 2, autoAlpha: 0 }, { y: 0, autoAlpha: 1, duration: dur.base, ease: ease.enter, clearProps: 'all' });
     onChange?.(i, opts[i]);
   };
   btn.addEventListener('click', () => (isOpen() ? close(false) : open()));
@@ -149,17 +156,16 @@ export function bindChoices(scope = document) {
   $$('.choice > input[type=checkbox]', scope).forEach((input) => input.addEventListener('change', () => {
     if (!motion()) return;
     const box = input.nextElementSibling, tick = $('.choice__tick', box);
-    gsap.fromTo(box, { scale: 0.86 }, { scale: 1, duration: 0.35, ease: 'back.out(3)' });
-    if (input.checked && tick) gsap.fromTo(tick, { strokeDashoffset: 260 }, { strokeDashoffset: 0, duration: 0.28, ease: 'power2.out', clearProps: 'strokeDashoffset' });
+    gsap.fromTo(box, { scale: 0.9 }, { scale: 1, duration: dur.base, ease: ease.spring, clearProps: 'transform' });
+    if (input.checked && tick) gsap.fromTo(tick, { strokeDashoffset: 260 }, { strokeDashoffset: 0, duration: dur.base, ease: ease.enter, clearProps: 'strokeDashoffset' });
   }));
   $$('.choice > input[type=radio]', scope).forEach((input) => input.addEventListener('change', () => {
-    if (motion()) gsap.fromTo($('.choice__dot', input.nextElementSibling), { scale: 0 }, { scale: 1, duration: 0.4, ease: 'back.out(2.6)', clearProps: 'transform' });
+    if (motion()) gsap.fromTo($('.choice__dot', input.nextElementSibling), { scale: 0 }, { scale: 1, duration: dur.base, ease: ease.spring, clearProps: 'transform' });
   }));
   $$('.option > input', scope).forEach((input) => input.addEventListener('change', () => {
     if (!motion() || !input.checked) return;
     const opt = input.closest('.option');
-    gsap.fromTo(opt, { scale: 0.97 }, { scale: 1, duration: 0.35, ease: 'back.out(2.4)', clearProps: 'transform' });
-    gsap.fromTo($('.option__check', opt), { scale: 0, rotate: -45 }, { scale: 1, rotate: 0, duration: 0.4, ease: 'back.out(2.6)', clearProps: 'transform' });
+    gsap.fromTo($('.option__check', opt), { scale: 0 }, { scale: 1, duration: dur.base, ease: ease.spring, clearProps: 'transform' });
   }));
 }
 

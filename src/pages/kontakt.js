@@ -3,7 +3,7 @@
  * 1:1 übernommen ist der Weg Privatkunde → Vertrag → Änderung persönlicher Daten → Kontaktdaten.
  * Andere Wege enden in einem allgemeinen Formular (Felder angenommen). */
 import '../styles/flows.css';
-import { gsap, motion, $, $$, esc, toast, revealPage } from '../core.js';
+import { gsap, motion, $, $$, esc, toast, revealPage, dur, ease, scaleEnter, distance } from '../core.js';
 import { select, setError, clearError, setGroupError, bindChoices, optionHTML } from '../ui/forms.js';
 
 /* ---------- Themenbaum ---------- */
@@ -186,8 +186,8 @@ function go(dir) {
   body.removeEventListener('change', onOption);
   render();
   if (!motion()) return;
-  gsap.fromTo(body, { x: 20 * dir, autoAlpha: 0 }, { x: 0, autoAlpha: 1, duration: 0.32, clearProps: 'all' });
-  if (dir > 0) gsap.from('#summary li:last-child', { scale: 0.8, autoAlpha: 0, duration: 0.35, ease: 'back.out(2)', clearProps: 'all' });
+  gsap.fromTo(body, { x: distance * 2 * dir, autoAlpha: 0 }, { x: 0, autoAlpha: 1, duration: dur.slow, ease: ease.standard, clearProps: 'all' });
+  if (dir > 0) gsap.from('#summary li:last-child', { scale: scaleEnter, autoAlpha: 0, duration: dur.base, ease: ease.spring, clearProps: 'all' });
   const top = $('#wizard').getBoundingClientRect().top;
   if (top < 0) $('#wizard').scrollIntoView({ behavior: 'smooth', block: 'start' });
 }
@@ -211,7 +211,7 @@ function bindForm(form) {
         const on = c.dataset.when === e.target.value;
         if (on === !c.hidden) return;
         c.hidden = !on;
-        if (on && motion()) gsap.from(c, { y: -6, autoAlpha: 0, duration: 0.3, clearProps: 'all' });
+        if (on && motion()) gsap.from(c, { y: -distance, autoAlpha: 0, duration: dur.base, ease: ease.enter, clearProps: 'all' });
       });
     }
     if (e.target.id === 'upload') $('#upload-name').textContent = e.target.files[0]?.name || 'Keine Datei ausgewählt';
@@ -250,8 +250,8 @@ function done() {
       <button class="button button--secondary" type="button" id="w-restart">Neues Anliegen</button>
     </div>`;
   if (motion()) {
-    gsap.from('.done__icon', { scale: 0, rotate: -30, duration: 0.5, ease: 'back.out(2.2)' });
-    gsap.from('.done > :not(.done__icon)', { y: 10, autoAlpha: 0, stagger: 0.06, duration: 0.35, delay: 0.15, clearProps: 'all' });
+    gsap.from('.done__icon', { scale: 0.5, autoAlpha: 0, duration: dur.slow, ease: ease.spring, clearProps: 'all' });
+    gsap.from('.done > :not(.done__icon)', { y: distance, autoAlpha: 0, stagger: 0.05, duration: dur.slow, ease: ease.enter, delay: dur.fast, clearProps: 'all' });
   }
   $('#w-restart').addEventListener('click', () => { path = []; go(-1); });
 }
