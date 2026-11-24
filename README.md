@@ -46,6 +46,22 @@ sofort neu gebaut und ohne Neuladen in die Seite übernommen. Das gilt auch, wen
 | `npm run build` | Tokens + Prototyp für die Veröffentlichung nach `site/` |
 | `npm run plugin:build` | Figma-Plugin `figma-plugin/code.js` neu bauen |
 
+## Seiten
+
+| Seite | Inhalt |
+| --- | --- |
+| `index.html` | Übersicht |
+| `verfuegbarkeit.html` | Verfügbarkeitscheck nach dem Ablauf auf deutsche-glasfaser.de: Band mit PLZ/Ort, Straße und Hausnummer, dann Dialog mit Wohnsituation und Ergebnis, darunter die Tarife |
+| `kontakt.html` | Kontakt-Assistent nach dem Ablauf auf deutsche-glasfaser.de/service/kontakt: Ich bin … → Anliegen → Genaues Anliegen → Formular |
+| `bausteine.html` | Alle Komponenten mit Zuständen |
+| `tokens.html` | Alle Tokens aus Figma, aktualisiert sich live |
+
+- **Gemeinsame Teile** (Kopf, Icons, Fußzeile, noindex) stehen in `src/partials/`. Eingebunden werden sie mit `<!-- @include name -->`, siehe `scripts/vite-plugin-html-partials.mjs`.
+- **Neue Seite**: HTML-Datei anlegen und in `vite.config.mjs` unter `PAGES` eintragen.
+- **1:1 übernommen** ist im Kontakt-Assistenten der Weg Privatkunde → Vertrag → Änderung persönlicher Daten → Kontaktdaten. Andere Wege enden in einem allgemeinen Formular. Es ist als „Felder angenommen“ markiert.
+- **Beispieldaten**: Orte, Straßen, Ausbaustatus und Telefonnummern sind erfunden. Fotos sind Platzhalter.
+- **Nicht auffindbar**: Jede Seite hat `noindex, nofollow`, dazu kommt `robots.txt`. Das Repository selbst ist öffentlich und damit über GitHub auffindbar.
+
 ## Figma-Plugin „DG Tokens“ einrichten (einmalig)
 
 1. Figma Desktop öffnen, die Design-System-Datei öffnen.

@@ -1,0 +1,123 @@
+<!doctype html>
+<html lang="de">
+<head>
+  <!-- @include head -->
+  <title>Bausteine · DG Designsystem</title>
+  <script type="module" src="/src/pages/bausteine.js"></script>
+</head>
+<body data-page="bausteine">
+<!-- @include header -->
+
+<main id="main" class="section">
+  <div class="wrap">
+    <div class="section__head">
+      <span class="eyebrow dg-body-small-semibold" data-reveal>Base Components</span>
+      <h1 class="dg-heading-h2" data-reveal>Bausteine und Zustände</h1>
+      <p class="subtle" data-reveal>Jede Komponente nutzt nur die generierten --dg-* Tokens. Der Schalter oben rechts zeigt die Dark-Werte der Collection „Color“.</p>
+    </div>
+
+    <div class="parts">
+      <div class="card part part--wide">
+        <div class="part__head"><h2 class="dg-heading-h6">Input field</h2><span class="code">6 States</span></div>
+        <div class="states">
+          <div class="field"><label class="field__label dg-body-small-book" for="s1">Placeholder</label><div class="field__control"><svg class="icon" aria-hidden="true"><use href="#i-envelope"/></svg><input class="field__input" id="s1" placeholder="name@beispiel.de"></div><p class="field__hint dg-body-small-book"><span class="field__hint-text">Hinweistext zur Unterstützung.</span></p></div>
+          <div class="field"><label class="field__label dg-body-small-book" for="s2">Filled</label><div class="field__control"><svg class="icon" aria-hidden="true"><use href="#i-envelope"/></svg><input class="field__input" id="s2" value="m.mustermann@beispiel.de"></div><p class="field__hint dg-body-small-book"><span class="field__hint-text">Hinweistext zur Unterstützung.</span></p></div>
+          <div class="field is-error"><label class="field__label dg-body-small-book" for="s3">Error</label><div class="field__control"><svg class="icon" aria-hidden="true"><use href="#i-envelope"/></svg><input class="field__input" id="s3" value="m.mustermann@beispiel" aria-invalid="true"><svg class="icon icon--sm field__error-icon" aria-hidden="true"><use href="#i-warning-circle"/></svg></div><p class="field__hint dg-body-small-book"><span class="field__hint-text">Bitte geben Sie eine vollständige E-Mail-Adresse ein.</span></p></div>
+          <div class="field is-disabled"><label class="field__label dg-body-small-book" for="s4">Disabled</label><div class="field__control"><svg class="icon" aria-hidden="true"><use href="#i-envelope"/></svg><input class="field__input" id="s4" placeholder="name@beispiel.de" disabled></div><p class="field__hint dg-body-small-book"><span class="field__hint-text">Hinweistext zur Unterstützung.</span></p></div>
+        </div>
+        <p class="dg-body-small-book subtle">Focused und Error focused sehen Sie, wenn Sie in ein Feld klicken.</p>
+      </div>
+
+      <div class="card part">
+        <div class="part__head"><h2 class="dg-heading-h6">Select + Flyout</h2><span class="code">Select menu</span></div>
+        <div class="field" id="f-demo">
+          <span class="field__label dg-body-small-book" id="demo-label">Anliegen</span>
+          <button type="button" class="field__control field__control--select" id="demo" aria-haspopup="listbox" aria-expanded="false" aria-labelledby="demo-label demo" aria-controls="demo-list">
+            <span class="field__value" data-placeholder="Bitte auswählen">Bitte auswählen</span>
+            <svg class="field__chevron icon" aria-hidden="true"><use href="#i-caret-down"/></svg>
+          </button>
+          <p class="field__hint dg-body-small-book"><span class="field__hint-text">Mit Scrollbar, Tastatur: ↑ ↓ Enter Esc</span></p>
+          <div class="menu" hidden><div class="menu__list" role="listbox" id="demo-list" aria-labelledby="demo-label" tabindex="-1"></div><div class="scrollbar" aria-hidden="true"><div class="scrollbar__thumb"></div></div></div>
+        </div>
+      </div>
+
+      <div class="card part part--full">
+        <div class="part__head"><h2 class="dg-heading-h6">Optionskachel</h2><span class="code">Neu · radius/full · border/selected</span></div>
+        <fieldset class="group">
+          <legend class="sr-only">Ich bin</legend>
+          <div class="options" id="demo-options"></div>
+        </fieldset>
+        <p class="dg-body-small-book subtle">Für Auswahlfragen im Kontakt-Assistenten und in der Verfügbarkeitsprüfung. Kompakte Variante für die Zusammenfassung:</p>
+        <ul class="wizard__summary" style="justify-content:flex-start" id="demo-summary"></ul>
+      </div>
+
+      <div class="card part part--half">
+        <div class="part__head"><h2 class="dg-heading-h6">Checkbox</h2><span class="code">icon-size/md · radius/sm</span></div>
+        <div class="states">
+          <label class="choice"><input type="checkbox"><span class="choice__box"><svg viewBox="0 0 256 256"><path class="choice__tick" d="M48 136l52 52L208 80"/></svg></span><span class="choice__label">Unchecked</span></label>
+          <label class="choice"><input type="checkbox" checked><span class="choice__box"><svg viewBox="0 0 256 256"><path class="choice__tick" d="M48 136l52 52L208 80"/></svg></span><span class="choice__label">Checked</span></label>
+          <label class="choice"><input type="checkbox" data-indeterminate><span class="choice__box"><svg viewBox="0 0 256 256"><path class="choice__tick" d="M48 136l52 52L208 80"/><path class="choice__dash" d="M64 128h128"/></svg></span><span class="choice__label">Indeterminate</span></label>
+          <label class="choice is-disabled"><input type="checkbox" checked disabled><span class="choice__box"><svg viewBox="0 0 256 256"><path class="choice__tick" d="M48 136l52 52L208 80"/></svg></span><span class="choice__label">Disabled</span></label>
+          <label class="choice is-error span-all"><input type="checkbox"><span class="choice__box"><svg viewBox="0 0 256 256"><path class="choice__tick" d="M48 136l52 52L208 80"/></svg></span><span class="choice__label">Ich akzeptiere die AGB.</span><span class="choice__hint dg-body-small-book">Bitte akzeptieren Sie die AGB, um fortzufahren.</span></label>
+        </div>
+        <fieldset class="group">
+          <legend class="dg-body-regular-semibold">Benachrichtigungen per E-Mail</legend>
+          <label class="choice"><input type="checkbox" id="news-all"><span class="choice__box"><svg viewBox="0 0 256 256"><path class="choice__tick" d="M48 136l52 52L208 80"/><path class="choice__dash" d="M64 128h128"/></svg></span><span class="choice__label">Alle Benachrichtigungen</span></label>
+          <div class="group__nested">
+            <label class="choice"><input type="checkbox" name="news" checked><span class="choice__box"><svg viewBox="0 0 256 256"><path class="choice__tick" d="M48 136l52 52L208 80"/></svg></span><span class="choice__label">Updates zum Glasfaserausbau</span></label>
+            <label class="choice"><input type="checkbox" name="news"><span class="choice__box"><svg viewBox="0 0 256 256"><path class="choice__tick" d="M48 136l52 52L208 80"/></svg></span><span class="choice__label">Erinnerungen an Termine</span></label>
+            <label class="choice"><input type="checkbox" name="news" checked><span class="choice__box"><svg viewBox="0 0 256 256"><path class="choice__tick" d="M48 136l52 52L208 80"/></svg></span><span class="choice__label">Angebote und Aktionen</span></label>
+          </div>
+        </fieldset>
+      </div>
+
+      <div class="card part part--half">
+        <div class="part__head"><h2 class="dg-heading-h6">Radio</h2><span class="code">icon-size/md · radius/full</span></div>
+        <fieldset class="group">
+          <legend class="sr-only">Kontaktweg</legend>
+          <label class="choice choice--radio"><input type="radio" name="demo-r" checked><span class="choice__box"><span class="choice__dot"></span></span><span class="choice__label">Per E-Mail</span><span class="choice__hint dg-body-small-book">Antwort in der Regel innerhalb von 24 Stunden.</span></label>
+          <label class="choice choice--radio"><input type="radio" name="demo-r"><span class="choice__box"><span class="choice__dot"></span></span><span class="choice__label">Telefonisch</span><span class="choice__hint dg-body-small-book">Montag bis Freitag von 8 bis 20 Uhr.</span></label>
+          <label class="choice choice--radio is-disabled"><input type="radio" name="demo-r" disabled><span class="choice__box"><span class="choice__dot"></span></span><span class="choice__label">Per Post</span><span class="choice__hint dg-body-small-book">Zurzeit nicht verfügbar.</span></label>
+        </fieldset>
+      </div>
+
+      <div class="card part part--half">
+        <div class="part__head"><h2 class="dg-heading-h6">Stepper</h2><span class="code">Neu · bg/accent-yellow</span></div>
+        <ol class="stepper" aria-label="Beispiel" id="demo-stepper">
+          <li class="stepper__step is-done"><span class="stepper__dot"><svg class="icon" aria-hidden="true"><use href="#i-check"/></svg></span><span class="stepper__label dg-body-small-book">Adresse</span></li>
+          <li class="stepper__step is-current" aria-current="step"><span class="stepper__dot"><svg class="icon" aria-hidden="true"><use href="#i-check"/></svg></span><span class="stepper__label dg-body-small-book">Wohnsituation</span></li>
+          <li class="stepper__step"><span class="stepper__dot"><svg class="icon" aria-hidden="true"><use href="#i-check"/></svg></span><span class="stepper__label dg-body-small-book">Ergebnis</span></li>
+        </ol>
+        <div class="row"><button class="button button--secondary" type="button" id="step-prev">Zurück</button><button class="button button--primary" type="button" id="step-next">Weiter</button></div>
+      </div>
+
+      <div class="card part part--half">
+        <div class="part__head"><h2 class="dg-heading-h6">Fortschritt, Pille, Sprechblase</h2><span class="code">Neu</span></div>
+        <div class="progress" role="progressbar" aria-label="Fortschritt" aria-valuemin="0" aria-valuemax="100" aria-valuenow="60" style="--value:60%"><span class="progress__bar"></span></div>
+        <div class="pill"><span class="dg-body-regular-semibold">Hauptstraße 12, 48529 Nordhorn</span><button class="link-button" type="button">ändern <svg class="icon icon--sm" aria-hidden="true"><use href="#i-pencil"/></svg></button></div>
+        <div class="bubble" style="margin-left:var(--dg-spacing-xs)"><span class="bubble__avatar" aria-hidden="true"><svg class="icon"><use href="#i-clock"/></svg></span><span class="dg-body-small-book">In wenigen Tagen am Netz</span></div>
+      </div>
+
+      <div class="card part part--wide">
+        <div class="part__head"><h2 class="dg-heading-h6">Badge</h2><span class="code">5 Farben · sm / md / lg</span></div>
+        <div class="stack" id="badge-grid"></div>
+      </div>
+
+      <div class="card part">
+        <div class="part__head"><h2 class="dg-heading-h6">Button</h2><span class="code">Vorschlag</span></div>
+        <div class="row">
+          <button class="button button--primary" type="button">Primär</button>
+          <button class="button button--secondary" type="button">Sekundär</button>
+          <button class="button button--ghost" type="button">Ghost</button>
+          <button class="link-button" type="button">Textlink</button>
+          <button class="button button--primary" type="button" disabled>Deaktiviert</button>
+        </div>
+        <p class="dg-body-small-book subtle">In der Figma-Library gibt es noch keine Button-Komponente. Diese Varianten nutzen bg/brand, border/default und label/button.</p>
+      </div>
+    </div>
+  </div>
+</main>
+
+<!-- @include footer -->
+</body>
+</html>

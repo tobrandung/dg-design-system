@@ -7,7 +7,7 @@ name: Tokens
 on:
   push:
     branches: [main]
-    paths: ["tokens/**", "src/**", "index.html", "scripts/**", "package*.json", "vite.config.mjs"]
+    paths: ["tokens/**", "src/**", "public/**", "*.html", "scripts/**", "package*.json", "vite.config.mjs"]
   workflow_dispatch:
 
 permissions:

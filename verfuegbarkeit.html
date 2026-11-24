@@ -1,0 +1,159 @@
+<!doctype html>
+<html lang="de">
+<head>
+  <!-- @include head -->
+  <title>Verfügbarkeit prüfen · DG Designsystem</title>
+  <script type="module" src="/src/pages/verfuegbarkeit.js"></script>
+</head>
+<body data-page="verfuegbarkeit">
+<!-- @include header -->
+
+<main id="main">
+  <nav class="crumbs wrap dg-body-small-book" aria-label="Brotkrumen">
+    <ol><li><a href="./index.html">Deutsche Glasfaser</a></li><li><a href="./index.html">Glasfaser</a></li><li><span aria-current="page">Verfügbarkeitscheck</span></li></ol>
+  </nav>
+
+  <!-- Seitenkopf: Bild links, Text rechts -->
+  <section class="page-hero" aria-labelledby="hero-title">
+    <div class="visual" aria-hidden="true">
+      <svg class="icon"><use href="#i-house"/></svg>
+      <span class="badge badge--sm visual__tag"><svg class="icon" aria-hidden="true"><use href="#i-info"/></svg>Platzhalter für Foto</span>
+    </div>
+    <div class="page-hero__copy">
+      <h1 class="dg-heading-h1-highlight" id="hero-title" data-reveal>Glasfaser-Verfügbarkeit jetzt prüfen</h1>
+      <h2 class="dg-heading-h5" data-reveal>Bei Deutsche Glasfaser</h2>
+      <p data-reveal>Ob der Glasfaser-Ausbau in Ihrem Ort und Ihrer Straße bereits erfolgt oder geplant ist, sehen Sie mit unserem Verfügbarkeitscheck: Geben Sie unter „Verfügbarkeit prüfen“ Ihre Postleitzahl oder Ihren Ort, Ihre Straße und Hausnummer ein. Sie erfahren sofort, ob Sie schon bald Glasfaser-Internet mit bis zu 1 Gbit/s nutzen können.</p>
+    </div>
+  </section>
+
+  <!-- Verfügbarkeit prüfen: dunkles Band mit drei Feldern -->
+  <section class="band" id="check" aria-labelledby="check-title">
+    <div class="wrap">
+      <form class="vc-form" id="vc-form" novalidate>
+        <h2 class="dg-heading-h4" id="check-title">Verfügbarkeit prüfen</h2>
+        <div class="vc-form__row">
+          <div class="field" id="f-place">
+            <label class="field__label dg-body-small-book" for="place">PLZ / Ort</label>
+            <div class="field__control">
+              <input class="field__input" id="place" type="text" autocomplete="off" placeholder="PLZ / Ort eingeben" role="combobox" aria-autocomplete="list" aria-expanded="false" aria-controls="place-list">
+              <svg class="icon icon--sm field__error-icon" aria-hidden="true"><use href="#i-warning-circle"/></svg>
+            </div>
+            <div class="menu" hidden><div class="menu__list" role="listbox" id="place-list" aria-label="Orte"></div><div class="scrollbar" aria-hidden="true"><div class="scrollbar__thumb"></div></div></div>
+          </div>
+          <div class="field is-disabled" id="f-street">
+            <label class="field__label dg-body-small-book" for="street">Straße</label>
+            <div class="field__control">
+              <input class="field__input" id="street" type="text" autocomplete="off" placeholder="Straße eingeben" disabled role="combobox" aria-autocomplete="list" aria-expanded="false" aria-controls="street-list">
+            </div>
+            <div class="menu" hidden><div class="menu__list" role="listbox" id="street-list" aria-label="Straßen"></div><div class="scrollbar" aria-hidden="true"><div class="scrollbar__thumb"></div></div></div>
+          </div>
+          <div class="field is-disabled" id="f-no">
+            <label class="field__label dg-body-small-book" for="no">Hausnummer</label>
+            <div class="field__control">
+              <input class="field__input" id="no" type="text" autocomplete="off" placeholder="Hausnummer eingeben" disabled role="combobox" aria-autocomplete="list" aria-expanded="false" aria-controls="no-list">
+            </div>
+            <div class="menu" hidden><div class="menu__list" role="listbox" id="no-list" aria-label="Hausnummern"></div><div class="scrollbar" aria-hidden="true"><div class="scrollbar__thumb"></div></div></div>
+          </div>
+          <button class="button button--primary vc-form__submit" type="submit" id="vc-submit" disabled>
+            <span>Zum nächsten Schritt</span>
+            <svg class="icon button__arrow" aria-hidden="true"><use href="#i-caret-right"/></svg>
+            <svg class="icon button__spinner" aria-hidden="true"><use href="#i-spinner"/></svg>
+          </button>
+        </div>
+        <p class="vc-form__note dg-body-small-book">Adresse nicht gefunden? Nehmen Sie bitte <a href="./kontakt.html?thema=adresse">Kontakt</a> mit uns auf.</p>
+        <p class="vc-form__demo dg-body-tiny-book">Beispieldaten: Tippen Sie z. B. „Nord“, „48“ oder „Borken“.</p>
+      </form>
+    </div>
+  </section>
+
+  <!-- Tarife -->
+  <section class="section" id="tarife" aria-labelledby="tarife-title">
+    <div class="wrap">
+      <div class="section__head section__head--center">
+        <h2 class="dg-heading-h2" id="tarife-title">Verfügbare Glasfaser-Tarife im Überblick</h2>
+        <p class="subtle">Mit einem FTTH-Anschluss nutzen Sie echte Glasfaser bis in Ihr Zuhause. Ob 300 Mbit/s oder 1 Gbit/s: Sie wählen die Bandbreite, die Sie brauchen.</p>
+        <h3 class="dg-heading-h1-highlight tariffs-title">Für Sie die besten Glasfaser-Tarife</h3>
+      </div>
+      <div class="tariff-grid" id="tariff-grid"></div>
+    </div>
+  </section>
+</main>
+
+<!-- Dialog: Wohnsituation und Ergebnis -->
+<dialog class="modal" id="vc" aria-labelledby="vc-step-title">
+  <div class="modal__head">
+    <ol class="stepper" aria-label="Fortschritt">
+      <li class="stepper__step is-done"><span class="stepper__dot"><svg class="icon" aria-hidden="true"><use href="#i-check"/></svg></span><span class="stepper__label dg-body-small-book">Adresse</span></li>
+      <li class="stepper__step"><span class="stepper__dot"><svg class="icon" aria-hidden="true"><use href="#i-check"/></svg></span><span class="stepper__label dg-body-small-book">Wohnsituation</span></li>
+      <li class="stepper__step"><span class="stepper__dot"><svg class="icon" aria-hidden="true"><use href="#i-check"/></svg></span><span class="stepper__label dg-body-small-book">Ergebnis</span></li>
+    </ol>
+    <button class="link-button modal__close" type="button" data-close><span>Schließen</span><svg class="icon" aria-hidden="true"><use href="#i-x"/></svg></button>
+  </div>
+
+  <div class="modal__body">
+    <!-- Schritt 2: Wohnsituation -->
+    <section class="vc-panel" data-panel="living">
+      <div class="step-head">
+        <span class="step-head__icon" aria-hidden="true"><svg class="icon"><use href="#i-house"/></svg></span>
+        <div>
+          <h2 class="dg-heading-h5" id="vc-step-title">Wohnsituation</h2>
+          <p class="dg-body-small-book subtle">Bitte geben Sie die Ihrer Wohnsituation entsprechenden Daten an.
+            <button class="help" type="button" popovertarget="tip-living" aria-label="Warum fragen wir das?"><svg class="icon" aria-hidden="true"><use href="#i-question"/></svg></button></p>
+        </div>
+      </div>
+      <div class="panel vc-living">
+        <fieldset class="group" id="g-role">
+          <legend class="dg-body-regular-semibold">Ich bin …</legend>
+          <div class="options" id="o-role"></div>
+        </fieldset>
+        <fieldset class="group" id="g-home">
+          <legend class="dg-body-regular-semibold">Ich wohne in …</legend>
+          <div class="options" id="o-home"></div>
+        </fieldset>
+      </div>
+    </section>
+
+    <!-- Schritt 3: Ergebnis -->
+    <section class="vc-panel" data-panel="result" hidden aria-live="polite">
+      <div class="step-head">
+        <span class="step-head__icon" aria-hidden="true"><svg class="icon" id="r-icon"><use href="#i-thumbs-up"/></svg></span>
+        <div>
+          <h2 class="dg-heading-h5">Ergebnis</h2>
+          <p class="dg-body-small-book" id="r-lead"></p>
+        </div>
+      </div>
+      <div class="vc-result">
+        <div class="vc-result__row">
+          <div class="pill"><span class="dg-body-regular-semibold" id="r-addr"></span><button class="link-button" type="button" id="r-edit">ändern <svg class="icon icon--sm" aria-hidden="true"><use href="#i-pencil"/></svg></button></div>
+          <div class="bubble" id="r-bubble"><span class="bubble__avatar" aria-hidden="true"><svg class="icon"><use href="#i-clock"/></svg></span><span class="dg-body-small-book" id="r-bubble-text"></span></div>
+        </div>
+        <p class="vc-result__phase dg-body-regular-semibold">Ihre Phase: <span id="r-phase"></span>
+          <button class="help" type="button" popovertarget="tip-phase" aria-label="Was bedeutet die Phase?"><svg class="icon" aria-hidden="true"><use href="#i-question"/></svg></button></p>
+        <div class="panel">
+          <h3 class="panel__title dg-body-regular-semibold">Ihre Vorteile</h3>
+          <ul class="checklist dg-body-small-book" id="r-benefits"></ul>
+        </div>
+        <p class="vc-result__biz dg-body-small-book">Sie wollen Glasfaser für Ihr Unternehmen buchen?<br><a class="dg-body-small-semibold" href="./kontakt.html">Zu Selbstständige &amp; Unternehmen</a></p>
+      </div>
+    </section>
+  </div>
+
+  <div class="modal__foot" data-foot="living">
+    <button class="link-button" type="button" id="living-back">Zurück</button>
+    <span class="spacer"></span>
+    <button class="button button--primary" type="button" id="living-next" disabled><span>Zum Ergebnis</span><svg class="icon button__spinner" aria-hidden="true"><use href="#i-spinner"/></svg></button>
+  </div>
+  <div class="modal__foot" data-foot="result" hidden>
+    <button class="link-button" type="button" id="result-reset">Zurücksetzen</button>
+    <span class="spacer"></span>
+    <button class="link-button" type="button" id="result-more">Mehr zum Ausbau</button>
+    <button class="button button--primary" type="button" id="result-cta">Zu den Tarifen</button>
+  </div>
+
+  <div class="tip dg-body-small-book" id="tip-living" popover>Ob Sie Eigentümer oder Mieter sind und in welchem Gebäude Sie wohnen, bestimmt den Weg zu Ihrem Anschluss. Mieter brauchen zum Beispiel die Zustimmung des Eigentümers.</div>
+  <div class="tip dg-body-small-book" id="tip-phase" popover><span id="tip-phase-text"></span></div>
+</dialog>
+
+<!-- @include footer -->
+</body>
+</html>

@@ -1,0 +1,37 @@
+<!doctype html>
+<html lang="de">
+<head>
+  <!-- @include head -->
+  <title>Tokens · DG Designsystem</title>
+  <script type="module" src="/src/pages/tokens.js"></script>
+</head>
+<body data-page="tokens">
+<!-- @include header -->
+
+<main id="main" class="section section--muted" >
+  <div class="wrap tok" id="tokens">
+    <div class="tok__bar">
+      <div class="section__head" style="margin:0">
+        <span class="eyebrow dg-body-small-semibold">Design Tokens</span>
+        <h1 class="dg-heading-h2">Alle Tokens aus Figma</h1>
+        <p class="subtle"><span data-tok="count"></span>. Ein Klick auf einen Variablennamen kopiert ihn. Ändert das Figma-Plugin die Tokens, aktualisiert sich diese Seite ohne Neuladen.</p>
+      </div>
+      <div class="field tok__search">
+        <label class="field__label dg-body-small-book" for="tok-search">Token suchen</label>
+        <div class="field__control"><svg class="icon" aria-hidden="true"><use href="#i-magnifying-glass"/></svg><input class="field__input" id="tok-search" type="search" placeholder="z. B. brand, badge, h1"></div>
+      </div>
+    </div>
+    <div class="card tok__section"><h2 class="dg-heading-h4">Primitives</h2><p class="subtle">Farbreihen mit 12 Stufen. Blaue Labels: Name im alten DG-Designsystem.</p><div class="stack" data-tok="primitives"></div></div>
+    <div class="card tok__section"><h2 class="dg-heading-h4">Semantische Farben</h2><p class="subtle">Links Light, rechts Dark. Alias zeigt, auf welche Stufe der Token in Light und Dark zeigt.</p><div class="stack" data-tok="semantic"></div></div>
+    <div class="card tok__section"><h2 class="dg-heading-h4">Typografie</h2><div class="tok-types" data-tok="type"></div><div class="tok-scales" data-tok="font"></div></div>
+    <div class="card tok__section"><h2 class="dg-heading-h4">Abstände</h2><div class="tok-scales" data-tok="spacing"></div></div>
+    <div class="card tok__section"><h2 class="dg-heading-h4">Radien</h2><div class="tok-scales" data-tok="radius"></div></div>
+    <div class="card tok__section"><h2 class="dg-heading-h4">Rahmen und Fokus</h2><div class="tok-scales" data-tok="border"></div></div>
+    <div class="card tok__section"><h2 class="dg-heading-h4">Icon-Größen</h2><div class="tok-scales" data-tok="icon"></div></div>
+    <div class="card tok__section"><h2 class="dg-heading-h4">Schatten</h2><div class="tok-scales" data-tok="shadow"></div></div>
+  </div>
+</main>
+
+<!-- @include footer -->
+</body>
+</html>

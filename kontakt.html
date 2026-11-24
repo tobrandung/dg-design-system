@@ -1,0 +1,77 @@
+<!doctype html>
+<html lang="de">
+<head>
+  <!-- @include head -->
+  <title>Kontakt · DG Designsystem</title>
+  <script type="module" src="/src/pages/kontakt.js"></script>
+</head>
+<body data-page="kontakt">
+<!-- @include header -->
+
+<main id="main">
+  <nav class="crumbs wrap dg-body-small-book" aria-label="Brotkrumen">
+    <ol><li><a href="./index.html">Deutsche Glasfaser</a></li><li><a href="./index.html">Hilfe und Service</a></li><li><span aria-current="page">Kontakt für Privatkunden</span></li></ol>
+  </nav>
+
+  <section class="page-hero" aria-labelledby="hero-title">
+    <div class="visual" aria-hidden="true">
+      <svg class="icon"><use href="#i-phone"/></svg>
+      <span class="badge badge--sm visual__tag"><svg class="icon" aria-hidden="true"><use href="#i-info"/></svg>Platzhalter für Foto</span>
+    </div>
+    <div class="page-hero__copy">
+      <h1 class="dg-heading-h1-highlight" id="hero-title" data-reveal>Ihr Kontakt zu uns</h1>
+      <h2 class="dg-heading-h5" data-reveal>Wie können wir Ihnen helfen?</h2>
+      <p data-reveal>Sie haben ein Anliegen und brauchen Unterstützung? Unsere Kundenbetreuung ist für Sie da.</p>
+      <p data-reveal>Wählen Sie Ihr Thema aus und schreiben Sie uns. Oder rufen Sie uns unter einer unserer Servicenummern an.</p>
+    </div>
+  </section>
+
+  <section class="wizard-section" aria-labelledby="wizard-title">
+    <div class="wrap">
+      <h2 class="dg-heading-h2" id="wizard-title">Jetzt Thema auswählen und Hilfe erhalten</h2>
+      <div class="wizard" id="wizard">
+        <div class="progress" role="progressbar" aria-label="Fortschritt" aria-valuemin="0" aria-valuemax="100" aria-valuenow="20"><span class="progress__bar"></span></div>
+        <p class="sr-only" id="summary-label">Bereits ausgewählte Optionen:</p>
+        <ul class="wizard__summary" id="summary" aria-labelledby="summary-label"></ul>
+        <div id="wizard-body" tabindex="-1"></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section section--default" aria-labelledby="service-title">
+    <div class="wrap">
+      <div class="section__head"><h2 class="dg-heading-h2" id="service-title">Sie erreichen uns auch telefonisch oder vor Ort</h2></div>
+      <div class="service-grid">
+        <article class="service">
+          <span class="service__icon" aria-hidden="true"><svg class="icon"><use href="#i-phone"/></svg></span>
+          <h3 class="dg-heading-h6">Telefonische Bestellung</h3>
+          <a class="service__number dg-body-xlarge-semibold" href="tel:+49123456789">01234 567 890</a>
+          <p class="dg-body-small-book subtle">Erreichbarkeit: Mo.–Sa. 7–20 Uhr</p>
+          <button class="link-button" type="button" data-toast="Prototyp: Hier öffnet sich die Rückruf-Vereinbarung.">Hier Rückruf vereinbaren</button>
+        </article>
+        <article class="service">
+          <span class="service__icon" aria-hidden="true"><svg class="icon"><use href="#i-file-text"/></svg></span>
+          <h3 class="dg-heading-h6">Fragen zu Ihrem Vertrag</h3>
+          <a class="service__number dg-body-xlarge-semibold" href="tel:+49123456700">01234 567 800</a>
+          <p class="dg-body-small-book subtle">Erreichbarkeit: Mo.–Fr. 8–20 Uhr</p>
+        </article>
+        <article class="service">
+          <span class="service__icon" aria-hidden="true"><svg class="icon"><use href="#i-wrench"/></svg></span>
+          <h3 class="dg-heading-h6">Technische Fragen</h3>
+          <a class="service__number dg-body-xlarge-semibold" href="tel:+49123456700">01234 567 800</a>
+          <p class="dg-body-small-book subtle">Erreichbarkeit: täglich, rund um die Uhr</p>
+        </article>
+        <article class="service">
+          <span class="service__icon" aria-hidden="true"><svg class="icon"><use href="#i-monitor"/></svg></span>
+          <h3 class="dg-heading-h6">TV-Störungen und Funktionsfragen</h3>
+          <p class="dg-body-small-book">Hilfe und Kontaktformular finden Sie direkt beim TV-Partner.</p>
+          <p class="dg-body-small-book subtle">Erreichbarkeit: laut TV-Partner</p>
+        </article>
+      </div>
+    </div>
+  </section>
+</main>
+
+<!-- @include footer -->
+</body>
+</html>

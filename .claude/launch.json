@@ -1,11 +1,6 @@
 {
   "version": "0.0.1",
   "configurations": [
-    {
-      "name": "design-system",
-      "runtimeExecutable": "npm",
-      "runtimeArgs": ["run", "dev"],
-      "port": 4318
-    }
+    { "name": "dg-prototyp", "runtimeExecutable": "npm", "runtimeArgs": ["run", "dev"], "port": 4318 }
   ]
 }
