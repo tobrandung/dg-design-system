@@ -24,6 +24,11 @@
 .field__control--area { align-items: flex-start; }
 .field__input { flex: 1; min-width: 0; padding: 0; border: 0; outline: 0; background: transparent; color: var(--dg-color-text-default); font: var(--dg-text-body-regular-book); }
 .field__input::placeholder { color: var(--dg-color-text-subtle); opacity: 1; }
+/* Browser-Autofill: kein blauer Kasten im Feld. Feld bleibt bg/default und text/default wie in Figma. */
+.field__input:-webkit-autofill,
+.field__input:-webkit-autofill:hover,
+.field__input:-webkit-autofill:focus { -webkit-text-fill-color: var(--dg-color-text-default); caret-color: var(--dg-color-text-default); -webkit-box-shadow: 0 0 0 100vmax var(--dg-color-bg-default) inset; box-shadow: 0 0 0 100vmax var(--dg-color-bg-default) inset; transition: background-color 600000s 0s, color 600000s 0s; }
+.field__input:autofill { background: transparent; }
 textarea.field__input { resize: vertical; min-height: calc(var(--dg-line-height-24) * 4); }
 .field__value { flex: 1; min-width: 0; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; color: var(--dg-color-text-default); font: var(--dg-text-body-regular-book); }
 .field__value.is-placeholder { color: var(--dg-color-text-subtle); }
