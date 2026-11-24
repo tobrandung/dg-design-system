@@ -4,7 +4,7 @@ import { select, bindChoices, bindClear, optionHTML, chipHTML } from '../ui/form
 
 select($('#f-demo'), ['Alles rund um Ihren Vertrag', 'Störung, technische Hilfe & Einrichtung', 'Alles zum Bau', 'Rufnummernmitnahme', 'Adresse nicht im Verfügbarkeitscheck', 'Hausanschluss und Termin', 'Umzug', 'Sonstiges'], { initial: 2 });
 
-const items = [['privat', 'Privatkunde', 'dg:privatkunde'], ['selbst', 'Selbstständig', 'dg:selbststaendig'], ['kommune', 'Eine Kommune', 'dg:eine-kommune'], ['vermieter', 'Vermieter / Wohnungsbaugesellschaft', 'dg:vermieter-wohnungsbaugesellschaft']];
+const items = [['privat', 'Privatkunde', 'dg:privatkunde'], ['selbst', 'Selbstständig', 'dg:selbststaendig'], ['kommune', 'Eine Kommune', 'dg:eine-kommune'], ['vermieter', 'Vermieter / Wohnungs­bau­gesellschaft', 'dg:vermieter-wohnungsbaugesellschaft']];
 $('#demo-options').innerHTML = items.map(([v, l, i], n) => optionHTML('demo-o', v, l, i, n === 0)).join('');
 $('#demo-checks').innerHTML = [
   optionHTML('demo-c', 'internet', 'Internetproblem', 'dg:internetproblem', true, { type: 'checkbox', hint: 'Seiten laden langsam oder gar nicht' }),

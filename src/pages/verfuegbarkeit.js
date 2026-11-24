@@ -163,8 +163,7 @@ function renderResult() {
   $('#r-lead').textContent = s.lead;
   $('#r-addr').textContent = a;
   const b = $('#r-bubble');
-  b.style.setProperty('--bubble-bg', `var(--dg-color-bg-${s.bubble[2]}-subtle)`);
-  b.style.setProperty('--bubble-icon', `var(--dg-color-icon-${s.bubble[2]})`);
+  $('#r-badge').className = `badge badge--lg badge--icon badge--${s.bubble[2]}`;
   $('use', b).setAttribute('href', `#i-${s.bubble[0]}`);
   $('#r-bubble-text').textContent = s.bubble[1];
   $('#r-phase').textContent = s.phase;

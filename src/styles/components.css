@@ -23,6 +23,8 @@
 .field__control--select { width: 100%; text-align: left; cursor: pointer; border-radius: var(--dg-radius-lg); font: inherit; }
 .field__control--area { align-items: flex-start; }
 .field__input { flex: 1; min-width: 0; padding: 0; border: 0; outline: 0; background: transparent; color: var(--dg-color-text-default); font: var(--dg-text-body-regular-book); }
+/* Browser-eigenes Lösch-X bei type=search aus – wir nutzen den Slot rechts */
+.field__input[type=search]::-webkit-search-cancel-button, .field__input[type=search]::-webkit-search-decoration { -webkit-appearance: none; appearance: none; display: none; }
 .field__input::placeholder { color: var(--dg-color-text-disabled); opacity: 1; } /* Figma Input field State=Placeholder: text/disabled */
 /* Browser-Autofill: kein blauer Kasten im Feld. Feld bleibt bg/default und text/default wie in Figma. */
 .field__input:-webkit-autofill,
@@ -53,7 +55,9 @@ textarea.field__input { resize: vertical; min-height: calc(var(--dg-line-height-
 .field.is-disabled .field__hint,
 .field.is-disabled .field__input,
 .field.is-disabled .field__value { color: var(--dg-color-text-disabled); }
-.field.is-disabled .field__input::placeholder { color: var(--dg-color-text-disabled); }
+.field.is-disabled /* Browser-eigenes Lösch-X bei type=search aus – wir nutzen den Slot rechts */
+.field__input[type=search]::-webkit-search-cancel-button, .field__input[type=search]::-webkit-search-decoration { -webkit-appearance: none; appearance: none; display: none; }
+.field__input::placeholder { color: var(--dg-color-text-disabled); }
 .field.is-disabled .field__input { cursor: not-allowed; }
 
 /* ---------- Select menu (Flyout) + Scroll bar ---------- */
@@ -131,6 +135,9 @@ textarea.field__input { resize: vertical; min-height: calc(var(--dg-line-height-
 .badge--sm .icon { width: var(--dg-icon-size-xs); height: var(--dg-icon-size-xs); }
 .badge--lg { min-height: var(--dg-spacing-2xl); padding: 0 var(--dg-spacing-md) 0 var(--dg-spacing-sm); gap: var(--dg-spacing-xs); font: var(--dg-text-body-regular-book); }
 .badge--lg .icon { width: var(--dg-icon-size-md); height: var(--dg-icon-size-md); }
+/* Nur Icon: quadratisch, gleiche Höhe wie die jeweilige Größe */
+.badge--icon { justify-content: center; padding: 0; aspect-ratio: 1; }
+.badge--lg.badge--icon { min-width: var(--dg-spacing-2xl); }
 .badge--brand { --badge-bg: var(--dg-color-badge-brand-bg); --badge-text: var(--dg-color-badge-brand-text); --badge-icon: var(--dg-color-badge-brand-icon); --badge-border: var(--dg-color-badge-brand-border); }
 .badge--error { --badge-bg: var(--dg-color-badge-error-bg); --badge-text: var(--dg-color-badge-error-text); --badge-icon: var(--dg-color-badge-error-icon); --badge-border: var(--dg-color-badge-error-border); }
 .badge--warning { --badge-bg: var(--dg-color-badge-warning-bg); --badge-text: var(--dg-color-badge-warning-text); --badge-icon: var(--dg-color-badge-warning-icon); --badge-border: var(--dg-color-badge-warning-border); }
@@ -173,7 +180,7 @@ textarea.field__input { resize: vertical; min-height: calc(var(--dg-line-height-
    einer Checkbox, die Gruppe ein <fieldset> mit <legend>. Pfeiltasten wechseln wie bei Radios üblich. Die Auswahl ist nicht
    nur an der Farbe erkennbar: Indikator oben rechts plus 2 px Rahmen.
    Maße: Padding spacing/md, Abstand spacing/sm, Icon 40 px (spacing/2xl), radius/lg, Indikator icon-size/md. */
-.select-cards { display: grid; grid-template-columns: repeat(auto-fill, minmax(min(100%, 15rem), 1fr)); gap: var(--dg-spacing-sm); margin: 0; padding: 0; border: 0; min-width: 0; }
+.select-cards { display: grid; grid-template-columns: repeat(auto-fill, minmax(min(100%, 17rem), 1fr)); gap: var(--dg-spacing-sm); margin: 0; padding: 0; border: 0; min-width: 0; }
 .select-card {
   position: relative; display: grid; grid-template-columns: auto minmax(0, 1fr) auto; align-items: center; gap: var(--dg-spacing-sm);
   padding: calc(var(--dg-spacing-md) - var(--dg-border-width-sm)); /* Strich innen wie in Figma: 72 px Höhe */
@@ -186,7 +193,7 @@ textarea.field__input { resize: vertical; min-height: calc(var(--dg-line-height-
 .select-card__img { display: block; flex: none; width: var(--dg-spacing-2xl); height: var(--dg-spacing-2xl); }
 .select-card__icon { display: grid; place-items: center; width: var(--dg-spacing-2xl); height: var(--dg-spacing-2xl); border-radius: var(--dg-radius-full); background: var(--dg-color-bg-brand-subtle); color: var(--dg-color-icon-brand); }
 .select-card__text { display: grid; gap: var(--dg-spacing-3xs); min-width: 0; }
-.select-card__label { font: var(--dg-text-body-regular-semibold); }
+.select-card__label { font: var(--dg-text-body-regular-semibold); overflow-wrap: break-word; } /* lange Komposita: weiche Trennstellen (&shy;) in den Daten */
 .select-card__hint { font: var(--dg-text-body-small-book); color: var(--dg-color-text-subtle); }
 .select-card > .choice__box { margin-top: 0; } /* wie Figma: Indikator vertikal mittig */
 .select-card--radio > .choice__box { border-radius: var(--dg-radius-full); }
