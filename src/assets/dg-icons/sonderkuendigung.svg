@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Generator: Adobe Illustrator 28.2.0, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
+<svg version="1.1" id="Ebene_1" xmlns:v="https://vecta.io/nano"
+	 xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 75 75"
+	 style="enable-background:new 0 0 75 75;" xml:space="preserve">
+<style type="text/css">
+	.st0{fill:#464646;}
+	.st1{fill:#14A0DC;}
+</style>
+<g>
+	<rect x="8" y="25" class="st0" width="17.5" height="2"/>
+	<rect x="8" y="36.5" class="st0" width="17.5" height="2"/>
+	<polygon class="st0" points="55,73 2,73 2,2 55,2 55,19.6 57,19.6 57,0 0,0 0,75 57,75 57,56.4 55,56.4 	"/>
+	<rect x="8" y="13.5" class="st0" width="34.8" height="2"/>
+</g>
+<g>
+	<path class="st1" d="M68.4,50.4H43.6V25.6h24.8V50.4z M47.1,46.9h17.7V29.2H47.1V46.9z"/>
+	<path class="st0" d="M62.5,33.9l-2.5-2.5L56,35.5l-4.1-4.1l-2.5,2.5l4.1,4.1l-4.1,4.1l2.5,2.5l4.1-4.1l4.1,4.1l2.5-2.5L58.5,38
+		L62.5,33.9z"/>
+</g>
+</svg>

@@ -1,5 +1,6 @@
 /* Formular-Bausteine: Flyout (Select menu), Combobox, Select, Fehlerzustände, Checkbox/Radio, Optionskacheln. */
 import { gsap, motion, $, $$, esc, dur, ease, scaleEnter, distance, exitMs } from '../core.js';
+import { dgIcon } from './dg-icons.js';
 
 /* ---------- Flyout + Scroll bar ---------- */
 function syncScrollbar(menu) {
@@ -83,7 +84,7 @@ export function setGroupError(group, on) {
   const err = $('.group__error', group);
   if (err) err.hidden = !on;
   group.classList.toggle('is-error', on);
-  $$('.choice, .option', group).forEach((c) => c.classList.toggle('is-error', on));
+  $$('.choice, .select-card', group).forEach((c) => c.classList.toggle('is-error', on));
 }
 
 /* ---------- Combobox: Eingabe mit Vorschlägen ---------- */
@@ -162,13 +163,33 @@ export function bindChoices(scope = document) {
   $$('.choice > input[type=radio]', scope).forEach((input) => input.addEventListener('change', () => {
     if (motion()) gsap.fromTo($('.choice__dot', input.nextElementSibling), { scale: 0 }, { scale: 1, duration: dur.base, ease: ease.spring, clearProps: 'transform' });
   }));
-  $$('.option > input', scope).forEach((input) => input.addEventListener('change', () => {
+  $$('.select-card > input', scope).forEach((input) => input.addEventListener('change', () => {
     if (!motion() || !input.checked) return;
-    const opt = input.closest('.option');
-    gsap.fromTo($('.option__check', opt), { scale: 0 }, { scale: 1, duration: dur.base, ease: ease.spring, clearProps: 'transform' });
+    const box = $('.choice__box', input.closest('.select-card'));
+    gsap.fromTo(box, { scale: 0.9 }, { scale: 1, duration: dur.base, ease: ease.spring, clearProps: 'transform' });
+    const dot = $('.choice__dot', box), tick = $('.choice__tick', box);
+    if (dot) gsap.fromTo(dot, { scale: 0 }, { scale: 1, duration: dur.base, ease: ease.spring, clearProps: 'transform' });
+    if (tick) gsap.fromTo(tick, { strokeDashoffset: 260 }, { strokeDashoffset: 0, duration: dur.base, ease: ease.enter, clearProps: 'strokeDashoffset' });
   }));
 }
 
-/** Optionskachel als HTML (Radio). icon = Name aus dem Icon-Sprite. */
-export const optionHTML = (name, value, label, icon, checked = false) =>
-  `<label class="option"><input type="radio" name="${esc(name)}" value="${esc(value)}"${checked ? ' checked' : ''}><span class="option__icon" aria-hidden="true"><svg class="icon"><use href="#i-${icon}"/></svg></span><span class="option__label">${esc(label)}</span><span class="option__check" aria-hidden="true"><svg class="icon icon--xs"><use href="#i-check"/></svg></span></label>`;
+/** Bild oder Icon für Karte und Chip: „dg:privatkunde“ = DG-Illustration, sonst Linien-Icon aus dem Sprite */
+export const mediaHTML = (icon, cls) => {
+  const src = icon?.startsWith('dg:') ? dgIcon(icon.slice(3)) : null;
+  return src
+    ? `<img class="${cls}__img" src="${src}" alt="" aria-hidden="true">`
+    : `<span class="${cls}__icon" aria-hidden="true"><svg class="icon"><use href="#i-${esc(icon || 'info')}"/></svg></span>`;
+};
+
+/**
+ * Auswahlkarte (Figma: „Selection card“). Die ganze Karte ist das Label eines echten Radios bzw. einer Checkbox.
+ * icon: „dg:<id>“ für DG-Illustrationen oder Name eines Linien-Icons. hint: optionaler Zusatztext.
+ */
+export const optionHTML = (name, value, label, icon, checked = false, { type = 'radio', hint = '', disabled = false } = {}) => {
+  const indicator = type === 'checkbox'
+    ? '<svg viewBox="0 0 256 256"><path class="choice__tick" d="M48 136l52 52L208 80"/></svg>'
+    : '<span class="choice__dot"></span>';
+  return `<label class="select-card select-card--${type}${disabled ? ' is-disabled' : ''}"><input type="${type}" name="${esc(name)}" value="${esc(value)}"${checked ? ' checked' : ''}${disabled ? ' disabled' : ''}>${mediaHTML(icon, 'select-card')}<span class="select-card__text"><span class="select-card__label">${esc(label)}</span>${hint ? `<span class="select-card__hint">${esc(hint)}</span>` : ''}</span><span class="choice__box" aria-hidden="true">${indicator}</span></label>`;
+};
+/** Chip für bereits gewählte Optionen (Zusammenfassung im Assistenten) */
+export const chipHTML = (label, icon) => `<li class="chip">${mediaHTML(icon, 'chip')}<span class="chip__label">${esc(label)}</span></li>`;

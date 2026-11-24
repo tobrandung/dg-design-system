@@ -3,7 +3,8 @@
 
 *, *::before, *::after { box-sizing: border-box; }
 html { -webkit-text-size-adjust: 100%; scroll-behavior: smooth; scroll-padding-top: calc(var(--dg-spacing-5xl) + var(--dg-spacing-md)); }
-body { margin: 0; background: var(--dg-color-bg-subtle); color: var(--dg-color-text-default); font: var(--dg-text-body-regular-book); -webkit-font-smoothing: antialiased; }
+/* Wie in Figma: Seite bg/default, Flächen (Karten) bg/subtle – Komponenten liegen so auf derselben Farbe wie in den Figma-Frames */
+body { margin: 0; background: var(--dg-color-bg-default); color: var(--dg-color-text-default); font: var(--dg-text-body-regular-book); -webkit-font-smoothing: antialiased; }
 [hidden] { display: none !important; }
 h1, h2, h3, h4, h5, h6, p { margin: 0; }
 h1, h2, h3 { text-wrap: balance; }
@@ -21,7 +22,7 @@ a:hover { color: var(--dg-color-text-link-hover); }
 .section--default { background: var(--dg-color-bg-default); }
 .section__head { display: grid; gap: var(--dg-spacing-sm); max-width: 40rem; margin-bottom: var(--dg-spacing-2xl); }
 .section__head--center { margin-inline: auto; text-align: center; justify-items: center; }
-.card { background: var(--dg-color-bg-default); border: var(--dg-border-width-sm) solid var(--dg-color-border-subtle); border-radius: var(--dg-radius-xl); }
+.card { background: var(--dg-color-bg-subtle); border: var(--dg-border-width-sm) solid var(--dg-color-border-subtle); border-radius: var(--dg-radius-xl); }
 .card--raised { box-shadow: var(--dg-shadow-xl); }
 @media (max-width: 45rem) { .section { padding-block: var(--dg-spacing-4xl); } }
 

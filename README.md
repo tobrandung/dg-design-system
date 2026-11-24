@@ -114,6 +114,19 @@ Pro Mode entsteht eine Datei, wie beim nativen Variablen-Export von Figma. Weite
 Neue Collections in Figma erzeugen automatisch neue Dateien und werden automatisch mitgebaut.
 Nur neue Modes (z. B. ein drittes Theme) müssen in `scripts/build-tokens.mjs` eingetragen werden.
 
+## Auswahlkarte und DG-Icons
+
+- **Auswahlkarte** (`Selection card` in Figma, `.select-card` im Code) ersetzt die Pills für Auswahlfragen.
+  - Vorbild: Untitled UI Radio/Checkbox group (Icon card).
+  - Figma: Basis `_Selection card base` (Type) und Set `Selection card` (Type × Selected × State), alle Werte an Variablen gebunden.
+  - Maße: Höhe 72 px, Padding `spacing/md`, Abstand `spacing/sm`, Icon 40 px, `radius/lg`. Ausgewählt: 2 px `border/selected`.
+  - Im Code: `optionHTML(name, value, label, 'dg:privatkunde', checked, { type: 'radio' | 'checkbox', hint, disabled })`.
+  - Barrierefreiheit: Die ganze Karte ist das Label eines echten Radios bzw. einer Checkbox. Die Gruppe ist ein `fieldset` mit `legend`. Die Auswahl ist nicht nur an der Farbe erkennbar.
+- **DG-Icons**: 58 Illustrationen aus dem Kontakt-Assistenten von deutsche-glasfaser.de.
+  - Ablage: `src/assets/dg-icons/`, Quelle und Beschriftung stehen in `manifest.json`.
+  - In Figma: Komponenten `dg-icon/<thema>` im Bereich „DG Illustrations-Icons“.
+  - Im Code: `dgIcon('privatkunde')` liefert die URL. In `optionHTML` reicht `'dg:privatkunde'`.
+
 ## Motion
 
 Animationen nutzen nur Motion-Tokens aus Figma (Collection „Motion“). Figma hat keinen Variablentyp für
@@ -121,7 +134,7 @@ Dauer oder Easing, deshalb gilt eine Namenskonvention:
 
 | Figma-Variable | Typ in Figma | DTCG-Token | CSS |
 | --- | --- | --- | --- |
-| `motion/duration/fast · base · slow · slower` | Number (ms) | `duration` | `--dg-motion-duration-base: 200ms` |
+| `motion/duration/fast · base · slow · slower` (200 · 250 · 350 · 600) | Number (ms) | `duration` | `--dg-motion-duration-base: 250ms` |
 | `motion/easing/standard · enter · exit · spring` | String `"x1, y1, x2, y2"` | `cubicBezier` | `--dg-motion-easing-enter: cubic-bezier(0, 0, 0.2, 1)` |
 | `motion/scale/enter` | Number | `number` | `--dg-motion-scale-enter: 0.95` |
 | `motion/distance/enter` | Number, Alias auf `spacing/xs` | `dimension` | `--dg-motion-distance-enter` |

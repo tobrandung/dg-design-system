@@ -1,12 +1,17 @@
 import '../styles/flows.css';
 import { gsap, motion, $, $$, revealPage, dur, ease, scaleEnter } from '../core.js';
-import { select, bindChoices, optionHTML } from '../ui/forms.js';
+import { select, bindChoices, optionHTML, chipHTML } from '../ui/forms.js';
 
 select($('#f-demo'), ['Alles rund um Ihren Vertrag', 'Störung, technische Hilfe & Einrichtung', 'Alles zum Bau', 'Rufnummernmitnahme', 'Adresse nicht im Verfügbarkeitscheck', 'Hausanschluss und Termin', 'Umzug', 'Sonstiges'], { initial: 2 });
 
-const items = [['privat', 'Privatkunde', 'user'], ['selbst', 'Selbstständig', 'storefront'], ['kommune', 'Eine Kommune', 'bank'], ['vermieter', 'Vermieter', 'key']];
+const items = [['privat', 'Privatkunde', 'dg:privatkunde'], ['selbst', 'Selbstständig', 'dg:selbststaendig'], ['kommune', 'Eine Kommune', 'dg:eine-kommune'], ['vermieter', 'Vermieter / Wohnungsbaugesellschaft', 'dg:vermieter-wohnungsbaugesellschaft']];
 $('#demo-options').innerHTML = items.map(([v, l, i], n) => optionHTML('demo-o', v, l, i, n === 0)).join('');
-$('#demo-summary').innerHTML = [['Privatkunde', 'user'], ['Alles rund um Ihren Vertrag', 'file-text']].map(([l, i]) => `<li class="option option--static"><span class="option__icon" aria-hidden="true"><svg class="icon icon--sm"><use href="#i-${i}"/></svg></span><span class="option__label">${l}</span></li>`).join('');
+$('#demo-checks').innerHTML = [
+  optionHTML('demo-c', 'internet', 'Internetproblem', 'dg:internetproblem', true, { type: 'checkbox', hint: 'Seiten laden langsam oder gar nicht' }),
+  optionHTML('demo-c', 'telefon', 'Telefonieproblem', 'dg:telefonieproblem', false, { type: 'checkbox', hint: 'Kein Freizeichen, Gespräche brechen ab' }),
+  optionHTML('demo-c', 'tv', 'waipu.tv', 'dg:waipu-tv', false, { type: 'checkbox', hint: 'Zurzeit nicht verfügbar', disabled: true })
+].join('');
+$('#demo-summary').innerHTML = [['Privatkunde', 'dg:privatkunde'], ['Alles rund um Ihren Vertrag', 'dg:alles-rund-um-ihren-vertrag']].map(([l, i]) => chipHTML(l, i)).join('');
 
 bindChoices(document);
 $$('[data-indeterminate]').forEach((i) => (i.indeterminate = true));

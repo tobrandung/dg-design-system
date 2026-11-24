@@ -4,13 +4,13 @@
  * Andere Wege enden in einem allgemeinen Formular (Felder angenommen). */
 import '../styles/flows.css';
 import { gsap, motion, $, $$, esc, toast, revealPage, dur, ease, scaleEnter, distance } from '../core.js';
-import { select, setError, clearError, setGroupError, bindChoices, optionHTML } from '../ui/forms.js';
+import { select, setError, clearError, setGroupError, bindChoices, optionHTML, chipHTML } from '../ui/forms.js';
 
 /* ---------- Themenbaum ---------- */
-const PERSONAS = [['privat', 'Privatkunde', 'user'], ['selbst', 'Selbstständig', 'storefront'], ['firma', 'Unternehmen / Öffentliche Einrichtung', 'buildings'], ['kommune', 'Eine Kommune', 'bank'], ['vermieter', 'Vermieter / Wohnungsbaugesellschaft', 'key'], ['sonst', 'Sonstiges', 'users']];
-const TOPICS = [['vertrag', 'Alles rund um Ihren Vertrag', 'file-text'], ['stoerung', 'Störung, technische Hilfe & Einrichtung', 'wrench'], ['bau', 'Alles zum Bau', 'hard-hat'], ['rufnummer', 'Rufnummernmitnahme', 'phone'], ['adresse', 'Adresse nicht im Verfügbarkeitscheck', 'map-pin']];
-const SUBS = [['daten', 'Änderung persönlicher Daten', 'pencil'], ['rechnung', 'Rechnungen / Mahnungen', 'receipt'], ['geraete', 'Geräte', 'router'], ['umzug', 'Umzug', 'truck'], ['anpassung', 'Anpassung Produkte & Services', 'sliders'], ['status', 'Status Ihres Vertrags', 'clock']];
-const CHANGES = [['kontaktdaten', 'Kontaktdaten', 'id-card'], ['lieferadresse', 'Lieferadresse', 'house'], ['bankdaten', 'Bankdaten', 'credit-card']];
+const PERSONAS = [['privat', 'Privatkunde', 'dg:privatkunde'], ['selbst', 'Selbstständig', 'dg:selbststaendig'], ['firma', 'Unternehmen / Öffentliche Einrichtung', 'dg:unternehmen-oeffentliche-einrichtung'], ['kommune', 'Eine Kommune', 'dg:eine-kommune'], ['vermieter', 'Vermieter / Wohnungsbaugesellschaft', 'dg:vermieter-wohnungsbaugesellschaft'], ['sonst', 'Sonstiges', 'dg:sonstiges']];
+const TOPICS = [['vertrag', 'Alles rund um Ihren Vertrag', 'dg:alles-rund-um-ihren-vertrag'], ['stoerung', 'Störung, technische Hilfe & Einrichtung', 'dg:stoerung-technische-hilfe-einrichtung'], ['bau', 'Alles zum Bau', 'dg:alles-zum-bau'], ['rufnummer', 'Rufnummernmitnahme', 'dg:rufnummernmitnahme'], ['adresse', 'Adresse nicht im Verfügbarkeitscheck', 'map-pin']];
+const SUBS = [['daten', 'Änderung persönlicher Daten', 'dg:aenderung-persoenlicher-daten'], ['rechnung', 'Rechnungen / Mahnungen', 'dg:rechnungen-mahnungen'], ['geraete', 'Geräte', 'dg:geraete'], ['umzug', 'Umzug', 'dg:umzug'], ['anpassung', 'Anpassung Produkte & Services', 'dg:anpassung-produkte-services'], ['status', 'Status Ihres Vertrags', 'dg:status-ihres-vertrags']];
+const CHANGES = [['kontaktdaten', 'Kontaktdaten', 'dg:kontaktdaten'], ['lieferadresse', 'Lieferadresse', 'dg:lieferadresse'], ['bankdaten', 'Bankdaten', 'dg:bankdaten']];
 const TOTAL = 5; // Schritte auf dem längsten Weg inkl. Formular
 
 /* Pfad: Liste gewählter Einträge [key, label, icon]; Schritt ergibt sich daraus */
@@ -116,13 +116,13 @@ function setProgress(n) {
   bar.style.setProperty('--value', `${v}%`);
 }
 function renderSummary() {
-  summary.innerHTML = path.map(([, l, i]) => `<li class="option option--static"><span class="option__icon" aria-hidden="true"><svg class="icon icon--sm"><use href="#i-${i}"/></svg></span><span class="option__label">${esc(l)}</span></li>`).join('');
+  summary.innerHTML = path.map(([, l, i]) => chipHTML(l, i)).join('');
 }
 
 function stepHTML(key) {
   const s = STEP[key];
   const control = s.kind === 'options'
-    ? `<fieldset class="group" id="g-step"><legend class="sr-only">${esc(s.ask)}</legend><div class="options">${s.items.map(([v, l, i]) => optionHTML(s.name, v, l, i)).join('')}</div></fieldset>`
+    ? `<fieldset class="group" id="g-step"><legend class="sr-only">${esc(s.ask)}</legend><div class="select-cards">${s.items.map(([v, l, i]) => optionHTML(s.name, v, l, i)).join('')}</div></fieldset>`
     : `<div class="field" id="f-step">
          <span class="field__label dg-body-small-book" id="step-label">${esc(s.label)}</span>
          <button type="button" class="field__control field__control--select" id="step-select" aria-haspopup="listbox" aria-expanded="false" aria-labelledby="step-label step-select" aria-controls="step-list">
@@ -173,7 +173,7 @@ function render(focus = true) {
   if (focus) body.focus({ preventScroll: true });
 }
 function onOption(e) {
-  const input = e.target.closest('.option > input');
+  const input = e.target.closest('.select-card > input');
   if (!input) return;
   const s = STEP[stepOf()];
   pending = s.items.find(([v]) => v === input.value);

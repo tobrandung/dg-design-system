@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Generator: Adobe Illustrator 27.3.0, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
+<svg version="1.2" baseProfile="tiny" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px"
+	 y="0px" viewBox="0 0 75 75" overflow="visible" xml:space="preserve">
+<g id="offene_Daten_zum_bearbeiten_x2F__x2F_Konturen" display="none">
+	<polyline display="inline" fill="none" stroke="#EBB40F" stroke-width="4" stroke-miterlimit="10" points="57.388,53.5 
+		71.504,53.5 71.504,26.449 50.004,4.949 28.504,26.449 28.504,35 	"/>
+	<path display="inline" fill="none" stroke="#14A0DC" stroke-width="4" stroke-miterlimit="3.8636" d="M50.004,64.207V43.073"/>
+	<circle display="inline" fill="none" stroke="#464646" stroke-width="2" cx="50.004" cy="37.309" r="5.764"/>
+	<polyline display="inline" fill="none" stroke="#464646" stroke-width="2" stroke-miterlimit="10" points="57.388,56 74.004,56 
+		74.004,25.414 50.004,1.414 26.004,25.414 26.004,35 	"/>
+	<g display="inline">
+		<path fill="none" stroke="#464646" stroke-width="2" stroke-miterlimit="10" d="M48.004,64H69c2.761,0,5,2.239,5,5v0
+			c0,2.761-2.239,5-5,5H27.973L14.476,60.503"/>
+		<path fill="none" stroke="#464646" stroke-width="2" stroke-miterlimit="10" d="M26.294,58.392l10.143,10.143
+			c1.953,1.953,5.118,1.953,7.071,0c1.953-1.953,1.953-5.118,0-7.071L23.544,41.5H9"/>
+	</g>
+	<rect y="40.5" display="inline" fill="#32C864" width="9" height="24"/>
+</g>
+<g id="Flaechen">
+	<rect x="48.004" y="43.073" fill="#14A0DC" width="4" height="20.384"/>
+	<polygon fill="#EBB40F" points="69.504,51.5 57.388,51.5 57.388,55.25 73.254,55.25 73.254,25.725 50.004,2.475 26.754,25.725 
+		26.754,35 30.504,35 30.504,27.277 50.004,7.777 69.504,27.277 	"/>
+	<rect y="40.5" fill="#32C864" width="9" height="24"/>
+	<path fill="#464646" d="M50.004,44.073c3.729,0,6.764-3.034,6.764-6.764s-3.034-6.764-6.764-6.764S43.24,33.58,43.24,37.31
+		S46.274,44.073,50.004,44.073z M50.004,32.546c2.626,0,4.764,2.137,4.764,4.764s-2.137,4.764-4.764,4.764s-4.764-2.137-4.764-4.764
+		S47.377,32.546,50.004,32.546z M42.802,62.172c0.755,0.756,1.171,1.76,1.171,2.828s-0.416,2.072-1.171,2.828
+		c-1.512,1.512-4.146,1.512-5.657,0L27.001,57.686L25.587,59.1L35.73,69.242C36.864,70.376,38.371,71,39.973,71
+		s3.109-0.624,4.243-1.758c1.133-1.133,1.757-2.64,1.757-4.242s-0.624-3.109-1.757-4.242L23.958,40.5H9v2h14.13L42.802,62.172z
+		 M69,63H48.004v2H69c2.206,0,4,1.794,4,4s-1.794,4-4,4H28.387L15.183,59.796l-1.414,1.414L27.559,75H69c3.309,0,6-2.691,6-6
+		S72.309,63,69,63z M50.004,0l-25,25v10h2v-9.172l23-23l23,23V55H57.388v2h17.616V25L50.004,0z"/>
+</g>
+</svg>

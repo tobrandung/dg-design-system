@@ -162,31 +162,51 @@ textarea.field__input { resize: vertical; min-height: calc(var(--dg-line-height-
 .link-button:hover { color: var(--dg-color-text-link-hover); text-decoration-thickness: 2px; }
 .link-button:focus-visible { outline: var(--dg-border-width-md) solid var(--dg-color-border-focus); outline-offset: var(--dg-spacing-2xs); border-radius: var(--dg-radius-xs); }
 
-/* ---------- Optionskachel (Auswahl mit Icon, z. B. „Ich bin …“) ---------- */
-.options { display: flex; flex-wrap: wrap; gap: var(--dg-spacing-sm); margin: 0; padding: 0; border: 0; min-width: 0; }
-.option {
-  position: relative; display: inline-flex; align-items: center; gap: var(--dg-spacing-sm);
-  min-height: var(--dg-spacing-4xl); padding: var(--dg-spacing-xs) var(--dg-spacing-lg) var(--dg-spacing-xs) var(--dg-spacing-xs);
+/* ---------- Auswahlkarte (Selection card) ----------
+   Vorbild Untitled UI „Radio group / Checkbox group“ (Icon card). Die ganze Karte ist das <label> eines echten Radios bzw.
+   einer Checkbox, die Gruppe ein <fieldset> mit <legend>. Pfeiltasten wechseln wie bei Radios üblich. Die Auswahl ist nicht
+   nur an der Farbe erkennbar: Indikator oben rechts plus 2 px Rahmen.
+   Maße: Padding spacing/md, Abstand spacing/sm, Icon 40 px (spacing/2xl), radius/lg, Indikator icon-size/md. */
+.select-cards { display: grid; grid-template-columns: repeat(auto-fill, minmax(min(100%, 15rem), 1fr)); gap: var(--dg-spacing-sm); margin: 0; padding: 0; border: 0; min-width: 0; }
+.select-card {
+  position: relative; display: grid; grid-template-columns: auto minmax(0, 1fr) auto; align-items: center; gap: var(--dg-spacing-sm);
+  padding: calc(var(--dg-spacing-md) - var(--dg-border-width-sm)); /* Strich innen wie in Figma: 72 px Höhe */
   background: var(--dg-color-bg-default); color: var(--dg-color-text-default);
-  border: var(--dg-border-width-sm) solid var(--dg-color-border-subtle); border-radius: var(--dg-radius-full);
-  box-shadow: var(--dg-shadow-xs); cursor: pointer; user-select: none;
+  border: var(--dg-border-width-sm) solid var(--dg-color-border-subtle); border-radius: var(--dg-radius-lg); box-shadow: var(--dg-shadow-xs);
+  cursor: pointer; user-select: none;
   transition: border-color var(--dg-motion-duration-fast) var(--dg-motion-easing-standard), box-shadow var(--dg-motion-duration-base) var(--dg-motion-easing-standard), background-color var(--dg-motion-duration-fast) var(--dg-motion-easing-standard);
 }
-.option > input { position: absolute; width: 1px; height: 1px; opacity: 0; }
-.option__icon { display: grid; place-items: center; width: var(--dg-spacing-2xl); height: var(--dg-spacing-2xl); flex: none; border-radius: var(--dg-radius-full); background: var(--dg-color-bg-brand-subtle); color: var(--dg-color-icon-brand); transition: background-color var(--dg-motion-duration-fast) var(--dg-motion-easing-standard), color var(--dg-motion-duration-fast) var(--dg-motion-easing-standard); }
-.option__label { font: var(--dg-text-body-regular-semibold); }
-.option__check { display: grid; place-items: center; width: var(--dg-icon-size-md); height: var(--dg-icon-size-md); margin-left: calc(-1 * var(--dg-spacing-2xs)); margin-right: calc(-1 * var(--dg-spacing-xs)); border-radius: var(--dg-radius-full); background: var(--dg-color-bg-success-default); color: var(--dg-color-icon-on-brand); transform: scale(0); }
-.option__check .icon { stroke-width: 28; }
-.option:hover { border-color: var(--dg-color-border-strong); box-shadow: var(--dg-shadow-sm); }
-.option:has(> input:checked) { border-color: var(--dg-color-border-selected); box-shadow: 0 0 0 var(--dg-border-width-sm) var(--dg-color-border-selected), var(--dg-shadow-sm); }
-.option:has(> input:checked) .option__icon { background: var(--dg-color-bg-brand-default); color: var(--dg-color-icon-on-brand); }
-.option:has(> input:checked) .option__check { transform: scale(1); }
-.option:has(> input:focus-visible) { box-shadow: var(--dg-shadow-focus-ring-brand); }
-.option.is-error { border-color: var(--dg-color-border-error); }
-.option--static { cursor: default; box-shadow: none; padding-right: var(--dg-spacing-md); min-height: var(--dg-spacing-3xl); }
-.option--static .option__icon { width: var(--dg-spacing-xl); height: var(--dg-spacing-xl); }
-.option--static .option__label { font: var(--dg-text-body-small-book); }
-.option--static:hover { border-color: var(--dg-color-border-subtle); box-shadow: none; }
+.select-card > input { position: absolute; width: 1px; height: 1px; opacity: 0; }
+.select-card__img { display: block; width: var(--dg-spacing-2xl); height: var(--dg-spacing-2xl); }
+.select-card__icon { display: grid; place-items: center; width: var(--dg-spacing-2xl); height: var(--dg-spacing-2xl); border-radius: var(--dg-radius-full); background: var(--dg-color-bg-brand-subtle); color: var(--dg-color-icon-brand); }
+.select-card__text { display: grid; gap: var(--dg-spacing-3xs); min-width: 0; }
+.select-card__label { font: var(--dg-text-body-regular-semibold); }
+.select-card__hint { font: var(--dg-text-body-small-book); color: var(--dg-color-text-subtle); }
+.select-card > .choice__box { margin-top: 0; } /* wie Figma: Indikator vertikal mittig */
+.select-card--radio > .choice__box { border-radius: var(--dg-radius-full); }
+.select-card:hover { border-color: var(--dg-color-border-strong); }
+.select-card:hover > .choice__box { background: var(--dg-color-bg-brand-subtle); border-color: var(--dg-color-border-brand-default); }
+/* Ausgewählt: 2 px border/selected (1 px Rahmen + 1 px Schatten innen, ohne Layout-Sprung) */
+.select-card:has(> input:checked) { border-color: var(--dg-color-border-selected); box-shadow: inset 0 0 0 var(--dg-border-width-sm) var(--dg-color-border-selected), var(--dg-shadow-xs); }
+.select-card:has(> input:checked) > .choice__box { background: var(--dg-color-bg-brand-default); border-color: var(--dg-color-bg-brand-default); }
+.select-card:has(> input:checked) .choice__dot { transform: scale(1); }
+.select-card:has(> input:checked) .choice__tick { stroke-dashoffset: 0; }
+/* Fokus wie Figma State=Focused: border/focus + shadow/xs-focus-brand */
+.select-card:has(> input:focus-visible) { border-color: var(--dg-color-border-focus); box-shadow: var(--dg-shadow-xs-focus-brand); }
+.select-card:has(> input:checked:focus-visible) { border-color: var(--dg-color-border-selected); box-shadow: inset 0 0 0 var(--dg-border-width-sm) var(--dg-color-border-selected), var(--dg-shadow-xs-focus-brand); }
+.select-card.is-error { border-color: var(--dg-color-border-error); }
+.select-card.is-error > .choice__box { border-color: var(--dg-color-border-error); }
+.select-card.is-disabled { cursor: not-allowed; background: var(--dg-color-bg-disabled); border-color: var(--dg-color-border-disabled); box-shadow: none; }
+.select-card.is-disabled .select-card__label, .select-card.is-disabled .select-card__hint { color: var(--dg-color-text-disabled); }
+.select-card.is-disabled .select-card__img, .select-card.is-disabled .select-card__icon { opacity: .5; }
+.select-card.is-disabled > .choice__box { background: var(--dg-color-bg-disabled); border-color: var(--dg-color-border-disabled); }
+
+/* Chip: bereits gewählte Option in der Zusammenfassung */
+.chip { display: inline-flex; align-items: center; gap: var(--dg-spacing-xs); min-height: var(--dg-spacing-2xl); padding: var(--dg-spacing-2xs) var(--dg-spacing-md) var(--dg-spacing-2xs) var(--dg-spacing-2xs); border-radius: var(--dg-radius-full); background: var(--dg-color-bg-default); border: var(--dg-border-width-sm) solid var(--dg-color-border-subtle); }
+.chip__img { width: var(--dg-spacing-xl); height: var(--dg-spacing-xl); }
+.chip__icon { display: grid; place-items: center; width: var(--dg-spacing-xl); height: var(--dg-spacing-xl); border-radius: var(--dg-radius-full); background: var(--dg-color-bg-brand-subtle); color: var(--dg-color-icon-brand); }
+.chip__icon .icon { width: var(--dg-icon-size-sm); height: var(--dg-icon-size-sm); }
+.chip__label { font: var(--dg-text-body-small-book); }
 
 /* ---------- Stepper (Verfügbarkeitscheck) ---------- */
 .stepper { --dot: var(--dg-spacing-xl); display: grid; grid-auto-flow: column; grid-auto-columns: minmax(0, 1fr); margin: 0; padding: 0; list-style: none; counter-reset: step; }
@@ -269,13 +289,13 @@ textarea.field__input { resize: vertical; min-height: calc(var(--dg-line-height-
 .visual__tag { position: absolute; left: var(--dg-spacing-md); bottom: var(--dg-spacing-md); }
 
 /* ---------- Service-Karte ---------- */
-.service { display: grid; align-content: start; gap: var(--dg-spacing-xs); padding: var(--dg-spacing-xl); border-radius: var(--dg-radius-xl); background: var(--dg-color-bg-default); border: var(--dg-border-width-sm) solid var(--dg-color-border-subtle); }
+.service { display: grid; align-content: start; gap: var(--dg-spacing-xs); padding: var(--dg-spacing-xl); border-radius: var(--dg-radius-xl); background: var(--dg-color-bg-subtle); border: var(--dg-border-width-sm) solid var(--dg-color-border-subtle); }
 .service__icon { display: grid; place-items: center; width: var(--dg-spacing-4xl); height: var(--dg-spacing-4xl); margin-bottom: var(--dg-spacing-xs); border-radius: var(--dg-radius-lg); background: var(--dg-color-bg-brand-subtle); color: var(--dg-color-icon-brand); }
 .service__icon .icon { width: var(--dg-spacing-xl); height: var(--dg-spacing-xl); }
 .service__number { color: var(--dg-color-text-default); text-decoration: none; font-variant-numeric: tabular-nums; }
 
 /* ---------- Tarifkarte ---------- */
-.tariff-card { display: grid; grid-template-rows: auto 1fr; overflow: hidden; border-radius: var(--dg-radius-xl); background: var(--dg-color-bg-default); border: var(--dg-border-width-sm) solid var(--dg-color-border-subtle); box-shadow: var(--dg-shadow-sm); }
+.tariff-card { display: grid; grid-template-rows: auto 1fr; overflow: hidden; border-radius: var(--dg-radius-xl); background: var(--dg-color-bg-subtle); border: var(--dg-border-width-sm) solid var(--dg-color-border-subtle); box-shadow: var(--dg-shadow-sm); }
 .tariff-card__head { padding: var(--dg-spacing-md) var(--dg-spacing-lg); background: var(--head-bg, var(--dg-color-bg-brand-default)); color: var(--head-text, var(--dg-color-text-on-brand)); }
 .tariff-card__body { display: grid; align-content: start; gap: var(--dg-spacing-md); padding: var(--dg-spacing-lg); }
 .tariff-card__speed { display: grid; grid-template-columns: 1fr 1fr; gap: var(--dg-spacing-xs); padding-bottom: var(--dg-spacing-md); border-bottom: var(--dg-border-width-sm) solid var(--dg-color-border-subtle); }

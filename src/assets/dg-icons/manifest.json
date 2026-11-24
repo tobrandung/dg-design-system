@@ -1,0 +1,408 @@
+[
+  {
+    "id": "telefonische-bestellung",
+    "label": "Telefonische Bestellung",
+    "file": "telefonische-bestellung.svg",
+    "source": "https://images.ctfassets.net/cfwjf2vnzww5/BB8hxULCwxpDX5JUCCCDe/2fa89b6101649de71be063f94a84d335/DG_icon_Weitere_Rufnummern_medium.svg",
+    "bytes": 768
+  },
+  {
+    "id": "alles-rund-um-ihren-vertrag",
+    "label": "Alles rund um Ihren Vertrag",
+    "file": "alles-rund-um-ihren-vertrag.svg",
+    "source": "https://images.ctfassets.net/cfwjf2vnzww5/qWqtaWkpldevITsAc9H30/c4bb156529b88e484617435d27a0156f/DG_icon_Vertrag_medium.svg",
+    "bytes": 1283
+  },
+  {
+    "id": "technische-fragen",
+    "label": "Technische Fragen",
+    "file": "technische-fragen.svg",
+    "source": "https://images.ctfassets.net/cfwjf2vnzww5/3S8LEuVrgNRM9OTJAHpjXw/b0a67c1d7844f198434e782e8fb0f277/DG_icon_Service_technisch_medium.svg",
+    "bytes": 1827
+  },
+  {
+    "id": "privatkunde",
+    "label": "Privatkunde",
+    "file": "privatkunde.svg",
+    "source": "https://images.ctfassets.net/cfwjf2vnzww5/6aVelj5ssvkv3iwzA23zNO/991e7b01be4593583b7c3d0dfd914edf/DG_icon_Privatkunde_medium.svg",
+    "bytes": 1007
+  },
+  {
+    "id": "aenderung-persoenlicher-daten",
+    "label": "Änderung persönlicher Daten",
+    "file": "aenderung-persoenlicher-daten.svg",
+    "source": "https://images.ctfassets.net/cfwjf2vnzww5/1JrEl0bEd2UvgABxp7pwmQ/f3b09eb5fd35b1e049f65c3d0da8a2a8/DG_Icon_Stift.svg",
+    "bytes": 1216
+  },
+  {
+    "id": "kontaktdaten",
+    "label": "Kontaktdaten",
+    "file": "kontaktdaten.svg",
+    "source": "https://images.ctfassets.net/cfwjf2vnzww5/ppErMczCmKELaEWjlno9K/08e9be2a2bc65728407d90874b715ec9/DG_Icon_Kontaktdaten_medium_RZ_RGB.svg",
+    "bytes": 1160
+  },
+  {
+    "id": "lieferadresse",
+    "label": "Lieferadresse",
+    "file": "lieferadresse.svg",
+    "source": "https://images.ctfassets.net/cfwjf2vnzww5/6q0MdZET9odM7rDLWDCZSq/db25b9ff4ed6b9327bc24bcd31f07748/DG_icon_Hausbegehung_medium.svg",
+    "bytes": 1342
+  },
+  {
+    "id": "bankdaten",
+    "label": "Bankdaten",
+    "file": "bankdaten.svg",
+    "source": "https://images.ctfassets.net/cfwjf2vnzww5/2jOSrY9Xl0U76OOfISfMcX/88f4a2d4f68f8206a360925a218304d4/DG_icon_Bankverbindung_medium.svg",
+    "bytes": 574
+  },
+  {
+    "id": "rechnungen-mahnungen",
+    "label": "Rechnungen / Mahnungen",
+    "file": "rechnungen-mahnungen.svg",
+    "source": "https://images.ctfassets.net/cfwjf2vnzww5/2AUud4dSS19tWOfn2BxHbg/8fb747bb814db3f74a68651ea379fb5f/DG_icon_Provision_medium.svg",
+    "bytes": 877
+  },
+  {
+    "id": "rechnung",
+    "label": "Rechnung",
+    "file": "rechnung.svg",
+    "source": "https://images.ctfassets.net/cfwjf2vnzww5/49Xj8BBAHBxkuNJEQYEKlu/c8cf417b9a8918b1fc945cbc1988b229/DG_icon_Rechnung_medium.svg",
+    "bytes": 874
+  },
+  {
+    "id": "mahnung",
+    "label": "Mahnung",
+    "file": "mahnung.svg",
+    "source": "https://images.ctfassets.net/cfwjf2vnzww5/mU3bmU3WHyDuCT2v1vJNe/b4ffe9a1da9b7db8b7788868c56140f2/DG_Icon_Antragspruefung_medium_RZ_RGB.svg",
+    "bytes": 2015
+  },
+  {
+    "id": "geraete",
+    "label": "Geräte",
+    "file": "geraete.svg",
+    "source": "https://images.ctfassets.net/cfwjf2vnzww5/7eH5bEP3W9iYIE1YFGg8yD/637d081d4286e9c9de973c2f61a4836f/DG_Icon_IHCWlanRouter_ProduktRouterundVerstaerker.svg",
+    "bytes": 3618
+  },
+  {
+    "id": "versandstatus-meiner-geraete",
+    "label": "Versandstatus meiner Geräte",
+    "file": "versandstatus-meiner-geraete.svg",
+    "source": "https://images.ctfassets.net/cfwjf2vnzww5/VPbpPTfcNSdObHmW8ybpJ/18f2ab9d4cddf4fd9d87bf8f2f75ab2c/DG_Icon_Marktrecherche_medium_RZ_RGB.svg",
+    "bytes": 2386
+  },
+  {
+    "id": "wechsel-mietrouter-zu-eigenem-router",
+    "label": "Wechsel Mietrouter zu eigenem Router",
+    "file": "wechsel-mietrouter-zu-eigenem-router.svg",
+    "source": "https://images.ctfassets.net/cfwjf2vnzww5/6DlRzGJLuzfu7dIudBCSGh/8d44add128ee14f762897b6f45733c6f/DG_Icon_IHCWlanRouter_ProduktRouter_medium_RZ_RGB.svg",
+    "bytes": 3459
+  },
+  {
+    "id": "ruecksendung-meiner-geraete-nach-kuendigung",
+    "label": "Rücksendung meiner Geräte nach Kündigung",
+    "file": "ruecksendung-meiner-geraete-nach-kuendigung.svg",
+    "source": "https://images.ctfassets.net/cfwjf2vnzww5/6BCDBiU6gGZQ3qhGBxYALv/fe17a9c1a08def64ab4fce6fa053f9a3/DG_Retoure.svg",
+    "bytes": 858
+  },
+  {
+    "id": "umzug",
+    "label": "Umzug",
+    "file": "umzug.svg",
+    "source": "https://images.ctfassets.net/cfwjf2vnzww5/sxgChZob7RWXd8q8Zr9xh/93eff67355de9416dd54b611221788e8/DG_Icon_Kostenloser_Hausanschluss_medium_RZ_RGB.svg",
+    "bytes": 2625
+  },
+  {
+    "id": "anpassung-produkte-services",
+    "label": "Anpassung Produkte & Services",
+    "file": "anpassung-produkte-services.svg",
+    "source": "https://images.ctfassets.net/cfwjf2vnzww5/5xsdGXCvkXb9jID9VPsGtn/e4178486cb7d2d377cdbb2f40ff0a5e0/DG_icon_Portfolio_medium.svg",
+    "bytes": 1723
+  },
+  {
+    "id": "wechsel-tarif-zusatzoption",
+    "label": "Wechsel Tarif / Zusatzoption",
+    "file": "wechsel-tarif-zusatzoption.svg",
+    "source": "https://images.ctfassets.net/cfwjf2vnzww5/2icQayjEVGkJWDA8CroJLP/5523b41a1f5b00a3ccfa39625f79024c/DG_icon_Tarifsaeulen_medium.svg",
+    "bytes": 448
+  },
+  {
+    "id": "tarif-wechselgarantie-siegel",
+    "label": "Tarif-Wechselgarantie Siegel",
+    "file": "tarif-wechselgarantie-siegel.svg",
+    "source": "https://images.ctfassets.net/cfwjf2vnzww5/2FPJQH1boRqBCfLWFJHUxk/85693bfc556bf6a00453559d55ddbeec/DG_Icon_Tarifwechsel-Garantie.svg",
+    "bytes": 3753
+  },
+  {
+    "id": "tarif-wechselgarantie",
+    "label": "Tarif-Wechselgarantie",
+    "file": "tarif-wechselgarantie.svg",
+    "source": "https://images.ctfassets.net/cfwjf2vnzww5/78Qa9ErD8PRvLWHLtrt6Qg/9a0f55f980800985bdcd398b23699ce1/DG_Icon_Wechselgarantie_medium_RZ_RGB.svg",
+    "bytes": 3203
+  },
+  {
+    "id": "telefonbucheintrag-beantragen",
+    "label": "Telefonbucheintrag beantragen",
+    "file": "telefonbucheintrag-beantragen.svg",
+    "source": "https://images.ctfassets.net/cfwjf2vnzww5/2L2aPEx7LN1UAjCHjBpuTr/4e7ce937ea5fb09b485372b8f1f871f2/DG_icon_Kostenloser_Telefonbucheintrag_medium.svg",
+    "bytes": 562
+  },
+  {
+    "id": "status-ihres-vertrags",
+    "label": "Status Ihres Vertrags",
+    "file": "status-ihres-vertrags.svg",
+    "source": "https://images.ctfassets.net/cfwjf2vnzww5/7J5pi734sKsGthICqgjrP2/a06dacf82ecfc4246ea867c269fca211/DG_Icon_Auftragsstatus_medium_RZ_CMYK.svg",
+    "bytes": 3674
+  },
+  {
+    "id": "stoerung-technische-hilfe-einrichtung",
+    "label": "Störung, technische Hilfe & Einrichtung",
+    "file": "stoerung-technische-hilfe-einrichtung.svg",
+    "source": "https://images.ctfassets.net/cfwjf2vnzww5/7k6eFYjAXXJdbSsI367gHp/2a9f25617c9d4c23c06ebfa6cea85132/DG_icon_Hilfe_WLAN_medium.svg",
+    "bytes": 1731
+  },
+  {
+    "id": "stoerung",
+    "label": "Störung",
+    "file": "stoerung.svg",
+    "source": "https://images.ctfassets.net/cfwjf2vnzww5/2E2FfU9GyIEktGQtboYJuE/7ef6437d0d366a816e131c0b87d0a34b/DG_icon_Wifi_Problem_medium.svg",
+    "bytes": 1295
+  },
+  {
+    "id": "totalausfall",
+    "label": "Totalausfall",
+    "file": "totalausfall.svg",
+    "source": "https://images.ctfassets.net/cfwjf2vnzww5/eykWtNVVgSuC6tR4JmCr2/ff4144dd6aaab645c721fbb6effe810d/DG_Icon_kein_Anschluss_medium_RZ_RGB.svg",
+    "bytes": 1160
+  },
+  {
+    "id": "internetproblem",
+    "label": "Internetproblem",
+    "file": "internetproblem.svg",
+    "source": "https://images.ctfassets.net/cfwjf2vnzww5/7D46sg45v71qUJ14Pc2DKg/71b162458b04b9659a41678c809d20a6/DG_icon_Wifi_teilen_medium.svg",
+    "bytes": 1805
+  },
+  {
+    "id": "telefonieproblem",
+    "label": "Telefonieproblem",
+    "file": "telefonieproblem.svg",
+    "source": "https://images.ctfassets.net/cfwjf2vnzww5/3o4WyR5SZf2sfKJzhb2Tbh/ac34682e7cd1f538c90a6e2119ad8887/DG_icon_Telefonie_medium.svg",
+    "bytes": 653
+  },
+  {
+    "id": "waipu-tv",
+    "label": "waipu.tv",
+    "file": "waipu-tv.svg",
+    "source": "https://images.ctfassets.net/cfwjf2vnzww5/1ZMvkM2I9tTS6qnY3DJg9b/3ec6376dafff14407ba450fb7f80dcc1/DG_Icon_waipu_TV_medium_RZ_RGB.svg",
+    "bytes": 16044
+  },
+  {
+    "id": "geschwindigkeit-speedtest",
+    "label": "Geschwindigkeit / Speedtest",
+    "file": "geschwindigkeit-speedtest.svg",
+    "source": "https://images.ctfassets.net/cfwjf2vnzww5/4ztv69Tb5t6hIIEHsGHWJ0/bbb6fb431f3cc1099a4f14e571f1b958/DG_Icon_Speedtest_medium_RZ_RGB.svg",
+    "bytes": 803
+  },
+  {
+    "id": "technische-frage",
+    "label": "Technische Frage",
+    "file": "technische-frage.svg",
+    "source": "https://images.ctfassets.net/cfwjf2vnzww5/4Yyay2pD8ozHN4UW46Hd0M/7eea8b9d808b00ecf32ccc3858fdf528/DG_Icon_Installation_medium_RZ_RGB.svg",
+    "bytes": 1632
+  },
+  {
+    "id": "router-und-wlan",
+    "label": "Router und WLAN",
+    "file": "router-und-wlan.svg",
+    "source": "https://images.ctfassets.net/cfwjf2vnzww5/gvDaLuamVYyabe8UT1onB/16cd1eda3bfac8c107ccaf673c9a9e8f/DG_Icon_IHCWlanRouter_ProduktRouterundVerstaerker_medium_RZ_RGB.svg",
+    "bytes": 3644
+  },
+  {
+    "id": "sonstiges",
+    "label": "Sonstiges",
+    "file": "sonstiges.svg",
+    "source": "https://images.ctfassets.net/cfwjf2vnzww5/1CJk6VBnJ4RS2osg4bnAPJ/f92bec600173edecddf220cc43852308/DG_Icon_Community.svg",
+    "bytes": 2857
+  },
+  {
+    "id": "sonstige-fragen",
+    "label": "Sonstige Fragen",
+    "file": "sonstige-fragen.svg",
+    "source": "https://images.ctfassets.net/cfwjf2vnzww5/1oaFh7SYxDnBqkLlW5lYpF/d4b6735567483a4d16e83821e8889e10/DG_icon_FAQ_Projektablauf_medium.svg",
+    "bytes": 1663
+  },
+  {
+    "id": "fragen-zur-einrichtung",
+    "label": "Fragen zur Einrichtung",
+    "file": "fragen-zur-einrichtung.svg",
+    "source": "https://images.ctfassets.net/cfwjf2vnzww5/7yjuW4ssAObE8PrH8Xttvm/af9f388a9673c8d873add0dcb7b290d6/DG_icon_Einfache_Einrichtung_medium.svg",
+    "bytes": 1301
+  },
+  {
+    "id": "alles-zum-bau",
+    "label": "Alles zum Bau",
+    "file": "alles-zum-bau.svg",
+    "source": "https://images.ctfassets.net/cfwjf2vnzww5/64ljemY8w1ojXFRcGJPJjs/b60d138b1bec39b3c8932e995c91504a/DG_icon_Bau_medium.svg",
+    "bytes": 1123
+  },
+  {
+    "id": "bauphase-fragen",
+    "label": "Bauphase Fragen",
+    "file": "bauphase-fragen.svg",
+    "source": "https://images.ctfassets.net/cfwjf2vnzww5/5z1k2jR23rA0D1RKAOp5jr/81f2c6c7a1ac0b8bf97cbb93fea02d19/DG_icon_FAQ_medium.svg",
+    "bytes": 1190
+  },
+  {
+    "id": "baukosten",
+    "label": "Baukosten",
+    "file": "baukosten.svg",
+    "source": "https://images.ctfassets.net/cfwjf2vnzww5/7ssArSnNxkUt6LHncCv6aT/9ee6912a56f463ea9bd1eb6d88e63235/DG_Icon_Keine_Bereitstellungsgebuehr_medium_RZ_RGB.svg",
+    "bytes": 3003
+  },
+  {
+    "id": "baustatus",
+    "label": "Baustatus",
+    "file": "baustatus.svg",
+    "source": "https://images.ctfassets.net/cfwjf2vnzww5/3cEe23bVE1KtEWmhW9oy3n/013c09ccd7c8db8775e70008f9bfc96d/DG_Icon_Privatwirtschaftliche-Gebiete.svg",
+    "bytes": 2380
+  },
+  {
+    "id": "baustatus-foerderprojekt",
+    "label": "Baustatus Förderprojekt",
+    "file": "baustatus-foerderprojekt.svg",
+    "source": "https://images.ctfassets.net/cfwjf2vnzww5/1oXhgCVMGmrf7tC2D9T7SA/45d5dac56bc6dc7d2e8306cd8e6ed01e/DG_Icon_Mix-Gebiete.svg",
+    "bytes": 2592
+  },
+  {
+    "id": "beschwerde",
+    "label": "Beschwerde",
+    "file": "beschwerde.svg",
+    "source": "https://images.ctfassets.net/cfwjf2vnzww5/hR7Mzhaxy5iY1tkXnTiDZ/a03e6f4bbd59a2fdb7d90b015c4354e8/DG_Icon_EMail_Postfach_medium_RZ_RGB.svg",
+    "bytes": 609
+  },
+  {
+    "id": "hausbegehungsprotokoll",
+    "label": "Hausbegehungsprotokoll",
+    "file": "hausbegehungsprotokoll.svg",
+    "source": "https://images.ctfassets.net/cfwjf2vnzww5/3O5PtLdwKZqTXRdC5iugSo/0eaa487f7a5f0ecf3c1aac35dfa2b605/DG_icon_Checkliste_medium.svg",
+    "bytes": 670
+  },
+  {
+    "id": "rueckmeldung-auf-kontaktaufforderung",
+    "label": "Rückmeldung auf Kontaktaufforderung",
+    "file": "rueckmeldung-auf-kontaktaufforderung.svg",
+    "source": "https://images.ctfassets.net/cfwjf2vnzww5/3NQW4Y6CNilmEeGvpq88Sh/443d963d9a42bceb5f04627a0bc39be8/DG_icon_Chat_medium.svg",
+    "bytes": 1079
+  },
+  {
+    "id": "baupartner-terminvereinbarung",
+    "label": "Baupartner Terminvereinbarung",
+    "file": "baupartner-terminvereinbarung.svg",
+    "source": "https://images.ctfassets.net/cfwjf2vnzww5/5aL64GZLUHDx2vbQ9Zhrrs/38ff78b73c09732fc4e3a0c4c7e6c3e2/DG_icon_Beratung_Bau_medium.svg",
+    "bytes": 1284
+  },
+  {
+    "id": "verschiebung-absage-durch-kunden",
+    "label": "Verschiebung / Absage durch Kunden",
+    "file": "verschiebung-absage-durch-kunden.svg",
+    "source": "https://images.ctfassets.net/cfwjf2vnzww5/4tVhqZSkLnQJhkAo8UTCYa/9da61aa50416230bd58c52477babc0ab/DG_icon_Kalender_medium.svg",
+    "bytes": 759
+  },
+  {
+    "id": "baupartner-nicht-erschienen",
+    "label": "Baupartner nicht erschienen",
+    "file": "baupartner-nicht-erschienen.svg",
+    "source": "https://images.ctfassets.net/cfwjf2vnzww5/6OTnC8oteRvFR7jrRtcB9q/82d3fc69752841333ceb253f887d2b9f/DG_Icon_Bau_NichtErschienen.svg",
+    "bytes": 1950
+  },
+  {
+    "id": "kontaktdaten-baupartner-fuer-erreichbarkeit",
+    "label": "Kontaktdaten Baupartner für Erreichbarkeit",
+    "file": "kontaktdaten-baupartner-fuer-erreichbarkeit.svg",
+    "source": "https://images.ctfassets.net/cfwjf2vnzww5/1SfKQ40vI7Xe4q3yfypSSS/7515c492bb326aecf2567bef821a69fc/DG_Icon_Persoenliche_Daten_medium_RZ_RGB.svg",
+    "bytes": 835
+  },
+  {
+    "id": "rufnummernmitnahme",
+    "label": "Rufnummernmitnahme",
+    "file": "rufnummernmitnahme.svg",
+    "source": "https://images.ctfassets.net/cfwjf2vnzww5/1RVKrQ13vTYM4AbMTJbTaQ/5510d690c31bb242e7b70f334e1356e8/DG_icon_Rufnummermitnahme_medium.svg",
+    "bytes": 773
+  },
+  {
+    "id": "stornierung-rufnummernmitnahme",
+    "label": "Stornierung Rufnummernmitnahme",
+    "file": "stornierung-rufnummernmitnahme.svg",
+    "source": "https://images.ctfassets.net/cfwjf2vnzww5/1TBNmTOeTivmwKoiLoNEti/20663f5a047c69b3cb25286ed3251369/DG_Icon_Antrag-Stornieren.svg",
+    "bytes": 1138
+  },
+  {
+    "id": "bestellung-neuer-rufnummern",
+    "label": "Bestellung neuer Rufnummern",
+    "file": "bestellung-neuer-rufnummern.svg",
+    "source": "https://images.ctfassets.net/cfwjf2vnzww5/2KbI1qxlEsYYFO7MCNM5h5/74427a0f2bd1fbd61848691ac7f0ed58/DG_Icon_Warenkorb_medium_RZ.svg",
+    "bytes": 1277
+  },
+  {
+    "id": "anbieterwechselformular",
+    "label": "Anbieterwechselformular",
+    "file": "anbieterwechselformular.svg",
+    "source": "https://images.ctfassets.net/cfwjf2vnzww5/23kWZ4gV7fwpPISUSRPq44/9df4319275702befb196bd4d6f5d44a4/DG_Icon_Antragstellung_medium_RZ_RGB.svg",
+    "bytes": 1430
+  },
+  {
+    "id": "neubau",
+    "label": "Neubau",
+    "file": "neubau.svg",
+    "source": "https://images.ctfassets.net/cfwjf2vnzww5/5NSdcHOydOVr5WjIigg7vi/78c809aeec5fd66f4c61f1ce78e700da/DG_Icon_Nachmieter.svg",
+    "bytes": 1801
+  },
+  {
+    "id": "bestehende-immobilie",
+    "label": "Bestehende Immobilie",
+    "file": "bestehende-immobilie.svg",
+    "source": "https://images.ctfassets.net/cfwjf2vnzww5/4hccOgS3htDxVoD7jVnIDT/2e97fee0558f11d6ca043af40c3016e6/DG_icon_Leitungswege_medium.svg",
+    "bytes": 1004
+  },
+  {
+    "id": "selbststaendig",
+    "label": "Selbstständig",
+    "file": "selbststaendig.svg",
+    "source": "https://images.ctfassets.net/cfwjf2vnzww5/fJ1f7z5r45ZekC5qVh5bj/c6c77160b687f9f850780aaf33cd9ce9/DG_Icon_Shop_Servicepunkt_medium_RZ_RGB.svg",
+    "bytes": 979
+  },
+  {
+    "id": "unternehmen-oeffentliche-einrichtung",
+    "label": "Unternehmen / Öffentliche Einrichtung",
+    "file": "unternehmen-oeffentliche-einrichtung.svg",
+    "source": "https://images.ctfassets.net/cfwjf2vnzww5/45l8NgwYi0cqw6FS4khdsW/366b5d8892162f093a9bdcc161af23ac/DG_icon_Business_medium.svg",
+    "bytes": 536
+  },
+  {
+    "id": "eine-kommune",
+    "label": "Eine Kommune",
+    "file": "eine-kommune.svg",
+    "source": "https://images.ctfassets.net/cfwjf2vnzww5/66AwiN4dX4bGyoof1xyd5I/d5cd65995b51231aa7637e0934419235/DG_icon_Privatwirtschaft_medium.svg",
+    "bytes": 752
+  },
+  {
+    "id": "vermieter-wohnungsbaugesellschaft",
+    "label": "Vermieter / Wohnungsbaugesellschaft",
+    "file": "vermieter-wohnungsbaugesellschaft.svg",
+    "source": "https://images.ctfassets.net/cfwjf2vnzww5/2ufZujHhhJppJ4GfepmCgg/e134c7d59c26b72fc92d15b484c601ee/DG_Icon_Vermieter.svg",
+    "bytes": 1254
+  },
+  {
+    "id": "sonderkuendigung",
+    "label": "Sonderkündigung",
+    "file": "sonderkuendigung.svg",
+    "source": "https://images.ctfassets.net/cfwjf2vnzww5/3bm8xLpGEhpw85Z8LVXNV1/4780f7c599cd4bf4518bb91a12d46fec/DG_icon_Ku_ndigung_medium.svg",
+    "bytes": 995
+  },
+  {
+    "id": "vertragsuebernahme",
+    "label": "Vertragsübernahme",
+    "file": "vertragsuebernahme.svg",
+    "source": "https://images.ctfassets.net/cfwjf2vnzww5/6kF6nGBArBOiemP1HJq4QP/65de3ec30cbf585bbb90aec3184000b8/DG_icon_Wechselgarantie_medium.svg",
+    "bytes": 611
+  }
+]

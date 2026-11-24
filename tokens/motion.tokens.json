@@ -4,10 +4,10 @@
       "fast": {
         "$type": "duration",
         "$value": {
-          "value": 150,
+          "value": 200,
           "unit": "ms"
         },
-        "$description": "ms · Farbe, Rahmen, Hover, Fokus, Häkchen",
+        "$description": "ms · Farbe, Rahmen, Hover, Fokus, Häkchen; auch jedes Ausblenden",
         "$extensions": {
           "com.figma": {
             "key": "c797a210b1680d042ac4d40ed81b354e4ef7c43e",
@@ -18,10 +18,10 @@
       "base": {
         "$type": "duration",
         "$value": {
-          "value": 200,
+          "value": 250,
           "unit": "ms"
         },
-        "$description": "ms · Flyouts, Tooltips, kleine Ein- und Ausblendungen",
+        "$description": "ms · Flyouts, Tooltips, kleine Einblendungen",
         "$extensions": {
           "com.figma": {
             "key": "297e7da9029898f590f79eae4c6c1ddf01fcf1d7",
@@ -32,7 +32,7 @@
       "slow": {
         "$type": "duration",
         "$value": {
-          "value": 300,
+          "value": 350,
           "unit": "ms"
         },
         "$description": "ms · Dialoge, Schrittwechsel, Panels",
@@ -46,7 +46,7 @@
       "slower": {
         "$type": "duration",
         "$value": {
-          "value": 500,
+          "value": 600,
           "unit": "ms"
         },
         "$description": "ms · Seiteneinstieg, Erfolgsmeldungen",

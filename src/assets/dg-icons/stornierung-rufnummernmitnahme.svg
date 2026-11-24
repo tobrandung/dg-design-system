@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg id="Ebene_1" xmlns="http://www.w3.org/2000/svg" baseProfile="tiny" version="1.2" viewBox="0 0 75 75">
+  <!-- Generator: Adobe Illustrator 29.5.1, SVG Export Plug-In . SVG Version: 2.1.0 Build 141)  -->
+  <rect x="9.8" y="63" width="19.5" height="2" fill="#464646"/>
+  <g>
+    <polygon points="55.8 75 0 75 0 0 55.8 0 55.8 20.6 53.8 20.6 53.8 2 2 2 2 73 53.8 73 53.8 55.8 55.8 55.8 55.8 75" fill="#464646"/>
+    <g>
+      <rect x="20.1" y="14.5" width="23.5" height="2" fill="#464646"/>
+      <rect x="19.9" y="25" width="23.5" height="2" fill="#464646"/>
+      <rect x="43.5" y="37.5" width="23.5" height="2" transform="translate(43.4 -27.8) rotate(45)" fill="#464646"/>
+      <rect x="43.5" y="37.5" width="23.5" height="2" transform="translate(121.5 26.6) rotate(135)" fill="#464646"/>
+      <rect x="20.1" y="35.4" width="14.4" height="2" fill="#464646"/>
+      <rect x="7.8" y="11.6" width="7.8" height="7.8" fill="#14a0dc"/>
+      <rect x="7.8" y="22.1" width="7.8" height="7.8" fill="#32c864"/>
+      <rect x="7.8" y="32.5" width="7.8" height="7.8" fill="#ebb40f"/>
+    </g>
+  </g>
+</svg>
