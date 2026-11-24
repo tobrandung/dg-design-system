@@ -1,8 +1,11 @@
 /**
  * Token-Build: tokens/*.tokens.json (DTCG) → dist/
  *
- *   dist/css/tokens.css       :root mit allen Tokens (Light-Werte)
+ *   dist/css/tokens.css       :root mit allen Tokens (Light-Werte), auch für [data-theme="light"]
  *   dist/css/theme-dark.css   Dark-Werte für prefers-color-scheme + [data-theme="dark"]
+ *
+ *   data-theme wirkt auf <html> und auf jedem anderen Element. So kann ein Bereich
+ *   (z. B. das Band „Verfügbarkeit prüfen“) dauerhaft dunkel oder hell sein.
  *   dist/css/typography.css   Textstil-Klassen (.dg-heading-h1 …), mobil zuerst
  *   dist/css/index.css        bindet alles ein
  *   dist/tokens.mjs / .d.ts   aufgelöste Werte für JS
@@ -109,7 +112,7 @@ const line = (t, indent) => {
 };
 StyleDictionary.registerFormat({
   name: 'dg/css-root',
-  format: ({ dictionary }) => HEADER + `:root {\n  color-scheme: light;\n${dictionary.allTokens.map((t) => line(t, '  ')).join('\n')}\n}\n`
+  format: ({ dictionary }) => HEADER + `:root,\n[data-theme="light"] {\n  color-scheme: light;\n${dictionary.allTokens.map((t) => line(t, '  ')).join('\n')}\n}\n`
 });
 StyleDictionary.registerFormat({
   name: 'dg/css-dark',
@@ -117,7 +120,7 @@ StyleDictionary.registerFormat({
     const body = (i) => dictionary.allTokens.map((t) => line(t, i)).join('\n');
     return HEADER +
       `@media (prefers-color-scheme: dark) {\n  :root:not([data-theme="light"]) {\n    color-scheme: dark;\n${body('    ')}\n  }\n}\n\n` +
-      `:root[data-theme="dark"] {\n  color-scheme: dark;\n${body('  ')}\n}\n`;
+      `:root[data-theme="dark"],\n[data-theme="dark"] {\n  color-scheme: dark;\n${body('  ')}\n}\n`;
   }
 });
 StyleDictionary.registerFormat({

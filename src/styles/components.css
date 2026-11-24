@@ -241,13 +241,11 @@ textarea.field__input { resize: vertical; min-height: calc(var(--dg-line-height-
 .bubble::before { content: ""; position: absolute; left: calc(-1 * var(--dg-spacing-xs) + 1px); top: var(--dg-spacing-md); border: var(--dg-spacing-xs) solid transparent; border-right-color: var(--dg-color-bg-subtle); border-left: 0; }
 .bubble__avatar { display: grid; place-items: center; width: var(--dg-spacing-2xl); height: var(--dg-spacing-2xl); flex: none; border-radius: var(--dg-radius-full); background: var(--bubble-bg, var(--dg-color-bg-success-subtle)); color: var(--bubble-icon, var(--dg-color-icon-success)); }
 
-/* ---------- Dunkles Band (Verfügbarkeit prüfen) ---------- */
-.band { padding-block: var(--dg-spacing-xl) var(--dg-spacing-lg); background: var(--dg-color-bg-inverse); color: var(--dg-color-text-inverse); }
-.band .field__label { color: var(--dg-color-text-inverse); }
-.band .field__hint { color: var(--dg-color-text-inverse); }
-.band .field.is-error .field__hint { color: var(--dg-color-text-inverse); }
-.band .field.is-error .field__hint::before { content: ""; width: var(--dg-icon-size-sm); height: var(--dg-icon-size-sm); flex: none; margin-top: var(--dg-spacing-3xs); border-radius: var(--dg-radius-full); background: var(--dg-color-bg-error-default); }
-.band a { color: var(--dg-color-text-inverse); }
+/* ---------- Band (Verfügbarkeit prüfen) ----------
+   Steht mit data-theme="dark" im HTML: alle Komponenten darin nutzen die Dark-Werte aus Figma,
+   egal ob die Seite hell oder dunkel ist. */
+.band { padding-block: var(--dg-spacing-xl) var(--dg-spacing-lg); background: var(--dg-color-bg-subtle); color: var(--dg-color-text-default); border-block: var(--dg-border-width-sm) solid var(--dg-color-border-subtle); }
+.band a { color: var(--dg-color-text-default); }
 
 /* ---------- Bildfläche (Platzhalter für Fotos) ---------- */
 .visual { position: relative; display: grid; place-items: center; min-height: 20rem; height: 100%; overflow: hidden; background: radial-gradient(120% 90% at 20% 100%, var(--dg-color-bg-brand-subtle), transparent 60%), linear-gradient(160deg, var(--dg-color-bg-muted), var(--dg-color-bg-subtle)); color: var(--dg-color-icon-brand); }

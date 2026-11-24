@@ -134,6 +134,8 @@ in `scripts/build-tokens.mjs` unter `BASE` bzw. als Theme eintragen.
 
 - **Namen**: Figma-Pfad mit Bindestrichen und Präfix `dg`. Aus `color/text/default` wird `--dg-color-text-default`.
 - **Dark Mode**: folgt `prefers-color-scheme`. `data-theme="light|dark"` auf `<html>` überschreibt das.
+  - `data-theme` wirkt auch auf einzelnen Bereichen. Ein Bereich mit `data-theme="dark"` bleibt immer dunkel, alle Komponenten darin nutzen die Dark-Werte aus Figma.
+  - Beispiel: das Band „Verfügbarkeit prüfen“ auf `verfuegbarkeit.html`.
 - **Textstile**: `.dg-heading-h1` bis `.dg-heading-h6` nutzen mobil die Mobile-Werte und ab 48 rem die Desktop-Werte. Daneben gibt es `.dg-body-{tiny|small|regular|medium|large|xlarge}-{book|semibold}`, `.dg-label-button` und `.dg-display-price`.
 - **Einheiten**: Schriftgrößen und Zeilenhöhen in rem, damit sie mit der Browser-Schriftgröße skalieren. Alles andere in px.
 - **JS/TS**: `import { light, dark, cssVar } from 'dg-design-system/tokens'`.
