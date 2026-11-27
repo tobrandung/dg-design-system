@@ -1,0 +1,6 @@
+# Wer Änderungen freigibt. GitHub fragt diese Personen bei jedem PR automatisch als Reviewer an.
+# Frontend-Lead und Design-Lead mit ihrem GitHub-Namen ergänzen, z. B. @name.
+# Wirksam als Pflicht erst mit Branch-Schutz auf main („Require review from Code Owners“).
+/tokens/          @tobrandung
+/scripts/         @tobrandung
+/figma-plugin/    @tobrandung

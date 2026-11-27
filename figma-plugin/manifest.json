@@ -16,6 +16,6 @@
   "networkAccess": {
     "allowedDomains": ["https://api.github.com"],
     "devAllowedDomains": ["http://localhost:4318"],
-    "reasoning": "Schreibt die Token-Dateien als Commit ins Design-System-Repository und an den lokalen Dev-Server."
+    "reasoning": "Öffnet einen Pull Request mit den Token-Dateien im Design-System-Repository und sendet sie an den lokalen Dev-Server."
   }
 }

@@ -1,0 +1,62 @@
+# Prüfung jedes Pull Requests, vor allem der Token-PRs aus dem Figma-Plugin „DG Tokens“.
+#
+# 1. Build: Tokens und Prototyp müssen sich bauen lassen.
+# 2. Bericht: Was hat sich geändert, was bricht Code (Breaking Change), wie ändern sich Kontraste.
+#    Steht als Kommentar im PR und in der Zusammenfassung des Laufs.
+# 3. Kontrast: Fällt ein wichtiges Farbpaar durch den PR neu unter WCAG AA, schlägt die Prüfung fehl.
+# 4. Vorschau: Die gebaute Seite liegt als Artefakt am Lauf (Download, lokal öffnen).
+name: Token-Prüfung
+
+on:
+  pull_request:
+    paths: ["tokens/**", "src/**", "public/**", "*.html", "scripts/**", "package*.json", "vite.config.mjs"]
+
+permissions:
+  contents: read
+  pull-requests: write
+
+concurrency:
+  group: tokens-pr-${{ github.event.pull_request.number }}
+  cancel-in-progress: true
+
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v5
+        with:
+          fetch-depth: 0
+      - uses: actions/setup-node@v5
+        with:
+          node-version: 24
+          cache: npm
+      - run: npm ci
+      - name: Build
+        run: npm run build
+      - name: Token-Bericht
+        id: report
+        run: |
+          set +e
+          node scripts/token-report.mjs --base "origin/${{ github.base_ref }}" > report.md
+          echo "code=$?" >> "$GITHUB_OUTPUT"
+          cat report.md >> "$GITHUB_STEP_SUMMARY"
+      - name: Bericht als PR-Kommentar
+        env:
+          GH_TOKEN: ${{ github.token }}
+          PR: ${{ github.event.pull_request.number }}
+          REPO: ${{ github.repository }}
+        run: |
+          { echo '<!-- dg-token-report -->'; cat report.md; echo; echo "Vorschau: Artefakt „vorschau“ am [Lauf](${{ github.server_url }}/$REPO/actions/runs/${{ github.run_id }}) herunterladen und index.html öffnen."; } > comment.md
+          id=$(gh api "repos/$REPO/issues/$PR/comments" --paginate --jq '.[] | select(.body | startswith("<!-- dg-token-report -->")) | .id' | head -n 1)
+          if [ -n "$id" ]; then gh api -X PATCH "repos/$REPO/issues/comments/$id" -F body=@comment.md > /dev/null
+          else gh api "repos/$REPO/issues/$PR/comments" -F body=@comment.md > /dev/null; fi
+      - uses: actions/upload-artifact@v4
+        with:
+          name: vorschau
+          path: site
+          retention-days: 14
+      - name: Kontrast
+        if: steps.report.outputs.code != '0'
+        run: |
+          echo "::error::Mindestens ein Farbpaar fällt durch diesen PR unter WCAG AA. Details im Token-Bericht."
+          exit 1

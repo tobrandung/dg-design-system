@@ -1,32 +1,58 @@
-# DG Design System – Tokens und Prototyp
+# DG Design System: Tokens und Prototyp
 
-Figma ist die Quelle der Wahrheit. Variablen, Text- und Effektstile werden als
-[DTCG-Tokens (Format 2025.10)](https://www.designtokens.org/) in `tokens/` abgelegt,
-mit [Style Dictionary 5](https://styledictionary.com/) zu CSS, JS und JSON gebaut und im
-Prototyp (Vite) verwendet.
+Die Farben, Abstände, Schriften und Animationen der Deutsche-Glasfaser-Seite kommen aus Figma-Variablen.
+Dieses Repository macht daraus CSS-Variablen und zeigt sie in einem Prototyp: https://tobrandung.github.io/dg-design-system/
+
+Werte werden nur in Figma geändert. Jede Änderung kommt als Pull Request ins Repository, das Frontend prüft sie, und erst nach dem Merge geht sie live.
+
+## Ablauf
 
 ```
-Figma: ändern → veröffentlichen → „Tokens senden“ (Plugin DG Tokens)
-   │                                   │
-   ▼                                   ▼
-lokaler Dev-Server (sofort, HMR)     GitHub-Commit tokens/*.tokens.json
-                                       │  GitHub Actions
-                                       ▼
-                                     Build (Style Dictionary + Vite) → GitHub Pages
-
-tokens/*.tokens.json  →  dist/css/index.css   --dg-* Variablen, Dark-Theme, Textstil-Klassen
-                         dist/tokens.mjs/.d.ts aufgelöste Werte für JS/TS
-                         dist/tokens.json      Liste aller Tokens (Doku, Tests)
+Design                         Pull Request                          nach dem Merge
+──────                         ────────────                          ──────────────
+Figma ändern, veröffentlichen  Plugin öffnet PR auf figma/tokens     GitHub Pages wird neu gebaut
+„Tokens senden“ klicken   →    Prüfung schreibt Bericht in den PR →  Frontend übernimmt die Version
+                               Frontend und Design geben frei
 ```
 
-## Warum ein Plugin
+1. **Design** ändert Variablen in Figma, veröffentlicht die Library und klickt im Plugin „DG Tokens“ auf „Tokens senden“. Optional steht im Plugin, was geändert wurde und warum.
+2. **Das Plugin** schreibt `tokens/*.tokens.json` auf den Branch `figma/tokens` und öffnet einen Pull Request. Gibt es schon einen offenen, wird er aktualisiert.
+3. **Die Prüfung** (`.github/workflows/tokens-pr.yml`) baut alles und kommentiert im PR:
+   - welche Tokens neu, geändert oder entfernt sind, für Light und Dark getrennt
+   - Breaking Changes, also entfernte, umbenannte oder im Typ geänderte Tokens
+   - Kontraste nach WCAG 2.2 AA für Text und Bedienelemente. Fällt ein Paar neu unter den Grenzwert, schlägt die Prüfung fehl.
+   - einen Vorschlag für die Version (major, minor, patch)
 
-Die Variables-REST-API von Figma gibt es nur für Full Seats in Enterprise-Organisationen
-([Figma-Doku](https://developers.figma.com/docs/rest-api/variables)). Ohne Enterprise kann kein
-Server die Variablen selbst abholen. Den Anstoß gibt deshalb das Plugin „DG Tokens“ in Figma,
-und zwar mit einem Klick nach dem Publish. Alles danach läuft automatisch.
+   Die gebaute Seite hängt als Artefakt „vorschau“ am Lauf.
+4. **Frontend und Design** prüfen den Bericht und die Vorschau und mergen. Die Code Owner stehen in `.github/CODEOWNERS`.
+5. **Nach dem Merge** baut `.github/workflows/tokens.yml` die Seite neu und veröffentlicht sie.
 
-## Schnellstart
+Das Plugin gibt es, weil die Variables-REST-API von Figma nur im Enterprise-Plan verfügbar ist ([Figma-Doku](https://developers.figma.com/docs/rest-api/variables)). Ein Plugin läuft in jedem Plan.
+
+### Breaking Changes
+
+Entfernte oder umbenannte Tokens brechen Code, der sie nutzt. Deshalb in Figma erst nach `_legacy/…` verschieben. Im Export steht dann `$deprecated`, der Token bleibt also erhalten. Gelöscht wird er frühestens mit der nächsten Major-Version, wenn kein Code ihn mehr nutzt.
+
+## Einrichten
+
+### Plugin in Figma (einmal pro Person)
+
+1. Figma Desktop öffnen, die Datei „Deutsche Glasfaser Relaunch (Tokens)“ öffnen.
+2. Plugins → Development → Import plugin from manifest → `figma-plugin/manifest.json`.
+3. Plugins → Development → DG Tokens → **Einstellungen und Export**:
+   - GitHub: Repository `owner/name`, Ziel-Branch `main`.
+   - Token: GitHub → Settings → Developer settings → Fine-grained tokens. Er braucht nur dieses Repository, mit „Contents“ und „Pull requests“ auf Read and write.
+   - Optional: lokaler Dev-Server `http://localhost:4318` für eine Vorschau ohne PR.
+
+Die Einstellungen bleiben lokal in Figma. Jede Person nutzt einen eigenen Token.
+
+### GitHub (einmal)
+
+- Settings → Pages → Source: „GitHub Actions“.
+- Settings → Branches → Regel für `main`: Pull Request vor dem Merge, eine Freigabe, „Require review from Code Owners“, der Status-Check der „Token-Prüfung“ muss grün sein.
+- In `.github/CODEOWNERS` die GitHub-Namen von Frontend-Lead und Design-Lead eintragen.
+
+### Lokal
 
 ```bash
 npm install
@@ -36,153 +62,20 @@ npm install
 npm run dev
 ```
 
-Der Dev-Server läuft auf http://localhost:4318. Jede Änderung an `tokens/*.tokens.json` wird
-sofort neu gebaut und ohne Neuladen in die Seite übernommen. Das gilt auch, wenn die Änderung vom Plugin kommt.
+Der Dev-Server läuft auf http://localhost:4318. Änderungen an `tokens/` erscheinen ohne Neuladen.
 
 | Befehl | Zweck |
 | --- | --- |
-| `npm run dev` | Prototyp mit Live-Tokens, nimmt Tokens vom Plugin an |
-| `npm run tokens:build` | `tokens/` → `dist/` |
-| `npm run build` | Tokens + Prototyp für die Veröffentlichung nach `site/` |
-| `npm run plugin:build` | Figma-Plugin `figma-plugin/code.js` neu bauen |
+| `npm run dev` | Prototyp mit Live-Tokens, nimmt auch Tokens direkt vom Plugin an |
+| `npm run build` | Tokens und Prototyp nach `site/` |
+| `npm run tokens:build` | nur `tokens/` → `dist/` |
+| `npm run plugin:build` | `figma-plugin/code.js` neu bauen |
+| `node scripts/token-report.mjs --base origin/main` | Token-Bericht wie im PR |
+| `node scripts/sync-from-snapshot.mjs snapshot.json` | Tokens aus einem Figma-Snapshot schreiben, ohne Plugin |
 
-## Seiten
+Der Snapshot hat das Format von [TokensBrücke](https://github.com/tokens-bruecke/figma-plugin). Ein KI-Agent kann ihn über den Figma-MCP erzeugen.
 
-| Seite | Inhalt |
-| --- | --- |
-| `index.html` | Übersicht |
-| `verfuegbarkeit.html` | Verfügbarkeitscheck nach dem Ablauf auf deutsche-glasfaser.de: Band mit PLZ/Ort, Straße und Hausnummer, dann Dialog mit Wohnsituation und Ergebnis, darunter die Tarife |
-| `kontakt.html` | Kontakt-Assistent nach dem Ablauf auf deutsche-glasfaser.de/service/kontakt: Ich bin … → Anliegen → Genaues Anliegen → Formular |
-| `bausteine.html` | Alle Komponenten mit Zuständen |
-| `tokens.html` | Alle Tokens aus Figma, aktualisiert sich live |
-
-- **Gemeinsame Teile** (Kopf, Icons, Fußzeile, noindex) stehen in `src/partials/`. Eingebunden werden sie mit `<!-- @include name -->`, siehe `scripts/vite-plugin-html-partials.mjs`.
-- **Neue Seite**: HTML-Datei anlegen und in `vite.config.mjs` unter `PAGES` eintragen.
-- **1:1 übernommen** ist im Kontakt-Assistenten der Weg Privatkunde → Vertrag → Änderung persönlicher Daten → Kontaktdaten. Andere Wege enden in einem allgemeinen Formular. Es ist als „Felder angenommen“ markiert.
-- **Beispieldaten**: Orte, Straßen, Ausbaustatus und Telefonnummern sind erfunden. Fotos sind Platzhalter.
-- **Nicht auffindbar**: Jede Seite hat `noindex, nofollow`, dazu kommt `robots.txt`. Das Repository selbst ist öffentlich und damit über GitHub auffindbar.
-
-## Figma-Plugin „DG Tokens“ einrichten (einmalig)
-
-1. Figma Desktop öffnen, die Design-System-Datei öffnen.
-2. Plugins → Development → Import plugin from manifest → `figma-plugin/manifest.json` wählen.
-3. Plugins → Development → DG Tokens → **Einstellungen und Export**:
-   - **Lokaler Dev-Server**: anhaken, Adresse `http://localhost:4318`.
-   - **GitHub**: anhaken, Repository `owner/name`, Branch `main`.
-     - Dazu einen fine-grained Token anlegen: GitHub → Settings → Developer settings → Fine-grained tokens.
-     - Er braucht nur Zugriff auf dieses Repository mit „Contents: Read and write“.
-   - **Speichern**. Die Einstellungen liegen lokal in Figma auf deinem Rechner.
-
-Für andere Teammitglieder: Jede Person importiert das Plugin selbst und nutzt einen eigenen Token.
-Später kann das Plugin privat in der Organisation veröffentlicht werden, dann entfällt der Import.
-
-## Arbeitsablauf
-
-1. In Figma Variablen oder Stile ändern und die Library **veröffentlichen**.
-2. Rechts im Eigenschaften-Panel der Datei (ohne Auswahl) auf **„Tokens senden“** klicken. Alternativ: Plugins → DG Tokens → Tokens senden.
-3. Das Plugin liest alle Variablen, Text- und Effektstile, wandelt sie in DTCG-Dateien um und sendet sie:
-   - an den **Dev-Server**, falls `npm run dev` läuft. Die offene Seite zeigt die Änderung sofort.
-   - an **GitHub** als Commit. Die Action `.github/workflows/tokens.yml` baut und veröffentlicht die Seite auf GitHub Pages, meist in ein bis zwei Minuten.
-4. Unten in Figma erscheint, was gesendet wurde, z. B. „GitHub: Commit a1b2c3d auf main“.
-
-Das Plugin liest den aktuellen Stand der Datei, auch unveröffentlichte Änderungen. Deshalb erst
-veröffentlichen, dann senden.
-
-### Ohne Plugin-Klick: Snapshot
-
-`node scripts/sync-from-snapshot.mjs snapshot.json` liest einen Snapshot der Figma-Datei im Format von
-[TokensBrücke](https://github.com/tokens-bruecke/figma-plugin) (rohe Plugin-API-Objekte) und schreibt
-`tokens/` mit demselben Konverter wie das Plugin. So kann z. B. ein KI-Agent über den Figma-MCP synchronisieren.
-
-### Namen in Figma Dev Mode
-
-Jede Variable hat in Figma eine Code Syntax (WEB), z. B. `var(--dg-color-bg-brand-default)`. Sie ist identisch
-mit dem CSS-Namen im Code. Das Plugin exportiert sie unter `$extensions["com.figma"].codeSyntax`. `tokens.html` zeigt,
-wie viele Namen übereinstimmen.
-
-### Warum nicht TokensBrücke?
-
-Getestet am 27.11.2026 (TokensBrücke 3.32.1, CLI mit Snapshot):
-- Motion-Dauern kommen als `px` statt `ms`, Easing als Text statt `cubicBezier`.
-- Deutsche Schnittnamen (Halbfett) werden zu `fontWeight: 400`.
-- Light/Dark landen in einer Datei unter `$extensions.mode` statt in einer Datei pro Mode.
-- `typography` und `Typography` kollidieren auf macOS als Dateinamen.
-
-Das eigene Plugin kennt diese DG-Konventionen. TokensBrücke bleibt als Referenz, und sein Snapshot-Format wird oben genutzt.
-
-## GitHub einrichten (einmalig)
-
-1. Repository anlegen und diesen Ordner pushen.
-2. Settings → Pages → Source: „GitHub Actions“.
-3. Fertig. Jeder Push auf `main`, der Tokens oder Code ändert, baut und veröffentlicht die Seite.
-
-## Token-Dateien
-
-| Datei | Figma-Quelle | Inhalt |
-| --- | --- | --- |
-| `primitives.tokens.json` | Collection „Primitives“ | Farbreihen gray, brand, error, green, yellow, orange (je 12 Stufen), base |
-| `color.light.tokens.json` / `color.dark.tokens.json` | Collection „Color“, Modes Light/Dark | Semantische Farben (Aliase auf Primitives) |
-| `dimensions.tokens.json` | Collection „Dimensions“ | spacing, radius, border-width, focus-ring, icon-size |
-| `typography.tokens.json` | Collection „Typography“ | font-family, font-weight, font-size, line-height |
-| `text-styles.tokens.json` | Textstile | Composite-Tokens `typography` (Überschriften, Fließtext, Label, Preis) |
-| `effect-styles.tokens.json` | Effektstile | Schatten, Fokusringe, Hintergrund-Blur |
-| `motion.tokens.json` | Collection „Motion“ | Dauer, Easing, Startgröße und Versatz für Animationen |
-
-Pro Mode entsteht eine Datei, wie beim nativen Variablen-Export von Figma. Weitere Angaben:
-- Figma-Metadaten (Key, Scopes) stehen unter `$extensions["com.figma"]`.
-- Beschreibungen stehen unter `$description`.
-- Veraltete Tokens (`_legacy/…` in Figma) bekommen `$deprecated`.
-
-Neue Collections in Figma erzeugen automatisch neue Dateien und werden automatisch mitgebaut.
-Nur neue Modes (z. B. ein drittes Theme) müssen in `scripts/build-tokens.mjs` eingetragen werden.
-
-## Auswahlkarte und DG-Icons
-
-- **Auswahlkarte** (`Selection card` in Figma, `.select-card` im Code) ersetzt die Pills für Auswahlfragen.
-  - Vorbild: Untitled UI Radio/Checkbox group (Icon card).
-  - Figma: Basis `_Selection card base` (Type) und Set `Selection card` (Type × Selected × State), alle Werte an Variablen gebunden.
-  - Maße: Höhe 72 px, Padding `spacing/md`, Abstand `spacing/sm`, Icon 40 px, `radius/lg`. Ausgewählt: 2 px `border/selected`.
-  - Im Code: `optionHTML(name, value, label, 'dg:privatkunde', checked, { type: 'radio' | 'checkbox', hint, disabled })`.
-  - Barrierefreiheit: Die ganze Karte ist das Label eines echten Radios bzw. einer Checkbox. Die Gruppe ist ein `fieldset` mit `legend`. Die Auswahl ist nicht nur an der Farbe erkennbar.
-- **Eingabefeld**: links ein Feld-Icon (z. B. E-Mail, Telefon, Adresse), rechts ein Slot für Info (Popover) oder X (Eingabe löschen).
-  - Figma: Eigenschaften „Leading Icon Type“ und „Info Icon Type“ mit vorgeschlagenen Icons.
-  - Im Code: `actionHTML('info', text)` bzw. `actionHTML('clear')`, dazu `bindClear()`.
-  - Platzhalter `text/disabled` und Hover `border/strong`, wie in Figma.
-- **DG-Icons**: 63 Illustrationen von deutsche-glasfaser.de, aus dem Kontakt-Assistenten und der Wohnsituation im Verfügbarkeitscheck.
-  - Die Farben sind an Tokens gebunden, damit die Illustrationen im Dark Mode lesbar bleiben:
-    - `#464646` → `icon/default`
-    - `#14a0dc` → `icon/brand`
-    - `#32c864` → `icon/accent-green`
-    - `#ebb40f` → `icon/accent-yellow`
-  - Im Web werden die Icons deshalb inline eingebunden (`dgIconSvg`).
-  - Ablage: `src/assets/dg-icons/`, Quelle und Beschriftung stehen in `manifest.json`.
-  - In Figma: Komponenten `dg-icon/<thema>` im Bereich „DG Illustrations-Icons“.
-  - Im Code: `dgIcon('privatkunde')` liefert die URL. In `optionHTML` reicht `'dg:privatkunde'`.
-
-## Motion
-
-Animationen nutzen nur Motion-Tokens aus Figma (Collection „Motion“). Figma hat keinen Variablentyp für
-Dauer oder Easing, deshalb gilt eine Namenskonvention:
-
-| Figma-Variable | Typ in Figma | DTCG-Token | CSS |
-| --- | --- | --- | --- |
-| `motion/duration/fast · base · slow · slower` (200 · 250 · 350 · 600) | Number (ms) | `duration` | `--dg-motion-duration-base: 250ms` |
-| `motion/easing/standard · enter · exit · spring` | String `"x1, y1, x2, y2"` | `cubicBezier` | `--dg-motion-easing-enter: cubic-bezier(0, 0, 0.2, 1)` |
-| `motion/scale/enter` | Number | `number` | `--dg-motion-scale-enter: 0.95` |
-| `motion/distance/enter` | Number, Alias auf `spacing/xs` | `dimension` | `--dg-motion-distance-enter` |
-
-- **CSS-Übergänge**: `transition: border-color var(--dg-motion-duration-fast) var(--dg-motion-easing-standard)`.
-- **GSAP**: `import { dur, ease, scaleEnter, distance } from './src/motion.js'` liefert dieselben Werte in Sekunden und als Easing.
-
-Die Regeln folgen shadcn/ui und Material 3:
-- **Einblenden**: `enter`-Easing, `base` (Flyout) bzw. `slow` (Dialog), dazu leicht vergrößern (`scale/enter`) und versetzen (`distance/enter`).
-- **Ausblenden**: `exit`-Easing, immer `fast`. Ausblenden ist kürzer als Einblenden.
-- **Zustandswechsel**: `standard`-Easing.
-- **`spring`**: nur für kleine Bestätigungen wie Häkchen oder Auswahl, nie für Flächen.
-- **Reduzierte Bewegung**: Bei `prefers-reduced-motion` fallen alle Dauern auf 0.
-- **Logik**: Der Ablauf hängt nie am Ende einer Animation. Inhalte werden sofort getauscht, die Animation ist nur Kosmetik.
-
-## Im Code verwenden
+## Tokens im Code
 
 ```css
 @import "dg-design-system/css";
@@ -192,35 +85,43 @@ Die Regeln folgen shadcn/ui und Material 3:
   border: var(--dg-border-width-sm) solid var(--dg-color-border-subtle);
   border-radius: var(--dg-radius-lg);
   padding: var(--dg-spacing-lg);
-  box-shadow: var(--dg-shadow-md);
 }
 ```
 
-```html
-<h2 class="dg-heading-h2">Überschrift</h2>
-<p class="dg-body-regular-book">Fließtext</p>
-```
+- **Namen:** Figma-Pfad mit Bindestrichen und Präfix `dg`. Aus `color/text/default` wird `--dg-color-text-default`. Derselbe Name steht in Figma Dev Mode als Code Syntax. `tokens.html` zählt, ob alle übereinstimmen.
+- **Dark Mode:** folgt `prefers-color-scheme`. `data-theme="light|dark"` überschreibt das, auch für einzelne Bereiche.
+- **Textstile:** Klassen wie `.dg-heading-h2` oder `.dg-body-regular-book`. Überschriften wechseln ab 48 rem auf die Desktop-Werte.
+- **Einheiten:** Schriftgrößen und Zeilenhöhen in rem, alles andere in px.
+- **JS/TS:** `import { light, dark, cssVar } from 'dg-design-system/tokens'`.
+- **Motion:** Dauer (`--dg-motion-duration-*`, in ms) und Easing (`--dg-motion-easing-*`, als `cubic-bezier`). Einblenden mit `enter`, Ausblenden mit `exit` und immer `fast`. Bei `prefers-reduced-motion` fallen alle Dauern auf 0. Für GSAP liefert `src/motion.js` dieselben Werte.
 
-- **Namen**: Figma-Pfad mit Bindestrichen und Präfix `dg`. Aus `color/text/default` wird `--dg-color-text-default`.
-- **Dark Mode**: folgt `prefers-color-scheme`. `data-theme="light|dark"` auf `<html>` überschreibt das.
-  - `data-theme` wirkt auch auf einzelnen Bereichen. Ein Bereich mit `data-theme="dark"` bleibt immer dunkel, alle Komponenten darin nutzen die Dark-Werte aus Figma.
-  - Beispiel: das Band „Verfügbarkeit prüfen“ auf `verfuegbarkeit.html`.
-- **Textstile**: `.dg-heading-h1` bis `.dg-heading-h6` nutzen mobil die Mobile-Werte und ab 48 rem die Desktop-Werte. Daneben gibt es `.dg-body-{tiny|small|regular|medium|large|xlarge}-{book|semibold}`, `.dg-label-button` und `.dg-display-price`.
-- **Einheiten**: Schriftgrößen und Zeilenhöhen in rem, damit sie mit der Browser-Schriftgröße skalieren. Alles andere in px.
-- **JS/TS**: `import { light, dark, cssVar } from 'dg-design-system/tokens'`.
+### Dateien in `tokens/`
 
-## Regeln
+| Datei | Quelle in Figma |
+| --- | --- |
+| `primitives` | Collection „Primitives“: Farbreihen mit 12 Stufen |
+| `color.light`, `color.dark` | Collection „Color“, Modes Light und Dark |
+| `dimensions` | Collection „Dimensions“: Abstände, Radien, Rahmen, Icon-Größen |
+| `typography`, `text-styles` | Collection „Typography“ und die Textstile |
+| `motion` | Collection „Motion“ |
+| `effect-styles` | Effektstile: Schatten, Fokusringe, Blur |
 
-- `dist/` und `site/` sind generiert. Nie von Hand ändern.
-- Werte nur in Figma ändern, nicht in `tokens/`. Sonst überschreibt der nächste Sync die Änderung.
-- Was nicht in Figma lebt, steht oben in `scripts/build-tokens.mjs`:
-  - das Präfix
-  - die Font-Fallbacks
-  - der Desktop-Breakpoint
-- Neue Figma-Schnitte in `FONT_WEIGHTS` (`scripts/lib/figma-to-dtcg.mjs`) ergänzen, danach `npm run plugin:build`.
+Format: [DTCG 2025.10](https://www.designtokens.org/tr/2025.10/). Figma-Key, Scopes und Code Syntax stehen unter `$extensions["com.figma"]`. Neue Collections erzeugen automatisch neue Dateien. Ein neuer Mode, etwa eine zweite Marke, muss in `scripts/build-tokens.mjs` eingetragen werden.
 
-## Offene Punkte
+`dist/` und `site/` sind generiert. Was nicht aus Figma kommt (Präfix, Font-Fallbacks, Breakpoint), steht oben in `scripts/build-tokens.mjs`. Neue Schriftschnitte gehören in `FONT_WEIGHTS` in `scripts/lib/figma-to-dtcg.mjs`.
 
-- **Söhne als Webfont**: Lizenz und Dateien fehlen noch. Bis dahin greifen Geist und Barlow Condensed als Ersatz, wenn Söhne nicht lokal installiert ist.
-- **Button**: In Figma gibt es noch keine Button-Komponente. Der Button im Prototyp ist ein Vorschlag.
-- **Rahmen von Eingabefeldern**: Sie nutzen `border/subtle` mit sehr wenig Kontrast. WCAG 1.4.11 verlangt für Bedienelemente 3:1. `border/strong` würde das erfüllen.
+## Prototyp
+
+`verfuegbarkeit.html` und `kontakt.html` bauen die Abläufe von deutsche-glasfaser.de nach, `bausteine.html` zeigt alle Komponenten mit Zuständen, `tokens.html` alle Tokens. Orte, Straßen und Telefonnummern sind Beispieldaten. Alle Seiten sind auf `noindex` gesetzt, das Repository selbst ist öffentlich.
+
+## Warum ein eigenes Plugin
+
+TokensBrücke 3.32.1 haben wir am 27.11.2026 mit der DG-Datei getestet. Der Export läuft, passt aber nicht zu den DG-Konventionen: Motion-Dauern kommen als px, Easing als Text, „Halbfett“ wird zu Schriftgewicht 400, und Light und Dark landen in einer Datei. Das eigene Plugin setzt diese Regeln um und nutzt denselben Konverter wie `sync-from-snapshot.mjs`.
+
+## Offen
+
+- **Söhne als Webfont:** Lizenz und Dateien fehlen. Bis dahin stehen Geist und Barlow Condensed als Ersatz.
+- **Button:** In Figma gibt es noch keine Button-Komponente, der Button im Prototyp ist ein Vorschlag.
+- **Kontraste:** Laut Token-Bericht liegen `border/focus` auf `bg/default` (Light, 2,96 : 1) und `text/error` auf `bg/default` (Dark, 4,16 : 1) unter WCAG AA.
+- **Visueller Vergleich im PR:** Screenshots der Komponenten vor und nach der Änderung, z. B. mit Playwright oder Chromatic.
+- **Versionierung:** Sobald das DG-Frontend die Tokens als Paket nutzt, mit Changesets Versionen und Changelog erzeugen. Den Vorschlag dafür liefert schon der Token-Bericht.

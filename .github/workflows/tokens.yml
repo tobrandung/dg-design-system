@@ -1,8 +1,8 @@
-# Tokens → Build → GitHub Pages
+# Veröffentlichen: main → Build → GitHub Pages
 #
-# Läuft bei jedem Push auf main, der Tokens oder Code ändert. Den Token-Commit schreibt das
-# Figma-Plugin „DG Tokens“ (Befehl „Tokens senden“) nach dem Publish in Figma.
-name: Tokens
+# Läuft, sobald ein geprüfter Pull Request auf main gemergt ist. Token-PRs öffnet das
+# Figma-Plugin „DG Tokens“, geprüft werden sie von .github/workflows/tokens-pr.yml.
+name: Veröffentlichen
 
 on:
   push:
