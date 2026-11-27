@@ -17,6 +17,7 @@
           "$description": "60/56px · SohneDG Schmal Halbfett · Versalien",
           "$extensions": {
             "com.figma": {
+              "fontStyle": "Halbfett",
               "letterSpacingEm": 0.015,
               "textCase": "UPPER",
               "lineHeight": "{line-height.56}"
@@ -38,6 +39,7 @@
           "$description": "48/56px · Sohne Halbfett",
           "$extensions": {
             "com.figma": {
+              "fontStyle": "Halbfett",
               "letterSpacingEm": -0.03,
               "textCase": "ORIGINAL",
               "lineHeight": "{line-height.56}"
@@ -59,6 +61,7 @@
           "$description": "40/48px · Sohne Halbfett",
           "$extensions": {
             "com.figma": {
+              "fontStyle": "Halbfett",
               "letterSpacingEm": -0.03,
               "textCase": "ORIGINAL",
               "lineHeight": "{line-height.48}"
@@ -80,6 +83,7 @@
           "$description": "32/40px · Sohne Halbfett",
           "$extensions": {
             "com.figma": {
+              "fontStyle": "Halbfett",
               "letterSpacingEm": -0.04,
               "textCase": "ORIGINAL",
               "lineHeight": "{line-height.40}"
@@ -101,6 +105,7 @@
           "$description": "28/36px · Sohne Halbfett",
           "$extensions": {
             "com.figma": {
+              "fontStyle": "Halbfett",
               "letterSpacingEm": -0.03,
               "textCase": "ORIGINAL",
               "lineHeight": "{line-height.36}"
@@ -122,6 +127,7 @@
           "$description": "20/28px · Sohne Halbfett",
           "$extensions": {
             "com.figma": {
+              "fontStyle": "Halbfett",
               "letterSpacingEm": -0.03,
               "textCase": "ORIGINAL",
               "lineHeight": "{line-height.28}"
@@ -140,9 +146,9 @@
               "unit": "px"
             }
           },
-          "$description": "18/24px · Sohne Halbfett",
           "$extensions": {
             "com.figma": {
+              "fontStyle": "Halbfett",
               "letterSpacingEm": -0.03,
               "textCase": "ORIGINAL",
               "lineHeight": "{line-height.24}"
@@ -166,6 +172,7 @@
           "$description": "36/32px · SohneDG Schmal Halbfett · Versalien",
           "$extensions": {
             "com.figma": {
+              "fontStyle": "Halbfett",
               "letterSpacingEm": 0.015,
               "textCase": "UPPER",
               "lineHeight": "{line-height.32}"
@@ -187,6 +194,7 @@
           "$description": "32/40px · Sohne Halbfett",
           "$extensions": {
             "com.figma": {
+              "fontStyle": "Halbfett",
               "letterSpacingEm": -0.03,
               "textCase": "ORIGINAL",
               "lineHeight": "{line-height.40}"
@@ -208,6 +216,7 @@
           "$description": "24/32px · Sohne Halbfett",
           "$extensions": {
             "com.figma": {
+              "fontStyle": "Halbfett",
               "letterSpacingEm": -0.03,
               "textCase": "ORIGINAL",
               "lineHeight": "{line-height.32}"
@@ -229,6 +238,7 @@
           "$description": "20/28px · Sohne Halbfett",
           "$extensions": {
             "com.figma": {
+              "fontStyle": "Halbfett",
               "letterSpacingEm": -0.04,
               "textCase": "ORIGINAL",
               "lineHeight": "{line-height.28}"
@@ -250,6 +260,7 @@
           "$description": "18/24px · Sohne Halbfett",
           "$extensions": {
             "com.figma": {
+              "fontStyle": "Halbfett",
               "letterSpacingEm": -0.03,
               "textCase": "ORIGINAL",
               "lineHeight": "{line-height.24}"
@@ -271,6 +282,7 @@
           "$description": "16/24px · Sohne Halbfett",
           "$extensions": {
             "com.figma": {
+              "fontStyle": "Halbfett",
               "letterSpacingEm": -0.03,
               "textCase": "ORIGINAL",
               "lineHeight": "{line-height.24}"
@@ -289,13 +301,87 @@
               "unit": "px"
             }
           },
-          "$description": "14/20px · Sohne Halbfett",
           "$extensions": {
             "com.figma": {
+              "fontStyle": "Halbfett",
               "letterSpacingEm": -0.03,
               "textCase": "ORIGINAL",
               "lineHeight": "{line-height.20}"
             }
+          }
+        }
+      }
+    },
+    "legacy": {
+      "desktop-h3-regular": {
+        "$type": "typography",
+        "$value": {
+          "fontFamily": "{font-family.sans}",
+          "fontWeight": "{font-weight.regular}",
+          "fontSize": "{font-size.32}",
+          "lineHeight": 1.25,
+          "letterSpacing": {
+            "value": 0,
+            "unit": "px"
+          }
+        },
+        "$description": "32/40px · Sohne Buch",
+        "$deprecated": "32/40px · Sohne Buch",
+        "$extensions": {
+          "com.figma": {
+            "fontStyle": "Buch",
+            "letterSpacingEm": 0,
+            "textCase": "ORIGINAL",
+            "lineHeight": "{line-height.40}"
+          }
+        }
+      },
+      "mobile-h3-regular": {
+        "$type": "typography",
+        "$value": {
+          "fontFamily": "{font-family.sans}",
+          "fontWeight": "{font-weight.regular}",
+          "fontSize": "{font-size.20}",
+          "lineHeight": 1.4,
+          "letterSpacing": {
+            "value": 0,
+            "unit": "px"
+          }
+        },
+        "$description": "20/28px · Sohne Buch",
+        "$deprecated": "20/28px · Sohne Buch",
+        "$extensions": {
+          "com.figma": {
+            "fontStyle": "Buch",
+            "letterSpacingEm": 0,
+            "textCase": "ORIGINAL",
+            "lineHeight": "{line-height.28}"
+          }
+        }
+      },
+      "display-condensed": {
+        "$type": "typography",
+        "$value": {
+          "fontFamily": "SohneDG Schmal",
+          "fontWeight": 600,
+          "fontSize": {
+            "value": 60,
+            "unit": "px"
+          },
+          "lineHeight": 0.9,
+          "letterSpacing": {
+            "value": 0.9,
+            "unit": "px"
+          }
+        },
+        "$description": "Identisch mit heading/desktop/h1 – bitte diesen verwenden",
+        "$deprecated": "Identisch mit heading/desktop/h1 – bitte diesen verwenden",
+        "$extensions": {
+          "com.figma": {
+            "fontStyle": "Halbfett",
+            "letterSpacingEm": 0.015,
+            "textCase": "UPPER",
+            "lineHeightPx": 54
           }
         }
       }
@@ -317,6 +403,7 @@
           "$description": "12/16px · Sohne Buch",
           "$extensions": {
             "com.figma": {
+              "fontStyle": "Buch",
               "letterSpacingEm": 0,
               "textCase": "ORIGINAL",
               "lineHeight": "{line-height.16}"
@@ -338,6 +425,7 @@
           "$description": "12/16px · Sohne Halbfett",
           "$extensions": {
             "com.figma": {
+              "fontStyle": "Halbfett",
               "letterSpacingEm": 0,
               "textCase": "ORIGINAL",
               "lineHeight": "{line-height.16}"
@@ -361,6 +449,7 @@
           "$description": "14/20px · Sohne Buch",
           "$extensions": {
             "com.figma": {
+              "fontStyle": "Buch",
               "letterSpacingEm": 0,
               "textCase": "ORIGINAL",
               "lineHeight": "{line-height.20}"
@@ -382,6 +471,7 @@
           "$description": "14/20px · Sohne Halbfett",
           "$extensions": {
             "com.figma": {
+              "fontStyle": "Halbfett",
               "letterSpacingEm": 0,
               "textCase": "ORIGINAL",
               "lineHeight": "{line-height.20}"
@@ -405,6 +495,7 @@
           "$description": "16/24px · Sohne Buch",
           "$extensions": {
             "com.figma": {
+              "fontStyle": "Buch",
               "letterSpacingEm": 0,
               "textCase": "ORIGINAL",
               "lineHeight": "{line-height.24}"
@@ -426,53 +517,10 @@
           "$description": "16/24px · Sohne Halbfett",
           "$extensions": {
             "com.figma": {
+              "fontStyle": "Halbfett",
               "letterSpacingEm": 0,
               "textCase": "ORIGINAL",
               "lineHeight": "{line-height.24}"
-            }
-          }
-        }
-      },
-      "medium": {
-        "book": {
-          "$type": "typography",
-          "$value": {
-            "fontFamily": "{font-family.sans}",
-            "fontWeight": "{font-weight.regular}",
-            "fontSize": "{font-size.18}",
-            "lineHeight": 1.5556,
-            "letterSpacing": {
-              "value": 0,
-              "unit": "px"
-            }
-          },
-          "$description": "18/28px · Sohne Buch",
-          "$extensions": {
-            "com.figma": {
-              "letterSpacingEm": 0,
-              "textCase": "ORIGINAL",
-              "lineHeight": "{line-height.28}"
-            }
-          }
-        },
-        "semibold": {
-          "$type": "typography",
-          "$value": {
-            "fontFamily": "{font-family.sans}",
-            "fontWeight": "{font-weight.semibold}",
-            "fontSize": "{font-size.18}",
-            "lineHeight": 1.5556,
-            "letterSpacing": {
-              "value": 0,
-              "unit": "px"
-            }
-          },
-          "$description": "18/28px · Sohne Halbfett",
-          "$extensions": {
-            "com.figma": {
-              "letterSpacingEm": 0,
-              "textCase": "ORIGINAL",
-              "lineHeight": "{line-height.28}"
             }
           }
         }
@@ -493,6 +541,7 @@
           "$description": "20/28px · Sohne Buch",
           "$extensions": {
             "com.figma": {
+              "fontStyle": "Buch",
               "letterSpacingEm": 0,
               "textCase": "ORIGINAL",
               "lineHeight": "{line-height.28}"
@@ -514,6 +563,51 @@
           "$description": "20/28px · Sohne Halbfett",
           "$extensions": {
             "com.figma": {
+              "fontStyle": "Halbfett",
+              "letterSpacingEm": 0,
+              "textCase": "ORIGINAL",
+              "lineHeight": "{line-height.28}"
+            }
+          }
+        }
+      },
+      "medium": {
+        "book": {
+          "$type": "typography",
+          "$value": {
+            "fontFamily": "{font-family.sans}",
+            "fontWeight": "{font-weight.regular}",
+            "fontSize": "{font-size.18}",
+            "lineHeight": 1.5556,
+            "letterSpacing": {
+              "value": 0,
+              "unit": "px"
+            }
+          },
+          "$extensions": {
+            "com.figma": {
+              "fontStyle": "Buch",
+              "letterSpacingEm": 0,
+              "textCase": "ORIGINAL",
+              "lineHeight": "{line-height.28}"
+            }
+          }
+        },
+        "semibold": {
+          "$type": "typography",
+          "$value": {
+            "fontFamily": "{font-family.sans}",
+            "fontWeight": "{font-weight.semibold}",
+            "fontSize": "{font-size.18}",
+            "lineHeight": 1.5556,
+            "letterSpacing": {
+              "value": 0,
+              "unit": "px"
+            }
+          },
+          "$extensions": {
+            "com.figma": {
+              "fontStyle": "Halbfett",
               "letterSpacingEm": 0,
               "textCase": "ORIGINAL",
               "lineHeight": "{line-height.28}"
@@ -534,9 +628,9 @@
               "unit": "px"
             }
           },
-          "$description": "24/32px · Sohne Buch",
           "$extensions": {
             "com.figma": {
+              "fontStyle": "Buch",
               "letterSpacingEm": 0,
               "textCase": "ORIGINAL",
               "lineHeight": "{line-height.32}"
@@ -555,9 +649,9 @@
               "unit": "px"
             }
           },
-          "$description": "24/32px · Sohne Halbfett",
           "$extensions": {
             "com.figma": {
+              "fontStyle": "Halbfett",
               "letterSpacingEm": 0,
               "textCase": "ORIGINAL",
               "lineHeight": "{line-height.32}"
@@ -582,6 +676,7 @@
         "$description": "16/24px · Sohne Halbfett",
         "$extensions": {
           "com.figma": {
+            "fontStyle": "Halbfett",
             "letterSpacingEm": 0,
             "textCase": "ORIGINAL",
             "lineHeight": "{line-height.24}"
@@ -605,55 +700,10 @@
         "$description": "56/64px · Sohne Halbfett",
         "$extensions": {
           "com.figma": {
+            "fontStyle": "Halbfett",
             "letterSpacingEm": 0,
             "textCase": "ORIGINAL",
             "lineHeight": "{line-height.64}"
-          }
-        }
-      }
-    },
-    "legacy": {
-      "desktop-h3-regular": {
-        "$type": "typography",
-        "$value": {
-          "fontFamily": "{font-family.sans}",
-          "fontWeight": "{font-weight.regular}",
-          "fontSize": "{font-size.32}",
-          "lineHeight": 1.25,
-          "letterSpacing": {
-            "value": 0,
-            "unit": "px"
-          }
-        },
-        "$description": "Veraltet: Überschriften nur noch in Semibold.",
-        "$deprecated": "Veraltet: Überschriften nur noch in Semibold.",
-        "$extensions": {
-          "com.figma": {
-            "letterSpacingEm": 0,
-            "textCase": "ORIGINAL",
-            "lineHeight": "{line-height.40}"
-          }
-        }
-      },
-      "mobile-h3-regular": {
-        "$type": "typography",
-        "$value": {
-          "fontFamily": "{font-family.sans}",
-          "fontWeight": "{font-weight.regular}",
-          "fontSize": "{font-size.20}",
-          "lineHeight": 1.4,
-          "letterSpacing": {
-            "value": 0,
-            "unit": "px"
-          }
-        },
-        "$description": "Veraltet: Überschriften nur noch in Semibold.",
-        "$deprecated": "Veraltet: Überschriften nur noch in Semibold.",
-        "$extensions": {
-          "com.figma": {
-            "letterSpacingEm": 0,
-            "textCase": "ORIGINAL",
-            "lineHeight": "{line-height.28}"
           }
         }
       }

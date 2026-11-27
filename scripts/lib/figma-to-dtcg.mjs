@@ -8,7 +8,7 @@
  * {
  *   file: { key, name },
  *   collections: [{ id, name, modes: [{ modeId, name }], defaultModeId }],
- *   variables:   [{ id, key, name, collectionId, resolvedType, valuesByMode, description, scopes, hiddenFromPublishing }],
+ *   variables:   [{ id, key, name, collectionId, resolvedType, valuesByMode, description, scopes, codeSyntax, hiddenFromPublishing }],
  *   textStyles:  [{ id, key, name, description, fontFamily, fontStyle, fontSize, lineHeight: {unit, value}, letterSpacing: {unit, value}, textCase, boundVariables }],
  *   effectStyles:[{ id, key, name, description, effects: [{ type, color: {r,g,b,a}, offset: {x,y}, radius, spread, boundVariables }] }]
  * }
@@ -106,6 +106,8 @@ export function figmaToDtcg(model, { includeFigmaMeta = true } = {}) {
         const type = tokenType(v);
         const raw = v.valuesByMode[mode.modeId];
         const meta = { key: v.key, scopes: v.scopes };
+        // Code Syntax aus Figma Dev Mode (z. B. WEB: "var(--dg-color-text-default)"), damit Doku und Build prüfen können, ob Figma und Code gleich heißen.
+        if (v.codeSyntax && Object.keys(v.codeSyntax).length) meta.codeSyntax = v.codeSyntax;
         if (v.hiddenFromPublishing) meta.hiddenFromPublishing = true;
         let value;
         if (raw && raw.type === 'VARIABLE_ALIAS') {

@@ -71,7 +71,10 @@ function typeSpecimens(tokens) {
 }
 
 function render(tokens, root) {
-  root.querySelector('[data-tok="count"]').textContent = `${tokens.length} Tokens · ${tokens.filter((t) => t.dark !== undefined).length} mit Dark-Wert`;
+  const withWeb = tokens.filter((t) => t.figmaWeb);
+  const same = withWeb.filter((t) => t.figmaWeb === varOf(t)).length;
+  const devMode = withWeb.length ? ` · Namen in Figma Dev Mode: ${same} von ${withWeb.length} gleich wie im Code` : '';
+  root.querySelector('[data-tok="count"]').textContent = `${tokens.length} Tokens · ${tokens.filter((t) => t.dark !== undefined).length} mit Dark-Wert${devMode}`;
   root.querySelector('[data-tok="primitives"]').innerHTML = swatchRamps(tokens);
   root.querySelector('[data-tok="semantic"]').innerHTML = semanticTable(tokens);
   root.querySelector('[data-tok="spacing"]').innerHTML = scale(tokens, 'spacing.', (t) => `<span class="tok-bar" style="width:${varOf(t)}"></span>`);

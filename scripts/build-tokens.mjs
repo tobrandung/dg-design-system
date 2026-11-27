@@ -205,6 +205,8 @@ export async function buildTokens({ quiet = false } = {}) {
     ...(darkByName.has(t.name) && isRef(darkByName.get(t.name).original.$value) ? { aliasDark: darkByName.get(t.name).original.$value.slice(1, -1) } : {}),
     ...(t.$description ? { description: t.$description } : {}),
     ...(t.$deprecated ? { deprecated: true } : {}),
+    // Name in Figma Dev Mode (Code Syntax WEB). Die Doku zeigt, ob er zum CSS-Namen passt.
+    ...(t.$extensions?.['com.figma']?.codeSyntax?.WEB ? { figmaWeb: t.$extensions['com.figma'].codeSyntax.WEB } : {}),
     ...(t.$type === 'typography' ? { extensions: t.$extensions?.['com.figma'] } : {})
   }));
   await writeFile(path.join(DIST, 'tokens.json'), JSON.stringify(docs, null, 2) + '\n');

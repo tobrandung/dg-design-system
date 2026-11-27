@@ -88,6 +88,28 @@ Später kann das Plugin privat in der Organisation veröffentlicht werden, dann 
 Das Plugin liest den aktuellen Stand der Datei, auch unveröffentlichte Änderungen. Deshalb erst
 veröffentlichen, dann senden.
 
+### Ohne Plugin-Klick: Snapshot
+
+`node scripts/sync-from-snapshot.mjs snapshot.json` liest einen Snapshot der Figma-Datei im Format von
+[TokensBrücke](https://github.com/tokens-bruecke/figma-plugin) (rohe Plugin-API-Objekte) und schreibt
+`tokens/` mit demselben Konverter wie das Plugin. So kann z. B. ein KI-Agent über den Figma-MCP synchronisieren.
+
+### Namen in Figma Dev Mode
+
+Jede Variable hat in Figma eine Code Syntax (WEB), z. B. `var(--dg-color-bg-brand-default)`. Sie ist identisch
+mit dem CSS-Namen im Code. Das Plugin exportiert sie unter `$extensions["com.figma"].codeSyntax`. `tokens.html` zeigt,
+wie viele Namen übereinstimmen.
+
+### Warum nicht TokensBrücke?
+
+Getestet am 27.11.2026 (TokensBrücke 3.32.1, CLI mit Snapshot):
+- Motion-Dauern kommen als `px` statt `ms`, Easing als Text statt `cubicBezier`.
+- Deutsche Schnittnamen (Halbfett) werden zu `fontWeight: 400`.
+- Light/Dark landen in einer Datei unter `$extensions.mode` statt in einer Datei pro Mode.
+- `typography` und `Typography` kollidieren auf macOS als Dateinamen.
+
+Das eigene Plugin kennt diese DG-Konventionen. TokensBrücke bleibt als Referenz, und sein Snapshot-Format wird oben genutzt.
+
 ## GitHub einrichten (einmalig)
 
 1. Repository anlegen und diesen Ordner pushen.

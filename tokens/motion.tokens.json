@@ -11,7 +11,12 @@
         "$extensions": {
           "com.figma": {
             "key": "c797a210b1680d042ac4d40ed81b354e4ef7c43e",
-            "scopes": []
+            "scopes": [
+              "ALL_SCOPES"
+            ],
+            "codeSyntax": {
+              "WEB": "var(--dg-motion-duration-fast)"
+            }
           }
         }
       },
@@ -25,7 +30,12 @@
         "$extensions": {
           "com.figma": {
             "key": "297e7da9029898f590f79eae4c6c1ddf01fcf1d7",
-            "scopes": []
+            "scopes": [
+              "ALL_SCOPES"
+            ],
+            "codeSyntax": {
+              "WEB": "var(--dg-motion-duration-base)"
+            }
           }
         }
       },
@@ -39,7 +49,12 @@
         "$extensions": {
           "com.figma": {
             "key": "82ab34dd20e1bc3c25e1944e6cb69a9b1715ba72",
-            "scopes": []
+            "scopes": [
+              "ALL_SCOPES"
+            ],
+            "codeSyntax": {
+              "WEB": "var(--dg-motion-duration-slow)"
+            }
           }
         }
       },
@@ -53,7 +68,12 @@
         "$extensions": {
           "com.figma": {
             "key": "69c3d417b526613cedf4aa653ff824aef799e3d6",
-            "scopes": []
+            "scopes": [
+              "ALL_SCOPES"
+            ],
+            "codeSyntax": {
+              "WEB": "var(--dg-motion-duration-slower)"
+            }
           }
         }
       }
@@ -71,7 +91,12 @@
         "$extensions": {
           "com.figma": {
             "key": "88a0b215bdc63cbb7de0d82e6ab1751f515a6fe9",
-            "scopes": []
+            "scopes": [
+              "ALL_SCOPES"
+            ],
+            "codeSyntax": {
+              "WEB": "var(--dg-motion-easing-standard)"
+            }
           }
         }
       },
@@ -87,7 +112,12 @@
         "$extensions": {
           "com.figma": {
             "key": "0b0fa1b64fbf37aa50c15b8081db5b611ef3fad8",
-            "scopes": []
+            "scopes": [
+              "ALL_SCOPES"
+            ],
+            "codeSyntax": {
+              "WEB": "var(--dg-motion-easing-enter)"
+            }
           }
         }
       },
@@ -103,7 +133,12 @@
         "$extensions": {
           "com.figma": {
             "key": "4543becd2857760321c518c2d3b0735a03d32015",
-            "scopes": []
+            "scopes": [
+              "ALL_SCOPES"
+            ],
+            "codeSyntax": {
+              "WEB": "var(--dg-motion-easing-exit)"
+            }
           }
         }
       },
@@ -119,7 +154,12 @@
         "$extensions": {
           "com.figma": {
             "key": "e1af65599d8675a102f4ecdfa04f7677d8c5c633",
-            "scopes": []
+            "scopes": [
+              "ALL_SCOPES"
+            ],
+            "codeSyntax": {
+              "WEB": "var(--dg-motion-easing-spring)"
+            }
           }
         }
       }
@@ -132,7 +172,12 @@
         "$extensions": {
           "com.figma": {
             "key": "333f1118f884b71bc0b3ce2eecb84e28eb42958f",
-            "scopes": []
+            "scopes": [
+              "ALL_SCOPES"
+            ],
+            "codeSyntax": {
+              "WEB": "var(--dg-motion-scale-enter)"
+            }
           }
         }
       }
@@ -145,7 +190,12 @@
         "$extensions": {
           "com.figma": {
             "key": "356f518901db6698fab6d9dbff338be46e2dc5ab",
-            "scopes": []
+            "scopes": [
+              "ALL_SCOPES"
+            ],
+            "codeSyntax": {
+              "WEB": "var(--dg-motion-distance-enter)"
+            }
           }
         }
       }

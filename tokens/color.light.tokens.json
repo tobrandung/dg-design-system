@@ -4,80 +4,245 @@
       "default": {
         "$type": "color",
         "$value": "{color.gray.800}",
-        "$description": "Standard-Textfarbe"
+        "$description": "Standard-Textfarbe",
+        "$extensions": {
+          "com.figma": {
+            "scopes": [
+              "TEXT_FILL"
+            ],
+            "codeSyntax": {
+              "WEB": "var(--dg-color-text-default)"
+            }
+          }
+        }
       },
       "subtle": {
         "$type": "color",
         "$value": "{color.gray.600}",
-        "$description": "Sekundärtext, AA auf Weiß"
+        "$description": "Sekundärtext, AA auf Weiß",
+        "$extensions": {
+          "com.figma": {
+            "scopes": [
+              "TEXT_FILL"
+            ],
+            "codeSyntax": {
+              "WEB": "var(--dg-color-text-subtle)"
+            }
+          }
+        }
       },
       "disabled": {
         "$type": "color",
         "$value": "{color.gray.400}",
-        "$description": "Textfarbe: deaktivierte Elemente."
+        "$description": "Textfarbe: deaktivierte Elemente.",
+        "$extensions": {
+          "com.figma": {
+            "scopes": [
+              "TEXT_FILL"
+            ],
+            "codeSyntax": {
+              "WEB": "var(--dg-color-text-disabled)"
+            }
+          }
+        }
       },
       "inverse": {
         "$type": "color",
         "$value": "{color.gray.25}",
-        "$description": "Text auf dunklem Grund (Sand)"
+        "$description": "Text auf dunklem Grund (Sand)",
+        "$extensions": {
+          "com.figma": {
+            "scopes": [
+              "TEXT_FILL"
+            ],
+            "codeSyntax": {
+              "WEB": "var(--dg-color-text-inverse)"
+            }
+          }
+        }
       },
       "on-brand": {
         "$type": "color",
         "$value": "{color.base.white}",
-        "$description": "Text auf Brand-Flächen"
+        "$description": "Text auf Brand-Flächen",
+        "$extensions": {
+          "com.figma": {
+            "scopes": [
+              "TEXT_FILL"
+            ],
+            "codeSyntax": {
+              "WEB": "var(--dg-color-text-on-brand)"
+            }
+          }
+        }
       },
       "brand": {
         "$type": "color",
         "$value": "{color.brand.600}",
-        "$description": "Brand-Text, AA auf Weiß"
+        "$description": "Brand-Text, AA auf Weiß",
+        "$extensions": {
+          "com.figma": {
+            "scopes": [
+              "TEXT_FILL"
+            ],
+            "codeSyntax": {
+              "WEB": "var(--dg-color-text-brand)"
+            }
+          }
+        }
       },
       "link": {
         "default": {
           "$type": "color",
           "$value": "{color.brand.600}",
-          "$description": "Textfarbe: Links, Standard."
+          "$description": "Textfarbe: Links, Standard.",
+          "$extensions": {
+            "com.figma": {
+              "scopes": [
+                "TEXT_FILL"
+              ],
+              "codeSyntax": {
+                "WEB": "var(--dg-color-text-link-default)"
+              }
+            }
+          }
         },
         "hover": {
           "$type": "color",
           "$value": "{color.brand.700}",
-          "$description": "Textfarbe: Links, Hover-Zustand."
+          "$description": "Textfarbe: Links, Hover-Zustand.",
+          "$extensions": {
+            "com.figma": {
+              "scopes": [
+                "TEXT_FILL"
+              ],
+              "codeSyntax": {
+                "WEB": "var(--dg-color-text-link-hover)"
+              }
+            }
+          }
         },
         "active": {
           "$type": "color",
           "$value": "{color.brand.800}",
-          "$description": "Textfarbe: Links, gedrückter/aktiver Zustand."
+          "$description": "Textfarbe: Links, gedrückter/aktiver Zustand.",
+          "$extensions": {
+            "com.figma": {
+              "scopes": [
+                "TEXT_FILL"
+              ],
+              "codeSyntax": {
+                "WEB": "var(--dg-color-text-link-active)"
+              }
+            }
+          }
         },
         "visited": {
           "$type": "color",
           "$value": "{color.brand.800}",
-          "$description": "Textfarbe: Links, besuchter Link."
+          "$description": "Textfarbe: Links, besuchter Link.",
+          "$extensions": {
+            "com.figma": {
+              "scopes": [
+                "TEXT_FILL"
+              ],
+              "codeSyntax": {
+                "WEB": "var(--dg-color-text-link-visited)"
+              }
+            }
+          }
         }
       },
       "error": {
         "$type": "color",
         "$value": "{color.error.600}",
-        "$description": "Textfarbe: Fehler."
+        "$description": "Textfarbe: Fehler.",
+        "$extensions": {
+          "com.figma": {
+            "scopes": [
+              "TEXT_FILL"
+            ],
+            "codeSyntax": {
+              "WEB": "var(--dg-color-text-error)"
+            }
+          }
+        }
       },
       "success": {
         "$type": "color",
         "$value": "{color.green.800}",
-        "$description": "Textfarbe: Erfolg."
-      },
-      "warning": {
-        "$type": "color",
-        "$value": "{color.yellow.800}",
-        "$description": "Text für Warnhinweise (mind. 4,5:1 auf bg/warning/subtle)."
+        "$description": "Textfarbe: Erfolg.",
+        "$extensions": {
+          "com.figma": {
+            "scopes": [
+              "TEXT_FILL"
+            ],
+            "codeSyntax": {
+              "WEB": "var(--dg-color-text-success)"
+            }
+          }
+        }
       },
       "accent": {
         "yellow": {
           "$type": "color",
           "$value": "{color.yellow.500}",
-          "$description": "DG Blüte – nur auf dunklem Grund"
+          "$description": "DG Blüte – nur auf dunklem Grund",
+          "$extensions": {
+            "com.figma": {
+              "scopes": [
+                "TEXT_FILL"
+              ],
+              "codeSyntax": {
+                "WEB": "var(--dg-color-text-accent-yellow)"
+              }
+            }
+          }
         },
         "green": {
           "$type": "color",
           "$value": "{color.green.400}",
-          "$description": "DG Gras – nur auf dunklem Grund"
+          "$description": "DG Gras – nur auf dunklem Grund",
+          "$extensions": {
+            "com.figma": {
+              "scopes": [
+                "TEXT_FILL"
+              ],
+              "codeSyntax": {
+                "WEB": "var(--dg-color-text-accent-green)"
+              }
+            }
+          }
+        }
+      },
+      "warning": {
+        "$type": "color",
+        "$value": "{color.yellow.800}",
+        "$description": "Text für Warnhinweise (mind. 4,5:1 auf bg/warning/subtle).",
+        "$extensions": {
+          "com.figma": {
+            "scopes": [
+              "TEXT_FILL"
+            ],
+            "codeSyntax": {
+              "WEB": "var(--dg-color-text-warning)"
+            }
+          }
+        }
+      },
+      "placeholder": {
+        "$type": "color",
+        "$value": "{color.gray.400}",
+        "$description": "Textfarbe: Platzhalter in Eingabefeldern. Hell wie text/disabled, dunkel wie text/subtle (besser lesbar).",
+        "$extensions": {
+          "com.figma": {
+            "scopes": [
+              "TEXT_FILL"
+            ],
+            "codeSyntax": {
+              "WEB": "var(--dg-color-text-placeholder)"
+            }
+          }
         }
       }
     },
@@ -85,58 +250,179 @@
       "default": {
         "$type": "color",
         "$value": "{color.gray.800}",
-        "$description": "Iconfarbe: Standard."
+        "$description": "Iconfarbe: Standard.",
+        "$extensions": {
+          "com.figma": {
+            "scopes": [
+              "SHAPE_FILL",
+              "STROKE_COLOR"
+            ],
+            "codeSyntax": {
+              "WEB": "var(--dg-color-icon-default)"
+            }
+          }
+        }
       },
       "subtle": {
         "$type": "color",
         "$value": "{color.gray.600}",
-        "$description": "Iconfarbe: zurückgenommen, für Hinweise und Sekundäres."
+        "$description": "Iconfarbe: zurückgenommen, für Hinweise und Sekundäres.",
+        "$extensions": {
+          "com.figma": {
+            "scopes": [
+              "SHAPE_FILL",
+              "STROKE_COLOR"
+            ],
+            "codeSyntax": {
+              "WEB": "var(--dg-color-icon-subtle)"
+            }
+          }
+        }
       },
       "disabled": {
         "$type": "color",
         "$value": "{color.gray.300}",
-        "$description": "Iconfarbe: deaktivierte Elemente."
+        "$description": "Iconfarbe: deaktivierte Elemente.",
+        "$extensions": {
+          "com.figma": {
+            "scopes": [
+              "SHAPE_FILL",
+              "STROKE_COLOR"
+            ],
+            "codeSyntax": {
+              "WEB": "var(--dg-color-icon-disabled)"
+            }
+          }
+        }
       },
       "inverse": {
         "$type": "color",
         "$value": "{color.gray.25}",
-        "$description": "Iconfarbe: auf dunklen bzw. invertierten Flächen."
+        "$description": "Iconfarbe: auf dunklen bzw. invertierten Flächen.",
+        "$extensions": {
+          "com.figma": {
+            "scopes": [
+              "SHAPE_FILL",
+              "STROKE_COLOR"
+            ],
+            "codeSyntax": {
+              "WEB": "var(--dg-color-icon-inverse)"
+            }
+          }
+        }
       },
       "on-brand": {
         "$type": "color",
         "$value": "{color.base.white}",
-        "$description": "Iconfarbe: auf Brand-Flächen (z. B. Primary Button)."
+        "$description": "Iconfarbe: auf Brand-Flächen (z. B. Primary Button).",
+        "$extensions": {
+          "com.figma": {
+            "scopes": [
+              "SHAPE_FILL",
+              "STROKE_COLOR"
+            ],
+            "codeSyntax": {
+              "WEB": "var(--dg-color-icon-on-brand)"
+            }
+          }
+        }
       },
       "brand": {
         "$type": "color",
         "$value": "{color.brand.500}",
-        "$description": "Iconfarbe: Markenfarbe."
+        "$description": "Iconfarbe: Markenfarbe.",
+        "$extensions": {
+          "com.figma": {
+            "scopes": [
+              "SHAPE_FILL",
+              "STROKE_COLOR"
+            ],
+            "codeSyntax": {
+              "WEB": "var(--dg-color-icon-brand)"
+            }
+          }
+        }
       },
       "error": {
         "$type": "color",
         "$value": "{color.error.600}",
-        "$description": "Iconfarbe: Fehler."
+        "$description": "Iconfarbe: Fehler.",
+        "$extensions": {
+          "com.figma": {
+            "scopes": [
+              "SHAPE_FILL",
+              "STROKE_COLOR"
+            ],
+            "codeSyntax": {
+              "WEB": "var(--dg-color-icon-error)"
+            }
+          }
+        }
       },
       "success": {
         "$type": "color",
         "$value": "{color.green.600}",
-        "$description": "Iconfarbe: Erfolg."
+        "$description": "Iconfarbe: Erfolg.",
+        "$extensions": {
+          "com.figma": {
+            "scopes": [
+              "SHAPE_FILL",
+              "STROKE_COLOR"
+            ],
+            "codeSyntax": {
+              "WEB": "var(--dg-color-icon-success)"
+            }
+          }
+        }
       },
       "warning": {
         "$type": "color",
         "$value": "{color.orange.400}",
-        "$description": "Iconfarbe: Warnung."
+        "$description": "Iconfarbe: Warnung.",
+        "$extensions": {
+          "com.figma": {
+            "scopes": [
+              "SHAPE_FILL",
+              "STROKE_COLOR"
+            ],
+            "codeSyntax": {
+              "WEB": "var(--dg-color-icon-warning)"
+            }
+          }
+        }
       },
       "accent": {
         "yellow": {
           "$type": "color",
           "$value": "{color.yellow.500}",
-          "$description": "DG Blüte"
+          "$description": "DG Blüte",
+          "$extensions": {
+            "com.figma": {
+              "scopes": [
+                "SHAPE_FILL",
+                "STROKE_COLOR"
+              ],
+              "codeSyntax": {
+                "WEB": "var(--dg-color-icon-accent-yellow)"
+              }
+            }
+          }
         },
         "green": {
           "$type": "color",
           "$value": "{color.green.400}",
-          "$description": "DG Gras"
+          "$description": "DG Gras",
+          "$extensions": {
+            "com.figma": {
+              "scopes": [
+                "SHAPE_FILL",
+                "STROKE_COLOR"
+              ],
+              "codeSyntax": {
+                "WEB": "var(--dg-color-icon-accent-green)"
+              }
+            }
+          }
         }
       }
     },
@@ -144,126 +430,379 @@
       "default": {
         "$type": "color",
         "$value": "{color.base.white}",
-        "$description": "Flächen (Karten, Eingabefelder). Dark: heller als der Seitenhintergrund (Elevation)."
+        "$description": "Flächen (Karten, Eingabefelder). Dark: heller als der Seitenhintergrund (Elevation).",
+        "$extensions": {
+          "com.figma": {
+            "scopes": [
+              "FRAME_FILL",
+              "SHAPE_FILL"
+            ],
+            "codeSyntax": {
+              "WEB": "var(--dg-color-bg-default)"
+            }
+          }
+        }
       },
       "subtle": {
         "$type": "color",
         "$value": "{color.gray.25}",
-        "$description": "Seitenhintergrund. Light: Sand, Dark: Basalt."
+        "$description": "Seitenhintergrund. Light: Sand, Dark: Basalt.",
+        "$extensions": {
+          "com.figma": {
+            "scopes": [
+              "FRAME_FILL",
+              "SHAPE_FILL"
+            ],
+            "codeSyntax": {
+              "WEB": "var(--dg-color-bg-subtle)"
+            }
+          }
+        }
       },
       "muted": {
         "$type": "color",
         "$value": "{color.gray.50}",
-        "$description": "Hintergrund: stark zurückgenommen."
+        "$description": "Hintergrund: stark zurückgenommen.",
+        "$extensions": {
+          "com.figma": {
+            "scopes": [
+              "FRAME_FILL",
+              "SHAPE_FILL"
+            ],
+            "codeSyntax": {
+              "WEB": "var(--dg-color-bg-muted)"
+            }
+          }
+        }
       },
       "disabled": {
         "$type": "color",
         "$value": "{color.gray.50}",
-        "$description": "Hintergrund: deaktivierte Elemente."
+        "$description": "Hintergrund: deaktivierte Elemente.",
+        "$extensions": {
+          "com.figma": {
+            "scopes": [
+              "FRAME_FILL",
+              "SHAPE_FILL"
+            ],
+            "codeSyntax": {
+              "WEB": "var(--dg-color-bg-disabled)"
+            }
+          }
+        }
       },
       "inverse": {
         "$type": "color",
         "$value": "{color.gray.800}",
-        "$description": "Dunkle Flächen (Basalt)"
+        "$description": "Dunkle Flächen (Basalt)",
+        "$extensions": {
+          "com.figma": {
+            "scopes": [
+              "FRAME_FILL",
+              "SHAPE_FILL"
+            ],
+            "codeSyntax": {
+              "WEB": "var(--dg-color-bg-inverse)"
+            }
+          }
+        }
       },
       "selected": {
         "$type": "color",
         "$value": "{color.brand.100}",
-        "$description": "Hintergrund: ausgewählter Zustand."
+        "$description": "Hintergrund: ausgewählter Zustand.",
+        "$extensions": {
+          "com.figma": {
+            "scopes": [
+              "FRAME_FILL",
+              "SHAPE_FILL"
+            ],
+            "codeSyntax": {
+              "WEB": "var(--dg-color-bg-selected)"
+            }
+          }
+        }
       },
       "neutral": {
         "default": {
           "$type": "color",
           "$value": "{color.gray.200}",
-          "$description": "Hintergrund: neutrale interaktive Flächen, Standard."
+          "$description": "Hintergrund: neutrale interaktive Flächen, Standard.",
+          "$extensions": {
+            "com.figma": {
+              "scopes": [
+                "FRAME_FILL",
+                "SHAPE_FILL"
+              ],
+              "codeSyntax": {
+                "WEB": "var(--dg-color-bg-neutral-default)"
+              }
+            }
+          }
         },
         "hover": {
           "$type": "color",
           "$value": "{color.gray.300}",
-          "$description": "Hintergrund: neutrale interaktive Flächen, Hover-Zustand."
+          "$description": "Hintergrund: neutrale interaktive Flächen, Hover-Zustand.",
+          "$extensions": {
+            "com.figma": {
+              "scopes": [
+                "FRAME_FILL",
+                "SHAPE_FILL"
+              ],
+              "codeSyntax": {
+                "WEB": "var(--dg-color-bg-neutral-hover)"
+              }
+            }
+          }
         },
         "active": {
           "$type": "color",
           "$value": "{color.gray.400}",
-          "$description": "Hintergrund: neutrale interaktive Flächen, gedrückter/aktiver Zustand."
+          "$description": "Hintergrund: neutrale interaktive Flächen, gedrückter/aktiver Zustand.",
+          "$extensions": {
+            "com.figma": {
+              "scopes": [
+                "FRAME_FILL",
+                "SHAPE_FILL"
+              ],
+              "codeSyntax": {
+                "WEB": "var(--dg-color-bg-neutral-active)"
+              }
+            }
+          }
         },
         "bold": {
           "$type": "color",
           "$value": "{color.gray.600}",
-          "$description": "Hintergrund: neutrale interaktive Flächen, kräftig, hoher Kontrast."
+          "$description": "Hintergrund: neutrale interaktive Flächen, kräftig, hoher Kontrast.",
+          "$extensions": {
+            "com.figma": {
+              "scopes": [
+                "FRAME_FILL",
+                "SHAPE_FILL"
+              ],
+              "codeSyntax": {
+                "WEB": "var(--dg-color-bg-neutral-bold)"
+              }
+            }
+          }
         }
       },
       "brand": {
         "default": {
           "$type": "color",
-          "$value": "{color.brand.500}",
-          "$description": "Primäre Aktion"
+          "$value": "{color.brand.600}",
+          "$description": "Primäre Aktion",
+          "$extensions": {
+            "com.figma": {
+              "scopes": [
+                "FRAME_FILL",
+                "SHAPE_FILL"
+              ],
+              "codeSyntax": {
+                "WEB": "var(--dg-color-bg-brand-default)"
+              }
+            }
+          }
         },
         "hover": {
           "$type": "color",
-          "$value": "{color.brand.600}",
-          "$description": "Hintergrund: Markenfarbe, Hover-Zustand."
+          "$value": "{color.brand.700}",
+          "$description": "Hintergrund: Markenfarbe, Hover-Zustand.",
+          "$extensions": {
+            "com.figma": {
+              "scopes": [
+                "FRAME_FILL",
+                "SHAPE_FILL"
+              ],
+              "codeSyntax": {
+                "WEB": "var(--dg-color-bg-brand-hover)"
+              }
+            }
+          }
         },
         "active": {
           "$type": "color",
           "$value": "{color.brand.700}",
-          "$description": "Hintergrund: Markenfarbe, gedrückter/aktiver Zustand."
+          "$description": "Hintergrund: Markenfarbe, gedrückter/aktiver Zustand.",
+          "$extensions": {
+            "com.figma": {
+              "scopes": [
+                "FRAME_FILL",
+                "SHAPE_FILL"
+              ],
+              "codeSyntax": {
+                "WEB": "var(--dg-color-bg-brand-active)"
+              }
+            }
+          }
         },
         "subtle": {
           "$type": "color",
           "$value": "{color.brand.50}",
-          "$description": "Hintergrund: Markenfarbe, zurückgenommen, für Hinweise und Sekundäres."
+          "$description": "Hintergrund: Markenfarbe, zurückgenommen, für Hinweise und Sekundäres.",
+          "$extensions": {
+            "com.figma": {
+              "scopes": [
+                "FRAME_FILL",
+                "SHAPE_FILL"
+              ],
+              "codeSyntax": {
+                "WEB": "var(--dg-color-bg-brand-subtle)"
+              }
+            }
+          }
         },
         "subtle-hover": {
           "$type": "color",
           "$value": "{color.brand.100}",
-          "$description": "Hintergrund: Markenfarbe, Hover auf subtle."
+          "$description": "Hintergrund: Markenfarbe, Hover auf subtle.",
+          "$extensions": {
+            "com.figma": {
+              "scopes": [
+                "FRAME_FILL",
+                "SHAPE_FILL"
+              ],
+              "codeSyntax": {
+                "WEB": "var(--dg-color-bg-brand-subtle-hover)"
+              }
+            }
+          }
         }
       },
       "error": {
         "default": {
           "$type": "color",
           "$value": "{color.error.600}",
-          "$description": "Hintergrund: Fehler, Standard."
+          "$description": "Hintergrund: Fehler, Standard.",
+          "$extensions": {
+            "com.figma": {
+              "scopes": [
+                "FRAME_FILL",
+                "SHAPE_FILL"
+              ],
+              "codeSyntax": {
+                "WEB": "var(--dg-color-bg-error-default)"
+              }
+            }
+          }
         },
         "hover": {
           "$type": "color",
           "$value": "{color.error.700}",
-          "$description": "Hintergrund: Fehler, Hover-Zustand."
+          "$description": "Hintergrund: Fehler, Hover-Zustand.",
+          "$extensions": {
+            "com.figma": {
+              "scopes": [
+                "FRAME_FILL",
+                "SHAPE_FILL"
+              ],
+              "codeSyntax": {
+                "WEB": "var(--dg-color-bg-error-hover)"
+              }
+            }
+          }
         },
         "active": {
           "$type": "color",
           "$value": "{color.error.800}",
-          "$description": "Hintergrund: Fehler, gedrückter/aktiver Zustand."
+          "$description": "Hintergrund: Fehler, gedrückter/aktiver Zustand.",
+          "$extensions": {
+            "com.figma": {
+              "scopes": [
+                "FRAME_FILL",
+                "SHAPE_FILL"
+              ],
+              "codeSyntax": {
+                "WEB": "var(--dg-color-bg-error-active)"
+              }
+            }
+          }
         },
         "subtle": {
           "$type": "color",
           "$value": "{color.error.50}",
-          "$description": "Hintergrund: Fehler, zurückgenommen, für Hinweise und Sekundäres."
+          "$description": "Hintergrund: Fehler, zurückgenommen, für Hinweise und Sekundäres.",
+          "$extensions": {
+            "com.figma": {
+              "scopes": [
+                "FRAME_FILL",
+                "SHAPE_FILL"
+              ],
+              "codeSyntax": {
+                "WEB": "var(--dg-color-bg-error-subtle)"
+              }
+            }
+          }
         }
       },
       "success": {
         "default": {
           "$type": "color",
           "$value": "{color.green.600}",
-          "$description": "Hintergrund: Erfolg, Standard."
+          "$description": "Hintergrund: Erfolg, Standard.",
+          "$extensions": {
+            "com.figma": {
+              "scopes": [
+                "FRAME_FILL",
+                "SHAPE_FILL"
+              ],
+              "codeSyntax": {
+                "WEB": "var(--dg-color-bg-success-default)"
+              }
+            }
+          }
         },
         "subtle": {
           "$type": "color",
           "$value": "{color.green.50}",
-          "$description": "Heller Hintergrund für Erfolgs-/Statusmeldungen."
+          "$description": "Heller Hintergrund für Erfolgs-/Statusmeldungen.",
+          "$extensions": {
+            "com.figma": {
+              "scopes": [
+                "FRAME_FILL",
+                "SHAPE_FILL"
+              ],
+              "codeSyntax": {
+                "WEB": "var(--dg-color-bg-success-subtle)"
+              }
+            }
+          }
         }
       },
       "warning": {
         "default": {
           "$type": "color",
           "$value": "{color.orange.400}",
-          "$description": "Hintergrund: Warnung, Standard."
+          "$description": "Hintergrund: Warnung, Standard.",
+          "$extensions": {
+            "com.figma": {
+              "scopes": [
+                "FRAME_FILL",
+                "SHAPE_FILL"
+              ],
+              "codeSyntax": {
+                "WEB": "var(--dg-color-bg-warning-default)"
+              }
+            }
+          }
         },
         "subtle": {
           "$type": "color",
           "$value": "{color.yellow.50}",
-          "$description": "Heller Hintergrund für Warnhinweise."
+          "$description": "Heller Hintergrund für Warnhinweise.",
+          "$extensions": {
+            "com.figma": {
+              "scopes": [
+                "FRAME_FILL",
+                "SHAPE_FILL"
+              ],
+              "codeSyntax": {
+                "WEB": "var(--dg-color-bg-warning-subtle)"
+              }
+            }
+          }
         }
       },
       "accent": {
@@ -271,24 +810,68 @@
           "default": {
             "$type": "color",
             "$value": "{color.yellow.500}",
-            "$description": "DG Blüte"
+            "$description": "DG Blüte",
+            "$extensions": {
+              "com.figma": {
+                "scopes": [
+                  "FRAME_FILL",
+                  "SHAPE_FILL"
+                ],
+                "codeSyntax": {
+                  "WEB": "var(--dg-color-bg-accent-yellow-default)"
+                }
+              }
+            }
           },
           "hover": {
             "$type": "color",
             "$value": "{color.yellow.300}",
-            "$description": "Hintergrund: Akzentfarbe, Gelb, Hover-Zustand."
+            "$description": "Hintergrund: Akzentfarbe, Gelb, Hover-Zustand.",
+            "$extensions": {
+              "com.figma": {
+                "scopes": [
+                  "FRAME_FILL",
+                  "SHAPE_FILL"
+                ],
+                "codeSyntax": {
+                  "WEB": "var(--dg-color-bg-accent-yellow-hover)"
+                }
+              }
+            }
           },
           "active": {
             "$type": "color",
             "$value": "{color.yellow.400}",
-            "$description": "Hintergrund: Akzentfarbe, Gelb, gedrückter/aktiver Zustand."
+            "$description": "Hintergrund: Akzentfarbe, Gelb, gedrückter/aktiver Zustand.",
+            "$extensions": {
+              "com.figma": {
+                "scopes": [
+                  "FRAME_FILL",
+                  "SHAPE_FILL"
+                ],
+                "codeSyntax": {
+                  "WEB": "var(--dg-color-bg-accent-yellow-active)"
+                }
+              }
+            }
           }
         },
         "green": {
           "default": {
             "$type": "color",
             "$value": "{color.green.400}",
-            "$description": "DG Gras"
+            "$description": "DG Gras",
+            "$extensions": {
+              "com.figma": {
+                "scopes": [
+                  "FRAME_FILL",
+                  "SHAPE_FILL"
+                ],
+                "codeSyntax": {
+                  "WEB": "var(--dg-color-bg-accent-green-default)"
+                }
+              }
+            }
           }
         }
       }
@@ -297,103 +880,293 @@
       "subtle": {
         "$type": "color",
         "$value": "{color.gray.100}",
-        "$description": "Rahmenfarbe: zurückgenommen, für Hinweise und Sekundäres."
+        "$description": "Rahmenfarbe: zurückgenommen, für Hinweise und Sekundäres.",
+        "$extensions": {
+          "com.figma": {
+            "scopes": [
+              "STROKE_COLOR"
+            ],
+            "codeSyntax": {
+              "WEB": "var(--dg-color-border-subtle)"
+            }
+          }
+        }
       },
       "default": {
         "$type": "color",
         "$value": "{color.gray.200}",
-        "$description": "Rahmenfarbe: Standard."
+        "$description": "Rahmenfarbe: Standard.",
+        "$extensions": {
+          "com.figma": {
+            "scopes": [
+              "STROKE_COLOR"
+            ],
+            "codeSyntax": {
+              "WEB": "var(--dg-color-border-default)"
+            }
+          }
+        }
       },
       "medium": {
         "$type": "color",
         "$value": "{color.gray.400}",
-        "$description": "Rahmenfarbe: mittlere Stärke."
+        "$description": "Rahmenfarbe: mittlere Stärke.",
+        "$extensions": {
+          "com.figma": {
+            "scopes": [
+              "STROKE_COLOR"
+            ],
+            "codeSyntax": {
+              "WEB": "var(--dg-color-border-medium)"
+            }
+          }
+        }
       },
       "strong": {
         "$type": "color",
         "$value": "{color.gray.500}",
-        "$description": "Formularfelder, ≥3:1"
+        "$description": "Formularfelder, ≥3:1",
+        "$extensions": {
+          "com.figma": {
+            "scopes": [
+              "STROKE_COLOR"
+            ],
+            "codeSyntax": {
+              "WEB": "var(--dg-color-border-strong)"
+            }
+          }
+        }
       },
       "bold": {
         "$type": "color",
         "$value": "{color.gray.800}",
-        "$description": "Rahmenfarbe: kräftig, hoher Kontrast."
+        "$description": "Rahmenfarbe: kräftig, hoher Kontrast.",
+        "$extensions": {
+          "com.figma": {
+            "scopes": [
+              "STROKE_COLOR"
+            ],
+            "codeSyntax": {
+              "WEB": "var(--dg-color-border-bold)"
+            }
+          }
+        }
       },
       "inverse": {
         "$type": "color",
         "$value": "{color.gray.25}",
-        "$description": "Rahmenfarbe: auf dunklen bzw. invertierten Flächen."
+        "$description": "Rahmenfarbe: auf dunklen bzw. invertierten Flächen.",
+        "$extensions": {
+          "com.figma": {
+            "scopes": [
+              "STROKE_COLOR"
+            ],
+            "codeSyntax": {
+              "WEB": "var(--dg-color-border-inverse)"
+            }
+          }
+        }
       },
       "disabled": {
         "$type": "color",
         "$value": "{color.gray.100}",
-        "$description": "Rahmenfarbe: deaktivierte Elemente."
+        "$description": "Rahmenfarbe: deaktivierte Elemente.",
+        "$extensions": {
+          "com.figma": {
+            "scopes": [
+              "STROKE_COLOR"
+            ],
+            "codeSyntax": {
+              "WEB": "var(--dg-color-border-disabled)"
+            }
+          }
+        }
       },
       "brand": {
         "default": {
           "$type": "color",
           "$value": "{color.brand.500}",
-          "$description": "Rahmenfarbe: Markenfarbe, Standard."
+          "$description": "Rahmenfarbe: Markenfarbe, Standard.",
+          "$extensions": {
+            "com.figma": {
+              "scopes": [
+                "STROKE_COLOR"
+              ],
+              "codeSyntax": {
+                "WEB": "var(--dg-color-border-brand-default)"
+              }
+            }
+          }
         },
         "hover": {
           "$type": "color",
           "$value": "{color.brand.600}",
-          "$description": "Rahmenfarbe: Markenfarbe, Hover-Zustand."
+          "$description": "Rahmenfarbe: Markenfarbe, Hover-Zustand.",
+          "$extensions": {
+            "com.figma": {
+              "scopes": [
+                "STROKE_COLOR"
+              ],
+              "codeSyntax": {
+                "WEB": "var(--dg-color-border-brand-hover)"
+              }
+            }
+          }
         },
         "active": {
           "$type": "color",
           "$value": "{color.brand.700}",
-          "$description": "Rahmenfarbe: Markenfarbe, gedrückter/aktiver Zustand."
+          "$description": "Rahmenfarbe: Markenfarbe, gedrückter/aktiver Zustand.",
+          "$extensions": {
+            "com.figma": {
+              "scopes": [
+                "STROKE_COLOR"
+              ],
+              "codeSyntax": {
+                "WEB": "var(--dg-color-border-brand-active)"
+              }
+            }
+          }
         }
       },
       "focus": {
         "$type": "color",
         "$value": "{color.brand.500}",
-        "$description": "Fokus-Ring, ≥3:1 auf Weiß und Brand"
+        "$description": "Fokus-Ring, ≥3:1 auf Weiß und Brand",
+        "$extensions": {
+          "com.figma": {
+            "scopes": [
+              "STROKE_COLOR"
+            ],
+            "codeSyntax": {
+              "WEB": "var(--dg-color-border-focus)"
+            }
+          }
+        }
       },
       "selected": {
         "$type": "color",
         "$value": "{color.brand.500}",
-        "$description": "Rahmenfarbe: ausgewählter Zustand."
+        "$description": "Rahmenfarbe: ausgewählter Zustand.",
+        "$extensions": {
+          "com.figma": {
+            "scopes": [
+              "STROKE_COLOR"
+            ],
+            "codeSyntax": {
+              "WEB": "var(--dg-color-border-selected)"
+            }
+          }
+        }
       },
       "error": {
         "$type": "color",
         "$value": "{color.error.600}",
-        "$description": "Rahmenfarbe: Fehler."
+        "$description": "Rahmenfarbe: Fehler.",
+        "$extensions": {
+          "com.figma": {
+            "scopes": [
+              "STROKE_COLOR"
+            ],
+            "codeSyntax": {
+              "WEB": "var(--dg-color-border-error)"
+            }
+          }
+        }
       },
       "success": {
         "$type": "color",
         "$value": "{color.green.600}",
-        "$description": "Rahmenfarbe: Erfolg."
+        "$description": "Rahmenfarbe: Erfolg.",
+        "$extensions": {
+          "com.figma": {
+            "scopes": [
+              "STROKE_COLOR"
+            ],
+            "codeSyntax": {
+              "WEB": "var(--dg-color-border-success)"
+            }
+          }
+        }
       },
       "warning": {
         "$type": "color",
         "$value": "{color.orange.400}",
-        "$description": "Rahmenfarbe: Warnung."
+        "$description": "Rahmenfarbe: Warnung.",
+        "$extensions": {
+          "com.figma": {
+            "scopes": [
+              "STROKE_COLOR"
+            ],
+            "codeSyntax": {
+              "WEB": "var(--dg-color-border-warning)"
+            }
+          }
+        }
       },
       "accent": {
         "yellow": {
           "$type": "color",
           "$value": "{color.yellow.500}",
-          "$description": "Rahmenfarbe: Akzentfarbe, Gelb."
+          "$description": "Rahmenfarbe: Akzentfarbe, Gelb.",
+          "$extensions": {
+            "com.figma": {
+              "scopes": [
+                "STROKE_COLOR"
+              ],
+              "codeSyntax": {
+                "WEB": "var(--dg-color-border-accent-yellow)"
+              }
+            }
+          }
         },
         "green": {
           "$type": "color",
           "$value": "{color.green.400}",
-          "$description": "Rahmenfarbe: Akzentfarbe, Grün."
+          "$description": "Rahmenfarbe: Akzentfarbe, Grün.",
+          "$extensions": {
+            "com.figma": {
+              "scopes": [
+                "STROKE_COLOR"
+              ],
+              "codeSyntax": {
+                "WEB": "var(--dg-color-border-accent-green)"
+              }
+            }
+          }
         }
       }
     },
     "focus-ring": {
       "brand": {
         "$type": "color",
-        "$value": "{color.brand.100}",
-        "$description": "Farbe des Fokusrings (4px) um fokussierte Felder und Buttons."
+        "$value": "{color.brand.600}",
+        "$description": "Farbe des Fokusrings (4px) um fokussierte Felder und Buttons.",
+        "$extensions": {
+          "com.figma": {
+            "scopes": [
+              "EFFECT_COLOR"
+            ],
+            "codeSyntax": {
+              "WEB": "var(--dg-color-focus-ring-brand)"
+            }
+          }
+        }
       },
       "error": {
         "$type": "color",
         "$value": "{color.error.100}",
-        "$description": "Farbe des Fokusrings bei fokussierten Feldern im Fehlerzustand."
+        "$description": "Farbe des Fokusrings bei fokussierten Feldern im Fehlerzustand.",
+        "$extensions": {
+          "com.figma": {
+            "scopes": [
+              "EFFECT_COLOR"
+            ],
+            "codeSyntax": {
+              "WEB": "var(--dg-color-focus-ring-error)"
+            }
+          }
+        }
       }
     },
     "badge": {
@@ -401,110 +1174,320 @@
         "bg": {
           "$type": "color",
           "$value": "{color.bg.muted}",
-          "$description": "Badge gray: Hintergrund."
+          "$description": "Badge gray: Hintergrund.",
+          "$extensions": {
+            "com.figma": {
+              "scopes": [
+                "FRAME_FILL",
+                "SHAPE_FILL"
+              ],
+              "codeSyntax": {
+                "WEB": "var(--dg-color-badge-gray-bg)"
+              }
+            }
+          }
         },
         "text": {
           "$type": "color",
           "$value": "{color.text.default}",
-          "$description": "Badge gray: Label (mind. 4,5:1)."
+          "$description": "Badge gray: Label (mind. 4,5:1).",
+          "$extensions": {
+            "com.figma": {
+              "scopes": [
+                "TEXT_FILL"
+              ],
+              "codeSyntax": {
+                "WEB": "var(--dg-color-badge-gray-text)"
+              }
+            }
+          }
         },
         "icon": {
           "$type": "color",
           "$value": "{color.icon.subtle}",
-          "$description": "Badge gray: Icon (mind. 3:1)."
+          "$description": "Badge gray: Icon (mind. 3:1).",
+          "$extensions": {
+            "com.figma": {
+              "scopes": [
+                "SHAPE_FILL",
+                "STROKE_COLOR"
+              ],
+              "codeSyntax": {
+                "WEB": "var(--dg-color-badge-gray-icon)"
+              }
+            }
+          }
         },
         "border": {
           "$type": "color",
           "$value": "{color.gray.200}",
-          "$description": "Badge-Rahmen gray: eine Stufe dunkler als der Badge-Hintergrund."
+          "$description": "Badge-Rahmen gray: eine Stufe dunkler als der Badge-Hintergrund.",
+          "$extensions": {
+            "com.figma": {
+              "scopes": [
+                "STROKE_COLOR"
+              ],
+              "codeSyntax": {
+                "WEB": "var(--dg-color-badge-gray-border)"
+              }
+            }
+          }
         }
       },
       "brand": {
         "bg": {
           "$type": "color",
           "$value": "{color.bg.brand.subtle}",
-          "$description": "Badge brand: Hintergrund."
+          "$description": "Badge brand: Hintergrund.",
+          "$extensions": {
+            "com.figma": {
+              "scopes": [
+                "FRAME_FILL",
+                "SHAPE_FILL"
+              ],
+              "codeSyntax": {
+                "WEB": "var(--dg-color-badge-brand-bg)"
+              }
+            }
+          }
         },
         "text": {
           "$type": "color",
           "$value": "{color.brand.700}",
-          "$description": "Badge brand: Label (mind. 4,5:1)."
+          "$description": "Badge brand: Label (mind. 4,5:1).",
+          "$extensions": {
+            "com.figma": {
+              "scopes": [
+                "TEXT_FILL"
+              ],
+              "codeSyntax": {
+                "WEB": "var(--dg-color-badge-brand-text)"
+              }
+            }
+          }
         },
         "icon": {
           "$type": "color",
           "$value": "{color.brand.600}",
-          "$description": "Badge brand: Icon (mind. 3:1)."
+          "$description": "Badge brand: Icon (mind. 3:1).",
+          "$extensions": {
+            "com.figma": {
+              "scopes": [
+                "SHAPE_FILL",
+                "STROKE_COLOR"
+              ],
+              "codeSyntax": {
+                "WEB": "var(--dg-color-badge-brand-icon)"
+              }
+            }
+          }
         },
         "border": {
           "$type": "color",
           "$value": "{color.brand.200}",
-          "$description": "Badge-Rahmen brand: eine Stufe dunkler als der Badge-Hintergrund."
+          "$description": "Badge-Rahmen brand: eine Stufe dunkler als der Badge-Hintergrund.",
+          "$extensions": {
+            "com.figma": {
+              "scopes": [
+                "STROKE_COLOR"
+              ],
+              "codeSyntax": {
+                "WEB": "var(--dg-color-badge-brand-border)"
+              }
+            }
+          }
         }
       },
       "error": {
         "bg": {
           "$type": "color",
           "$value": "{color.bg.error.subtle}",
-          "$description": "Badge error: Hintergrund."
+          "$description": "Badge error: Hintergrund.",
+          "$extensions": {
+            "com.figma": {
+              "scopes": [
+                "FRAME_FILL",
+                "SHAPE_FILL"
+              ],
+              "codeSyntax": {
+                "WEB": "var(--dg-color-badge-error-bg)"
+              }
+            }
+          }
         },
         "text": {
           "$type": "color",
           "$value": "{color.text.error}",
-          "$description": "Badge error: Label (mind. 4,5:1)."
+          "$description": "Badge error: Label (mind. 4,5:1).",
+          "$extensions": {
+            "com.figma": {
+              "scopes": [
+                "TEXT_FILL"
+              ],
+              "codeSyntax": {
+                "WEB": "var(--dg-color-badge-error-text)"
+              }
+            }
+          }
         },
         "icon": {
           "$type": "color",
           "$value": "{color.icon.error}",
-          "$description": "Badge error: Icon (mind. 3:1)."
+          "$description": "Badge error: Icon (mind. 3:1).",
+          "$extensions": {
+            "com.figma": {
+              "scopes": [
+                "SHAPE_FILL",
+                "STROKE_COLOR"
+              ],
+              "codeSyntax": {
+                "WEB": "var(--dg-color-badge-error-icon)"
+              }
+            }
+          }
         },
         "border": {
           "$type": "color",
           "$value": "{color.error.200}",
-          "$description": "Badge-Rahmen error: eine Stufe dunkler als der Badge-Hintergrund."
+          "$description": "Badge-Rahmen error: eine Stufe dunkler als der Badge-Hintergrund.",
+          "$extensions": {
+            "com.figma": {
+              "scopes": [
+                "STROKE_COLOR"
+              ],
+              "codeSyntax": {
+                "WEB": "var(--dg-color-badge-error-border)"
+              }
+            }
+          }
         }
       },
       "warning": {
         "bg": {
           "$type": "color",
           "$value": "{color.bg.warning.subtle}",
-          "$description": "Badge warning: Hintergrund."
+          "$description": "Badge warning: Hintergrund.",
+          "$extensions": {
+            "com.figma": {
+              "scopes": [
+                "FRAME_FILL",
+                "SHAPE_FILL"
+              ],
+              "codeSyntax": {
+                "WEB": "var(--dg-color-badge-warning-bg)"
+              }
+            }
+          }
         },
         "text": {
           "$type": "color",
           "$value": "{color.text.warning}",
-          "$description": "Badge warning: Label (mind. 4,5:1)."
+          "$description": "Badge warning: Label (mind. 4,5:1).",
+          "$extensions": {
+            "com.figma": {
+              "scopes": [
+                "TEXT_FILL"
+              ],
+              "codeSyntax": {
+                "WEB": "var(--dg-color-badge-warning-text)"
+              }
+            }
+          }
         },
         "icon": {
           "$type": "color",
           "$value": "{color.yellow.800}",
-          "$description": "Badge warning: Icon (mind. 3:1)."
+          "$description": "Badge warning: Icon (mind. 3:1).",
+          "$extensions": {
+            "com.figma": {
+              "scopes": [
+                "SHAPE_FILL",
+                "STROKE_COLOR"
+              ],
+              "codeSyntax": {
+                "WEB": "var(--dg-color-badge-warning-icon)"
+              }
+            }
+          }
         },
         "border": {
           "$type": "color",
           "$value": "{color.yellow.200}",
-          "$description": "Badge-Rahmen warning: eine Stufe dunkler als der Badge-Hintergrund."
+          "$description": "Badge-Rahmen warning: eine Stufe dunkler als der Badge-Hintergrund.",
+          "$extensions": {
+            "com.figma": {
+              "scopes": [
+                "STROKE_COLOR"
+              ],
+              "codeSyntax": {
+                "WEB": "var(--dg-color-badge-warning-border)"
+              }
+            }
+          }
         }
       },
       "success": {
         "bg": {
           "$type": "color",
           "$value": "{color.bg.success.subtle}",
-          "$description": "Badge success: Hintergrund."
+          "$description": "Badge success: Hintergrund.",
+          "$extensions": {
+            "com.figma": {
+              "scopes": [
+                "FRAME_FILL",
+                "SHAPE_FILL"
+              ],
+              "codeSyntax": {
+                "WEB": "var(--dg-color-badge-success-bg)"
+              }
+            }
+          }
         },
         "text": {
           "$type": "color",
           "$value": "{color.text.success}",
-          "$description": "Badge success: Label (mind. 4,5:1)."
+          "$description": "Badge success: Label (mind. 4,5:1).",
+          "$extensions": {
+            "com.figma": {
+              "scopes": [
+                "TEXT_FILL"
+              ],
+              "codeSyntax": {
+                "WEB": "var(--dg-color-badge-success-text)"
+              }
+            }
+          }
         },
         "icon": {
           "$type": "color",
           "$value": "{color.icon.success}",
-          "$description": "Badge success: Icon (mind. 3:1)."
+          "$description": "Badge success: Icon (mind. 3:1).",
+          "$extensions": {
+            "com.figma": {
+              "scopes": [
+                "SHAPE_FILL",
+                "STROKE_COLOR"
+              ],
+              "codeSyntax": {
+                "WEB": "var(--dg-color-badge-success-icon)"
+              }
+            }
+          }
         },
         "border": {
           "$type": "color",
           "$value": "{color.green.200}",
-          "$description": "Badge-Rahmen success: eine Stufe dunkler als der Badge-Hintergrund."
+          "$description": "Badge-Rahmen success: eine Stufe dunkler als der Badge-Hintergrund.",
+          "$extensions": {
+            "com.figma": {
+              "scopes": [
+                "STROKE_COLOR"
+              ],
+              "codeSyntax": {
+                "WEB": "var(--dg-color-badge-success-border)"
+              }
+            }
+          }
         }
       }
     },
@@ -512,7 +1495,18 @@
       "thumb": {
         "$type": "color",
         "$value": "{color.gray.200}",
-        "$description": "Scrollbar-Griff in Menüs und scrollbaren Flächen."
+        "$description": "Scrollbar-Griff in Menüs und scrollbaren Flächen.",
+        "$extensions": {
+          "com.figma": {
+            "scopes": [
+              "FRAME_FILL",
+              "SHAPE_FILL"
+            ],
+            "codeSyntax": {
+              "WEB": "var(--dg-color-scrollbar-thumb)"
+            }
+          }
+        }
       }
     }
   }

@@ -1,4 +1,24 @@
 {
+  "legacy": {
+    "color": {
+      "basalt": {
+        "$type": "color",
+        "$value": "{color.gray.800}",
+        "$description": "Deprecated – nur noch von 6 Text-Layern mit „Söhne Kräftig“ auf der Foundations-Seite genutzt (Schnitt fehlt in Figma). Danach löschen.",
+        "$deprecated": "Deprecated – nur noch von 6 Text-Layern mit „Söhne Kräftig“ auf der Foundations-Seite genutzt (Schnitt fehlt in Figma). Danach löschen.",
+        "$extensions": {
+          "com.figma": {
+            "scopes": [
+              "ALL_SCOPES"
+            ],
+            "codeSyntax": {
+              "WEB": "var(--dg-legacy-color-basalt)"
+            }
+          }
+        }
+      }
+    }
+  },
   "spacing": {
     "none": {
       "$type": "dimension",
@@ -6,7 +26,18 @@
         "value": 0,
         "unit": "px"
       },
-      "$description": "Abstand 0px für Padding und Gaps; auch für feste Breiten/Höhen von Controls."
+      "$description": "Abstand 0px für Padding und Gaps; auch für feste Breiten/Höhen von Controls.",
+      "$extensions": {
+        "com.figma": {
+          "scopes": [
+            "WIDTH_HEIGHT",
+            "GAP"
+          ],
+          "codeSyntax": {
+            "WEB": "var(--dg-spacing-none)"
+          }
+        }
+      }
     },
     "3xs": {
       "$type": "dimension",
@@ -14,7 +45,18 @@
         "value": 2,
         "unit": "px"
       },
-      "$description": "Abstand 2px für Padding und Gaps; auch für feste Breiten/Höhen von Controls."
+      "$description": "Abstand 2px für Padding und Gaps; auch für feste Breiten/Höhen von Controls.",
+      "$extensions": {
+        "com.figma": {
+          "scopes": [
+            "WIDTH_HEIGHT",
+            "GAP"
+          ],
+          "codeSyntax": {
+            "WEB": "var(--dg-spacing-3xs)"
+          }
+        }
+      }
     },
     "2xs": {
       "$type": "dimension",
@@ -22,7 +64,18 @@
         "value": 4,
         "unit": "px"
       },
-      "$description": "Abstand 4px für Padding und Gaps; auch für feste Breiten/Höhen von Controls."
+      "$description": "Abstand 4px für Padding und Gaps; auch für feste Breiten/Höhen von Controls.",
+      "$extensions": {
+        "com.figma": {
+          "scopes": [
+            "WIDTH_HEIGHT",
+            "GAP"
+          ],
+          "codeSyntax": {
+            "WEB": "var(--dg-spacing-2xs)"
+          }
+        }
+      }
     },
     "xs": {
       "$type": "dimension",
@@ -30,7 +83,18 @@
         "value": 8,
         "unit": "px"
       },
-      "$description": "Abstand 8px für Padding und Gaps; auch für feste Breiten/Höhen von Controls."
+      "$description": "Abstand 8px für Padding und Gaps; auch für feste Breiten/Höhen von Controls.",
+      "$extensions": {
+        "com.figma": {
+          "scopes": [
+            "WIDTH_HEIGHT",
+            "GAP"
+          ],
+          "codeSyntax": {
+            "WEB": "var(--dg-spacing-xs)"
+          }
+        }
+      }
     },
     "sm": {
       "$type": "dimension",
@@ -38,7 +102,18 @@
         "value": 12,
         "unit": "px"
       },
-      "$description": "Abstand 12px für Padding und Gaps; auch für feste Breiten/Höhen von Controls."
+      "$description": "Abstand 12px für Padding und Gaps; auch für feste Breiten/Höhen von Controls.",
+      "$extensions": {
+        "com.figma": {
+          "scopes": [
+            "WIDTH_HEIGHT",
+            "GAP"
+          ],
+          "codeSyntax": {
+            "WEB": "var(--dg-spacing-sm)"
+          }
+        }
+      }
     },
     "md": {
       "$type": "dimension",
@@ -46,7 +121,18 @@
         "value": 16,
         "unit": "px"
       },
-      "$description": "Abstand 16px für Padding und Gaps; auch für feste Breiten/Höhen von Controls."
+      "$description": "Abstand 16px für Padding und Gaps; auch für feste Breiten/Höhen von Controls.",
+      "$extensions": {
+        "com.figma": {
+          "scopes": [
+            "WIDTH_HEIGHT",
+            "GAP"
+          ],
+          "codeSyntax": {
+            "WEB": "var(--dg-spacing-md)"
+          }
+        }
+      }
     },
     "lg": {
       "$type": "dimension",
@@ -54,7 +140,18 @@
         "value": 24,
         "unit": "px"
       },
-      "$description": "Abstand 24px für Padding und Gaps; auch für feste Breiten/Höhen von Controls."
+      "$description": "Abstand 24px für Padding und Gaps; auch für feste Breiten/Höhen von Controls.",
+      "$extensions": {
+        "com.figma": {
+          "scopes": [
+            "WIDTH_HEIGHT",
+            "GAP"
+          ],
+          "codeSyntax": {
+            "WEB": "var(--dg-spacing-lg)"
+          }
+        }
+      }
     },
     "xl": {
       "$type": "dimension",
@@ -62,7 +159,18 @@
         "value": 32,
         "unit": "px"
       },
-      "$description": "Abstand 32px für Padding und Gaps; auch für feste Breiten/Höhen von Controls."
+      "$description": "Abstand 32px für Padding und Gaps; auch für feste Breiten/Höhen von Controls.",
+      "$extensions": {
+        "com.figma": {
+          "scopes": [
+            "WIDTH_HEIGHT",
+            "GAP"
+          ],
+          "codeSyntax": {
+            "WEB": "var(--dg-spacing-xl)"
+          }
+        }
+      }
     },
     "2xl": {
       "$type": "dimension",
@@ -70,7 +178,18 @@
         "value": 40,
         "unit": "px"
       },
-      "$description": "Abstand 40px für Padding und Gaps; auch für feste Breiten/Höhen von Controls."
+      "$description": "Abstand 40px für Padding und Gaps; auch für feste Breiten/Höhen von Controls.",
+      "$extensions": {
+        "com.figma": {
+          "scopes": [
+            "WIDTH_HEIGHT",
+            "GAP"
+          ],
+          "codeSyntax": {
+            "WEB": "var(--dg-spacing-2xl)"
+          }
+        }
+      }
     },
     "3xl": {
       "$type": "dimension",
@@ -78,7 +197,17 @@
         "value": 48,
         "unit": "px"
       },
-      "$description": "Abstand 48px für Padding und Gaps; auch für feste Breiten/Höhen von Controls."
+      "$description": "Abstand 48px für Padding und Gaps; auch für feste Breiten/Höhen von Controls.",
+      "$extensions": {
+        "com.figma": {
+          "scopes": [
+            "GAP"
+          ],
+          "codeSyntax": {
+            "WEB": "var(--dg-spacing-3xl)"
+          }
+        }
+      }
     },
     "4xl": {
       "$type": "dimension",
@@ -86,7 +215,17 @@
         "value": 56,
         "unit": "px"
       },
-      "$description": "Abstand 56px für Padding und Gaps; auch für feste Breiten/Höhen von Controls."
+      "$description": "Abstand 56px für Padding und Gaps; auch für feste Breiten/Höhen von Controls.",
+      "$extensions": {
+        "com.figma": {
+          "scopes": [
+            "GAP"
+          ],
+          "codeSyntax": {
+            "WEB": "var(--dg-spacing-4xl)"
+          }
+        }
+      }
     },
     "5xl": {
       "$type": "dimension",
@@ -94,7 +233,17 @@
         "value": 64,
         "unit": "px"
       },
-      "$description": "Abstand 64px für Padding und Gaps; auch für feste Breiten/Höhen von Controls."
+      "$description": "Abstand 64px für Padding und Gaps; auch für feste Breiten/Höhen von Controls.",
+      "$extensions": {
+        "com.figma": {
+          "scopes": [
+            "GAP"
+          ],
+          "codeSyntax": {
+            "WEB": "var(--dg-spacing-5xl)"
+          }
+        }
+      }
     },
     "6xl": {
       "$type": "dimension",
@@ -102,7 +251,17 @@
         "value": 80,
         "unit": "px"
       },
-      "$description": "Abstand 80px für Padding und Gaps; auch für feste Breiten/Höhen von Controls."
+      "$description": "Abstand 80px für Padding und Gaps; auch für feste Breiten/Höhen von Controls.",
+      "$extensions": {
+        "com.figma": {
+          "scopes": [
+            "GAP"
+          ],
+          "codeSyntax": {
+            "WEB": "var(--dg-spacing-6xl)"
+          }
+        }
+      }
     },
     "7xl": {
       "$type": "dimension",
@@ -110,7 +269,17 @@
         "value": 120,
         "unit": "px"
       },
-      "$description": "Abstand 120px für Padding und Gaps; auch für feste Breiten/Höhen von Controls."
+      "$description": "Abstand 120px für Padding und Gaps; auch für feste Breiten/Höhen von Controls.",
+      "$extensions": {
+        "com.figma": {
+          "scopes": [
+            "GAP"
+          ],
+          "codeSyntax": {
+            "WEB": "var(--dg-spacing-7xl)"
+          }
+        }
+      }
     }
   },
   "radius": {
@@ -120,7 +289,17 @@
         "value": 0,
         "unit": "px"
       },
-      "$description": "Eckenradius 0px. Keine Rundung."
+      "$description": "Eckenradius 0px. Keine Rundung.",
+      "$extensions": {
+        "com.figma": {
+          "scopes": [
+            "CORNER_RADIUS"
+          ],
+          "codeSyntax": {
+            "WEB": "var(--dg-radius-none)"
+          }
+        }
+      }
     },
     "xs": {
       "$type": "dimension",
@@ -128,7 +307,17 @@
         "value": 2,
         "unit": "px"
       },
-      "$description": "Eckenradius 2px. Sehr kleine Elemente."
+      "$description": "Eckenradius 2px. Sehr kleine Elemente.",
+      "$extensions": {
+        "com.figma": {
+          "scopes": [
+            "CORNER_RADIUS"
+          ],
+          "codeSyntax": {
+            "WEB": "var(--dg-radius-xs)"
+          }
+        }
+      }
     },
     "sm": {
       "$type": "dimension",
@@ -136,7 +325,17 @@
         "value": 4,
         "unit": "px"
       },
-      "$description": "Eckenradius 4px. Checkbox, kleine Tags."
+      "$description": "Eckenradius 4px. Checkbox, kleine Tags.",
+      "$extensions": {
+        "com.figma": {
+          "scopes": [
+            "CORNER_RADIUS"
+          ],
+          "codeSyntax": {
+            "WEB": "var(--dg-radius-sm)"
+          }
+        }
+      }
     },
     "md": {
       "$type": "dimension",
@@ -144,7 +343,17 @@
         "value": 8,
         "unit": "px"
       },
-      "$description": "Eckenradius 8px. Inputs, Selects, Buttons, Menüs."
+      "$description": "Eckenradius 8px. Inputs, Selects, Buttons, Menüs.",
+      "$extensions": {
+        "com.figma": {
+          "scopes": [
+            "CORNER_RADIUS"
+          ],
+          "codeSyntax": {
+            "WEB": "var(--dg-radius-md)"
+          }
+        }
+      }
     },
     "lg": {
       "$type": "dimension",
@@ -152,7 +361,17 @@
         "value": 12,
         "unit": "px"
       },
-      "$description": "Eckenradius 12px. Karten und Panels."
+      "$description": "Eckenradius 12px. Karten und Panels.",
+      "$extensions": {
+        "com.figma": {
+          "scopes": [
+            "CORNER_RADIUS"
+          ],
+          "codeSyntax": {
+            "WEB": "var(--dg-radius-lg)"
+          }
+        }
+      }
     },
     "xl": {
       "$type": "dimension",
@@ -160,7 +379,17 @@
         "value": 16,
         "unit": "px"
       },
-      "$description": "Eckenradius 16px. Große Container und Doku-Flächen."
+      "$description": "Eckenradius 16px. Große Container und Doku-Flächen.",
+      "$extensions": {
+        "com.figma": {
+          "scopes": [
+            "CORNER_RADIUS"
+          ],
+          "codeSyntax": {
+            "WEB": "var(--dg-radius-xl)"
+          }
+        }
+      }
     },
     "full": {
       "$type": "dimension",
@@ -168,7 +397,17 @@
         "value": 9999,
         "unit": "px"
       },
-      "$description": "Eckenradius voll (9999). Pills: Badges, Chips, Avatare, Radio."
+      "$description": "Eckenradius voll (9999). Pills: Badges, Chips, Avatare, Radio.",
+      "$extensions": {
+        "com.figma": {
+          "scopes": [
+            "CORNER_RADIUS"
+          ],
+          "codeSyntax": {
+            "WEB": "var(--dg-radius-full)"
+          }
+        }
+      }
     }
   },
   "border-width": {
@@ -178,7 +417,17 @@
         "value": 0,
         "unit": "px"
       },
-      "$description": "Rahmenbreite 0px. Kein Rahmen."
+      "$description": "Rahmenbreite 0px. Kein Rahmen.",
+      "$extensions": {
+        "com.figma": {
+          "scopes": [
+            "STROKE_FLOAT"
+          ],
+          "codeSyntax": {
+            "WEB": "var(--dg-border-width-none)"
+          }
+        }
+      }
     },
     "sm": {
       "$type": "dimension",
@@ -186,7 +435,17 @@
         "value": 1,
         "unit": "px"
       },
-      "$description": "Rahmenbreite 1px. Standard-Rahmen (Inputs, Karten, Trennlinien)."
+      "$description": "Rahmenbreite 1px. Standard-Rahmen (Inputs, Karten, Trennlinien).",
+      "$extensions": {
+        "com.figma": {
+          "scopes": [
+            "STROKE_FLOAT"
+          ],
+          "codeSyntax": {
+            "WEB": "var(--dg-border-width-sm)"
+          }
+        }
+      }
     },
     "md": {
       "$type": "dimension",
@@ -194,7 +453,17 @@
         "value": 2,
         "unit": "px"
       },
-      "$description": "Rahmenbreite 2px. Betonte Rahmen, z. B. ausgewählte Zustände."
+      "$description": "Rahmenbreite 2px. Betonte Rahmen, z. B. ausgewählte Zustände.",
+      "$extensions": {
+        "com.figma": {
+          "scopes": [
+            "STROKE_FLOAT"
+          ],
+          "codeSyntax": {
+            "WEB": "var(--dg-border-width-md)"
+          }
+        }
+      }
     },
     "lg": {
       "$type": "dimension",
@@ -202,26 +471,81 @@
         "value": 4,
         "unit": "px"
       },
-      "$description": "Rahmenbreite 4px. Dicke Rahmen; Basis für focus-ring/width."
+      "$description": "Rahmenbreite 4px. Dicke Rahmen; Basis für focus-ring/width.",
+      "$extensions": {
+        "com.figma": {
+          "scopes": [
+            "STROKE_FLOAT"
+          ],
+          "codeSyntax": {
+            "WEB": "var(--dg-border-width-lg)"
+          }
+        }
+      }
     }
   },
   "focus-ring": {
     "width": {
       "$type": "dimension",
       "$value": "{border-width.lg}",
-      "$description": "Breite des Fokusrings (box-shadow spread), = border-width/lg. Einziger Fokus-Breiten-Token."
+      "$description": "Breite des Fokusrings (box-shadow spread), = border-width/lg. Einziger Fokus-Breiten-Token.",
+      "$extensions": {
+        "com.figma": {
+          "scopes": [
+            "EFFECT_FLOAT"
+          ],
+          "codeSyntax": {
+            "WEB": "var(--dg-focus-ring-width)"
+          }
+        }
+      }
     }
   },
   "icon-size": {
     "xs": {
       "$type": "dimension",
       "$value": "{spacing.sm}",
-      "$description": "Icon 12px, nur in kleinen Badges."
+      "$description": "Icon 12px, nur in kleinen Badges.",
+      "$extensions": {
+        "com.figma": {
+          "scopes": [
+            "WIDTH_HEIGHT"
+          ],
+          "codeSyntax": {
+            "WEB": "var(--dg-icon-size-xs)"
+          }
+        }
+      }
     },
     "sm": {
       "$type": "dimension",
       "$value": "{spacing.md}",
-      "$description": "Icon 16px: Info/Fehler in Formularfeldern, Badges md/lg, Checkbox-Häkchen."
+      "$description": "Icon 16px: Info/Fehler in Formularfeldern, Badges md/lg, Checkbox-Häkchen.",
+      "$extensions": {
+        "com.figma": {
+          "scopes": [
+            "WIDTH_HEIGHT"
+          ],
+          "codeSyntax": {
+            "WEB": "var(--dg-icon-size-sm)"
+          }
+        }
+      }
+    },
+    "lg": {
+      "$type": "dimension",
+      "$value": "{spacing.lg}",
+      "$description": "Icon 24px: Standardgröße der Icon-Bibliothek (24er-Raster), z. B. Feld-Icons und Chevrons.",
+      "$extensions": {
+        "com.figma": {
+          "scopes": [
+            "WIDTH_HEIGHT"
+          ],
+          "codeSyntax": {
+            "WEB": "var(--dg-icon-size-lg)"
+          }
+        }
+      }
     },
     "md": {
       "$type": "dimension",
@@ -229,21 +553,16 @@
         "value": 20,
         "unit": "px"
       },
-      "$description": "Icon 20px: Zwischengröße, z. B. Icons in Buttons oder Listen neben body/md."
-    },
-    "lg": {
-      "$type": "dimension",
-      "$value": "{spacing.lg}",
-      "$description": "Icon 24px: Standardgröße der Icon-Bibliothek (24er-Raster), z. B. Feld-Icons und Chevrons."
-    }
-  },
-  "legacy": {
-    "color": {
-      "basalt": {
-        "$type": "color",
-        "$value": "{color.gray.800}",
-        "$description": "Deprecated – nur noch von 6 Text-Layern mit „Söhne Kräftig“ auf der Foundations-Seite genutzt (Schnitt fehlt in Figma). Danach löschen.",
-        "$deprecated": "Deprecated – nur noch von 6 Text-Layern mit „Söhne Kräftig“ auf der Foundations-Seite genutzt (Schnitt fehlt in Figma). Danach löschen."
+      "$description": "Icon 20px: Zwischengröße, z. B. Icons in Buttons oder Listen neben body/md.",
+      "$extensions": {
+        "com.figma": {
+          "scopes": [
+            "WIDTH_HEIGHT"
+          ],
+          "codeSyntax": {
+            "WEB": "var(--dg-icon-size-md)"
+          }
+        }
       }
     }
   }

@@ -20,7 +20,7 @@ async function readModel() {
     for (const id of c.variableIds) {
       const v = await figma.variables.getVariableByIdAsync(id);
       if (!v) continue;
-      variables.push({ id: v.id, key: v.key, name: v.name, collectionId: v.variableCollectionId, resolvedType: v.resolvedType, valuesByMode: v.valuesByMode, description: v.description, scopes: v.scopes, hiddenFromPublishing: v.hiddenFromPublishing });
+      variables.push({ id: v.id, key: v.key, name: v.name, collectionId: v.variableCollectionId, resolvedType: v.resolvedType, valuesByMode: v.valuesByMode, description: v.description, scopes: v.scopes, codeSyntax: v.codeSyntax, hiddenFromPublishing: v.hiddenFromPublishing });
     }
   }
   const textStyles = (await figma.getLocalTextStylesAsync()).map((s) => ({

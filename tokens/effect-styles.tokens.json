@@ -1,517 +1,5 @@
 {
   "shadow": {
-    "xs": {
-      "$type": "shadow",
-      "$value": {
-        "color": {
-          "colorSpace": "srgb",
-          "components": [
-            0.0196,
-            0.1608,
-            0.2549
-          ],
-          "hex": "#052941",
-          "alpha": 0.059
-        },
-        "offsetX": {
-          "value": 0,
-          "unit": "px"
-        },
-        "offsetY": {
-          "value": 1,
-          "unit": "px"
-        },
-        "blur": {
-          "value": 3,
-          "unit": "px"
-        },
-        "spread": {
-          "value": 0,
-          "unit": "px"
-        }
-      },
-      "$extensions": {
-        "com.figma": {}
-      }
-    },
-    "sm": {
-      "$type": "shadow",
-      "$value": [
-        {
-          "color": {
-            "colorSpace": "srgb",
-            "components": [
-              0.0196,
-              0.1608,
-              0.2549
-            ],
-            "hex": "#052941",
-            "alpha": 0.071
-          },
-          "offsetX": {
-            "value": 0,
-            "unit": "px"
-          },
-          "offsetY": {
-            "value": 1,
-            "unit": "px"
-          },
-          "blur": {
-            "value": 3,
-            "unit": "px"
-          },
-          "spread": {
-            "value": 0,
-            "unit": "px"
-          }
-        },
-        {
-          "color": {
-            "colorSpace": "srgb",
-            "components": [
-              0.0196,
-              0.1608,
-              0.2549
-            ],
-            "hex": "#052941",
-            "alpha": 0.114
-          },
-          "offsetX": {
-            "value": 0,
-            "unit": "px"
-          },
-          "offsetY": {
-            "value": 1,
-            "unit": "px"
-          },
-          "blur": {
-            "value": 4,
-            "unit": "px"
-          },
-          "spread": {
-            "value": 0,
-            "unit": "px"
-          }
-        }
-      ],
-      "$extensions": {
-        "com.figma": {}
-      }
-    },
-    "md": {
-      "$type": "shadow",
-      "$value": [
-        {
-          "color": {
-            "colorSpace": "srgb",
-            "components": [
-              0.0196,
-              0.1608,
-              0.2549
-            ],
-            "hex": "#052941",
-            "alpha": 0.071
-          },
-          "offsetX": {
-            "value": 0,
-            "unit": "px"
-          },
-          "offsetY": {
-            "value": 2,
-            "unit": "px"
-          },
-          "blur": {
-            "value": 5,
-            "unit": "px"
-          },
-          "spread": {
-            "value": -2,
-            "unit": "px"
-          }
-        },
-        {
-          "color": {
-            "colorSpace": "srgb",
-            "components": [
-              0.0196,
-              0.1608,
-              0.2549
-            ],
-            "hex": "#052941",
-            "alpha": 0.114
-          },
-          "offsetX": {
-            "value": 0,
-            "unit": "px"
-          },
-          "offsetY": {
-            "value": 4,
-            "unit": "px"
-          },
-          "blur": {
-            "value": 10,
-            "unit": "px"
-          },
-          "spread": {
-            "value": -2,
-            "unit": "px"
-          }
-        }
-      ],
-      "$extensions": {
-        "com.figma": {}
-      }
-    },
-    "lg": {
-      "$type": "shadow",
-      "$value": [
-        {
-          "color": {
-            "colorSpace": "srgb",
-            "components": [
-              0.0196,
-              0.1608,
-              0.2549
-            ],
-            "hex": "#052941",
-            "alpha": 0.02
-          },
-          "offsetX": {
-            "value": 0,
-            "unit": "px"
-          },
-          "offsetY": {
-            "value": 4,
-            "unit": "px"
-          },
-          "blur": {
-            "value": 8,
-            "unit": "px"
-          },
-          "spread": {
-            "value": -2,
-            "unit": "px"
-          }
-        },
-        {
-          "color": {
-            "colorSpace": "srgb",
-            "components": [
-              0.0196,
-              0.1608,
-              0.2549
-            ],
-            "hex": "#052941",
-            "alpha": 0.078
-          },
-          "offsetX": {
-            "value": 0,
-            "unit": "px"
-          },
-          "offsetY": {
-            "value": 12,
-            "unit": "px"
-          },
-          "blur": {
-            "value": 20,
-            "unit": "px"
-          },
-          "spread": {
-            "value": -4,
-            "unit": "px"
-          }
-        }
-      ],
-      "$extensions": {
-        "com.figma": {}
-      }
-    },
-    "xl": {
-      "$type": "shadow",
-      "$value": [
-        {
-          "color": {
-            "colorSpace": "srgb",
-            "components": [
-              0.0196,
-              0.1608,
-              0.2549
-            ],
-            "hex": "#052941",
-            "alpha": 0.035
-          },
-          "offsetX": {
-            "value": 0,
-            "unit": "px"
-          },
-          "offsetY": {
-            "value": 8,
-            "unit": "px"
-          },
-          "blur": {
-            "value": 10,
-            "unit": "px"
-          },
-          "spread": {
-            "value": -4,
-            "unit": "px"
-          }
-        },
-        {
-          "color": {
-            "colorSpace": "srgb",
-            "components": [
-              0.0196,
-              0.1608,
-              0.2549
-            ],
-            "hex": "#052941",
-            "alpha": 0.09
-          },
-          "offsetX": {
-            "value": 0,
-            "unit": "px"
-          },
-          "offsetY": {
-            "value": 20,
-            "unit": "px"
-          },
-          "blur": {
-            "value": 30,
-            "unit": "px"
-          },
-          "spread": {
-            "value": -4,
-            "unit": "px"
-          }
-        }
-      ],
-      "$extensions": {
-        "com.figma": {}
-      }
-    },
-    "2xl": {
-      "$type": "shadow",
-      "$value": {
-        "color": {
-          "colorSpace": "srgb",
-          "components": [
-            0.0196,
-            0.1608,
-            0.2549
-          ],
-          "hex": "#052941",
-          "alpha": 0.208
-        },
-        "offsetX": {
-          "value": 0,
-          "unit": "px"
-        },
-        "offsetY": {
-          "value": 24,
-          "unit": "px"
-        },
-        "blur": {
-          "value": 60,
-          "unit": "px"
-        },
-        "spread": {
-          "value": -12,
-          "unit": "px"
-        }
-      },
-      "$extensions": {
-        "com.figma": {}
-      }
-    },
-    "3xl": {
-      "$type": "shadow",
-      "$value": {
-        "color": {
-          "colorSpace": "srgb",
-          "components": [
-            0.0196,
-            0.1608,
-            0.2549
-          ],
-          "hex": "#052941",
-          "alpha": 0.161
-        },
-        "offsetX": {
-          "value": 0,
-          "unit": "px"
-        },
-        "offsetY": {
-          "value": 32,
-          "unit": "px"
-        },
-        "blur": {
-          "value": 80,
-          "unit": "px"
-        },
-        "spread": {
-          "value": -12,
-          "unit": "px"
-        }
-      },
-      "$extensions": {
-        "com.figma": {}
-      }
-    },
-    "focus-ring": {
-      "brand": {
-        "$type": "shadow",
-        "$value": {
-          "color": "{color.focus-ring.brand}",
-          "offsetX": {
-            "value": 0,
-            "unit": "px"
-          },
-          "offsetY": {
-            "value": 0,
-            "unit": "px"
-          },
-          "blur": {
-            "value": 0,
-            "unit": "px"
-          },
-          "spread": "{focus-ring.width}"
-        },
-        "$description": "Fokusring 4px (brand). Für fokussierte Buttons, Links und Controls ohne eigenen Schatten.",
-        "$extensions": {
-          "com.figma": {}
-        }
-      },
-      "error": {
-        "$type": "shadow",
-        "$value": {
-          "color": "{color.focus-ring.error}",
-          "offsetX": {
-            "value": 0,
-            "unit": "px"
-          },
-          "offsetY": {
-            "value": 0,
-            "unit": "px"
-          },
-          "blur": {
-            "value": 0,
-            "unit": "px"
-          },
-          "spread": "{focus-ring.width}"
-        },
-        "$description": "Fokusring 4px (error). Für fokussierte Controls im Fehlerzustand.",
-        "$extensions": {
-          "com.figma": {}
-        }
-      }
-    },
-    "xs-focus-brand": {
-      "$type": "shadow",
-      "$value": [
-        {
-          "color": "{color.focus-ring.brand}",
-          "offsetX": {
-            "value": 0,
-            "unit": "px"
-          },
-          "offsetY": {
-            "value": 0,
-            "unit": "px"
-          },
-          "blur": {
-            "value": 0,
-            "unit": "px"
-          },
-          "spread": "{focus-ring.width}"
-        },
-        {
-          "color": {
-            "colorSpace": "srgb",
-            "components": [
-              0.0196,
-              0.1608,
-              0.2549
-            ],
-            "hex": "#052941",
-            "alpha": 0.059
-          },
-          "offsetX": {
-            "value": 0,
-            "unit": "px"
-          },
-          "offsetY": {
-            "value": 1,
-            "unit": "px"
-          },
-          "blur": {
-            "value": 3,
-            "unit": "px"
-          },
-          "spread": {
-            "value": 0,
-            "unit": "px"
-          }
-        }
-      ],
-      "$description": "shadow/xs + Fokusring 4px brand. Für Formularfelder im Zustand Focused/Open.",
-      "$extensions": {
-        "com.figma": {}
-      }
-    },
-    "xs-focus-error": {
-      "$type": "shadow",
-      "$value": [
-        {
-          "color": "{color.focus-ring.error}",
-          "offsetX": {
-            "value": 0,
-            "unit": "px"
-          },
-          "offsetY": {
-            "value": 0,
-            "unit": "px"
-          },
-          "blur": {
-            "value": 0,
-            "unit": "px"
-          },
-          "spread": "{focus-ring.width}"
-        },
-        {
-          "color": {
-            "colorSpace": "srgb",
-            "components": [
-              0.0196,
-              0.1608,
-              0.2549
-            ],
-            "hex": "#052941",
-            "alpha": 0.059
-          },
-          "offsetX": {
-            "value": 0,
-            "unit": "px"
-          },
-          "offsetY": {
-            "value": 1,
-            "unit": "px"
-          },
-          "blur": {
-            "value": 3,
-            "unit": "px"
-          },
-          "spread": {
-            "value": 0,
-            "unit": "px"
-          }
-        }
-      ],
-      "$description": "shadow/xs + Fokusring 4px error. Für Formularfelder, die im Fehlerzustand fokussiert sind.",
-      "$extensions": {
-        "com.figma": {}
-      }
-    },
     "legacy": {
       "shadow-card": {
         "$type": "shadow",
@@ -582,6 +70,552 @@
         "$extensions": {
           "com.figma": {}
         }
+      }
+    },
+    "xs": {
+      "$type": "shadow",
+      "$value": {
+        "color": {
+          "colorSpace": "srgb",
+          "components": [
+            0.0196,
+            0.1608,
+            0.2549
+          ],
+          "hex": "#052941",
+          "alpha": 0.058
+        },
+        "offsetX": {
+          "value": 0,
+          "unit": "px"
+        },
+        "offsetY": {
+          "value": 1,
+          "unit": "px"
+        },
+        "blur": {
+          "value": 3,
+          "unit": "px"
+        },
+        "spread": {
+          "value": 0,
+          "unit": "px"
+        }
+      },
+      "$extensions": {
+        "com.figma": {}
+      }
+    },
+    "sm": {
+      "$type": "shadow",
+      "$value": [
+        {
+          "color": {
+            "colorSpace": "srgb",
+            "components": [
+              0.0196,
+              0.1608,
+              0.2549
+            ],
+            "hex": "#052941",
+            "alpha": 0.069
+          },
+          "offsetX": {
+            "value": 0,
+            "unit": "px"
+          },
+          "offsetY": {
+            "value": 1,
+            "unit": "px"
+          },
+          "blur": {
+            "value": 3,
+            "unit": "px"
+          },
+          "spread": {
+            "value": 0,
+            "unit": "px"
+          }
+        },
+        {
+          "color": {
+            "colorSpace": "srgb",
+            "components": [
+              0.0196,
+              0.1608,
+              0.2549
+            ],
+            "hex": "#052941",
+            "alpha": 0.115
+          },
+          "offsetX": {
+            "value": 0,
+            "unit": "px"
+          },
+          "offsetY": {
+            "value": 1,
+            "unit": "px"
+          },
+          "blur": {
+            "value": 4,
+            "unit": "px"
+          },
+          "spread": {
+            "value": 0,
+            "unit": "px"
+          }
+        }
+      ],
+      "$extensions": {
+        "com.figma": {}
+      }
+    },
+    "md": {
+      "$type": "shadow",
+      "$value": [
+        {
+          "color": {
+            "colorSpace": "srgb",
+            "components": [
+              0.0196,
+              0.1608,
+              0.2549
+            ],
+            "hex": "#052941",
+            "alpha": 0.069
+          },
+          "offsetX": {
+            "value": 0,
+            "unit": "px"
+          },
+          "offsetY": {
+            "value": 2,
+            "unit": "px"
+          },
+          "blur": {
+            "value": 5,
+            "unit": "px"
+          },
+          "spread": {
+            "value": -2,
+            "unit": "px"
+          }
+        },
+        {
+          "color": {
+            "colorSpace": "srgb",
+            "components": [
+              0.0196,
+              0.1608,
+              0.2549
+            ],
+            "hex": "#052941",
+            "alpha": 0.115
+          },
+          "offsetX": {
+            "value": 0,
+            "unit": "px"
+          },
+          "offsetY": {
+            "value": 4,
+            "unit": "px"
+          },
+          "blur": {
+            "value": 10,
+            "unit": "px"
+          },
+          "spread": {
+            "value": -2,
+            "unit": "px"
+          }
+        }
+      ],
+      "$extensions": {
+        "com.figma": {}
+      }
+    },
+    "lg": {
+      "$type": "shadow",
+      "$value": [
+        {
+          "color": {
+            "colorSpace": "srgb",
+            "components": [
+              0.0196,
+              0.1608,
+              0.2549
+            ],
+            "hex": "#052941",
+            "alpha": 0.02
+          },
+          "offsetX": {
+            "value": 0,
+            "unit": "px"
+          },
+          "offsetY": {
+            "value": 4,
+            "unit": "px"
+          },
+          "blur": {
+            "value": 8,
+            "unit": "px"
+          },
+          "spread": {
+            "value": -2,
+            "unit": "px"
+          }
+        },
+        {
+          "color": {
+            "colorSpace": "srgb",
+            "components": [
+              0.0196,
+              0.1608,
+              0.2549
+            ],
+            "hex": "#052941",
+            "alpha": 0.08
+          },
+          "offsetX": {
+            "value": 0,
+            "unit": "px"
+          },
+          "offsetY": {
+            "value": 12,
+            "unit": "px"
+          },
+          "blur": {
+            "value": 20,
+            "unit": "px"
+          },
+          "spread": {
+            "value": -4,
+            "unit": "px"
+          }
+        }
+      ],
+      "$extensions": {
+        "com.figma": {}
+      }
+    },
+    "xl": {
+      "$type": "shadow",
+      "$value": [
+        {
+          "color": {
+            "colorSpace": "srgb",
+            "components": [
+              0.0196,
+              0.1608,
+              0.2549
+            ],
+            "hex": "#052941",
+            "alpha": 0.034
+          },
+          "offsetX": {
+            "value": 0,
+            "unit": "px"
+          },
+          "offsetY": {
+            "value": 8,
+            "unit": "px"
+          },
+          "blur": {
+            "value": 10,
+            "unit": "px"
+          },
+          "spread": {
+            "value": -4,
+            "unit": "px"
+          }
+        },
+        {
+          "color": {
+            "colorSpace": "srgb",
+            "components": [
+              0.0196,
+              0.1608,
+              0.2549
+            ],
+            "hex": "#052941",
+            "alpha": 0.092
+          },
+          "offsetX": {
+            "value": 0,
+            "unit": "px"
+          },
+          "offsetY": {
+            "value": 20,
+            "unit": "px"
+          },
+          "blur": {
+            "value": 30,
+            "unit": "px"
+          },
+          "spread": {
+            "value": -4,
+            "unit": "px"
+          }
+        }
+      ],
+      "$extensions": {
+        "com.figma": {}
+      }
+    },
+    "2xl": {
+      "$type": "shadow",
+      "$value": {
+        "color": {
+          "colorSpace": "srgb",
+          "components": [
+            0.0196,
+            0.1608,
+            0.2549
+          ],
+          "hex": "#052941",
+          "alpha": 0.207
+        },
+        "offsetX": {
+          "value": 0,
+          "unit": "px"
+        },
+        "offsetY": {
+          "value": 24,
+          "unit": "px"
+        },
+        "blur": {
+          "value": 60,
+          "unit": "px"
+        },
+        "spread": {
+          "value": -12,
+          "unit": "px"
+        }
+      },
+      "$extensions": {
+        "com.figma": {}
+      }
+    },
+    "3xl": {
+      "$type": "shadow",
+      "$value": {
+        "color": {
+          "colorSpace": "srgb",
+          "components": [
+            0.0196,
+            0.1608,
+            0.2549
+          ],
+          "hex": "#052941",
+          "alpha": 0.161
+        },
+        "offsetX": {
+          "value": 0,
+          "unit": "px"
+        },
+        "offsetY": {
+          "value": 32,
+          "unit": "px"
+        },
+        "blur": {
+          "value": 80,
+          "unit": "px"
+        },
+        "spread": {
+          "value": -12,
+          "unit": "px"
+        }
+      },
+      "$extensions": {
+        "com.figma": {}
+      }
+    },
+    "focus-ring": {
+      "brand": {
+        "$type": "shadow",
+        "$value": [
+          {
+            "color": "{color.focus-ring.brand}",
+            "offsetX": {
+              "value": 0,
+              "unit": "px"
+            },
+            "offsetY": {
+              "value": 0,
+              "unit": "px"
+            },
+            "blur": {
+              "value": 0,
+              "unit": "px"
+            },
+            "spread": "{focus-ring.width}"
+          },
+          {
+            "color": "{color.bg.default}",
+            "offsetX": {
+              "value": 0,
+              "unit": "px"
+            },
+            "offsetY": {
+              "value": 0,
+              "unit": "px"
+            },
+            "blur": {
+              "value": 0,
+              "unit": "px"
+            },
+            "spread": "{border-width.md}"
+          }
+        ],
+        "$description": "Focus ring: 2 px gap in color/bg/default, then a 2 px ring in color/focus-ring/brand (brand/600 light, brand/300 dark). Meets 3:1 against the page and against brand buttons.",
+        "$extensions": {
+          "com.figma": {}
+        }
+      },
+      "error": {
+        "$type": "shadow",
+        "$value": {
+          "color": "{color.focus-ring.error}",
+          "offsetX": {
+            "value": 0,
+            "unit": "px"
+          },
+          "offsetY": {
+            "value": 0,
+            "unit": "px"
+          },
+          "blur": {
+            "value": 0,
+            "unit": "px"
+          },
+          "spread": "{focus-ring.width}"
+        },
+        "$description": "Fokusring 4px (error). Für fokussierte Controls im Fehlerzustand.",
+        "$extensions": {
+          "com.figma": {}
+        }
+      }
+    },
+    "xs-focus-brand": {
+      "$type": "shadow",
+      "$value": [
+        {
+          "color": "{color.focus-ring.brand}",
+          "offsetX": {
+            "value": 0,
+            "unit": "px"
+          },
+          "offsetY": {
+            "value": 0,
+            "unit": "px"
+          },
+          "blur": {
+            "value": 0,
+            "unit": "px"
+          },
+          "spread": "{focus-ring.width}"
+        },
+        {
+          "color": "{color.bg.default}",
+          "offsetX": {
+            "value": 0,
+            "unit": "px"
+          },
+          "offsetY": {
+            "value": 0,
+            "unit": "px"
+          },
+          "blur": {
+            "value": 0,
+            "unit": "px"
+          },
+          "spread": "{border-width.md}"
+        },
+        {
+          "color": {
+            "colorSpace": "srgb",
+            "components": [
+              0.0196,
+              0.1608,
+              0.2549
+            ],
+            "hex": "#052941",
+            "alpha": 0.058
+          },
+          "offsetX": {
+            "value": 0,
+            "unit": "px"
+          },
+          "offsetY": {
+            "value": 1,
+            "unit": "px"
+          },
+          "blur": {
+            "value": 3,
+            "unit": "px"
+          },
+          "spread": {
+            "value": 0,
+            "unit": "px"
+          }
+        }
+      ],
+      "$description": "Focus ring: 2 px gap in color/bg/default, then a 2 px ring in color/focus-ring/brand (brand/600 light, brand/300 dark). Meets 3:1 against the page and against brand buttons.",
+      "$extensions": {
+        "com.figma": {}
+      }
+    },
+    "xs-focus-error": {
+      "$type": "shadow",
+      "$value": [
+        {
+          "color": "{color.focus-ring.error}",
+          "offsetX": {
+            "value": 0,
+            "unit": "px"
+          },
+          "offsetY": {
+            "value": 0,
+            "unit": "px"
+          },
+          "blur": {
+            "value": 0,
+            "unit": "px"
+          },
+          "spread": "{focus-ring.width}"
+        },
+        {
+          "color": {
+            "colorSpace": "srgb",
+            "components": [
+              0.0196,
+              0.1608,
+              0.2549
+            ],
+            "hex": "#052941",
+            "alpha": 0.058
+          },
+          "offsetX": {
+            "value": 0,
+            "unit": "px"
+          },
+          "offsetY": {
+            "value": 1,
+            "unit": "px"
+          },
+          "blur": {
+            "value": 3,
+            "unit": "px"
+          },
+          "spread": {
+            "value": 0,
+            "unit": "px"
+          }
+        }
+      ],
+      "$description": "shadow/xs + Fokusring 4px error. Für Formularfelder, die im Fehlerzustand fokussiert sind.",
+      "$extensions": {
+        "com.figma": {}
       }
     }
   },

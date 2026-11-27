@@ -3,24 +3,66 @@
     "sans": {
       "$type": "fontFamily",
       "$value": "Sohne",
-      "$description": "Grundschrift für Fließtext, Labels und Überschriften."
+      "$description": "Grundschrift für Fließtext, Labels und Überschriften.",
+      "$extensions": {
+        "com.figma": {
+          "scopes": [
+            "FONT_FAMILY"
+          ],
+          "codeSyntax": {
+            "WEB": "var(--dg-font-family-sans)"
+          }
+        }
+      }
     },
     "display": {
       "$type": "fontFamily",
       "$value": "SohneDG Schmal",
-      "$description": "Condensed-Schrift nur für H1 (Versalien)."
+      "$description": "Condensed-Schrift nur für H1 (Versalien).",
+      "$extensions": {
+        "com.figma": {
+          "scopes": [
+            "FONT_FAMILY"
+          ],
+          "codeSyntax": {
+            "WEB": "var(--dg-font-family-display)"
+          }
+        }
+      }
     }
   },
   "font-weight": {
     "regular": {
       "$type": "fontWeight",
       "$value": 400,
-      "$description": "Regular (CSS 400)."
+      "$description": "Regular (CSS 400).",
+      "$extensions": {
+        "com.figma": {
+          "scopes": [
+            "FONT_STYLE"
+          ],
+          "codeSyntax": {
+            "WEB": "var(--dg-font-weight-regular)"
+          },
+          "fontStyle": "Buch"
+        }
+      }
     },
     "semibold": {
       "$type": "fontWeight",
       "$value": 600,
-      "$description": "Semibold (CSS 600)."
+      "$description": "Semibold (CSS 600).",
+      "$extensions": {
+        "com.figma": {
+          "scopes": [
+            "FONT_STYLE"
+          ],
+          "codeSyntax": {
+            "WEB": "var(--dg-font-weight-semibold)"
+          },
+          "fontStyle": "Halbfett"
+        }
+      }
     }
   },
   "font-size": {
@@ -30,7 +72,17 @@
         "value": 12,
         "unit": "px"
       },
-      "$description": "Schriftgröße 12px. Wird über die Textstile verwendet."
+      "$description": "Schriftgröße 12px. Wird über die Textstile verwendet.",
+      "$extensions": {
+        "com.figma": {
+          "scopes": [
+            "FONT_SIZE"
+          ],
+          "codeSyntax": {
+            "WEB": "var(--dg-font-size-12)"
+          }
+        }
+      }
     },
     "14": {
       "$type": "dimension",
@@ -38,7 +90,17 @@
         "value": 14,
         "unit": "px"
       },
-      "$description": "Schriftgröße 14px. Wird über die Textstile verwendet."
+      "$description": "Schriftgröße 14px. Wird über die Textstile verwendet.",
+      "$extensions": {
+        "com.figma": {
+          "scopes": [
+            "FONT_SIZE"
+          ],
+          "codeSyntax": {
+            "WEB": "var(--dg-font-size-14)"
+          }
+        }
+      }
     },
     "16": {
       "$type": "dimension",
@@ -46,7 +108,17 @@
         "value": 16,
         "unit": "px"
       },
-      "$description": "Schriftgröße 16px. Wird über die Textstile verwendet."
+      "$description": "Schriftgröße 16px. Wird über die Textstile verwendet.",
+      "$extensions": {
+        "com.figma": {
+          "scopes": [
+            "FONT_SIZE"
+          ],
+          "codeSyntax": {
+            "WEB": "var(--dg-font-size-16)"
+          }
+        }
+      }
     },
     "18": {
       "$type": "dimension",
@@ -54,7 +126,17 @@
         "value": 18,
         "unit": "px"
       },
-      "$description": "Schriftgröße 18px. Wird über die Textstile verwendet."
+      "$description": "Schriftgröße 18px. Wird über die Textstile verwendet.",
+      "$extensions": {
+        "com.figma": {
+          "scopes": [
+            "FONT_SIZE"
+          ],
+          "codeSyntax": {
+            "WEB": "var(--dg-font-size-18)"
+          }
+        }
+      }
     },
     "20": {
       "$type": "dimension",
@@ -62,7 +144,17 @@
         "value": 20,
         "unit": "px"
       },
-      "$description": "Schriftgröße 20px. Wird über die Textstile verwendet."
+      "$description": "Schriftgröße 20px. Wird über die Textstile verwendet.",
+      "$extensions": {
+        "com.figma": {
+          "scopes": [
+            "FONT_SIZE"
+          ],
+          "codeSyntax": {
+            "WEB": "var(--dg-font-size-20)"
+          }
+        }
+      }
     },
     "24": {
       "$type": "dimension",
@@ -70,7 +162,17 @@
         "value": 24,
         "unit": "px"
       },
-      "$description": "Schriftgröße 24px. Wird über die Textstile verwendet."
+      "$description": "Schriftgröße 24px. Wird über die Textstile verwendet.",
+      "$extensions": {
+        "com.figma": {
+          "scopes": [
+            "FONT_SIZE"
+          ],
+          "codeSyntax": {
+            "WEB": "var(--dg-font-size-24)"
+          }
+        }
+      }
     },
     "28": {
       "$type": "dimension",
@@ -78,7 +180,17 @@
         "value": 28,
         "unit": "px"
       },
-      "$description": "Schriftgröße 28px. Wird über die Textstile verwendet."
+      "$description": "Schriftgröße 28px. Wird über die Textstile verwendet.",
+      "$extensions": {
+        "com.figma": {
+          "scopes": [
+            "FONT_SIZE"
+          ],
+          "codeSyntax": {
+            "WEB": "var(--dg-font-size-28)"
+          }
+        }
+      }
     },
     "32": {
       "$type": "dimension",
@@ -86,7 +198,17 @@
         "value": 32,
         "unit": "px"
       },
-      "$description": "Schriftgröße 32px. Wird über die Textstile verwendet."
+      "$description": "Schriftgröße 32px. Wird über die Textstile verwendet.",
+      "$extensions": {
+        "com.figma": {
+          "scopes": [
+            "FONT_SIZE"
+          ],
+          "codeSyntax": {
+            "WEB": "var(--dg-font-size-32)"
+          }
+        }
+      }
     },
     "36": {
       "$type": "dimension",
@@ -94,7 +216,17 @@
         "value": 36,
         "unit": "px"
       },
-      "$description": "Schriftgröße 36px. Wird über die Textstile verwendet."
+      "$description": "Schriftgröße 36px. Wird über die Textstile verwendet.",
+      "$extensions": {
+        "com.figma": {
+          "scopes": [
+            "FONT_SIZE"
+          ],
+          "codeSyntax": {
+            "WEB": "var(--dg-font-size-36)"
+          }
+        }
+      }
     },
     "40": {
       "$type": "dimension",
@@ -102,7 +234,17 @@
         "value": 40,
         "unit": "px"
       },
-      "$description": "Schriftgröße 40px. Wird über die Textstile verwendet."
+      "$description": "Schriftgröße 40px. Wird über die Textstile verwendet.",
+      "$extensions": {
+        "com.figma": {
+          "scopes": [
+            "FONT_SIZE"
+          ],
+          "codeSyntax": {
+            "WEB": "var(--dg-font-size-40)"
+          }
+        }
+      }
     },
     "48": {
       "$type": "dimension",
@@ -110,7 +252,17 @@
         "value": 48,
         "unit": "px"
       },
-      "$description": "Schriftgröße 48px. Wird über die Textstile verwendet."
+      "$description": "Schriftgröße 48px. Wird über die Textstile verwendet.",
+      "$extensions": {
+        "com.figma": {
+          "scopes": [
+            "FONT_SIZE"
+          ],
+          "codeSyntax": {
+            "WEB": "var(--dg-font-size-48)"
+          }
+        }
+      }
     },
     "56": {
       "$type": "dimension",
@@ -118,7 +270,17 @@
         "value": 56,
         "unit": "px"
       },
-      "$description": "Schriftgröße 56px. Wird über die Textstile verwendet."
+      "$description": "Schriftgröße 56px. Wird über die Textstile verwendet.",
+      "$extensions": {
+        "com.figma": {
+          "scopes": [
+            "FONT_SIZE"
+          ],
+          "codeSyntax": {
+            "WEB": "var(--dg-font-size-56)"
+          }
+        }
+      }
     },
     "60": {
       "$type": "dimension",
@@ -126,7 +288,17 @@
         "value": 60,
         "unit": "px"
       },
-      "$description": "Schriftgröße 60px. Wird über die Textstile verwendet."
+      "$description": "Schriftgröße 60px. Wird über die Textstile verwendet.",
+      "$extensions": {
+        "com.figma": {
+          "scopes": [
+            "FONT_SIZE"
+          ],
+          "codeSyntax": {
+            "WEB": "var(--dg-font-size-60)"
+          }
+        }
+      }
     }
   },
   "line-height": {
@@ -136,7 +308,17 @@
         "value": 16,
         "unit": "px"
       },
-      "$description": "Zeilenhöhe 16px (4px-Raster). Wird über die Textstile verwendet."
+      "$description": "Zeilenhöhe 16px (4px-Raster). Wird über die Textstile verwendet.",
+      "$extensions": {
+        "com.figma": {
+          "scopes": [
+            "LINE_HEIGHT"
+          ],
+          "codeSyntax": {
+            "WEB": "var(--dg-line-height-16)"
+          }
+        }
+      }
     },
     "20": {
       "$type": "dimension",
@@ -144,7 +326,17 @@
         "value": 20,
         "unit": "px"
       },
-      "$description": "Zeilenhöhe 20px (4px-Raster). Wird über die Textstile verwendet."
+      "$description": "Zeilenhöhe 20px (4px-Raster). Wird über die Textstile verwendet.",
+      "$extensions": {
+        "com.figma": {
+          "scopes": [
+            "LINE_HEIGHT"
+          ],
+          "codeSyntax": {
+            "WEB": "var(--dg-line-height-20)"
+          }
+        }
+      }
     },
     "24": {
       "$type": "dimension",
@@ -152,7 +344,17 @@
         "value": 24,
         "unit": "px"
       },
-      "$description": "Zeilenhöhe 24px (4px-Raster). Wird über die Textstile verwendet."
+      "$description": "Zeilenhöhe 24px (4px-Raster). Wird über die Textstile verwendet.",
+      "$extensions": {
+        "com.figma": {
+          "scopes": [
+            "LINE_HEIGHT"
+          ],
+          "codeSyntax": {
+            "WEB": "var(--dg-line-height-24)"
+          }
+        }
+      }
     },
     "28": {
       "$type": "dimension",
@@ -160,7 +362,17 @@
         "value": 28,
         "unit": "px"
       },
-      "$description": "Zeilenhöhe 28px (4px-Raster). Wird über die Textstile verwendet."
+      "$description": "Zeilenhöhe 28px (4px-Raster). Wird über die Textstile verwendet.",
+      "$extensions": {
+        "com.figma": {
+          "scopes": [
+            "LINE_HEIGHT"
+          ],
+          "codeSyntax": {
+            "WEB": "var(--dg-line-height-28)"
+          }
+        }
+      }
     },
     "32": {
       "$type": "dimension",
@@ -168,7 +380,17 @@
         "value": 32,
         "unit": "px"
       },
-      "$description": "Zeilenhöhe 32px (4px-Raster). Wird über die Textstile verwendet."
+      "$description": "Zeilenhöhe 32px (4px-Raster). Wird über die Textstile verwendet.",
+      "$extensions": {
+        "com.figma": {
+          "scopes": [
+            "LINE_HEIGHT"
+          ],
+          "codeSyntax": {
+            "WEB": "var(--dg-line-height-32)"
+          }
+        }
+      }
     },
     "36": {
       "$type": "dimension",
@@ -176,7 +398,17 @@
         "value": 36,
         "unit": "px"
       },
-      "$description": "Zeilenhöhe 36px (4px-Raster). Wird über die Textstile verwendet."
+      "$description": "Zeilenhöhe 36px (4px-Raster). Wird über die Textstile verwendet.",
+      "$extensions": {
+        "com.figma": {
+          "scopes": [
+            "LINE_HEIGHT"
+          ],
+          "codeSyntax": {
+            "WEB": "var(--dg-line-height-36)"
+          }
+        }
+      }
     },
     "40": {
       "$type": "dimension",
@@ -184,7 +416,17 @@
         "value": 40,
         "unit": "px"
       },
-      "$description": "Zeilenhöhe 40px (4px-Raster). Wird über die Textstile verwendet."
+      "$description": "Zeilenhöhe 40px (4px-Raster). Wird über die Textstile verwendet.",
+      "$extensions": {
+        "com.figma": {
+          "scopes": [
+            "LINE_HEIGHT"
+          ],
+          "codeSyntax": {
+            "WEB": "var(--dg-line-height-40)"
+          }
+        }
+      }
     },
     "48": {
       "$type": "dimension",
@@ -192,7 +434,17 @@
         "value": 48,
         "unit": "px"
       },
-      "$description": "Zeilenhöhe 48px (4px-Raster). Wird über die Textstile verwendet."
+      "$description": "Zeilenhöhe 48px (4px-Raster). Wird über die Textstile verwendet.",
+      "$extensions": {
+        "com.figma": {
+          "scopes": [
+            "LINE_HEIGHT"
+          ],
+          "codeSyntax": {
+            "WEB": "var(--dg-line-height-48)"
+          }
+        }
+      }
     },
     "56": {
       "$type": "dimension",
@@ -200,7 +452,17 @@
         "value": 56,
         "unit": "px"
       },
-      "$description": "Zeilenhöhe 56px (4px-Raster). Wird über die Textstile verwendet."
+      "$description": "Zeilenhöhe 56px (4px-Raster). Wird über die Textstile verwendet.",
+      "$extensions": {
+        "com.figma": {
+          "scopes": [
+            "LINE_HEIGHT"
+          ],
+          "codeSyntax": {
+            "WEB": "var(--dg-line-height-56)"
+          }
+        }
+      }
     },
     "64": {
       "$type": "dimension",
@@ -208,7 +470,17 @@
         "value": 64,
         "unit": "px"
       },
-      "$description": "Zeilenhöhe 64px (4px-Raster). Wird über die Textstile verwendet."
+      "$description": "Zeilenhöhe 64px (4px-Raster). Wird über die Textstile verwendet.",
+      "$extensions": {
+        "com.figma": {
+          "scopes": [
+            "LINE_HEIGHT"
+          ],
+          "codeSyntax": {
+            "WEB": "var(--dg-line-height-64)"
+          }
+        }
+      }
     }
   }
 }
