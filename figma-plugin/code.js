@@ -220,7 +220,7 @@ const stringify = (obj) => JSON.stringify(obj, null, 2) + '\n';
 const SYNC = figma.command === 'sync';
 figma.showUI(__html__, { width: 400, height: 600, themeColors: true, visible: !SYNC });
 // Button „Tokens senden“ dauerhaft rechts im Eigenschaften-Panel der Datei anzeigen
-figma.root.setRelaunchData({ sync: 'Variablen und Stile als Tokens an GitHub und den Dev-Server senden' });
+figma.root.setRelaunchData({ sync: 'Variablen und Stile als Pull Request zur Prüfung an GitHub senden' });
 
 async function readModel() {
   const cols = await figma.variables.getLocalVariableCollectionsAsync();

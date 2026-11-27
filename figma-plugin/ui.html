@@ -18,16 +18,17 @@
 </style>
 
 <h1>DG Tokens</h1>
-<p>Nach dem Publish in Figma rechts im Eigenschaften-Panel auf „Tokens senden“ klicken (oder Plugins → DG Tokens → Tokens senden). Hier richtest du die Ziele einmalig ein.</p>
+<p>Nach dem Publish in Figma rechts im Eigenschaften-Panel auf „Tokens senden“ klicken (oder Plugins → DG Tokens → Tokens senden). Das Plugin öffnet einen Pull Request. Live geht die Änderung erst, wenn das Frontend ihn geprüft und gemergt hat. Hier richtest du die Ziele einmalig ein.</p>
 
 <fieldset>
   <legend>Ziele</legend>
   <label class="check"><input type="checkbox" id="use-local"> Lokaler Dev-Server (Live-Vorschau)</label>
   <label>Adresse<input type="url" id="local" placeholder="http://localhost:4318"></label>
-  <label class="check"><input type="checkbox" id="use-github"> GitHub (baut und veröffentlicht die Seite)</label>
+  <label class="check"><input type="checkbox" id="use-github"> GitHub (Pull Request zur Prüfung)</label>
   <label>Repository (owner/name)<input type="text" id="repo" placeholder="brandung/dg-design-system"></label>
-  <label>Branch<input type="text" id="branch" placeholder="main"></label>
-  <label>Token (fine-grained, nur dieses Repo, Contents: Read and write)<input type="password" id="token" autocomplete="off"></label>
+  <label>Ziel-Branch des Pull Requests<input type="text" id="branch" placeholder="main"></label>
+  <label>Token (fine-grained, nur dieses Repo: Contents und Pull requests, je Read and write)<input type="password" id="token" autocomplete="off"></label>
+  <label>Was wurde geändert? (optional, steht im Pull Request)<input type="text" id="note" placeholder="z. B. Brand-Button eine Stufe dunkler"></label>
   <div class="row"><button class="primary" id="save">Speichern</button><button id="sync">Jetzt senden</button></div>
 </fieldset>
 
@@ -50,25 +51,39 @@
     local: $('use-local').checked ? ($('local').value.trim() || 'http://localhost:4318') : '',
     github: $('use-github').checked ? { repo: $('repo').value.trim(), branch: $('branch').value.trim() || 'main', token: $('token').value.trim() } : null
   });
+  const note = () => $('note').value.trim();
   const fillForm = (s) => {
     $('use-local').checked = !!s.local; $('local').value = s.local || 'http://localhost:4318';
     $('use-github').checked = !!s.github; $('repo').value = s.github?.repo || ''; $('branch').value = s.github?.branch || 'main'; $('token').value = s.github?.token || '';
   };
 
-  async function gh(path, token, init = {}) {
+  async function gh(path, token, init = {}, allow404 = false) {
     const res = await fetch('https://api.github.com' + path, { ...init, headers: { Authorization: `Bearer ${token}`, Accept: 'application/vnd.github+json', 'X-GitHub-Api-Version': '2022-11-28', ...(init.body ? { 'Content-Type': 'application/json' } : {}) } });
+    if (allow404 && res.status === 404) return null;
     if (!res.ok) throw new Error(`GitHub ${res.status}: ${(await res.json().catch(() => ({}))).message || res.statusText}`);
     return res.json();
   }
-  async function pushGithub({ repo, branch, token }, files, fileName) {
+  /** Alle Figma-Syncs landen auf einem Branch und in einem offenen Pull Request. Gemergt wird nach Prüfung durch das Frontend. */
+  const PR_BRANCH = 'figma/tokens';
+  async function pushGithub({ repo, branch: base, token }, files, fileName, text) {
     if (!/^[\w.-]+\/[\w.-]+$/.test(repo) || !token) throw new Error('GitHub: Repository (owner/name) und Token fehlen.');
-    const ref = await gh(`/repos/${repo}/git/ref/heads/${branch}`, token);
-    const parentCommit = await gh(`/repos/${repo}/git/commits/${ref.object.sha}`, token);
-    const tree = await gh(`/repos/${repo}/git/trees`, token, { method: 'POST', body: JSON.stringify({ base_tree: parentCommit.tree.sha, tree: Object.entries(files).map(([path, content]) => ({ path, mode: '100644', type: 'blob', content })) }) });
-    if (tree.sha === parentCommit.tree.sha) return 'GitHub: keine Änderungen';
-    const commit = await gh(`/repos/${repo}/git/commits`, token, { method: 'POST', body: JSON.stringify({ message: `chore(tokens): Sync aus Figma (${fileName})`, tree: tree.sha, parents: [ref.object.sha] }) });
-    await gh(`/repos/${repo}/git/refs/heads/${branch}`, token, { method: 'PATCH', body: JSON.stringify({ sha: commit.sha }) });
-    return `GitHub: Commit ${commit.sha.slice(0, 7)} auf ${branch}`;
+    const owner = repo.split('/')[0];
+    const baseRef = await gh(`/repos/${repo}/git/ref/heads/${base}`, token);
+    const open = (await gh(`/repos/${repo}/pulls?state=open&base=${encodeURIComponent(base)}&head=${encodeURIComponent(owner + ':' + PR_BRANCH)}`, token))[0];
+    let branchRef = await gh(`/repos/${repo}/git/ref/heads/${PR_BRANCH}`, token, {}, true);
+    // Ohne offenen PR startet der Branch neu auf dem aktuellen Stand des Ziel-Branches.
+    if (!branchRef) branchRef = await gh(`/repos/${repo}/git/refs`, token, { method: 'POST', body: JSON.stringify({ ref: `refs/heads/${PR_BRANCH}`, sha: baseRef.object.sha }) });
+    else if (!open) branchRef = await gh(`/repos/${repo}/git/refs/heads/${PR_BRANCH}`, token, { method: 'PATCH', body: JSON.stringify({ sha: baseRef.object.sha, force: true }) });
+    const parent = await gh(`/repos/${repo}/git/commits/${branchRef.object.sha}`, token);
+    const tree = await gh(`/repos/${repo}/git/trees`, token, { method: 'POST', body: JSON.stringify({ base_tree: parent.tree.sha, tree: Object.entries(files).map(([path, content]) => ({ path, mode: '100644', type: 'blob', content })) }) });
+    if (tree.sha === parent.tree.sha) return open ? `GitHub: keine neuen Änderungen, PR #${open.number} ist offen` : 'GitHub: keine Änderungen';
+    const summary = text || 'Sync aus Figma';
+    const commit = await gh(`/repos/${repo}/git/commits`, token, { method: 'POST', body: JSON.stringify({ message: `tokens: ${summary} (${fileName})`, tree: tree.sha, parents: [branchRef.object.sha] }) });
+    await gh(`/repos/${repo}/git/refs/heads/${PR_BRANCH}`, token, { method: 'PATCH', body: JSON.stringify({ sha: commit.sha }) });
+    if (open) return `GitHub: PR #${open.number} aktualisiert`;
+    const body = `Token-Sync aus der Figma-Datei „${fileName}“.\n\n${text ? `**Änderung laut Design:** ${text}\n\n` : ''}Die Prüfung schreibt unten einen Bericht mit allen geänderten Tokens, Breaking Changes und Kontrastwerten. Bitte vor dem Merge prüfen.`;
+    const pr = await gh(`/repos/${repo}/pulls`, token, { method: 'POST', body: JSON.stringify({ title: `Tokens aus Figma: ${summary}`, head: PR_BRANCH, base, body }) });
+    return `GitHub: PR #${pr.number} geöffnet`;
   }
   async function pushLocal(url, files) {
     let res;
@@ -82,7 +97,7 @@
     if (data.conflicts?.length) throw new Error('Doppelte Token-Pfade in Figma: ' + data.conflicts.join(', '));
     const results = [], errors = [];
     if (settings.local) await pushLocal(settings.local, data.files).then((r) => results.push(r), (e) => errors.push(e.message));
-    if (settings.github) await pushGithub(settings.github, data.files, data.fileName).then((r) => results.push(r), (e) => errors.push(e.message));
+    if (settings.github) await pushGithub(settings.github, data.files, data.fileName, data.note || '').then((r) => results.push(r), (e) => errors.push(e.message));
     return { text: [...results, ...errors].join('\n'), error: errors.length > 0 };
   }
 
@@ -100,7 +115,7 @@
       $('download').disabled = false;
       if (sendAfterExport) {
         sendAfterExport = false;
-        try { const r = await send(readForm(), m); status(r.text, r.error); } catch (err) { status(err.message, true); }
+        try { const r = await send(readForm(), { ...m, note: note() }); status(r.text, r.error); } catch (err) { status(err.message, true); }
       } else {
         status(`${m.counts.variables} Variablen, ${m.counts.textStyles} Textstile, ${m.counts.effectStyles} Effektstile gelesen.` + (m.conflicts.length ? `\nAchtung, doppelte Pfade: ${m.conflicts.join(', ')}` : ''), m.conflicts.length > 0);
       }
