@@ -9,10 +9,15 @@
 
 .tok-ramp { display: grid; gap: var(--dg-spacing-xs); }
 .tok-ramp h4 { text-transform: capitalize; }
-.tok-ramp__row { display: grid; grid-template-columns: repeat(auto-fill, minmax(5.5rem, 1fr)); gap: var(--dg-spacing-xs); }
-.tok-swatch { display: grid; gap: var(--dg-spacing-3xs); align-content: start; }
+/* Jede Farbreihe hat 12 Stufen (25 bis 950): immer 12 Spalten, schmaler 6 bzw. 4. */
+.tok-ramp__row { display: grid; grid-template-columns: repeat(12, minmax(0, 1fr)); gap: var(--dg-spacing-md) var(--dg-spacing-xs); }
+@media (max-width: 64rem) { .tok-ramp__row { grid-template-columns: repeat(6, minmax(0, 1fr)); } }
+@media (max-width: 30rem) { .tok-ramp__row { grid-template-columns: repeat(4, minmax(0, 1fr)); } }
+.tok-swatch { display: grid; gap: var(--dg-spacing-3xs); align-content: start; min-width: 0; }
+.tok-swatch > span { min-width: 0; overflow-wrap: anywhere; }
 .tok-swatch__chip { height: var(--dg-spacing-3xl); border-radius: var(--dg-radius-md); border: var(--dg-border-width-sm) solid var(--dg-color-border-subtle); }
-.tok-swatch .badge { justify-self: start; }
+/* Alter DG-Name: darf umbrechen und bleibt in seiner Spalte */
+.tok-swatch .badge { justify-self: start; max-width: 100%; min-height: 0; padding-block: var(--dg-spacing-3xs); white-space: normal; overflow-wrap: anywhere; hyphens: auto; }
 
 .tok-group { display: grid; gap: var(--dg-spacing-xs); }
 .tok-group h4 { text-transform: capitalize; }
